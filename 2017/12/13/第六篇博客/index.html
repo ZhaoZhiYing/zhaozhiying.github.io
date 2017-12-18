@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML 的标签">
-<meta property="og:url" content="http://yoursite.com/2017/10/24/第三篇博客/index.html">
+<meta property="og:title" content="JS中的对象">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/第六篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
-<meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
-<meta property="og:updated_time" content="2017-12-11T02:49:51.000Z">
+<meta property="og:updated_time" content="2017-12-13T08:08:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML 的标签">
-<meta name="twitter:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
-<meta name="twitter:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
+<meta name="twitter:title" content="JS中的对象">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/24/第三篇博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/13/第六篇博客/"/>
 
 
 
 
 
-  <title>HTML 的标签 | Zhao Zhiying</title>
+  <title>JS中的对象 | Zhao Zhiying</title>
   
 
 
@@ -233,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/第三篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/第六篇博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -250,7 +245,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTML 的标签</h1>
+          <h1 class="post-title" itemprop="name headline">JS中的对象</h1>
         
 
         <div class="post-meta">
@@ -262,8 +257,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
-                2017-10-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
+                2017-12-13
               </time>
             
 
@@ -300,56 +295,7 @@
       
 
       
-        <blockquote>
-<p>常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形）</p>
-<p>注意：除了 div 和 span，其他标签都有默认样式</p>
-</blockquote>
-<p>1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)<br>                       1.默认宽100px高50px<br>                       2.默认有难看的border，所以默认写frameborder=0<br>                       3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页<br>                          打开窗口)<br>                       4.src指定路径（可以是相对路径）</p>
-<p>###<code>&lt;a&gt;</code>标签</p>
-<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><p><code>target</code></p>
-<p>该属性指定在何处显示链接的资源。</p>
-<pre><code>* _self    默认属性。当前页面加载。
-* _blank   新窗口打开
-* _parent  父级页面打开。如果没有，同_self。
-* _top     顶级页面加载。如果没有，同_self。 
-</code></pre><p>###<code>&lt;href&gt;</code></p>
-<p>必需属性。该属性规定链接的目标地址。</p>
-<pre><code>* href=&quot;//qq.com&quot; 无协议地址
-* href=&quot;#xxx&quot; 锚点#，不发起请求
-* href=&quot;?name=qq&quot; 发起请求
-* href=&quot;./xxx.html&quot; 相对路径 
-* href=&quot;javascript:;&quot; 让a标签不跳转
-* href=&quot;javascript:alert(1)&quot; 执行一段代码
-* href=&quot;http://write.blog.csdn.net&quot; 绝对 URL ，指向另一个站点
-* a href=&quot;&quot;；刷新页面
-* href=&quot;#top&quot; 返回到页面顶部
-* href=&quot;#&quot; 返回到页面顶部
-</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
-<pre><code>1. a 标签里加 download
-   &lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
-
-2. Content-type: application/octet-stream
-</code></pre><p>###<code>&lt;form&gt;</code>标签<br>跳转页面（主要使用POST 请求，参数放到第四部分from datas）（使用GET请求时，参数默认放到查询参数）</p>
-<pre><code>1.如果 form 表单里没有提交按钮，就无法提交
-2.form 标签主要用来发起post请求
-3.name 属性值显示在第四部分
-4.target 属性同 a 标签
-</code></pre><h5 id="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><a href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post" class="headerlink" title="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"></a>注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</h5><p>###<code>&lt;input&gt;</code>标签<br>input没有子元素，button有子元素</p>
-<pre><code>type属性 
-1.如果一个form只有一个按钮button，没写type，自动升级为sunmit可提交。
-  submit是唯一能确定type能不能提交的按钮，button只是一个普通按钮。
-2.checkbox: 单选框
-3.radio: 复选框
-</code></pre><p>###<code>&lt;label&gt;</code>标签<br>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
-<p>###<code>&lt;select&gt;</code>标签<br>下拉列表</p>
-<p>###<code>&lt;textarea&gt;</code>标签<br>输入多行文本<br>1.通过 cols 和 rows 属性来规定 textarea 的尺寸，更好的办法是使用 CSS 的height 和 width 属性</p>
-<p>###<code>&lt;table&gt;</code>标签<br>表格</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
-</code></pre><p>###<code>&lt;colgroup&gt;</code>标签<br>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
-<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
-
+        
       
     </div>
     
@@ -373,8 +319,8 @@ td(table data)元素定义表格单元(数据)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/19/第二篇博客/" rel="next" title="HTML 中的空元素">
-                <i class="fa fa-chevron-left"></i> HTML 中的空元素
+              <a href="/2017/12/11/第五篇博客/" rel="next" title="JS函数（function）">
+                <i class="fa fa-chevron-left"></i> JS函数（function）
               </a>
             
           </div>
@@ -383,8 +329,8 @@ td(table data)元素定义表格单元(数据)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/10/第四篇博客/" rel="prev" title="CSS中的层叠上下文和层叠顺序">
-                CSS中的层叠上下文和层叠顺序 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/16/第七篇博客/" rel="prev" title="第七篇博客">
+                第七篇博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -437,17 +383,8 @@ td(table data)元素定义表格单元(数据)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,22 +428,6 @@ td(table data)元素定义表格单元(数据)
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><span class="nav-number">2.</span> <span class="nav-text">注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
