@@ -300,11 +300,11 @@
         
           
             <h3 id="getSiblings"><a href="#getSiblings" class="headerlink" title="getSiblings"></a>getSiblings</h3><h5 id="实现第一个-API：getSiblings获取一个节点的所有兄弟节点"><a href="#实现第一个-API：getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="实现第一个 API：getSiblings获取一个节点的所有兄弟节点"></a>实现第一个 API：<code>getSiblings</code>获取一个节点的所有兄弟节点</h5><pre><code>&lt;ul&gt;
-    &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
-    &lt;li id=&quot;item1&quot;&gt;选项2&lt;/li&gt;
-    &lt;li id=&quot;item1&quot;&gt;选项3&lt;/li&gt;
-    &lt;li id=&quot;item1&quot;&gt;选项4&lt;/li&gt;
-    &lt;li id=&quot;item1&quot;&gt;选项5&lt;/li&gt;
+  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
+  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
+  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
+  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
+  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
 <pre><code>var allChildren = item3.parentNode.children 
@@ -331,7 +331,7 @@ for(let i = 0; i&lt;allChildren.length; i++){
     }
     return array
 }
-getSiblings.call(item3)//调用
+getSiblings(item3)//调用
 </code></pre><h3 id="addClass"><a href="#addClass" class="headerlink" title="addClass"></a>addClass</h3><h5 id="实现第二个-API：addClass为元素添加指定的样式类名"><a href="#实现第二个-API：addClass为元素添加指定的样式类名" class="headerlink" title="实现第二个 API：addClass为元素添加指定的样式类名"></a>实现第二个 API：<code>addClass</code>为元素添加指定的样式类名</h5><pre><code>item3.classList.add(&apos;a&apos;)
 item3.classList.add(&apos;b&apos;)
 item3.classList.add(&apos;c&apos;)
@@ -359,21 +359,21 @@ for(let key in classes){
         }
     }    
 }    
-addClass.call(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
+addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
 </code></pre><p>优化代码（这里用到了三元运算符）</p>
 <pre><code>function addClass(node,classes){
-    for(let key in classes){
-        var value = classes[key]
-        var methodName = value ？&apos;add&apos; : &apos;remove&apos;
-            node.classList[methodName](key)
+  for(let key in classes){
+      var value = classes[key]
+      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
+      node.classList[methodName](key)
     }    
 }    
-addClass.call(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
+addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
 </code></pre><p>上面代码等于下面</p>
 <pre><code>function addClass(node,classes){
     classes.forEach((value) =&gt; node.classList.add(value))
 }    
-addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
+addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
 </code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
 <pre><code>window.zzdom = {} //声明变量名 zzdom
 zzdom.getSiblings = getSiblings 
@@ -396,100 +396,130 @@ for(let i = 0; i&lt;allChildren.length; i++){
 }
 return array
 }
-
 zzdom.addClass = function (node,classes){
-    classes.forEach((value) =&gt; node.classList.add(value))
+  classes.forEach((value) =&gt; node.classList.add(value))
 }
 //调用
-zzdom.getSiblings.call(item3)
-zzdom.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+zzdom.getSiblings(item3)
+zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 </code></pre><p>但是相比下，下面这种调用方法更好</p>
 <pre><code>//调用
-item3.getSiblings.call(item3)
-item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>故更改如下：</p>
+item3.getSiblings(item3)
+item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>解决办法：更改<code>Node</code>原型</p>
 <pre><code>Node.prototype.getSiblings = function (){ 
-var allChildren = this.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== this){
-        array[array.length] = allChildren[i]
-        array.length += 1
+    var allChildren = this.parentNode.children 
+    var array = { 
+        length:0
     }
-}
-return array
-}
-
-Node.prototype.addClass = function (classes){
-    classes.forEach((value) =&gt; this.classList.add(value))
+    for(let i = 0; i&lt;allChildren.length; i++){
+        if (allChildren[i] !== this){
+            array[array.length] = allChildren[i]
+            array.length += 1
+        }
+    }
+    return array
+    }
+    Node.prototype.addClass = function (classes){
+        classes.forEach((value) =&gt; this.classList.add(value))
 }
 //调用
-zzdom.getSiblings.call(item3)
-zzdom.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+item3.getSiblings.call(item3)
+item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 </code></pre><blockquote>
-<p>注意：上面代码更改了<code>node</code>的公有属性。<code>this</code>是调用函数时的第一个参数。</p>
+<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
 </blockquote>
 <p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
 <pre><code>window.jQuery = function (node){
     return{
-        Node.prototype.getSiblings = function (){ 
-        var allChildren = this.parentNode.children 
-        var array = { 
-            length:0
-        }
-        for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== this){
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
                 array[array.length] = allChildren[i]
                 array.length += 1
             }
-        }
-        return array
-        }
-
-        Node.prototype.addClass = function (classes){
-            classes.forEach((value) =&gt; this.classList.add(value))
-        }
-    }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
 }
 //调用
 var node2 = jQuery(item3)
-node2.getSiblings.call(item3)
-node2.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 </code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
 <pre><code>window.jQuery = function (nodeOrSelector){
     let node
     if(typeof nodeOrSelector === &apos;string&apos;){
-        node = document.querySelsctor(nodeOrSelector)
+        node = document.querySelector(nodeOrSelector)
     }else{
         node = nodeOrSelector
     }
 
     return{
-        Node.prototype.getSiblings = function (){ 
-        var allChildren = this.parentNode.children 
-        var array = { 
-            length:0
-        }
-        for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== this){
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
                 array[array.length] = allChildren[i]
                 array.length += 1
             }
-        }
-        return array
-        }
-
-        Node.prototype.addClass = function (classes){
-            classes.forEach((value) =&gt; this.classList.add(value))
-        }
-    }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
 }
 //调用
-var node2 = jQuery(item3)
-node2.getSiblings.call(item3)
-node2.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+var node2 = jQuery(&apos;#item3&apos;)
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>操作多个节点</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+       //伪数组
+       nodes = document.querySelectorAll(nodeOrSelector)
+    }else if(nodeOrSelector instanceof Node){
+        //伪数组，保持返回结果一致
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:NodeList
+</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }            
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:Object 
 </code></pre>
           
         
