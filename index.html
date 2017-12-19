@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/18/第八篇博客/" itemprop="url">实现两个 jQuery 的 API</a></h1>
+                <a class="post-title-link" href="/2017/12/18/第八篇博客/" itemprop="url">实现一个 jQuery 的 API</a></h1>
         
 
         <div class="post-meta">
@@ -299,7 +299,7 @@
       
         
           
-            <h3 id="getSiblings"><a href="#getSiblings" class="headerlink" title="getSiblings"></a>getSiblings</h3><h5 id="实现第一个-API：getSiblings获取一个节点的所有兄弟节点"><a href="#实现第一个-API：getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="实现第一个 API：getSiblings获取一个节点的所有兄弟节点"></a>实现第一个 API：<code>getSiblings</code>获取一个节点的所有兄弟节点</h5><pre><code>&lt;ul&gt;
+            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
   &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
   &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
   &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
@@ -332,7 +332,7 @@ for(let i = 0; i&lt;allChildren.length; i++){
     return array
 }
 getSiblings(item3)//调用
-</code></pre><h3 id="addClass"><a href="#addClass" class="headerlink" title="addClass"></a>addClass</h3><h5 id="实现第二个-API：addClass为元素添加指定的样式类名"><a href="#实现第二个-API：addClass为元素添加指定的样式类名" class="headerlink" title="实现第二个 API：addClass为元素添加指定的样式类名"></a>实现第二个 API：<code>addClass</code>为元素添加指定的样式类名</h5><pre><code>item3.classList.add(&apos;a&apos;)
+</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
 item3.classList.add(&apos;b&apos;)
 item3.classList.add(&apos;c&apos;)
 </code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
@@ -482,8 +482,7 @@ node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 var node2 = jQuery(&apos;#item3&apos;)
 node2.getSiblings()
 node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>操作多个节点</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
+</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
     let nodes = {}
     if(typeof nodeOrSelector === &apos;string&apos;){
        //伪数组
@@ -520,6 +519,113 @@ console.log(node2)//__proto__:NodeList
 //调用
 var node2 = jQuery(&apos;ul &gt; li&apos;)
 console.log(node2)//__proto__:Object 
+</code></pre><p>添加<code>addClass</code>后代码如下</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    //`getText`获取文本
+    nodes.getText = function(){
+        var texts = []
+        for(let i=0; i&lt;nodes.length; i++){
+            texts.push(nodes[i].textContent)
+        }
+        return texts
+    }    
+    //`setText`设置文本
+    nodes.setText = function(text){
+        for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+    }    
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
+<pre><code>    window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    nodes.text = function (text){
+        if(text === undefined){
+            var texts = []
+            for(let i=0; i&lt;nodes.length; i++){
+             texts.push(nodes[i].textContent)
+          }
+           return texts
+       }else{
+            for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+      }    
+    }
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
 </code></pre>
           
         
