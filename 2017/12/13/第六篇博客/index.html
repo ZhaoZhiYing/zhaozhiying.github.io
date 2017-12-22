@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象 1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 1200">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中的对象">
+<meta property="og:title" content="JS 的数据类型">
 <meta property="og:url" content="http://yoursite.com/2017/12/13/第六篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:updated_time" content="2017-12-13T08:08:09.000Z">
+<meta property="og:description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象 1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 1200">
+<meta property="og:updated_time" content="2017-12-22T03:42:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中的对象">
+<meta name="twitter:title" content="JS 的数据类型">
+<meta name="twitter:description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象 1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 1200">
 
 
 
@@ -121,7 +124,7 @@
 
 
 
-  <title>JS中的对象 | Zhao Zhiying</title>
+  <title>JS 的数据类型 | Zhao Zhiying</title>
   
 
 
@@ -245,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS中的对象</h1>
+          <h1 class="post-title" itemprop="name headline">JS 的数据类型</h1>
         
 
         <div class="post-meta">
@@ -295,7 +298,97 @@
       
 
       
-        
+        <p>JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。</p>
+<h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
+string 字符串
+boolean 布尔值
+undefined 
+null
+symbol 符号
+</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
+</code></pre><h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number 数值"></a>1.number 数值</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
+           科学计数法：12e2 // 1200
+                        12e-2 // 0.12
+(2) 二进制：0b开头
+(3) 八进制：0开头
+(4) 十六进制：0x开头
+</code></pre><h4 id="2-string（字符串）"><a href="#2-string（字符串）" class="headerlink" title="2.string（字符串）"></a>2.string（字符串）</h4><pre><code>(1) 用 ‘’或“”引起来
+(2)转义符：\（同命令行回车：\ ）
+(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
+(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
+</code></pre><h4 id="3-boolean（布尔值）"><a href="#3-boolean（布尔值）" class="headerlink" title="3.boolean（布尔值）"></a>3.boolean（布尔值）</h4><pre><code>true（真）和false（假）两个特定值
+</code></pre><h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.undefined</h4><pre><code>表示“未定义”或不存在
+</code></pre><h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.null</h4><pre><code>表示无值，即此处的值就是“无”的状态。
+</code></pre><h5 id="null和udefined区别"><a href="#null和udefined区别" class="headerlink" title="null和udefined区别"></a>null和udefined区别</h5><pre><code>null：表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入null。
+undefined：表示&quot;缺少值&quot;，就是此处应该有一个值，但是还没有定义。
+1.语法：如果一个变量没有赋值，就是 undefined
+2.惯例：如果有一个对象object，但是现在不想赋值，那就给一个 null（推荐）
+       如果有一个非对象，不想赋值，推荐初始化成 undefined 
+</code></pre><h4 id="6-symbol（符号）"><a href="#6-symbol（符号）" class="headerlink" title="6.symbol（符号）"></a>6.symbol（符号）</h4><h4 id="7-object（对象）"><a href="#7-object（对象）" class="headerlink" title="7.object（对象）"></a>7.object（对象）</h4><p>对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<pre><code>var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
+    &apos;Age&apos;: 18，//键值是数值，
+    &apos;married&apos;: true,  //键值是布尔值
+    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
+    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
+    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
+ } 
+ person[&apos;name&apos;]//zhaozhao
+</code></pre><p>#####键名和键值</p>
+<pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
+* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
+* 对象的每一个“键名”又称为“属性”。
+* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
+</code></pre><p>#####读取属性</p>
+<pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
+* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
+* 数值只能用方括号运算符：obj[0xFF]
+* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
+</code></pre><p>#####检查变量是否声明（in运算符）</p>
+<pre><code>var o = { p: 1 };
+&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
+</code></pre><p>#####查看所有属性（Object.keys）    </p>
+<pre><code>var o = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(o);
+// [&apos;key1&apos;, &apos;key2&apos;]
+</code></pre><p>#####delete命令</p>
+<pre><code>//无value无key
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ delete person[&apos;name&apos;]
+ person.name //undefined
+ &apos;name&apos; in person //false
+
+ //无value 有key
+ var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ person.name = undefined
+ &apos;name&apos; in person //true
+</code></pre><p>#####for…in循环</p>
+<pre><code>//遍历键值
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;,
+    &apos;age&apos;: 18,
+ }     
+ for(var key in person){
+     console.log(person[key])
+ }
+ //zhaozhao
+//18
+
+//遍历键名
+for(var key in person){
+     console.log(key)
+ }
+//name
+//age
+</code></pre>
       
     </div>
     
@@ -383,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -399,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -428,6 +530,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#六种基本类型"><span class="nav-number">1.</span> <span class="nav-text">六种基本类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一种复杂类型"><span class="nav-number">2.</span> <span class="nav-text">一种复杂类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-number-数值"><span class="nav-number"></span> <span class="nav-text">1.number 数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-string（字符串）"><span class="nav-number"></span> <span class="nav-text">2.string（字符串）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-boolean（布尔值）"><span class="nav-number"></span> <span class="nav-text">3.boolean（布尔值）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-undefined"><span class="nav-number"></span> <span class="nav-text">4.undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-null"><span class="nav-number"></span> <span class="nav-text">5.null</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null和udefined区别"><span class="nav-number">1.</span> <span class="nav-text">null和udefined区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-symbol（符号）"><span class="nav-number"></span> <span class="nav-text">6.symbol（符号）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-object（对象）"><span class="nav-number"></span> <span class="nav-text">7.object（对象）</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
