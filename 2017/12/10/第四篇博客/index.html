@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="####层叠顺序（由下往上） 1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层">
+<meta name="description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS中的层叠上下文和层叠顺序">
 <meta property="og:url" content="http://yoursite.com/2017/12/10/第四篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="####层叠顺序（由下往上） 1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层">
-<meta property="og:updated_time" content="2017-12-23T05:18:21.000Z">
+<meta property="og:description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
+<meta property="og:updated_time" content="2017-12-23T05:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS中的层叠上下文和层叠顺序">
-<meta name="twitter:description" content="####层叠顺序（由下往上） 1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层">
+<meta name="twitter:description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
 
 
 
@@ -298,8 +298,7 @@
       
 
       
-        <p>####层叠顺序（由下往上）</p>
-<pre><code>1.负z-index（position）
+        <h4 id="层叠顺序（由下往上）"><a href="#层叠顺序（由下往上）" class="headerlink" title="层叠顺序（由下往上）"></a>层叠顺序（由下往上）</h4><pre><code>1.负z-index（position）
 2.background
 3.border
 4.block
@@ -308,14 +307,16 @@
 7.正z-index（position元素由z-index大小决定层叠）
 </code></pre><p><code>z-index</code>某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有的元素都存在。    </p>
 <hr>
-<p>####务必牢记的层叠准则<br>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
+<h4 id="务必牢记的层叠准则"><a href="#务必牢记的层叠准则" class="headerlink" title="务必牢记的层叠准则"></a>务必牢记的层叠准则</h4><p>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
 <pre><code>1. 谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。
 2. 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。
 </code></pre><p>备注：</p>
 <pre><code>1.z-index:auto所在的&lt;div&gt;元素是一个普通的元素，这时候div里的元素不受父级元素影响；
 2.当z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。
 </code></pre><hr>
-<p>####满足两个条件才能形成层叠上下文<br>    条件1：父级需要是display:flex或者display:inline-flex水平<br>    条件2：子元素的z-index不是auto，必须是数值。<br>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
+<h4 id="满足两个条件才能形成层叠上下文"><a href="#满足两个条件才能形成层叠上下文" class="headerlink" title="满足两个条件才能形成层叠上下文"></a>满足两个条件才能形成层叠上下文</h4><pre><code>条件1：父级需要是display:flex或者display:inline-flex水平
+条件2：子元素的z-index不是auto，必须是数值。
+</code></pre><p>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
 
       
     </div>
@@ -404,8 +405,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,6 +459,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠顺序（由下往上）"><span class="nav-number">1.</span> <span class="nav-text">层叠顺序（由下往上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#务必牢记的层叠准则"><span class="nav-number">2.</span> <span class="nav-text">务必牢记的层叠准则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#满足两个条件才能形成层叠上下文"><span class="nav-number">3.</span> <span class="nav-text">满足两个条件才能形成层叠上下文</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
