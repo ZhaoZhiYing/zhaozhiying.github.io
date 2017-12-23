@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/16/第七篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令function print(s) {   //print是函数名，也叫标识符 console.log(s);   //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)var print = function (s) { //这个匿名函数又称函数表达式 console.l">
-<meta property="og:updated_time" content="2017-12-23T05:23:16.000Z">
+<meta property="og:updated_time" content="2017-12-23T05:25:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 里的函数">
 <meta name="twitter:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令function print(s) {   //print是函数名，也叫标识符 console.log(s);   //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)var print = function (s) { //这个匿名函数又称函数表达式 console.l">
@@ -315,8 +315,16 @@ print()// function
 </code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function  f(s) { 
   console.log(s); 
 };    
-</code></pre><p>#####4.Function构造函数（一般不用）(window.Function函数对象)<br>    var add = new Function(<br>      ‘x’,<br>      ‘y’,<br>      ‘return x + y’<br>    );<br>    // 等同于<br>    function add(x, y) {<br>      return x + y;<br>    } </p>
-<p>#####5.箭头函数(匿名) (x , y) =&gt; { return x + y }<br>基础语法</p>
+</code></pre><h5 id="4-Function构造函数（一般不用）-window-Function函数对象"><a href="#4-Function构造函数（一般不用）-window-Function函数对象" class="headerlink" title="4.Function构造函数（一般不用）(window.Function函数对象)"></a>4.Function构造函数（一般不用）(window.Function函数对象)</h5><pre><code>var add = new Function(
+  &apos;x&apos;,
+  &apos;y&apos;,
+  &apos;return x + y&apos;
+);
+// 等同于
+function add(x, y) {
+  return x + y;
+} 
+</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名) (x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名) (x , y) =&gt; { return x + y }</h5><p>基础语法</p>
 <pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
 (参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
 //相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
@@ -338,18 +346,18 @@ print()// function
 (2)函数作用域：在函数内部定义的变量，外部无法读取。
 </code></pre><p>注意：函数内部定义的变量，会在该作用域内覆盖同名全局变量。<br>     对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一      律都是全局变量。</p>
 <hr>
-<p>####函数内部的变量提升<br>var命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p>
+<h4 id="函数内部的变量提升"><a href="#函数内部的变量提升" class="headerlink" title="函数内部的变量提升"></a>函数内部的变量提升</h4><p>var命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p>
 <pre><code>function foo(x) {
   if (x &gt; 100) {
     var tmp = x - 100; //会升到函数体头部
   }
 }
 </code></pre><hr>
-<p>####闭包<br>如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包.</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包.</p>
 <hr>
-<p>####调用函数<br>    f.call(undefined，参数1，参数2) </p>
-<hr>
-<p>####问题归纳<br>this和arguments</p>
+<h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><pre><code>f.call(undefined，参数1，参数2) 
+</code></pre><hr>
+<h4 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h4><p>this和arguments</p>
 <pre><code>1.this 是函数的第一个参数
 
 2.arguments 是函数的第一个参数
@@ -359,16 +367,19 @@ print()// function
 
 #####“use strict”严格模式
 第一个参数是什么，浏览器会把 this 变成什么.
-</code></pre><p>#####this 的历史原因<br>要长得像 Java，让Java 程序员来学 JS ，但是他们发现 this 多余，就有了 “use strict” </p>
-<p>#####关于function 的 name 属性问题<br>    function f1() {}; f1.name // ‘f1’<br>    var f2 = function () {}; f2.name // ‘f2’<br>    var f3 = function f4() {}; f3.name // ‘f4’<br>    f5 = new Function(‘x’, ‘y’,’return x + y’){};<br>    f5.name//‘anonymous’ (匿名)  </p>
-<p>#####function print() {} 和 var s = function print() {} 区别</p>
-<pre><code>不一致性
+</code></pre><h5 id="this的历史原因"><a href="#this的历史原因" class="headerlink" title="this的历史原因"></a><code>this</code>的历史原因</h5><p>要长得像 Java，让Java 程序员来学 JS ，但是他们发现 this 多余，就有了 “use strict” </p>
+<h5 id="关于function的name属性问题"><a href="#关于function的name属性问题" class="headerlink" title="关于function的name属性问题"></a>关于<code>function</code>的<code>name</code>属性问题</h5><pre><code>function f1() {}; f1.name // &apos;f1&apos;
+var f2 = function () {}; f2.name // ‘f2’
+var f3 = function f4() {}; f3.name // ‘f4’
+f5 = new Function(&apos;x&apos;, &apos;y&apos;,&apos;return x + y’){};   
+f5.name//‘anonymous’ (匿名)  
+</code></pre><h5 id="function-print-和var-s-function-print-区别"><a href="#function-print-和var-s-function-print-区别" class="headerlink" title="function print(){}和var s = function print(){}区别"></a><code>function print(){}</code>和<code>var s = function print(){}</code>区别</h5><pre><code>不一致性
 输入console.log(print)时：
 function print(){}可以访问，var s = function print(){}不能访问
 </code></pre><h5 id="f-f-call-f-的区别"><a href="#f-f-call-f-的区别" class="headerlink" title="f``f.call()``f()的区别"></a><code>f``f.call()``f()</code>的区别</h5><pre><code>f 只是一个变量，指的是这个对象
 f.call(undefined，参数1，参数2) 是真正的调用方式（硬核）指的是这个对象的函数体
 f() 是简单的调用方式
-</code></pre><h5 id="call-stack-先入后出"><a href="#call-stack-先入后出" class="headerlink" title="call stack 先入后出"></a>call stack 先入后出</h5><p>call stack 调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
+</code></pre><h5 id="call-stack先入后出"><a href="#call-stack先入后出" class="headerlink" title="call stack先入后出"></a><code>call stack</code>先入后出</h5><p><code>call stack</code>调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
 <pre><code>function a(){
     console.log(‘a’)
     return a
@@ -529,7 +540,7 @@ a.call()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是函数"><span class="nav-number">1.</span> <span class="nav-text">什么是函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的5种声明"><span class="nav-number">2.</span> <span class="nav-text">函数的5种声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-function命令"><span class="nav-number">2.1.</span> <span class="nav-text">1.function命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-函数表达式-匿名"><span class="nav-number">2.2.</span> <span class="nav-text">2.函数表达式(匿名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-函数表达式-具名"><span class="nav-number">2.3.</span> <span class="nav-text">3.函数表达式(具名)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">3.</span> <span class="nav-text">函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length属性"><span class="nav-number">3.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">4.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#f-f-call-f-的区别"><span class="nav-number">4.2.</span> <span class="nav-text">f``f.call()``f()的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call-stack-先入后出"><span class="nav-number">4.3.</span> <span class="nav-text">call stack 先入后出</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是函数"><span class="nav-number">1.</span> <span class="nav-text">什么是函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的5种声明"><span class="nav-number">2.</span> <span class="nav-text">函数的5种声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-function命令"><span class="nav-number">2.1.</span> <span class="nav-text">1.function命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-函数表达式-匿名"><span class="nav-number">2.2.</span> <span class="nav-text">2.函数表达式(匿名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-函数表达式-具名"><span class="nav-number">2.3.</span> <span class="nav-text">3.函数表达式(具名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Function构造函数（一般不用）-window-Function函数对象"><span class="nav-number">2.4.</span> <span class="nav-text">4.Function构造函数（一般不用）(window.Function函数对象)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-箭头函数-匿名-x-y-gt-return-x-y"><span class="nav-number">2.5.</span> <span class="nav-text">5.箭头函数(匿名) (x , y) => { return x + y }</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">3.</span> <span class="nav-text">函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length属性"><span class="nav-number">3.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">4.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数内部的变量提升"><span class="nav-number">5.</span> <span class="nav-text">函数内部的变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">6.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用函数"><span class="nav-number">7.</span> <span class="nav-text">调用函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题归纳"><span class="nav-number">8.</span> <span class="nav-text">问题归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#this的历史原因"><span class="nav-number">8.1.</span> <span class="nav-text">this的历史原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于function的name属性问题"><span class="nav-number">8.2.</span> <span class="nav-text">关于function的name属性问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#function-print-和var-s-function-print-区别"><span class="nav-number">8.3.</span> <span class="nav-text">function print(){}和var s = function print(){}区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#f-f-call-f-的区别"><span class="nav-number">8.4.</span> <span class="nav-text">f``f.call()``f()的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call-stack先入后出"><span class="nav-number">8.5.</span> <span class="nav-text">call stack先入后出</span></a></li></ol></li></ol></div>
             
 
           </div>
