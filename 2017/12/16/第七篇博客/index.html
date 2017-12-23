@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="####什么是函数 函数就是一段可以反复调用的代码块。  ####函数的5种声明 #####1.function命令    function print(s) {   //print是函数名，也叫标识符    console.log(s);   //这是函数体    } //函数的声明在结尾的大括号后面不用加分号     #####2.函数表达式(匿名)    var print = functi">
+<meta name="description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令function print(s) {   //print是函数名，也叫标识符 console.log(s);   //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)var print = function (s) { //这个匿名函数又称函数表达式 console.l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 里的函数">
 <meta property="og:url" content="http://yoursite.com/2017/12/16/第七篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="####什么是函数 函数就是一段可以反复调用的代码块。  ####函数的5种声明 #####1.function命令    function print(s) {   //print是函数名，也叫标识符    console.log(s);   //这是函数体    } //函数的声明在结尾的大括号后面不用加分号     #####2.函数表达式(匿名)    var print = functi">
-<meta property="og:updated_time" content="2017-12-23T05:14:44.000Z">
+<meta property="og:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令function print(s) {   //print是函数名，也叫标识符 console.log(s);   //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)var print = function (s) { //这个匿名函数又称函数表达式 console.l">
+<meta property="og:updated_time" content="2017-12-23T05:23:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 里的函数">
-<meta name="twitter:description" content="####什么是函数 函数就是一段可以反复调用的代码块。  ####函数的5种声明 #####1.function命令    function print(s) {   //print是函数名，也叫标识符    console.log(s);   //这是函数体    } //函数的声明在结尾的大括号后面不用加分号     #####2.函数表达式(匿名)    var print = functi">
+<meta name="twitter:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令function print(s) {   //print是函数名，也叫标识符 console.log(s);   //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)var print = function (s) { //这个匿名函数又称函数表达式 console.l">
 
 
 
@@ -298,20 +298,25 @@
       
 
       
-        <p>####什么是函数</p>
-<p>函数就是一段可以反复调用的代码块。</p>
+        <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
 <hr>
-<p>####函数的5种声明</p>
-<p>#####1.function命令<br>    function print(s) {   //print是函数名，也叫标识符<br>    console.log(s);   //这是函数体<br>    } //函数的声明在结尾的大括号后面不用加分号    </p>
-<p>#####2.函数表达式(匿名)<br>    var print = function (s) { //这个匿名函数又称函数表达式<br>    console.log(s);<br>     }; //函数的表达式需要在语句的结尾加上分号，表示语句结束<br>注意：采用函数表达式声明函数时，function命令后面不带有函数名。<br>      如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。</p>
+<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令"><a href="#1-function命令" class="headerlink" title="1.function命令"></a>1.function命令</h5><pre><code>function print(s) {   //print是函数名，也叫标识符
+console.log(s);   //这是函数体
+} //函数的声明在结尾的大括号后面不用加分号    
+</code></pre><h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><pre><code>var print = function (s) { //这个匿名函数又称函数表达式
+console.log(s); 
+ }; //函数的表达式需要在语句的结尾加上分号，表示语句结束     
+</code></pre><p>注意：采用函数表达式声明函数时，function命令后面不带有函数名。<br>      如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。</p>
 <pre><code>var print = function x(){
   console.log(typeof x);
 };
 x// ReferenceError: x is not defined
 print()// function    
-</code></pre><p>#####3.函数表达式(具名)<br>    var print = function  f(s) {<br>      console.log(s);<br>    };    </p>
-<p>#####4.Function构造函数（一般不用）(window.Function函数对象)<br>    var add = new Function(<br>      ‘x’,<br>      ‘y’,<br>      ‘return x + y’<br>    );<br>    // 等同于<br>    function add(x, y) {<br>      return x + y;<br>    } </p>
-<p>#####5.箭头函数(匿名) (x , y) =&gt; { return x + y }<br>基础语法（引自MDN<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions</a>）</p>
+</code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function  f(s) { 
+  console.log(s); 
+};    
+</code></pre><p>#####4.Function构造函数（一般不用）(window.Function函数对象)<br>    var add = new Function(<br>      ‘x’,<br>      ‘y’,<br>      ‘return x + y’<br>    );<br>    // 等同于<br>    function add(x, y) {<br>      return x + y;<br>    } </p>
+<p>#####5.箭头函数(匿名) (x , y) =&gt; { return x + y }<br>基础语法</p>
 <pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
 (参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
 //相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
@@ -323,12 +328,10 @@ print()// function
 // 没有参数的函数应该写成一对圆括号。
 () =&gt; {函数声明}
 </code></pre><hr>
-<p>####函数的属性和方法</p>
-<p>#####name属性<br>name属性返回紧跟在function关键字之后的那个函数名。</p>
-<p>#####length属性<br>length属性返回函数预先定义的参数个数。</p>
+<h4 id="函数的属性和方法"><a href="#函数的属性和方法" class="headerlink" title="函数的属性和方法"></a>函数的属性和方法</h4><h5 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a>name属性</h5><p>name属性返回紧跟在function关键字之后的那个函数名。</p>
+<h5 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h5><p>length属性返回函数预先定义的参数个数。</p>
 <hr>
-<p>####函数作用域</p>
-<p>#####定义<br>作用域（scope）指的是变量存在的范围。Javascript只有两种作用域：</p>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>作用域（scope）指的是变量存在的范围。Javascript只有两种作用域：</p>
 <pre><code>(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；
      在函数外部声明的变量就是全局变量。
 
@@ -344,9 +347,8 @@ print()// function
 </code></pre><hr>
 <p>####闭包<br>如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包.</p>
 <hr>
-<p>####调用函数</p>
-<pre><code>f.call(undefined，参数1，参数2) 
-</code></pre><hr>
+<p>####调用函数<br>    f.call(undefined，参数1，参数2) </p>
+<hr>
 <p>####问题归纳<br>this和arguments</p>
 <pre><code>1.this 是函数的第一个参数
 
@@ -363,11 +365,10 @@ print()// function
 <pre><code>不一致性
 输入console.log(print)时：
 function print(){}可以访问，var s = function print(){}不能访问
-</code></pre><p>#####f、f.call()、f() 的区别</p>
-<pre><code>f 只是一个变量，指的是这个对象
+</code></pre><h5 id="f-f-call-f-的区别"><a href="#f-f-call-f-的区别" class="headerlink" title="f``f.call()``f()的区别"></a><code>f``f.call()``f()</code>的区别</h5><pre><code>f 只是一个变量，指的是这个对象
 f.call(undefined，参数1，参数2) 是真正的调用方式（硬核）指的是这个对象的函数体
 f() 是简单的调用方式
-</code></pre><p>#####call stack 先入后出<br>call stack 调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
+</code></pre><h5 id="call-stack-先入后出"><a href="#call-stack-先入后出" class="headerlink" title="call stack 先入后出"></a>call stack 先入后出</h5><p>call stack 调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
 <pre><code>function a(){
     console.log(‘a’)
     return a
@@ -464,8 +465,17 @@ a.call()
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -509,6 +519,22 @@ a.call()
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是函数"><span class="nav-number">1.</span> <span class="nav-text">什么是函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的5种声明"><span class="nav-number">2.</span> <span class="nav-text">函数的5种声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-function命令"><span class="nav-number">2.1.</span> <span class="nav-text">1.function命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-函数表达式-匿名"><span class="nav-number">2.2.</span> <span class="nav-text">2.函数表达式(匿名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-函数表达式-具名"><span class="nav-number">2.3.</span> <span class="nav-text">3.函数表达式(具名)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">3.</span> <span class="nav-text">函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length属性"><span class="nav-number">3.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">4.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#f-f-call-f-的区别"><span class="nav-number">4.2.</span> <span class="nav-text">f``f.call()``f()的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call-stack-先入后出"><span class="nav-number">4.3.</span> <span class="nav-text">call stack 先入后出</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
