@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
+<meta name="description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML 的标签">
 <meta property="og:url" content="http://yoursite.com/2017/10/24/第三篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
+<meta property="og:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
 <meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
-<meta property="og:updated_time" content="2017-12-11T02:49:51.000Z">
+<meta property="og:updated_time" content="2017-12-23T05:37:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML 的标签">
-<meta name="twitter:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了 div 和 span，其他标签都有默认样式  1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)">
+<meta name="twitter:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
 <meta name="twitter:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
 
 
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -260,7 +260,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
                 2017-10-24
@@ -302,18 +302,19 @@
       
         <blockquote>
 <p>常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形）</p>
-<p>注意：除了 div 和 span，其他标签都有默认样式</p>
+<p>注意：除了<code>div</code>和<code>span</code>，其他标签都有默认样式</p>
 </blockquote>
-<p>1.iframe标签：在当前页面嵌套一个页面（可替换标签）(支持相对路径)<br>                       1.默认宽100px高50px<br>                       2.默认有难看的border，所以默认写frameborder=0<br>                       3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页<br>                          打开窗口)<br>                       4.src指定路径（可以是相对路径）</p>
-<p>###<code>&lt;a&gt;</code>标签</p>
-<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><p><code>target</code></p>
-<p>该属性指定在何处显示链接的资源。</p>
+<h3 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a>iframe标签</h3><p>在当前页面嵌套一个页面（可替换标签）(支持相对路径)</p>
+<pre><code>1.默认宽100px高50px
+2.默认有难看的border，所以默认写frameborder=0
+3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页打开窗口)       
+4.src指定路径（可以是相对路径）
+</code></pre><h3 id="lt-a-gt-标签"><a href="#lt-a-gt-标签" class="headerlink" title="&lt;a&gt;标签"></a><code>&lt;a&gt;</code>标签</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><h5 id="target"><a href="#target" class="headerlink" title="target"></a><code>target</code></h5><p>该属性指定在何处显示链接的资源。</p>
 <pre><code>* _self    默认属性。当前页面加载。
 * _blank   新窗口打开
 * _parent  父级页面打开。如果没有，同_self。
 * _top     顶级页面加载。如果没有，同_self。 
-</code></pre><p>###<code>&lt;href&gt;</code></p>
-<p>必需属性。该属性规定链接的目标地址。</p>
+</code></pre><h5 id="lt-href-gt"><a href="#lt-href-gt" class="headerlink" title="&lt;href&gt;"></a><code>&lt;href&gt;</code></h5><p>必需属性。该属性规定链接的目标地址。</p>
 <pre><code>* href=&quot;//qq.com&quot; 无协议地址
 * href=&quot;#xxx&quot; 锚点#，不发起请求
 * href=&quot;?name=qq&quot; 发起请求
@@ -329,25 +330,25 @@
    &lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
 
 2. Content-type: application/octet-stream
-</code></pre><p>###<code>&lt;form&gt;</code>标签<br>跳转页面（主要使用POST 请求，参数放到第四部分from datas）（使用GET请求时，参数默认放到查询参数）</p>
+</code></pre><h3 id="lt-form-gt-标签"><a href="#lt-form-gt-标签" class="headerlink" title="&lt;form&gt;标签"></a><code>&lt;form&gt;</code>标签</h3><p>跳转页面（主要使用POST 请求，参数放到第四部分from datas）（使用GET请求时，参数默认放到查询参数）</p>
 <pre><code>1.如果 form 表单里没有提交按钮，就无法提交
 2.form 标签主要用来发起post请求
 3.name 属性值显示在第四部分
 4.target 属性同 a 标签
-</code></pre><h5 id="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><a href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post" class="headerlink" title="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"></a>注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</h5><p>###<code>&lt;input&gt;</code>标签<br>input没有子元素，button有子元素</p>
+</code></pre><h5 id="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><a href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post" class="headerlink" title="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"></a>注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</h5><h3 id="lt-input-gt-标签"><a href="#lt-input-gt-标签" class="headerlink" title="&lt;input&gt;标签"></a><code>&lt;input&gt;</code>标签</h3><p>input没有子元素，button有子元素</p>
 <pre><code>type属性 
 1.如果一个form只有一个按钮button，没写type，自动升级为sunmit可提交。
   submit是唯一能确定type能不能提交的按钮，button只是一个普通按钮。
 2.checkbox: 单选框
 3.radio: 复选框
-</code></pre><p>###<code>&lt;label&gt;</code>标签<br>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
-<p>###<code>&lt;select&gt;</code>标签<br>下拉列表</p>
-<p>###<code>&lt;textarea&gt;</code>标签<br>输入多行文本<br>1.通过 cols 和 rows 属性来规定 textarea 的尺寸，更好的办法是使用 CSS 的height 和 width 属性</p>
-<p>###<code>&lt;table&gt;</code>标签<br>表格</p>
+</code></pre><h3 id="lt-label-gt-标签"><a href="#lt-label-gt-标签" class="headerlink" title="&lt;label&gt;标签"></a><code>&lt;label&gt;</code>标签</h3><p>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
+<h3 id="lt-select-gt-标签"><a href="#lt-select-gt-标签" class="headerlink" title="&lt;select&gt;标签"></a><code>&lt;select&gt;</code>标签</h3><p>下拉列表</p>
+<h3 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h3><p>输入多行文本<br>1.通过 cols 和 rows 属性来规定 textarea 的尺寸，更好的办法是使用 CSS 的height 和 width 属性</p>
+<h3 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h3><p>表格</p>
 <pre><code>tr(table row)元素定义表格行
 th(table head)元素定义表头
 td(table data)元素定义表格单元(数据)
-</code></pre><p>###<code>&lt;colgroup&gt;</code>标签<br>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
+</code></pre><h3 id="lt-colgroup-gt-标签"><a href="#lt-colgroup-gt-标签" class="headerlink" title="&lt;colgroup&gt;标签"></a><code>&lt;colgroup&gt;</code>标签</h3><p>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
 <p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
 
       
@@ -439,10 +440,10 @@ td(table data)元素定义表格单元(数据)
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -463,7 +464,7 @@ td(table data)元素定义表格单元(数据)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -501,7 +502,7 @@ td(table data)元素定义表格单元(数据)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><span class="nav-number">2.</span> <span class="nav-text">注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe标签"><span class="nav-number">1.</span> <span class="nav-text">iframe标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-a-gt-标签"><span class="nav-number">2.</span> <span class="nav-text"><a>标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">2.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#target"><span class="nav-number">2.1.1.</span> <span class="nav-text">target</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-href-gt"><span class="nav-number">2.1.2.</span> <span class="nav-text"><href></span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-form-gt-标签"><span class="nav-number">3.</span> <span class="nav-text"><form>标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><span class="nav-number">3.0.1.</span> <span class="nav-text">注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-input-gt-标签"><span class="nav-number">4.</span> <span class="nav-text"><input>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-label-gt-标签"><span class="nav-number">5.</span> <span class="nav-text"><label>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-select-gt-标签"><span class="nav-number">6.</span> <span class="nav-text"><select>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-textarea-gt-标签"><span class="nav-number">7.</span> <span class="nav-text"><textarea>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-table-gt-标签"><span class="nav-number">8.</span> <span class="nav-text"><table>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-colgroup-gt-标签"><span class="nav-number">9.</span> <span class="nav-text"><colgroup>标签</span></a></li></ol></div>
             
 
           </div>
@@ -531,7 +532,7 @@ td(table data)元素定义表格单元(数据)
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
