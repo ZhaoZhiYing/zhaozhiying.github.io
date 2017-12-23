@@ -1457,14 +1457,24 @@ stretch（默认值）：轴线占满整个交叉轴。
       
         
           
-            <p>z-index   某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有的元素都存在。</p>
-<p>层叠顺序（由下往上）<br>1.负z-index（position）<br>2.background<br>3.border<br>4.block<br>5.float（float/inline在float上）<br>6.inline/inline-block<br>7.正z-index（position元素由z-index大小决定层叠）</p>
-<p>务必牢记的层叠准则<br>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
-<ol>
-<li>谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。</li>
-<li>后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。<br>备注：<br>1.z-index:auto所在的<div>元素是一个普通的元素，这时候div里的元素不受父级元素影响；<br>2.当z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。</div></li>
-</ol>
-<p>满足两个条件才能形成层叠上下文：<br>条件1：父级需要是display:flex或者display:inline-flex水平<br>条件2：子元素的z-index不是auto，必须是数值。<br>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
+            <p>####层叠顺序（由下往上）</p>
+<pre><code>1.负z-index（position）
+2.background
+3.border
+4.block
+5.float（float/inline在float上）
+6.inline/inline-block
+7.正z-index（position元素由z-index大小决定层叠）
+</code></pre><p><code>z-index</code>某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有的元素都存在。    </p>
+<hr>
+<p>####务必牢记的层叠准则<br>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
+<pre><code>1. 谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。
+2. 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。
+</code></pre><p>备注：</p>
+<pre><code>1.z-index:auto所在的&lt;div&gt;元素是一个普通的元素，这时候div里的元素不受父级元素影响；
+2.当z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。
+</code></pre><hr>
+<p>####满足两个条件才能形成层叠上下文<br>    条件1：父级需要是display:flex或者display:inline-flex水平<br>    条件2：子元素的z-index不是auto，必须是数值。<br>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
 
           
         
