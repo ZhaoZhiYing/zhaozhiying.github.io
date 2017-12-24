@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/21/第九篇博客/" itemprop="url">第九篇博客</a></h1>
+                <a class="post-title-link" href="/2017/12/21/第九篇博客/" itemprop="url">实现一个 jQuery 的 API</a></h1>
         
 
         <div class="post-meta">
@@ -257,129 +257,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/第八篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/第八篇博客/" itemprop="url">实现一个 jQuery 的 API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
-                2017-12-18
               </time>
             
 
@@ -793,6 +674,228 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/第八篇博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/第八篇博客/" itemprop="url">DOM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>DOM 是一棵树（tree）Document Object Model 文档变成对象的一种模型<br>document：XML(HTML是XML的衍生品)<br>object：对象（是JS对象的所有对象的顶层，因为 Object.prototype 是所有对象的共用属性）<br>model：模型<br>DOM 主要功能：页面中的节点通过构造函数构造出对应的对象，这也叫DOM API<br>html是特殊的element，称为document<br>￼<br>树上有 Node   Node是一个构造函数（object 的一种）<br>Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的（注释）。</p>
+<p>下图上下一个原理<br>￼<br>节点<br>DOM的最小组成单位叫做节点（node）。文档的树形结构（DOM树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br>节点的类型有七种。</p>
+<ul>
+<li>Document：整个文档树的顶层节点</li>
+<li>DocumentType：doctype标签（比如&lt;!DOCTYPE html&gt;）</li>
+<li>Element：网页的各种HTML标签（比如<body>、<a>等）</a></body></li>
+<li>Attribute：网页元素的属性（比如class=”right”）</li>
+<li>Text：标签之间或标签包含的文本</li>
+<li>Comment：注释</li>
+<li>DocumentFragment：文档的片段<br>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</li>
+</ul>
+<p>Node 的接口<br>属性</p>
+<ul>
+<li>childNodes   获取子节点 </li>
+<li>children  获取子元素节点（也可以叫子标签）  </li>
+<li>firstChild  返回第一个子节点</li>
+<li>lastChild   返回最后一个子节点     </li>
+<li>nextSibling   返回给定节点的下一个子节点 </li>
+<li>previousSibling 返回给定节点的上一个子节点 </li>
+<li>parentNode  返回给定节点的父节点 </li>
+<li>nodeName   节点的名称</li>
+<li>nodeType  节点的类型     </li>
+<li>nodeValue 节点的值</li>
+<li>innerText   </li>
+<li>outerText  </li>
+<li>textContent  </li>
+<li>ownerDocument</li>
+<li>parentElement<br>注意：1.nodeName 只有 svg 是小写，其他是大写<pre><code>2.nextSibling  可能获取到文本
+3.nodetype   1是元素  3是文本 2是属性 8是注释 9是文档
+</code></pre>￼<br>￼<br>背下以下单词，然后互相组合<br>child / children / parent、node、first / last、next / previous、sibling / siblings<br>type、value / text / content、inner / outer、element<br>方法<br>（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</li>
+<li>appendChild()   添加子节点</li>
+<li>cloneNode()   复制一个节点</li>
+<li>contains()  一个元素是否包含另一个元素</li>
+<li>hasChildNodes()   一个元素是否有儿子</li>
+<li>insertBefore()  把一个东西插到前面</li>
+<li>isEqualNode()  是否相等（看起来一样）  </li>
+<li>isSameNode()   是否相同（真的一样，等价于 ===）</li>
+<li>removeChild()    删除儿子</li>
+<li>replaceChild()    交换儿子（将另一个替换这一个，另一个去了内存）</li>
+<li>normalize()   常规化，把不正常的变成正常的</li>
+<li>注意<br>注意：1.cloneNode()   分为深拷贝和浅拷贝<br>  2.isEqualNode() 相等     <pre><code>isSameNode()相同(同一个)  
+</code></pre></li>
+<li>搞清楚英文单词的意思就知道用法</li>
+<li>如果发现知道英文后依然不明白用法，看 MDN 的例子即可，如 normalize<br>innerText 和 textContent 产生的历史<br>￼</li>
+</ul>
+<p>Document 接口（查询接口，因为一般从 document 开始查）<br>属性</p>
+<ul>
+<li>body  </li>
+<li>characterSet   字符编码，比如‘UTF-8’</li>
+<li>childElementCount   子元素的数量</li>
+<li>children  儿子</li>
+<li>doctype</li>
+<li>documentElement  html 元素</li>
+<li>domain   域名</li>
+<li>fullscreen  </li>
+<li>head </li>
+<li>hidden  </li>
+<li>images</li>
+<li>links    所有 a 标签</li>
+<li>location   文档的 URL 相关的信息</li>
+<li>onxxxxxxxxx      事件监听，比如 onclick </li>
+<li>origin   源</li>
+<li>plugins    是否安装插件</li>
+<li>readyState   </li>
+<li>referrer     引荐</li>
+<li>scripts</li>
+<li>scrollingElement</li>
+<li>styleSheets</li>
+<li>title</li>
+<li>visibilityState<br>方法</li>
+<li>open()   document步骤1.打开</li>
+<li>close()   document步骤3.关闭文档</li>
+<li>write()    document步骤2.（尽量不用write，用的话避免有延时性）</li>
+<li>writeln()   写一行</li>
+<li>createDocumentFragment()  </li>
+<li>createElement()   创建元素</li>
+<li>createTextNode()   创建文本节点</li>
+<li>execCommand()   先帮用户选中，然后拷贝</li>
+<li>exitFullscreen()   退出全屏</li>
+<li>getElementById()   通过 id 获取元素</li>
+<li>getElementsByClassName()   通过 className 获取元素</li>
+<li>getElementsByName()  通过name获取元素</li>
+<li>getElementsByTagName()  通过 TagName 获取元素，比如 p button</li>
+<li>getSelection()   获取用户选中的文本</li>
+<li>hasFocus()   用户是否 focus 到当前页面</li>
+<li>registerElement() </li>
+<li>querySelector()   通过选择器，返回一个元素</li>
+<li>querySelectorAll()  通过选择器，返回多个元素组成的数组（一个元素也返回数组）<br>注意：1.获取元素主要使用 querySelector()、querySelectorAll() </li>
+</ul>
+<p>Element 的接口<br>DOM API 获取的 Elements 都是伪数组<br>属性</p>
+<ul>
+<li>accessKey</li>
+<li>attributes  获取一个元素的所有属性</li>
+<li>childElementCount</li>
+<li>children</li>
+<li>className    class 名字</li>
+<li>classList   class 列表，弊端是不能添加一个 classList </li>
+<li>clientHeight   获取客户端高度</li>
+<li>clientWidth</li>
+<li>id</li>
+<li>innerHTML</li>
+</ul>
+<p>￼</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/第七篇博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -822,7 +925,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -1031,7 +1134,7 @@ a.call()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -1243,7 +1346,7 @@ for(var key in person){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -1409,7 +1512,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -1547,7 +1650,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
                 2017-10-24
@@ -1716,7 +1819,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
                 2017-10-19
@@ -1885,7 +1988,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-09T22:25:20+08:00">
                 2017-10-09
@@ -2075,7 +2178,7 @@ hexo deploy
                 <a href="/archives/">
               
                   <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2127,7 +2230,7 @@ hexo deploy
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
