@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="DOM 理解DOM（Document Object Model）是一棵树，文档变成对象的一种模型。 树上有 Node，Node 是一个构造函数（object 的一种） Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的（注释）。  * document：XML(HTML是XML的衍生品) * object：对象（是JS对象的所有对象的顶层，因">
+<meta name="description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象  1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 120">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM API">
+<meta property="og:title" content="JS 的数据类型">
 <meta property="og:url" content="http://yoursite.com/2017/12/28/第十二篇博客/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，文档变成对象的一种模型。 树上有 Node，Node 是一个构造函数（object 的一种） Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的（注释）。  * document：XML(HTML是XML的衍生品) * object：对象（是JS对象的所有对象的顶层，因">
-<meta property="og:updated_time" content="2017-12-28T03:58:10.000Z">
+<meta property="og:description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象  1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 120">
+<meta property="og:updated_time" content="2017-12-28T04:22:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM API">
-<meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，文档变成对象的一种模型。 树上有 Node，Node 是一个构造函数（object 的一种） Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的（注释）。  * document：XML(HTML是XML的衍生品) * object：对象（是JS对象的所有对象的顶层，因">
+<meta name="twitter:title" content="JS 的数据类型">
+<meta name="twitter:description" content="JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。 六种基本类型number 数值 string 字符串 boolean 布尔值 undefined  null symbol 符号 一种复杂类型object 对象  1.number 数值(1) 十进制: 整数小数(1, 1.1, .1)            科学计数法：12e2 // 120">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>DOM API | Zhao Zhiying</title>
+  <title>JS 的数据类型 | Zhao Zhiying</title>
   
 
 
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DOM API</h1>
+          <h1 class="post-title" itemprop="name headline">JS 的数据类型</h1>
         
 
         <div class="post-meta">
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -298,118 +298,105 @@
       
 
       
-        <h5 id="DOM-理解"><a href="#DOM-理解" class="headerlink" title="DOM 理解"></a>DOM 理解</h5><pre><code>DOM（Document Object Model）是一棵树，文档变成对象的一种模型。
-树上有 Node，Node 是一个构造函数（object 的一种）
-Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的（注释）。
-
-* document：XML(HTML是XML的衍生品)
-* object：对象（是JS对象的所有对象的顶层，因为`Object.prototype`是所有对象的共用属性）
-* model：模型
-</code></pre><h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a>DOM 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫DOM API。￼
-</code></pre><h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p>DOM的最小组成单位叫做节点（node）。文档的树形结构（DOM树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br>节点的类型有七种。</p>
-<pre><code>* Document：整个文档树的顶层节点
-* DocumentType：doctype标签（比如&lt;!DOCTYPE html&gt;）
-* Element：网页的各种HTML标签（比如&lt;body&gt;、&lt;a&gt;等）
-* Attribute：网页元素的属性（比如class=&quot;right&quot;）
-* Text：标签之间或标签包含的文本
-* Comment：注释
-* DocumentFragment：文档的片段
-</code></pre><p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</p>
-<h4 id="Node-的接口"><a href="#Node-的接口" class="headerlink" title="Node 的接口"></a>Node 的接口</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* childNodes   获取子节点 
-* children  获取子元素节点（也可以叫子标签）  
-* firstChild  返回第一个子节点
-* lastChild   返回最后一个子节点     
-* nextSibling   返回给定节点的下一个子节点 
-* previousSibling 返回给定节点的上一个子节点 
-* parentNode  返回给定节点的父节点 
-* nodeName   节点的名称
-* nodeType  节点的类型     
-* nodeValue 节点的值
-* innerText   
-* outerText  
-* textContent  
-* ownerDocument
-* parentElement  
-
-注意：
-* nodeName 只有 svg 是小写，其他是大写
-* nextSibling  可能获取到文本
-* nodetype   1是元素  3是文本 2是属性 8是注释 9是文档    
-</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性</p>
-<pre><code>* appendChild()   添加子节点
-* cloneNode()   复制一个节点
-* contains()  一个元素是否包含另一个元素
-* hasChildNodes()   一个元素是否有儿子
-* insertBefore()  把一个东西插到前面
-* isEqualNode()  是否相等（看起来一样）  
-* isSameNode()   是否相同（真的一样，等价于 ===）
-* removeChild()    删除儿子
-* replaceChild()    交换儿子（将另一个替换这一个，另一个去了内存）
-* normalize()   常规化，把不正常的变成正常的
-
-注意：
-1.cloneNode() 分为深拷贝和浅拷贝
-2.isEqualNode() 相等     
-3.isSameNode()相同(同一个)  
-</code></pre><p>搞清楚英文单词的意思就知道用法。背下以下单词，然后互相组合。</p>
-<pre><code>child / children / parent、node、first / last、next / previous、sibling / siblings
-type、value / text / content、inner / outer、element
-</code></pre><p>￼</p>
-<h4 id="Document-接口（查询接口，因为一般从-document-开始查）"><a href="#Document-接口（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document 接口（查询接口，因为一般从 document 开始查）"></a>Document 接口（查询接口，因为一般从 document 开始查）</h4><h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>* body  
-* characterSet   字符编码，比如‘UTF-8’
-* childElementCount   子元素的数量
-* children  儿子
-* doctype
-* documentElement  html 元素
-* domain   域名
-* fullscreen  
-* head 
-* hidden  
-* images
-* links    所有 a 标签
-* location   文档的 URL 相关的信息
-* onxxxxxxxxx      事件监听，比如 onclick 
-* origin   源
-* plugins    是否安装插件
-* readyState   
-* referrer     引荐
-* scripts
-* scrollingElement
-* styleSheets
-* title
-* visibilityState
-</code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>* open()   document步骤1.打开
-* close()   document步骤3.关闭文档
-* write()    document步骤2.（尽量不用write，用的话避免有延时性）
-* writeln()   写一行
-* createDocumentFragment()  
-* createElement()   创建元素
-* createTextNode()   创建文本节点
-* execCommand()   先帮用户选中，然后拷贝
-* exitFullscreen()   退出全屏
-* getElementById()   通过 id 获取元素
-* getElementsByClassName()   通过 className 获取元素
-* getElementsByName()  通过name获取元素
-* getElementsByTagName()  通过 TagName 获取元素，比如 p button
-* getSelection()   获取用户选中的文本
-* hasFocus()   用户是否 focus 到当前页面
-* registerElement() 
-* querySelector()   通过选择器，返回一个元素
-* querySelectorAll()  通过选择器，返回多个元素组成的数组（一个元素也返回数组） 
-注意：1.获取元素主要使用 querySelector()、querySelectorAll() 
-</code></pre><h4 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a>Element 的接口</h4><p>DOM API 获取的 Elements 都是伪数组。</p>
-<h5 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h5><pre><code>* accessKey
-* attributes  获取一个元素的所有属性
-* childElementCount
-* children
-* className    class 名字
-* classList   class 列表，弊端是不能添加一个 classList 
-* clientHeight   获取客户端高度
-* clientWidth
-* id
-* innerHTML
+        <p>JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有七种。</p>
+<h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
+string 字符串
+boolean 布尔值
+undefined 
+null
+symbol 符号
+</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
 </code></pre><hr>
-<p>参考：写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a></p>
+<h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number 数值"></a>1.number 数值</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
+           科学计数法：12e2 // 1200
+                        12e-2 // 0.12
+(2) 二进制：0b开头
+(3) 八进制：0开头
+(4) 十六进制：0x开头
+</code></pre><hr>
+<h4 id="2-string（字符串）"><a href="#2-string（字符串）" class="headerlink" title="2.string（字符串）"></a>2.string（字符串）</h4><pre><code>(1) 用 ‘’或“”引起来
+(2)转义符：\（同命令行回车：\ ）
+(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
+(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
+</code></pre><hr>
+<h4 id="3-boolean（布尔值）"><a href="#3-boolean（布尔值）" class="headerlink" title="3.boolean（布尔值）"></a>3.boolean（布尔值）</h4><pre><code>true（真）和false（假）两个特定值
+</code></pre><hr>
+<h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.undefined</h4><pre><code>表示“未定义”或不存在
+</code></pre><hr>
+<h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.null</h4><pre><code>表示无值，即此处的值就是“无”的状态。
+</code></pre><h5 id="null和udefined区别"><a href="#null和udefined区别" class="headerlink" title="null和udefined区别"></a><code>null</code>和<code>udefined</code>区别</h5><pre><code>null：表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入null。
+undefined：表示&quot;缺少值&quot;，就是此处应该有一个值，但是还没有定义。
+1.语法：如果一个变量没有赋值，就是 undefined
+2.惯例：如果有一个对象object，但是现在不想赋值，那就给一个 null（推荐）
+       如果有一个非对象，不想赋值，推荐初始化成 undefined 
+</code></pre><hr>
+<h4 id="6-symbol（符号）"><a href="#6-symbol（符号）" class="headerlink" title="6.symbol（符号）"></a>6.symbol（符号）</h4><p>Symbol 可以创建一个独一无二的值（但并不是字符串）。</p>
+<pre><code>var x = Symbol(&apos;a&apos;)
+var y = Symbol(&apos;a&apos;)
+x !== y // true
+</code></pre><hr>
+<h4 id="7-object（对象）"><a href="#7-object（对象）" class="headerlink" title="7.object（对象）"></a>7.object（对象）</h4><p>对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<pre><code>var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
+    &apos;Age&apos;: 18，//键值是数值，
+    &apos;married&apos;: true,  //键值是布尔值
+    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
+    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
+    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
+ } 
+ person[&apos;name&apos;]//zhaozhao
+</code></pre><h5 id="键名和键值"><a href="#键名和键值" class="headerlink" title="键名和键值"></a>键名和键值</h5><pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
+* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
+* 对象的每一个“键名”又称为“属性”。
+* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
+</code></pre><h5 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h5><pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
+* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
+* 数值只能用方括号运算符：obj[0xFF]
+* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
+</code></pre><h5 id="检查变量是否声明（in运算符）"><a href="#检查变量是否声明（in运算符）" class="headerlink" title="检查变量是否声明（in运算符）"></a>检查变量是否声明（in运算符）</h5><pre><code>var o = { p: 1 };
+&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
+</code></pre><h5 id="查看所有属性（Object-keys）"><a href="#查看所有属性（Object-keys）" class="headerlink" title="查看所有属性（Object.keys）"></a>查看所有属性（Object.keys）</h5><pre><code>var o = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(o);
+// [&apos;key1&apos;, &apos;key2&apos;]
+</code></pre><h5 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a>delete命令</h5><pre><code>//无value无key
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ delete person[&apos;name&apos;]
+ person.name //undefined
+ &apos;name&apos; in person //false
+
+ //无value 有key
+ var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ person.name = undefined
+ &apos;name&apos; in person //true
+</code></pre><h5 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a><code>for…in</code>循环</h5><pre><code>//遍历键值
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;,
+    &apos;age&apos;: 18,
+ }     
+ for(var key in person){
+     console.log(person[key])
+ }
+ //zhaozhao
+//18
+
+//遍历键名
+for(var key in person){
+     console.log(key)
+ }
+//name
+//age
+</code></pre><hr>
+<p>参考：</p>
+<p>阮一峰的《JavaScript 标准参考教程》<a href="http://javascript.ruanyifeng.com/grammar/function.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/grammar/function.html</a></p>
+<p>写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a></p>
 
       
     </div>
@@ -434,8 +421,8 @@ type、value / text / content、inner / outer、element
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/27/第十一篇博客/" rel="next" title="实现一个 jQuery 的 API">
-                <i class="fa fa-chevron-left"></i> 实现一个 jQuery 的 API
+              <a href="/2017/12/27/第十一篇博客/" rel="next" title="CSS 动画">
+                <i class="fa fa-chevron-left"></i> CSS 动画
               </a>
             
           </div>
@@ -443,6 +430,10 @@ type、value / text / content、inner / outer、element
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/28/第十三篇博客/" rel="prev" title="JS 内存图">
+                JS 内存图 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,10 +487,10 @@ type、value / text / content、inner / outer、element
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -519,8 +510,8 @@ type、value / text / content、inner / outer、element
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -558,7 +549,7 @@ type、value / text / content、inner / outer、element
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#DOM-理解"><span class="nav-number">1.</span> <span class="nav-text">DOM 理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DOM-主要功能"><span class="nav-number">2.</span> <span class="nav-text">DOM 主要功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#节点的类型"><span class="nav-number">3.</span> <span class="nav-text">节点的类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-的接口"><span class="nav-number"></span> <span class="nav-text">Node 的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Document-接口（查询接口，因为一般从-document-开始查）"><span class="nav-number"></span> <span class="nav-text">Document 接口（查询接口，因为一般从 document 开始查）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性-1"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法-1"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Element-的接口"><span class="nav-number"></span> <span class="nav-text">Element 的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性-2"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#六种基本类型"><span class="nav-number">1.</span> <span class="nav-text">六种基本类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一种复杂类型"><span class="nav-number">2.</span> <span class="nav-text">一种复杂类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-number-数值"><span class="nav-number"></span> <span class="nav-text">1.number 数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-string（字符串）"><span class="nav-number"></span> <span class="nav-text">2.string（字符串）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-boolean（布尔值）"><span class="nav-number"></span> <span class="nav-text">3.boolean（布尔值）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-undefined"><span class="nav-number"></span> <span class="nav-text">4.undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-null"><span class="nav-number"></span> <span class="nav-text">5.null</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null和udefined区别"><span class="nav-number">1.</span> <span class="nav-text">null和udefined区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-symbol（符号）"><span class="nav-number"></span> <span class="nav-text">6.symbol（符号）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-object（对象）"><span class="nav-number"></span> <span class="nav-text">7.object（对象）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#键名和键值"><span class="nav-number">1.</span> <span class="nav-text">键名和键值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#读取属性"><span class="nav-number">2.</span> <span class="nav-text">读取属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#检查变量是否声明（in运算符）"><span class="nav-number">3.</span> <span class="nav-text">检查变量是否声明（in运算符）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看所有属性（Object-keys）"><span class="nav-number">4.</span> <span class="nav-text">查看所有属性（Object.keys）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#delete命令"><span class="nav-number">5.</span> <span class="nav-text">delete命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for…in循环"><span class="nav-number">6.</span> <span class="nav-text">for…in循环</span></a></li></ol></div>
             
 
           </div>
@@ -588,7 +579,7 @@ type、value / text / content、inner / outer、element
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
