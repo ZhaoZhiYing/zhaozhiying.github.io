@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="什么是闭包“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。JavaScript有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。 function f1() {   var n = 1;   function f2() {     c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 移动端页面(响应式)">
-<meta property="og:url" content="http://yoursite.com/2017/12/13/CSS 移动端页面(响应式)/index.html">
+<meta property="og:title" content="JS 中的闭包">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/JS 中的闭包/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:updated_time" content="2017-12-28T04:27:05.000Z">
+<meta property="og:description" content="什么是闭包“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。JavaScript有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。 function f1() {   var n = 1;   function f2() {     c">
+<meta property="og:updated_time" content="2018-01-03T13:57:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 移动端页面(响应式)">
+<meta name="twitter:title" content="JS 中的闭包">
+<meta name="twitter:description" content="什么是闭包“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。JavaScript有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。 function f1() {   var n = 1;   function f2() {     c">
 
 
 
@@ -115,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/13/CSS 移动端页面(响应式)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/03/JS 中的闭包/"/>
 
 
 
 
 
-  <title>CSS 移动端页面(响应式) | Zhao Zhiying</title>
+  <title>JS 中的闭包 | Zhao Zhiying</title>
   
 
 
@@ -228,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/CSS 移动端页面(响应式)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/JS 中的闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -245,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 移动端页面(响应式)</h1>
+          <h1 class="post-title" itemprop="name headline">JS 中的闭包</h1>
         
 
         <div class="post-meta">
@@ -257,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
-                2017-12-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T15:03:53+08:00">
+                2018-01-03
               </time>
             
 
@@ -295,7 +298,53 @@
       
 
       
-        
+        <h4 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h4><p>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。<br><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</p>
+<pre><code>function f1() {
+  var n = 1;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+} 
+//这段代码中，函数 f2 和变量 n 的总和就叫做闭包
+</code></pre><h4 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h4><p>1.从外部读取函数内部的变量。</p>
+<pre><code>function f1() {
+  var n = 9;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+} 
+var result = f1();
+result(); // 9
+//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
+</code></pre><p>2.让这些变量始终保持在内存中。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++;
+  };
+}
+var a1 = f1(1);
+a1() // 1
+a1() // 2
+a1() // 3
+//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
+</code></pre><p>3.封装对象的私有属性和私有方法。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++;
+  };
+}
+var a1 = f1(1);
+a1() // 1
+a1() // 2
+a1() // 3
+var a2 = f1(5);
+a2() // 5
+a2() // 6
+a2() // 7
+//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。
+</code></pre>
       
     </div>
     
@@ -319,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/11/CSS 中的 Flex 布局/" rel="next" title="CSS 中的 Flex 布局">
-                <i class="fa fa-chevron-left"></i> CSS 中的 Flex 布局
+              <a href="/2018/01/01/实现一个 jQuery 的 API/" rel="next" title="实现一个 jQuery 的 API">
+                <i class="fa fa-chevron-left"></i> 实现一个 jQuery 的 API
               </a>
             
           </div>
@@ -329,8 +378,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/16/CSS 布局套路/" rel="prev" title="CSS 布局套路">
-                CSS 布局套路 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/03/call，apply，bind的用法区别/" rel="prev" title="call，apply，bind的用法区别">
+                call，apply，bind的用法区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -383,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -428,6 +486,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包的用途"><span class="nav-number">2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

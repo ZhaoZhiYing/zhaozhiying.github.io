@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/DOM 事件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/call，apply，bind的用法区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -247,7 +247,141 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/DOM 事件/" itemprop="url">DOM事件</a></h1>
+                <a class="post-title-link" href="/2018/01/03/call，apply，bind的用法区别/" itemprop="url">call，apply，bind的用法区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T22:02:33+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h4><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h4><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
+<pre><code>function add(a,b){
+    return a+b;
+}
+add.call(add, 5, 3); //8
+add.apply(add, [5, 3]); //8
+</code></pre><h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h4><p><code>bind</code>接受的参数跟<code>call</code>一致，只是<code>bind</code>不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
+<pre><code>function add(a, b){
+    return a+b;
+}
+var foo1 = add.bind(add, 5,3); 
+foo1(); //8
+var foo1 = add.bind(add, 5,3); 
+foo1(); //8
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/JS 中的闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/03/JS 中的闭包/" itemprop="url">JS 中的闭包</a></h1>
         
 
         <div class="post-meta">
@@ -299,7 +433,53 @@
       
         
           
-            
+            <h4 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h4><p>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。<br><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</p>
+<pre><code>function f1() {
+  var n = 1;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+} 
+//这段代码中，函数 f2 和变量 n 的总和就叫做闭包
+</code></pre><h4 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h4><p>1.从外部读取函数内部的变量。</p>
+<pre><code>function f1() {
+  var n = 9;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+} 
+var result = f1();
+result(); // 9
+//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
+</code></pre><p>2.让这些变量始终保持在内存中。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++;
+  };
+}
+var a1 = f1(1);
+a1() // 1
+a1() // 2
+a1() // 3
+//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
+</code></pre><p>3.封装对象的私有属性和私有方法。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++;
+  };
+}
+var a1 = f1(1);
+a1() // 1
+a1() // 2
+a1() // 3
+var a2 = f1(5);
+a2() // 5
+a2() // 6
+a2() // 7
+//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。
+</code></pre>
           
         
       
@@ -1123,8 +1303,7 @@ print()// function
 function add(x, y) {
   return x + y;
 } 
-</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名) (x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名) (x , y) =&gt; { return x + y }</h5><p>基础语法</p>
-<pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
+</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名) (x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名) (x , y) =&gt; { return x + y }</h5><pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
 (参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
 //相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
 
@@ -1152,7 +1331,7 @@ function add(x, y) {
   }
 }
 </code></pre><hr>
-<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包.</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</p>
 <hr>
 <h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><pre><code>f.call(undefined，参数1，参数2) 
 </code></pre><hr>
@@ -1750,7 +1929,7 @@ for(var key in person){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/CSS 伪类和伪元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/动态 REM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -1769,7 +1948,7 @@ for(var key in person){
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/21/CSS 伪类和伪元素/" itemprop="url">CSS 伪类和伪元素</a></h1>
+                <a class="post-title-link" href="/2017/12/21/动态 REM/" itemprop="url">动态 REM</a></h1>
         
 
         <div class="post-meta">
@@ -1965,10 +2144,7 @@ for(var key in person){
 //CSS3中的标准是伪类使用单冒号“:” 
 </code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
 //CSS3中的标准是伪元素使用双冒号“::”（避免和伪类混淆） 
-</code></pre><blockquote>
-<p>这里另外写了一篇博客，用来介绍伪类和伪元素。</p>
-</blockquote>
-<h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a>CSS的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
+</code></pre><h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a>CSS的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
 <p>HTML</p>
 <pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
 </code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
@@ -1985,125 +2161,6 @@ p{color:green;}
 </blockquote>
 <p>￼</p>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/CSS 布局套路/" itemprop="url">CSS 布局套路</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -2188,7 +2245,7 @@ p{color:green;}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
