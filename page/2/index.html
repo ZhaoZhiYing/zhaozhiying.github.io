@@ -228,6 +228,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/CSS 选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/CSS 选择器/" itemprop="url">CSS 选择器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="通用选择器："><a href="#通用选择器：" class="headerlink" title="通用选择器："></a>通用选择器：</h5><pre><code>*{}
+//匹配所有元素
+</code></pre><h5 id="标签选择器："><a href="#标签选择器：" class="headerlink" title="标签选择器："></a>标签选择器：</h5><pre><code>h1{}
+</code></pre><h5 id="类选择器："><a href="#类选择器：" class="headerlink" title="类选择器："></a>类选择器：</h5><pre><code>.name{}
+//匹配所有类名为 name 的元素
+</code></pre><h5 id="ID选择器："><a href="#ID选择器：" class="headerlink" title="ID选择器："></a>ID选择器：</h5><pre><code>#name{}
+//匹配所有 ID 名为 name 的元素
+</code></pre><h5 id="属性选择器："><a href="#属性选择器：" class="headerlink" title="属性选择器："></a>属性选择器：</h5><pre><code>[target = blank]
+//匹配所有以 target 命名，值为 blank 的元素
+</code></pre><h5 id="后代选择器："><a href="#后代选择器：" class="headerlink" title="后代选择器："></a>后代选择器：</h5><pre><code>.header .box{}
+//匹配由 .header 作为祖先元素(但不一定是父元素)的后代元素 .box
+</code></pre><h5 id="子选择器："><a href="#子选择器：" class="headerlink" title="子选择器："></a>子选择器：</h5><pre><code>.content &gt; .title{}
+ //匹配由 .content 作为父元素的直接后代(子元素) .title
+</code></pre><h5 id="即-又-选择器："><a href="#即-又-选择器：" class="headerlink" title="即..又 选择器："></a>即..又 选择器：</h5><pre><code>.header.active{}
+//同时匹配 .header 和 .active , 一般会忽略前一个 class。
+</code></pre><h5 id="多标签选择器："><a href="#多标签选择器：" class="headerlink" title="多标签选择器："></a>多标签选择器：</h5><pre><code>p1,span{} 
+//同时匹配 p1 和 span ，样式作用于两者。
+</code></pre><h5 id="选择相邻的下一个："><a href="#选择相邻的下一个：" class="headerlink" title="选择相邻的下一个："></a>选择相邻的下一个：</h5><pre><code>div+p{}
+//匹配所有紧接着`&lt;div&gt;`元素之后的`&lt;p&gt;`元素
+</code></pre><h5 id="选择所有同级的邻居："><a href="#选择所有同级的邻居：" class="headerlink" title="选择所有同级的邻居："></a>选择所有同级的邻居：</h5><pre><code>div~p{}
+//匹配所有父级是`&lt;div&gt;`元素的`&lt;p&gt;`元素
+</code></pre><h5 id="伪类："><a href="#伪类：" class="headerlink" title="伪类："></a>伪类：</h5><pre><code>#header:hover{}
+//CSS3中的标准是伪类使用单冒号“:” 
+</code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
+//CSS3中的标准是伪元素使用双冒号“::”（避免和伪类混淆） 
+</code></pre><h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a>CSS的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
+<p>HTML</p>
+<pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
+</code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
+<pre><code>p{color: blue;}
+</code></pre><p>这里分为可继承和不可继承的样式</p>
+<pre><code>可继承的样式： font-size font-family color, UL LI DL DD DT;
+不可继承的样式：border padding margin width height ;
+</code></pre><h5 id="inherit-关键字"><a href="#inherit-关键字" class="headerlink" title="inherit 关键字"></a>inherit 关键字</h5><p>显式指定一个属性继承祖先元素的值，可用于继承性/非继承性属性。</p>
+<h5 id="重要性-important"><a href="#重要性-important" class="headerlink" title="重要性!important"></a>重要性<code>!important</code></h5><p>当在一个样式声明中加上<code>!important</code>时，此声明将覆盖任何其他声明。</p>
+<pre><code>p{color:red !important;}//这个会被应用
+p{color:green;}
+</code></pre><blockquote>
+<p>注意：应该尽量避免使用<code>!important</code>，因为这破坏了样式表中的固有的级联规则 使得调试找bug变得更加困难了。    </p>
+</blockquote>
+<p>￼</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,7 +459,80 @@
       
         
           
-            
+            <h4 id="元素的高度由什么决定？"><a href="#元素的高度由什么决定？" class="headerlink" title="元素的高度由什么决定？"></a>元素的高度由什么决定？</h4><p><code>block</code>元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。</p>
+<pre><code>* inline 元素从左往右，如遇到宽度不够就另起一行。
+* block 元素从上往下另起一行。
+
+1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
+2.如果 div 里面有多行 inline 元素，div高度是这多行加起来的行高。
+3.如果一个 div 里面有div，那么这个div的高度由里面的div高度加 padding 加 margin（加margin分情况）
+</code></pre><h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><ul>
+<li>不到万不得已，不要写固定<code>width</code>和<code>height</code></li>
+<li>尽量用高级语法，如<code>calc``flex</code></li>
+<li>如果是<code>IE</code>，就全部写固定</li>
+</ul>
+<h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
+* 父元素加 .clearfix{content:’’; display: block; clear: both;}
+             .clearfix{zoom: 1;} //支持IE6
+</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme``mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme``mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex
+* 父元素加 justify-content: space-between;
+</code></pre><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p><code>child</code>为不定宽<code>block</code>元素</p>
+<pre><code>//方法一：转为 inline 元素
+child{display: inline;}
+parent{text-align: center;}
+
+//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
+child{display: table; margin-left/right: auto;}
+
+//方法三：margin 左右设同等值
+child{margin-left/right: 20px;}
+
+//方法四：translateX -50%
+child{position: absolute; left: 50%; transform: translateX(-50%);}
+parent{position: relative;}
+</code></pre><p><code>child</code>为定宽<code>block</code>元素</p>
+<pre><code>child{width: 100px; margin-left/right: auto;}
+</code></pre><p><code>inline</code> <code>inline-block</code>元素以及图片</p>
+<pre><code>parent{text-align: center;}
+</code></pre><p>通用方法（<code>flex</code>布局）</p>
+<pre><code>parent{display: flex; justify-content: center;}    
+</code></pre><h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>高不确定）</p>
+<pre><code>//方法一：translateY -50%
+child{position: absolute; top: 50%; transform: translateY(-50%);}
+parent{position: relative;}
+
+//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
+parent{vertical-align：middle;}
+
+//方法三：padding 上下设同等值
+child{padding-top/bottom: 20px;}
+</code></pre><p><code>child</code>为单行<code>inline</code>文本</p>
+<pre><code>//方法一：height 和 line-height 设同等值
+parent{height: 40px; line-height: 40px;}
+
+//方法二：padding 上下设同等值
+parent{height: 40px; line-height: 20px; padding: 10px 0;}
+</code></pre><p><code>child</code>为多行<code>inline</code>文本以及图片</p>
+<pre><code>//方法一：
+parent{display: table-cell; vertical-align: middle;}
+
+//方法二：padding 上下设同等值
+parent{height: 40px; line-height: 20px; padding: 10px 0;}
+</code></pre><p>通用方法（<code>flex</code>布局）</p>
+<pre><code>parent{display: flex; align-items: center;}
+</code></pre><h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><pre><code>//float + -margin（兼容 IE）
+父元素加.clearfix{content:’’; display: block; clear: both;}
+子元素分别加 float: left; 和 float: right; 
+
+//flex + -margin (可实现上下图片数量不一时的平均布局)  
+parent{display: flex; justify-content: space-between;}
+</code></pre><h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
+"></p>
+<p>￼<code>flex</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
+"></p>
+<hr>
+<p>参考：写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a></p>
+
           
         
       
@@ -1312,7 +1545,7 @@ hexo deploy
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
