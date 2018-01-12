@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
+<meta name="description" content="先了解什么是响应式页面？ 响应式页面就是随着设备属性（如宽高）的变化，网页也随着变化。  响应式页面需要两套图：手机端和网页端（推荐先做手机端）    移动端如何做适配？1.media query媒体查询（响应式）&amp;lt;style&amp;gt;  @media(max-width:375px){ body{background: blue;} }  &amp;lt;/style&amp;gt; //如果媒体满足max">
 <meta property="og:type" content="article">
-<meta property="og:title" content="call、apply、bind 的用法区别">
-<meta property="og:url" content="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/index.html">
+<meta property="og:title" content="CSS 移动端页面">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/CSS 移动端页面/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
-<meta property="og:updated_time" content="2018-01-04T16:14:54.000Z">
+<meta property="og:description" content="先了解什么是响应式页面？ 响应式页面就是随着设备属性（如宽高）的变化，网页也随着变化。  响应式页面需要两套图：手机端和网页端（推荐先做手机端）    移动端如何做适配？1.media query媒体查询（响应式）&amp;lt;style&amp;gt;  @media(max-width:375px){ body{background: blue;} }  &amp;lt;/style&amp;gt; //如果媒体满足max">
+<meta property="og:updated_time" content="2018-01-11T09:50:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="call、apply、bind 的用法区别">
-<meta name="twitter:description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
+<meta name="twitter:title" content="CSS 移动端页面">
+<meta name="twitter:description" content="先了解什么是响应式页面？ 响应式页面就是随着设备属性（如宽高）的变化，网页也随着变化。  响应式页面需要两套图：手机端和网页端（推荐先做手机端）    移动端如何做适配？1.media query媒体查询（响应式）&amp;lt;style&amp;gt;  @media(max-width:375px){ body{background: blue;} }  &amp;lt;/style&amp;gt; //如果媒体满足max">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/13/CSS 移动端页面/"/>
 
 
 
 
 
-  <title>call、apply、bind 的用法区别 | Zhao Zhiying</title>
+  <title>CSS 移动端页面 | Zhao Zhiying</title>
   
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/CSS 移动端页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">call、apply、bind 的用法区别</h1>
+          <h1 class="post-title" itemprop="name headline">CSS 移动端页面</h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T22:02:33+08:00">
-                2018-01-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
+                2017-12-13
               </time>
             
 
@@ -298,22 +298,59 @@
       
 
       
-        <h4 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h4><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
-<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h4><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
-<pre><code>function add(a,b){
-    return a+b;
+        <h4 id="先了解什么是响应式页面？"><a href="#先了解什么是响应式页面？" class="headerlink" title="先了解什么是响应式页面？"></a>先了解什么是响应式页面？</h4><ul>
+<li><p>响应式页面就是随着设备属性（如宽高）的变化，网页也随着变化。</p>
+</li>
+<li><p>响应式页面需要两套图：手机端和网页端（推荐先做手机端）</p>
+</li>
+</ul>
+<hr>
+<h4 id="移动端如何做适配？"><a href="#移动端如何做适配？" class="headerlink" title="移动端如何做适配？"></a>移动端如何做适配？</h4><h5 id="1-media-query媒体查询（响应式）"><a href="#1-media-query媒体查询（响应式）" class="headerlink" title="1.media query媒体查询（响应式）"></a>1.<code>media query</code>媒体查询（响应式）</h5><pre><code>&lt;style&gt; 
+@media(max-width:375px){ body{background: blue;} } 
+&lt;/style&gt;
+//如果媒体满足max-width: 375px，就生效这个css样式
+</code></pre><p><code>@media</code>可以用<code>css</code>文件代替，在<code>link</code>里加上<code>media</code>查询条件,才能生效。</p>
+<pre><code>&lt;link rel=“stylesheet” href=“style.css” media=“(max-width: 320px)”&gt;    
+</code></pre><p>避免<code>css</code>层叠覆盖：<br>1.范围条件不要有交集<br>2.范围大的写在前面  </p>
+<hr>
+<h5 id="2-手机端加一个meta（响应式）"><a href="#2-手机端加一个meta（响应式）" class="headerlink" title="2.手机端加一个meta（响应式）"></a>2.手机端加一个<code>meta</code>（响应式）</h5><p>快捷写法：<code>meta:vp</code></p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt; 
+
+/*以下为注释*/
+device-width- 设备 viewport 的宽度
+initial-scale - 初始的缩放比例
+minimum-scale - 允许用户缩放到的最小比例
+maximum-scale - 允许用户缩放到的最大比例
+user-scalable - 用户是否可以手动缩放
+</code></pre><p>加上上面<code>meta</code>后能做到在移动端<code>1:1</code>缩放，这样才是真正的适配移动端（设备多大页面多大，用户不能放大缩小）：</p>
+<ul>
+<li>防止手机页面模拟<code>980px</code>宽度</li>
+<li>防止页面在用户双击时候放大</li>
+<li>防止页面变成横屏 </li>
+</ul>
+<hr>
+<h5 id="3-方法一：使用JS动态调整REM"><a href="#3-方法一：使用JS动态调整REM" class="headerlink" title="3.方法一：使用JS动态调整REM"></a>3.方法一：使用<code>JS</code>动态调整<code>REM</code></h5><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+&lt;script&gt;
+    var pageWidth = window.innerWidth
+    document.write(&apos;&lt;style&gt;html{font-size:&apos;+pageWidth/10+&apos;px;}&lt;/style&gt;&apos;)
+&lt;/script&gt;
+</code></pre><h5 id="方法二：在scss文件里添加，这个方法可实现px自动变rem"><a href="#方法二：在scss文件里添加，这个方法可实现px自动变rem" class="headerlink" title="方法二：在scss文件里添加，这个方法可实现px自动变rem"></a>方法二：在<code>scss</code>文件里添加，这个方法可实现<code>px</code>自动变<code>rem</code></h5><pre><code>@function px( $px ){
+  @return $px/$designWidth*10 + rem;
 }
-add.call(add, 5, 3); //8
-add.apply(add, [5, 3]); //8
-</code></pre><h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h4><p><code>bind</code>接受的参数跟<code>call</code>一致，只是<code>bind</code>不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
-<pre><code>function add(a, b){
-    return a+b;
+
+$designWidth : 750;  
+
+.child{
+  width: px(375);
+  height: px(160);
+  margin: px(40) px(40);
+  border: 1px solid red;
+  float: left;
+  font-size: 1.2em;
 }
-var foo1 = add.bind(add, 5,3); 
-foo1(); //8
-var foo1 = add.bind(add, 5,3); 
-foo1(); //8
-</code></pre>
+</code></pre><hr>
+<p>参考：写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a></p>
+
       
     </div>
     
@@ -337,8 +374,8 @@ foo1(); //8
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/03/JS 中的闭包/" rel="next" title="JS 中的闭包">
-                <i class="fa fa-chevron-left"></i> JS 中的闭包
+              <a href="/2017/12/11/CSS 中的 Flex 布局/" rel="next" title="CSS 中的 Flex 布局">
+                <i class="fa fa-chevron-left"></i> CSS 中的 Flex 布局
               </a>
             
           </div>
@@ -347,8 +384,8 @@ foo1(); //8
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/04/DOM 事件/" rel="prev" title="DOM 事件">
-                DOM 事件 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/16/CSS 布局套路/" rel="prev" title="CSS 布局套路">
+                CSS 布局套路 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,7 +502,7 @@ foo1(); //8
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#call"><span class="nav-number">1.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply"><span class="nav-number">2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind"><span class="nav-number">3.</span> <span class="nav-text">bind</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#先了解什么是响应式页面？"><span class="nav-number">1.</span> <span class="nav-text">先了解什么是响应式页面？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动端如何做适配？"><span class="nav-number">2.</span> <span class="nav-text">移动端如何做适配？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-media-query媒体查询（响应式）"><span class="nav-number">2.1.</span> <span class="nav-text">1.media query媒体查询（响应式）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-手机端加一个meta（响应式）"><span class="nav-number">2.2.</span> <span class="nav-text">2.手机端加一个meta（响应式）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-方法一：使用JS动态调整REM"><span class="nav-number">2.3.</span> <span class="nav-text">3.方法一：使用JS动态调整REM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二：在scss文件里添加，这个方法可实现px自动变rem"><span class="nav-number">2.4.</span> <span class="nav-text">方法二：在scss文件里添加，这个方法可实现px自动变rem</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
+<meta name="description" content="本地对象（native object） ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array String Boolean Number Date RegExp等    内置对象（bu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="call、apply、bind 的用法区别">
-<meta property="og:url" content="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/index.html">
+<meta property="og:title" content="JS 的三大对象">
+<meta property="og:url" content="http://yoursite.com/2018/01/07/JS 的三大对象/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
-<meta property="og:updated_time" content="2018-01-04T16:14:54.000Z">
+<meta property="og:description" content="本地对象（native object） ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array String Boolean Number Date RegExp等    内置对象（bu">
+<meta property="og:updated_time" content="2018-01-11T12:26:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="call、apply、bind 的用法区别">
-<meta name="twitter:description" content="callcall是函数的正常调用方式，并指定上下文this。 applyapply的作用和call一样，只是在调用的时候，传参数的方式不同。apply接受的是数组参数，call接受的是连续参数。如下代码： function add(a,b){     return a+b; } add.call(add, 5, 3); //8 add.apply(add, [5, 3]); //8 bindbin">
+<meta name="twitter:title" content="JS 的三大对象">
+<meta name="twitter:description" content="本地对象（native object） ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array String Boolean Number Date RegExp等    内置对象（bu">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/07/JS 的三大对象/"/>
 
 
 
 
 
-  <title>call、apply、bind 的用法区别 | Zhao Zhiying</title>
+  <title>JS 的三大对象 | Zhao Zhiying</title>
   
 
 
@@ -231,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/call、apply、bind 的用法区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/07/JS 的三大对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -248,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">call、apply、bind 的用法区别</h1>
+          <h1 class="post-title" itemprop="name headline">JS 的三大对象</h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T22:02:33+08:00">
-                2018-01-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
+                2018-01-07
               </time>
             
 
@@ -298,22 +298,38 @@
       
 
       
-        <h4 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h4><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
-<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h4><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
-<pre><code>function add(a,b){
-    return a+b;
-}
-add.call(add, 5, 3); //8
-add.apply(add, [5, 3]); //8
-</code></pre><h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h4><p><code>bind</code>接受的参数跟<code>call</code>一致，只是<code>bind</code>不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
-<pre><code>function add(a, b){
-    return a+b;
-}
-var foo1 = add.bind(add, 5,3); 
-foo1(); //8
-var foo1 = add.bind(add, 5,3); 
-foo1(); //8
-</code></pre>
+        <h4 id="本地对象（native-object）"><a href="#本地对象（native-object）" class="headerlink" title="本地对象（native object）"></a>本地对象（<code>native object</code>）</h4><ul>
+<li><p><code>ECMA-262</code>把本地对象定义为“独立于宿主环境的<code>ECMAScript</code>实现提供的对象”。</p>
+</li>
+<li><p>简单来说，本地对象就是<code>ECMA-262</code>定义的类（引用类型）。</p>
+</li>
+<li><p>这些引用类型在运行过程中需要通过<code>new</code>来创建所需的实例对象。</p>
+</li>
+<li><p>包含：<code>Object</code> <code>Function</code> <code>Array</code> <code>String</code> <code>Boolean</code> <code>Number</code> <code>Date</code> <code>RegExp</code>等</p>
+</li>
+</ul>
+<hr>
+<h4 id="内置对象（built-in-object）"><a href="#内置对象（built-in-object）" class="headerlink" title="内置对象（built-in object）"></a>内置对象（<code>built-in object</code>）</h4><ul>
+<li><p><code>ECMA-262</code>把内置对象定义为“由<code>ECMAScript</code>实现提供的、独立于宿主环境的所有对象，在<code>ECMAScript</code>程序开始执行时出现”。这意味着开发者不必明确实例化内置对象，它已被实例化了。</p>
+</li>
+<li><p><code>ECMA-262</code>只定义了两个内置对象，即<code>Global</code>和<code>Math</code>。</p>
+</li>
+<li><p><strong>根据定义，内置对象是本地对象的一种</strong>。</p>
+</li>
+</ul>
+<hr>
+<h4 id="宿主对象（host-object）"><a href="#宿主对象（host-object）" class="headerlink" title="宿主对象（host object）"></a>宿主对象（<code>host object</code>）</h4><ul>
+<li><p><code>ECMAScript</code>中的“宿主”是指网页的运行环境，即“操作系统”和“浏览器”。</p>
+</li>
+<li><p><code>ECMAScript</code>官方未定义的对象都属于宿主对象。包含两大类，一个是宿主提供，一个是自定义类对象</p>
+</li>
+<li><p>所有非本地对象都是宿主对象，即由<code>ECMAScript</code>实现的宿主环境提供的对象。</p>
+</li>
+<li><p>所有的<code>BOM</code>和<code>DOM</code>都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
+</li>
+</ul>
+<hr>
+
       
     </div>
     
@@ -337,8 +353,8 @@ foo1(); //8
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/03/JS 中的闭包/" rel="next" title="JS 中的闭包">
-                <i class="fa fa-chevron-left"></i> JS 中的闭包
+              <a href="/2018/01/04/DOM 事件/" rel="next" title="DOM 事件">
+                <i class="fa fa-chevron-left"></i> DOM 事件
               </a>
             
           </div>
@@ -347,8 +363,8 @@ foo1(); //8
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/04/DOM 事件/" rel="prev" title="DOM 事件">
-                DOM 事件 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/09/jQuery API/" rel="prev" title="jQuery-API">
+                jQuery-API <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,7 +481,7 @@ foo1(); //8
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#call"><span class="nav-number">1.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply"><span class="nav-number">2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind"><span class="nav-number">3.</span> <span class="nav-text">bind</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地对象（native-object）"><span class="nav-number">1.</span> <span class="nav-text">本地对象（native object）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内置对象（built-in-object）"><span class="nav-number">2.</span> <span class="nav-text">内置对象（built-in object）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主对象（host-object）"><span class="nav-number">3.</span> <span class="nav-text">宿主对象（host object）</span></a></li></ol></div>
             
 
           </div>
