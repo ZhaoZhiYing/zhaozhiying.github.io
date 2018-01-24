@@ -308,39 +308,37 @@
 <li>基本类型的数据直接存在<code>Stack</code>里（数字64位，字符16位）</li>
 <li>复杂类型（引用类型）的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
 </ul>
-<p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br><br>引用类型：<code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
+<p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>引用类型：<code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
 <hr>
 <h4 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h4><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b = {name: &quot;zhao&quot;}
 a.name = ? // &quot;tang&quot;
-</code></pre><p>当执行 <code>var b = a</code> 时，内存的变化如下：</p>
+</code></pre><p>当执行 <code>var b = a</code> 时，内存变化如下：</p>
 <p><img src="https://i.loli.net/2018/01/24/5a6892882ff3c.png
 ">    </p>
-<p>当执行 <code>b = { name: &quot;zhao&quot; }</code> 时，内存的变化如下：</p>
+<p>当执行 <code>b = { name: &quot;zhao&quot; }</code> 时，内存变化如下：</p>
 <p><img src="https://i.loli.net/2018/01/24/5a688d4447585.png
 "></p>
 <h5 id="举例2"><a href="#举例2" class="headerlink" title="举例2"></a>举例2</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b.name = &apos;zhao&apos;
 a.name = ? // &quot;zhao&quot;
-</code></pre><p>当执行 <code>b.name = &quot;zhao&quot;</code>时，内存的变化如下：</p>
+</code></pre><p>当执行 <code>b.name = &quot;zhao&quot;</code>时，内存变化如下：</p>
 <p><img src="https://i.loli.net/2018/01/24/5a688d63302b0.png
 ">    </p>
 <h5 id="举例3"><a href="#举例3" class="headerlink" title="举例3"></a>举例3</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b = null
 a = ? // {name: &quot;tang&quot;}
-</code></pre><p>当执行 <code>b = null</code>时，内存的变化如下：</p>
+</code></pre><p>当执行 <code>b = null</code>时，内存变化如下：</p>
 <p><img src="https://i.loli.net/2018/01/24/5a688d7803b75.png
 ">    </p>
 <hr>
-<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><ul>
-<li>如果一个对象没有被引用，它就是垃圾，将被回收。</li>
-</ul>
+<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
 <h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &#123;name: &quot;tang&quot;&#125;</div><div class="line">var b = &#123;name: &quot;zhao&quot;&#125;</div><div class="line">a = b </div><div class="line">// 这时 &#123;name: &quot;tang&quot;&#125; 就是垃圾</div></pre></td></tr></table></figure>
 <h5 id="举例2-1"><a href="#举例2-1" class="headerlink" title="举例2"></a>举例2</h5><p>请问下面的<code>function(){}</code>会被回收吗？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var fn = function()&#123;&#125;</div><div class="line">document.body.onclick = fn</div><div class="line">fn = null</div><div class="line">```	</div><div class="line">当执行到 `document.body.onclick = fn`时，内存的变化如下：</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894373204b.png</div><div class="line">&apos;&gt;	</div><div class="line"></div><div class="line">当执行到 `fn = null`时，由于`function()&#123;&#125;`仍然被`document`引用，故不会被回收，如下。</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894597cc45.png</div><div class="line">&apos;&gt;</div><div class="line"></div><div class="line">##### 举例3</div><div class="line">下面的`function()&#123;&#125;`会被回收</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var fn = function()&#123;&#125;</div><div class="line">document.body.onclick = fn</div><div class="line">fn = null</div><div class="line">```	</div><div class="line"></div><div class="line">当执行到 `document.body.onclick = fn`时，内存变化如下：</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894373204b.png</div><div class="line">&apos;&gt;	</div><div class="line"></div><div class="line">当执行到 `fn = null`时，由于`function()&#123;&#125;`仍然被`document`引用，故不会被回收，内存变化如下:</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894597cc45.png</div><div class="line">&apos;&gt;</div><div class="line"></div><div class="line">##### 举例3</div><div class="line"></div><div class="line">下面的`function()&#123;&#125;`会被回收</div></pre></td></tr></table></figure>
 <p>var fn = function(){}<br>document.body.onclick = fn<br>document.body.onclick = null<br>```</p>
 <ul>
 <li>注意：IE 的 bug，使得该被标记为垃圾的没有被标记，这叫做‘内存泄漏’。</li>
