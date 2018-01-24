@@ -93,11 +93,15 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a688d7803b75.png
 ">
+<meta property="og:image" content="https://i.loli.net/2018/01/24/5a6894373204b.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/01/24/5a6894597cc45.png
+">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">
-<meta property="og:updated_time" content="2018-01-24T14:20:30.000Z">
+<meta property="og:updated_time" content="2018-01-24T14:23:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 内存">
 <meta name="twitter:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型（引用类型）的数据是把He">
@@ -349,11 +353,25 @@ a = ? // {name: &quot;tang&quot;}
 ">    </p>
 <hr>
 <h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
-<h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &#123;name: &quot;tang&quot;&#125;</div><div class="line">var b = &#123;name: &quot;zhao&quot;&#125;</div><div class="line">a = b </div><div class="line">// 这时 &#123;name: &quot;tang&quot;&#125; 就是垃圾</div></pre></td></tr></table></figure>
-<h5 id="举例2-1"><a href="#举例2-1" class="headerlink" title="举例2"></a>举例2</h5><p>请问下面的<code>function(){}</code>会被回收吗？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var fn = function()&#123;&#125;</div><div class="line">document.body.onclick = fn</div><div class="line">fn = null</div><div class="line">```	</div><div class="line"></div><div class="line">当执行到 `document.body.onclick = fn`时，内存变化如下：</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894373204b.png</div><div class="line">&apos;&gt;	</div><div class="line"></div><div class="line">当执行到 `fn = null`时，由于`function()&#123;&#125;`仍然被`document`引用，故不会被回收，内存变化如下:</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/24/5a6894597cc45.png</div><div class="line">&apos;&gt;</div><div class="line"></div><div class="line">##### 举例3</div><div class="line"></div><div class="line">下面的`function()&#123;&#125;`会被回收</div></pre></td></tr></table></figure>
-<p>var fn = function(){}<br>document.body.onclick = fn<br>document.body.onclick = null<br>```</p>
-<ul>
+<h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
+var b = {name: &quot;zhao&quot;}
+a = b 
+// 这时 {name: &quot;tang&quot;} 就是垃圾
+</code></pre><h5 id="举例2-1"><a href="#举例2-1" class="headerlink" title="举例2"></a>举例2</h5><p>请问下面的<code>function(){}</code>会被回收吗？</p>
+<pre><code>var fn = function(){}
+document.body.onclick = fn
+fn = null
+</code></pre><p>当执行到 <code>document.body.onclick = fn</code>时，内存变化如下：</p>
+<p><img src="https://i.loli.net/2018/01/24/5a6894373204b.png
+">    </p>
+<p>当执行到 <code>fn = null</code>时，由于<code>function(){}</code>仍然被<code>document</code>引用，故不会被回收，内存变化如下:</p>
+<p><img src="https://i.loli.net/2018/01/24/5a6894597cc45.png
+"></p>
+<h5 id="举例3-1"><a href="#举例3-1" class="headerlink" title="举例3"></a>举例3</h5><p>下面的<code>function(){}</code>会被回收</p>
+<pre><code>var fn = function(){}
+document.body.onclick = fn
+document.body.onclick = null
+</code></pre><ul>
 <li>注意：IE 的 bug，使得该被标记为垃圾的没有被标记，这叫做‘内存泄漏’。</li>
 <li>解决办法：页面关闭前，将所有事件 = null</li>
 </ul>
@@ -522,7 +540,7 @@ b.name = &quot;zhao&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.3.</span> <span class="nav-text">举例3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.2.</span> <span class="nav-text">举例2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.3.</span> <span class="nav-text">举例3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.3.</span> <span class="nav-text">举例3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a></li></ol></div>
             
 
           </div>
