@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/「构造函数模式」和「原型模式」/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/15/「构造函数模式」和「原型模式」/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/25/「构造函数模式」和「原型模式」/" itemprop="url">「构造函数模式」和「原型模式」</a></h1>
+                <a class="post-title-link" href="/2018/01/15/「构造函数模式」和「原型模式」/" itemprop="url">「构造函数模式」和「原型模式」</a></h1>
         
 
         <div class="post-meta">
@@ -257,10 +257,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
-                2018-01-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
+                2018-01-15
               </time>
             
 
@@ -329,7 +329,7 @@ var b = new Boolean(true)
 var o = new Object()
 </code></pre><p>上面代码中<code>n``s``b``o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
 <p>解决办法：将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1``n2``n3``n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
-<p><img src="https://i.loli.net/2018/01/25/5a69f776acd72.png
+<p><img src="https://i.loli.net/2018/01/26/5a6b32120b98d.png
 "></p>
 <p>每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
 <pre><code>Object.prototype.__proto__ = null
@@ -419,7 +419,7 @@ var obj = new Foo()
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/JS 内存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/JS 内存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -438,7 +438,7 @@ var obj = new Foo()
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/23/JS 内存/" itemprop="url">JS 内存</a></h1>
+                <a class="post-title-link" href="/2018/01/09/JS 内存/" itemprop="url">JS 内存</a></h1>
         
 
         <div class="post-meta">
@@ -448,10 +448,10 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
-                2018-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
+                2018-01-09
               </time>
             
 
@@ -565,12 +565,12 @@ b.name = &quot;zhao&quot;
 ">    </p>
 <hr>
 <h3 id="基本类型和复杂类型的区别"><a href="#基本类型和复杂类型的区别" class="headerlink" title="基本类型和复杂类型的区别"></a>基本类型和复杂类型的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
-<h5 id="举例1-2"><a href="#举例1-2" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var n1 = new Number(1)
+<pre><code>var n1 = new Number(1)
 var n2 = 1
 </code></pre><p>n1 和 n2 的区别，内存如下：</p>
 <p><img src="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
 "></p>
-<h5 id="举例2-2"><a href="#举例2-2" class="headerlink" title="举例2"></a>举例2</h5><ul>
+<ul>
 <li>由于历史原因要求<code>JS</code>长得像<code>Java</code>，故发明了<code>var n = new Number(1)</code>这种写法。</li>
 <li>但是<code>var n = 1</code>这种写法更简单，这种写法有个缺点：因为基本类型没有属性，不能使用<code>toString</code>方法。</li>
 <li>于是 JS之父 发明了一个妙计，当写<code>n.toString()</code>时，声明一个临时对象<code>temp = new Number(n)</code>，将<code>temp.toString()</code>的值作为<code>n.toString()</code>的值，转换完成后就干掉<code>temp</code>，内存变化如下：</li>
@@ -656,7 +656,7 @@ var n2 = 1
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -807,7 +807,7 @@ var n2 = 1
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -970,7 +970,7 @@ var n2 = 1
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1418,7 +1418,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1658,7 +1658,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1985,7 +1985,7 @@ a.call()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -2207,7 +2207,7 @@ for(var key in person){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -2348,7 +2348,7 @@ for(var key in person){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -2517,7 +2517,7 @@ p{color:green;}
                 <a href="/archives/">
               
                   <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2569,7 +2569,7 @@ p{color:green;}
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
