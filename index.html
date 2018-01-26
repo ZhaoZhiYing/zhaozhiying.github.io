@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -214,6 +214,197 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/「构造函数模式」和「原型模式」/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/「构造函数模式」和「原型模式」/" itemprop="url">「构造函数模式」和「原型模式」</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><ul>
+<li>创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。</li>
+<li>如果只是一个单独的对象，直接使用「对象字面量」</li>
+<li>如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」</li>
+</ul>
+<h5 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h5><ol>
+<li>构造函数的首字母必须大写，用来区分于普通函数</li>
+<li>内部使用的<code>this</code>对象，来指向即将要生成的实例对象</li>
+<li>使用<code>new</code>操作符来创建实例对象</li>
+</ol>
+<p>如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<h5 id="构造函数与普通函数的区别"><a href="#构造函数与普通函数的区别" class="headerlink" title="构造函数与普通函数的区别"></a>构造函数与普通函数的区别</h5><p>构造函数与普通函数的区别，在于调用它们的方式不同。</p>
+<ul>
+<li>任何函数，只要通过<code>new</code>操作符来调用，那它就可以作为构造函数。</li>
+<li>而任何函数，如果不通过<code>new</code>操作符来调用，那它就是普通函数。</li>
+</ul>
+<h5 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h5><ol>
+<li>在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。</li>
+<li>更严重的是，当对象需要定义很多方法时，那就要定义多个全局函数。</li>
+</ol>
+<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>通过使用原型链模式</p>
+<hr>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h5 id="什么是共有属性？"><a href="#什么是共有属性？" class="headerlink" title="什么是共有属性？"></a>什么是共有属性？</h5><p>当我们在写<code>var x1 = new x2</code>的时候：<code>x1</code>的类型是对象，<code>x2</code>的类型是函数对象。</p>
+<pre><code>var n = new Number(1)
+var s = new String(&quot;1&quot;)
+var b = new Boolean(true)
+var o = new Object()
+</code></pre><p>上面代码中<code>n``s``b``o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
+<p>解决办法：将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1``n2``n3``n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
+<p><img src="https://i.loli.net/2018/01/25/5a69f776acd72.png
+"></p>
+<p>每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
+<pre><code>Object.prototype.__proto__ = null
+</code></pre><h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><ul>
+<li><p>每一个函数在创建后都会有一个属性<code>prototype</code>，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。</p>
+</li>
+<li><p>在默认情况下，所有「原型对象」都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。 </p>
+</li>
+<li><p><strong>注意</strong>：由于这个<code>prototype</code>属性不标准，因此一般不提倡使用。<code>ES5</code>中用<code>Object.getPrototypeOf</code>函数获得一个对象的<code>prototype</code>。<code>ES6</code>中使用<code>Object.setPrototypeOf</code>可以直接修改一个对象的<code>prototype</code>。</p>
+</li>
+</ul>
+<h4 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h4><ul>
+<li><p>在<code>ES5</code>之前没有标准的方法访问内置属性<code>prototype</code>，于是很多浏览器都给「每一个对象」提供了一个属性<code>__proto__</code>，通过<code>__proto__</code>就可以访问<code>prototype</code>。</p>
+</li>
+<li><p>这个连接存在于「实例」与「构造函数的原型对象」之间，而不是存在「实例」与「构造函数」之间</p>
+</li>
+</ul>
+<h5 id="什么叫原型链？"><a href="#什么叫原型链？" class="headerlink" title="什么叫原型链？"></a>什么叫原型链？</h5><pre><code>function Foo(){}
+var obj = new Foo()
+</code></pre><p>当我们输入<code>obj.toString</code>时，JS 引擎会做下面的事情：</p>
+<ol>
+<li>看看 <code>obj</code> 对象本身有没有 <code>toString</code> 属性。没有就走到下一步。</li>
+<li>看看 <code>obj.__proto__</code> 对象有没有 <code>toString</code> 属性。</li>
+<li>如果 <code>obj.__proto__</code> 没有，那么浏览器会继续查看 <code>obj.__proto__.__proto__</code> ，直到找到 <code>toString</code> 或者 <code>__proto__</code> 为<code>null</code>。</li>
+</ol>
+<p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
+<p><img src="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
+"></p>
+<h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><ol>
+<li>原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。</li>
+<li>由于实例对象的<code>__proto__</code>都指向了<code>Foo.prototype</code>，使得他们的属性值无法保持独立。</li>
+</ol>
+<p>如下代码中，数组<code>interest</code>存在于<code>Foo.prototype</code>中而不是<code>human1</code>中，当<code>human1.interest.push(&#39;swimming&#39;)</code>更改这个数组时，<code>human2.interest</code>也被更改了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo, </div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	city: &apos;beijing&apos;,</div><div class="line">	interest: [&apos;reading&apos;, &apos;fitness&apos;],</div><div class="line">	walk: function()&#123;</div><div class="line">	 	console.log(&apos;走一步的代码&apos;);</div><div class="line">	 &#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo()</div><div class="line">var human2 = new Foo()</div><div class="line"></div><div class="line">human1.interest.push(&apos;swimming&apos;)</div><div class="line"></div><div class="line">console.log(human1.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div><div class="line">console.log(human2.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div></pre></td></tr></table></figure>
+<h5 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h5><p>组合使用「构造函数模式」和「原型模式」。「构造函数」用于定义实例属性，而「原型模式」用于定义和共享的属性和方法。这样，每个实例都会有自己的一份实例属性副本，同时又共享着属性和方法，最大限度地节省了内存。</p>
+<hr>
+<h3 id="组合使用「构造函数模式」和「原型模式」"><a href="#组合使用「构造函数模式」和「原型模式」" class="headerlink" title="组合使用「构造函数模式」和「原型模式」"></a>组合使用「构造函数模式」和「原型模式」</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype.walk = function()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;);</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<p>对上面代码的理解如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// human1 和 human2 是构造函数 Foo() 声明的两个实例，这两个对象有属性__proto__ ，指向构造函数的原型对象。</div><div class="line">human1.__proto__ = Foo.prototype</div><div class="line">human2.__proto__ = Foo.prototype</div><div class="line"></div><div class="line">//构造函数 Foo() 是方法，也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。函数的构造函数是 Function。</div><div class="line">Foo.__proto__ = Function.prototype</div><div class="line"></div><div class="line">// 原型对象也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。</div><div class="line">Foo.prototype.__proto__ = Object.prototype</div><div class="line"></div><div class="line">// 原型对象的`constructor(构造函数)`属性，指向`prototype`属性所在函数。故得到如下：</div><div class="line">Foo.prototype.constructor === Foo</div><div class="line">human1.__proto__.constructor === Foo</div><div class="line">human2.__proto__.constructor === Foo</div></pre></td></tr></table></figure>
+<hr>
+<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +448,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -299,18 +490,17 @@
       
         
           
-            <h4 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h4><ul>
+            <h3 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h3><ul>
 <li>比如买一个 8G 的内存条</li>
 <li>开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给<code>HTML</code>+<code>CSS</code>+<code>JS</code>+网络<code>HTTP</code>+其他)  </li>
 <li><code>JS</code>最多分到 100M 内存</li>
 <li><code>JS</code>引擎将内存分为代码区和数据区</li>
 <li>数据区分为<code>Stack</code>（栈内存）和<code>Heap</code>（堆内存）</li>
 <li>基本类型的数据直接存在<code>Stack</code>里（数字64位，字符16位）</li>
-<li>复杂类型（引用类型）的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
+<li>复杂类型的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
 </ul>
-<p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>引用类型：<code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
 <hr>
-<h4 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h4><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
+<h3 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h3><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b = {name: &quot;zhao&quot;}
 a.name = ? // &quot;tang&quot;
@@ -335,7 +525,7 @@ a = ? // {name: &quot;tang&quot;}
 <p><img src="https://i.loli.net/2018/01/24/5a688d7803b75.png
 ">    </p>
 <hr>
-<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
 <h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = {name: &quot;zhao&quot;}
 a = b 
@@ -359,7 +549,7 @@ document.body.onclick = null
 <li>解决办法：页面关闭前，将所有事件 = null</li>
 </ul>
 <hr>
-<h4 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h4><p>深拷贝</p>
+<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>深拷贝</p>
 <pre><code>var a = {name:&quot;tang&quot;}
 var b = a 
 b.name = &quot;zhao&quot;;  
@@ -373,6 +563,20 @@ b.name = &quot;zhao&quot;
 //a.name = &quot;zhao&quot;
 </code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">    </p>
+<hr>
+<h3 id="基本类型和复杂类型的区别"><a href="#基本类型和复杂类型的区别" class="headerlink" title="基本类型和复杂类型的区别"></a>基本类型和复杂类型的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
+<h5 id="举例1-2"><a href="#举例1-2" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var n1 = new Number(1)
+var n2 = 1
+</code></pre><p>n1 和 n2 的区别，内存如下：</p>
+<p><img src="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
+"></p>
+<h5 id="举例2-2"><a href="#举例2-2" class="headerlink" title="举例2"></a>举例2</h5><ul>
+<li>由于历史原因要求<code>JS</code>长得像<code>Java</code>，故发明了<code>var n = new Number(1)</code>这种写法。</li>
+<li>但是<code>var n = 1</code>这种写法更简单，这种写法有个缺点：因为基本类型没有属性，不能使用<code>toString</code>方法。</li>
+<li>于是 JS之父 发明了一个妙计，当写<code>n.toString()</code>时，声明一个临时对象<code>temp = new Number(n)</code>，将<code>temp.toString()</code>的值作为<code>n.toString()</code>的值，转换完成后就干掉<code>temp</code>，内存变化如下：</li>
+</ul>
+<p><img src="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
+"></p>
 <hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
@@ -452,7 +656,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -501,7 +705,8 @@ b.name = &quot;zhao&quot;
 </li>
 <li><p>这些引用类型在运行过程中需要通过<code>new</code>来创建所需的实例对象。</p>
 </li>
-<li><p>包含：<code>Object</code> <code>Function</code> <code>Array</code> <code>String</code> <code>Boolean</code> <code>Number</code> <code>Date</code> <code>RegExp</code>等</p>
+<li><p>包含：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
+<p>  和三个基本包装类型 <code>String</code> <code>Boolean</code> <code>Number</code></p>
 </li>
 </ul>
 <hr>
@@ -510,7 +715,7 @@ b.name = &quot;zhao&quot;
 </li>
 <li><p><code>ECMA-262</code>只定义了两个内置对象，即<code>Global</code>和<code>Math</code>。</p>
 </li>
-<li><p><strong>根据定义，内置对象是本地对象的一种</strong>。</p>
+<li><p><strong>根据定义，内置对象是本地对象的一种。</strong></p>
 </li>
 </ul>
 <hr>
@@ -602,7 +807,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -765,7 +970,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1213,7 +1418,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1453,7 +1658,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1780,7 +1985,7 @@ a.call()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -2002,7 +2207,7 @@ for(var key in person){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -2143,7 +2348,7 @@ for(var key in person){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -2261,198 +2466,6 @@ p{color:green;}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/CSS 布局套路/" itemprop="url">CSS 布局套路</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="元素的高度由什么决定？"><a href="#元素的高度由什么决定？" class="headerlink" title="元素的高度由什么决定？"></a>元素的高度由什么决定？</h4><p><code>block</code>元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。</p>
-<pre><code>* inline 元素从左往右，如遇到宽度不够就另起一行。
-* block 元素从上往下另起一行。
-
-1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
-2.如果 div 里面有多行 inline 元素，div高度是这多行加起来的行高。
-3.如果一个 div 里面有div，那么这个div的高度由里面的div高度加 padding 加 margin（加margin分情况）
-</code></pre><h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><ul>
-<li>不到万不得已，不要写固定<code>width</code>和<code>height</code></li>
-<li>尽量用高级语法，如<code>calc``flex</code></li>
-<li>如果是<code>IE</code>，就全部写固定</li>
-</ul>
-<h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
-* 父元素加 .clearfix{content:’’; display: block; clear: both;}
-             .clearfix{zoom: 1;} //支持IE6
-</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme``mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme``mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex
-* 父元素加 justify-content: space-between;
-</code></pre><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p><code>child</code>为不定宽<code>block</code>元素</p>
-<pre><code>//方法一：转为 inline 元素
-child{display: inline;}
-parent{text-align: center;}
-
-//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
-child{display: table; margin-left/right: auto;}
-
-//方法三：margin 左右设同等值
-child{margin-left/right: 20px;}
-
-//方法四：translateX -50%
-child{position: absolute; left: 50%; transform: translateX(-50%);}
-parent{position: relative;}
-</code></pre><p><code>child</code>为定宽<code>block</code>元素</p>
-<pre><code>child{width: 100px; margin-left/right: auto;}
-</code></pre><p><code>inline</code> <code>inline-block</code>元素以及图片</p>
-<pre><code>parent{text-align: center;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; justify-content: center;}    
-</code></pre><h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>高不确定）</p>
-<pre><code>//方法一：translateY -50%
-child{position: absolute; top: 50%; transform: translateY(-50%);}
-parent{position: relative;}
-
-//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
-parent{vertical-align：middle;}
-
-//方法三：padding 上下设同等值
-child{padding-top/bottom: 20px;}
-</code></pre><p><code>child</code>为单行<code>inline</code>文本</p>
-<pre><code>//方法一：height 和 line-height 设同等值
-parent{height: 40px; line-height: 40px;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p><code>child</code>为多行<code>inline</code>文本以及图片</p>
-<pre><code>//方法一：
-parent{display: table-cell; vertical-align: middle;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; align-items: center;}
-</code></pre><h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><pre><code>//float + -margin（兼容 IE）
-父元素加.clearfix{content:’’; display: block; clear: both;}
-子元素分别加 float: left; 和 float: right; 
-
-//flex + -margin (可实现上下图片数量不一时的平均布局)  
-parent{display: flex; justify-content: space-between;}
-</code></pre><h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
-"></p>
-<p>￼<code>flex</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
-"></p>
-<hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2503,8 +2516,8 @@ parent{display: flex; justify-content: space-between;}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2556,7 +2569,7 @@ parent{display: flex; justify-content: space-between;}
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

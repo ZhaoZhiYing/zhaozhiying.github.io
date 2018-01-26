@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型（引用类型）的数据是把He">
+<meta name="description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 内存">
 <meta property="og:url" content="http://yoursite.com/2018/01/23/JS 内存/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型（引用类型）的数据是把He">
+<meta property="og:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892882ff3c.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a688d4447585.png
@@ -101,10 +101,14 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">
-<meta property="og:updated_time" content="2018-01-24T14:23:01.000Z">
+<meta property="og:image" content="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
+">
+<meta property="og:updated_time" content="2018-01-25T17:06:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 内存">
-<meta name="twitter:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型（引用类型）的数据是把He">
+<meta name="twitter:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
 <meta name="twitter:image" content="https://i.loli.net/2018/01/24/5a6892882ff3c.png
 ">
 
@@ -202,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -212,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -276,7 +280,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -316,18 +320,17 @@
       
 
       
-        <h4 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h4><ul>
+        <h3 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h3><ul>
 <li>比如买一个 8G 的内存条</li>
 <li>开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给<code>HTML</code>+<code>CSS</code>+<code>JS</code>+网络<code>HTTP</code>+其他)  </li>
 <li><code>JS</code>最多分到 100M 内存</li>
 <li><code>JS</code>引擎将内存分为代码区和数据区</li>
 <li>数据区分为<code>Stack</code>（栈内存）和<code>Heap</code>（堆内存）</li>
 <li>基本类型的数据直接存在<code>Stack</code>里（数字64位，字符16位）</li>
-<li>复杂类型（引用类型）的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
+<li>复杂类型的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
 </ul>
-<p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>引用类型：<code>Object</code> <code>Array</code> <code>Date</code> <code>RegExp</code> <code>Function</code></p>
 <hr>
-<h4 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h4><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
+<h3 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h3><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b = {name: &quot;zhao&quot;}
 a.name = ? // &quot;tang&quot;
@@ -352,7 +355,7 @@ a = ? // {name: &quot;tang&quot;}
 <p><img src="https://i.loli.net/2018/01/24/5a688d7803b75.png
 ">    </p>
 <hr>
-<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
 <h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = {name: &quot;zhao&quot;}
 a = b 
@@ -376,7 +379,7 @@ document.body.onclick = null
 <li>解决办法：页面关闭前，将所有事件 = null</li>
 </ul>
 <hr>
-<h4 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h4><p>深拷贝</p>
+<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>深拷贝</p>
 <pre><code>var a = {name:&quot;tang&quot;}
 var b = a 
 b.name = &quot;zhao&quot;;  
@@ -390,6 +393,20 @@ b.name = &quot;zhao&quot;
 //a.name = &quot;zhao&quot;
 </code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">    </p>
+<hr>
+<h3 id="基本类型和复杂类型的区别"><a href="#基本类型和复杂类型的区别" class="headerlink" title="基本类型和复杂类型的区别"></a>基本类型和复杂类型的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
+<h5 id="举例1-2"><a href="#举例1-2" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var n1 = new Number(1)
+var n2 = 1
+</code></pre><p>n1 和 n2 的区别，内存如下：</p>
+<p><img src="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
+"></p>
+<h5 id="举例2-2"><a href="#举例2-2" class="headerlink" title="举例2"></a>举例2</h5><ul>
+<li>由于历史原因要求<code>JS</code>长得像<code>Java</code>，故发明了<code>var n = new Number(1)</code>这种写法。</li>
+<li>但是<code>var n = 1</code>这种写法更简单，这种写法有个缺点：因为基本类型没有属性，不能使用<code>toString</code>方法。</li>
+<li>于是 JS之父 发明了一个妙计，当写<code>n.toString()</code>时，声明一个临时对象<code>temp = new Number(n)</code>，将<code>temp.toString()</code>的值作为<code>n.toString()</code>的值，转换完成后就干掉<code>temp</code>，内存变化如下：</li>
+</ul>
+<p><img src="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
+"></p>
 <hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
@@ -425,6 +442,10 @@ b.name = &quot;zhao&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/25/「构造函数模式」和「原型模式」/" rel="prev" title="「构造函数模式」和「原型模式」">
+                「构造函数模式」和「原型模式」 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -478,10 +499,10 @@ b.name = &quot;zhao&quot;
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -501,8 +522,8 @@ b.name = &quot;zhao&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -540,7 +561,7 @@ b.name = &quot;zhao&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.3.</span> <span class="nav-text">举例3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.3.</span> <span class="nav-text">举例3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型和复杂类型的区别"><span class="nav-number">5.</span> <span class="nav-text">基本类型和复杂类型的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-2"><span class="nav-number">5.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-2"><span class="nav-number">5.0.2.</span> <span class="nav-text">举例2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -570,7 +591,7 @@ b.name = &quot;zhao&quot;
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
