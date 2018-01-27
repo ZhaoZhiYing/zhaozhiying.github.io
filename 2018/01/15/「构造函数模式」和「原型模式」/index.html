@@ -89,7 +89,7 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
 ">
-<meta property="og:updated_time" content="2018-01-27T14:35:15.000Z">
+<meta property="og:updated_time" content="2018-01-27T14:59:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「构造函数模式」和「原型模式」">
 <meta name="twitter:description" content="构造函数模式 创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。 如果只是一个单独的对象，直接使用「对象字面量」 如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」  构造函数的特点 构造函数的首字母必须大写，用来区分于普通函数 内部使用的this对象，来指向即将要生成的实例对象 使用new操作符来创建实例对象  123456789101112fun">
@@ -335,9 +335,7 @@ var o = new Object()
 <p>解决办法：将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1``n2``n3``n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
 <p><img src="https://i.loli.net/2018/01/26/5a6b32120b98d.png
 "></p>
-<p>每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
-<pre><code>Object.prototype.__proto__ = null
-</code></pre><h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><ul>
+<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><ul>
 <li><p>每一个函数在创建后都会有一个属性<code>prototype</code>，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。</p>
 </li>
 <li><p>在默认情况下，所有「原型对象」都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。 </p>
@@ -362,6 +360,15 @@ var obj = new Foo()
 <p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
 <p><img src="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
 "></p>
+<h5 id="默认原型"><a href="#默认原型" class="headerlink" title="默认原型"></a>默认原型</h5><ul>
+<li><p>所有引用类型都默认继承了<code>Object</code>，这个继承是通过原型链实现的。</p>
+</li>
+<li><p>所有函数的默认原型都是<code>Object</code>的实例，因此默认原型都会有一个指针，指向<code>Object.prototype</code>。这也是所有自定义类型都会继承<code>toString()</code> <code>valueOf()</code>等默认方法的根本原因。</p>
+</li>
+<li><p>而每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.__proto__ = null</div></pre></td></tr></table></figure>
 <h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><ol>
 <li>原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。</li>
 <li>由于实例对象的<code>__proto__</code>都指向了<code>Foo.prototype</code>，使得他们的属性值无法保持独立。</li>
@@ -534,7 +541,7 @@ var obj = new Foo()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数模式"><span class="nav-number">1.</span> <span class="nav-text">构造函数模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的特点"><span class="nav-number">1.0.1.</span> <span class="nav-text">构造函数的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数与普通函数的区别"><span class="nav-number">1.0.2.</span> <span class="nav-text">构造函数与普通函数的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的缺点"><span class="nav-number">1.0.3.</span> <span class="nav-text">构造函数的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-number">1.0.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">2.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是共有属性？"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是共有属性？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prototype"><span class="nav-number">2.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proto"><span class="nav-number">2.2.</span> <span class="nav-text">__proto__</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么叫原型链？"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么叫原型链？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型模式的缺点"><span class="nav-number">2.2.2.</span> <span class="nav-text">原型模式的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合使用「构造函数模式」和「原型模式」"><span class="nav-number">3.</span> <span class="nav-text">组合使用「构造函数模式」和「原型模式」</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#constructor-属性"><span class="nav-number">3.0.1.</span> <span class="nav-text">constructor 属性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数模式"><span class="nav-number">1.</span> <span class="nav-text">构造函数模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的特点"><span class="nav-number">1.0.1.</span> <span class="nav-text">构造函数的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数与普通函数的区别"><span class="nav-number">1.0.2.</span> <span class="nav-text">构造函数与普通函数的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的缺点"><span class="nav-number">1.0.3.</span> <span class="nav-text">构造函数的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-number">1.0.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">2.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是共有属性？"><span class="nav-number">2.0.1.</span> <span class="nav-text">什么是共有属性？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prototype"><span class="nav-number">2.1.</span> <span class="nav-text">prototype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proto"><span class="nav-number">2.2.</span> <span class="nav-text">__proto__</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么叫原型链？"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么叫原型链？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#默认原型"><span class="nav-number">2.2.2.</span> <span class="nav-text">默认原型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型模式的缺点"><span class="nav-number">2.2.3.</span> <span class="nav-text">原型模式的缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合使用「构造函数模式」和「原型模式」"><span class="nav-number">3.</span> <span class="nav-text">组合使用「构造函数模式」和「原型模式」</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#constructor-属性"><span class="nav-number">3.0.1.</span> <span class="nav-text">constructor 属性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
