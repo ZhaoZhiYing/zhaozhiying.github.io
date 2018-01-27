@@ -97,15 +97,15 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6894597cc45.png
 ">
+<meta property="og:image" content="https://i.loli.net/2018/01/27/5a6c49bee3322.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
+">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">
-<meta property="og:image" content="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
-">
-<meta property="og:updated_time" content="2018-01-26T13:56:48.000Z">
+<meta property="og:updated_time" content="2018-01-27T10:16:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 内存">
 <meta name="twitter:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
@@ -379,27 +379,12 @@ document.body.onclick = null
 <li>解决办法：页面关闭前，将所有事件 = null</li>
 </ul>
 <hr>
-<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>深拷贝</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a 
-b.name = &quot;zhao&quot;;  
-//a.name = &quot;tang&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
-">    </p>
-<p>浅拷贝</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a
-b.name = &quot;zhao&quot;
-//a.name = &quot;zhao&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">    </p>
-<hr>
-<h3 id="基本类型和复杂类型的区别"><a href="#基本类型和复杂类型的区别" class="headerlink" title="基本类型和复杂类型的区别"></a>基本类型和复杂类型的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
-<pre><code>var n1 = new Number(1)
-var n2 = 1
-</code></pre><p>n1 和 n2 的区别，内存如下：</p>
-<p><img src="https://i.loli.net/2018/01/25/5a69b9baf25fc.png
+<h3 id="基本类型（值）和复杂类型（引用）的区别"><a href="#基本类型（值）和复杂类型（引用）的区别" class="headerlink" title="基本类型（值）和复杂类型（引用）的区别"></a>基本类型（值）和复杂类型（引用）的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
+<h5 id="区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"><a href="#区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。" class="headerlink" title="区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"></a>区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var n1 = new object()</div><div class="line">var n2 = 1</div></pre></td></tr></table></figure>
+<p>n1 和 n2 在内存的情况如下：</p>
+<p><img src="https://i.loli.net/2018/01/27/5a6c49bee3322.png
 "></p>
+<p>值得注意的是：</p>
 <ul>
 <li>由于历史原因要求<code>JS</code>长得像<code>Java</code>，故发明了<code>var n = new Number(1)</code>这种写法。</li>
 <li>但是<code>var n = 1</code>这种写法更简单，这种写法有个缺点：因为基本类型没有属性，不能使用<code>toString</code>方法。</li>
@@ -407,8 +392,29 @@ var n2 = 1
 </ul>
 <p><img src="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
 "></p>
+<p>引用《JavaScript 高级程序设计》里的话来总结：</p>
+<ul>
+<li>为了便于操作基本类型值，<code>ECMAScript</code> 还提供了3个特殊的引用类型（也叫基本包装类型），分别是 <code>Boolean</code> <code>Number</code> <code>String</code> 。这些类型与其他引用类型相似，同时具有各自的基本类型相应的特殊行为。</li>
+<li>引用类型与基本包装类型的主要区别就是对象的生存期。使用<code>new</code>操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。</li>
+</ul>
 <hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>对于基本类型来说，只有深拷贝。这里我们只讲对象。</p>
+<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>对于对象来说，深拷贝是指在<code>栈内存</code>中新增一个指针，并且在<code>堆内存</code>中申请了一个新的内存。</p>
+<pre><code>var a = {name:&quot;tang&quot;}
+var b = a 
+b.name = &quot;zhao&quot;;  
+//a.name = &quot;tang&quot;
+</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
+">    </p>
+<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>对于对象来说，浅拷贝只是在<code>栈内存</code>中新增一个指针指向原有的内存，只是拷贝了内存地址（<code>Heap</code>地址）。</p>
+<pre><code>var a = {name:&quot;tang&quot;}
+var b = a
+b.name = &quot;zhao&quot;
+//a.name = &quot;zhao&quot;
+</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
+">    </p>
+<h5 id="如何实现深拷贝？（后续来补）"><a href="#如何实现深拷贝？（后续来补）" class="headerlink" title="如何实现深拷贝？（后续来补）"></a>如何实现深拷贝？（后续来补）</h5><hr>
+<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
 
       
     </div>
@@ -561,7 +567,7 @@ var n2 = 1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型和复杂类型的区别"><span class="nav-number">5.</span> <span class="nav-text">基本类型和复杂类型的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型（值）和复杂类型（引用）的区别"><span class="nav-number">4.</span> <span class="nav-text">基本类型（值）和复杂类型（引用）的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"><span class="nav-number">4.0.1.</span> <span class="nav-text">区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">5.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#深拷贝"><span class="nav-number">5.0.1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅拷贝"><span class="nav-number">5.0.2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何实现深拷贝？（后续来补）"><span class="nav-number">5.0.3.</span> <span class="nav-text">如何实现深拷贝？（后续来补）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
