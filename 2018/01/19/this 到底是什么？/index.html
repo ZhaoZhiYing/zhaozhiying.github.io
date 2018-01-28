@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this 和 arguments">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/this 到底是什么？/index.html">
+<meta property="og:site_name" content="Zhao Zhiying">
+<meta property="og:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
+<meta property="og:updated_time" content="2018-01-28T15:00:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="this 和 arguments">
+<meta name="twitter:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/19/this 到底是什么？/"/>
+
+
+
+
+
+  <title>this 和 arguments | Zhao Zhiying</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhao Zhiying</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/this 到底是什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">this 和 arguments</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><ul>
+<li>无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）<code>this</code>都指代全局对象。</li>
+<li>在浏览器中，全局对象是<code>window</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message = 1</div><div class="line">console.log(this.message) // 1</div><div class="line">console.log(window.message) // 1</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><ul>
+<li><p>每个函数在被调用时都会自动取得两个特殊变量：<code>this</code> 和 <code>arguments</code>。除了箭头函数。</p>
+</li>
+<li><p><code>this</code>是函数的第一个参数（且必须是对象）,<code>arguments</code>是函数的第二个参数（包装成一个数组[]）。</p>
+</li>
+<li><p><code>this</code>是参数，所以只有在调用的时候才能确定。</p>
+</li>
+<li><p><code>this</code>为什么必须是对象，因为<code>this</code>就是函数与对象之间的羁绊。</p>
+</li>
+</ul>
+<h5 id="普通模式：如果this是undefined或null，浏览器会把this变成window"><a href="#普通模式：如果this是undefined或null，浏览器会把this变成window" class="headerlink" title="普通模式：如果this是undefined或null，浏览器会把this变成window"></a>普通模式：如果<code>this</code>是<code>undefined</code>或<code>null</code>，浏览器会把<code>this</code>变成<code>window</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">	console.log(this)</div><div class="line">	console.log(arguments)</div><div class="line">&#125;</div><div class="line">f.call() // this 是 window</div><div class="line">f.call(null) // this 是 window</div><div class="line">f.call(undefined) // this 是 window</div></pre></td></tr></table></figure>
+<h5 id="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><a href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。" class="headerlink" title="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"></a>严格模式：默认第一个参数是<code>undefined</code>。如果传了第一个参数，那传什么<code>this</code>就是什么。</h5><p>发明<code>JS</code>时，被要求要长得像<code>Java</code>，让<code>Java</code>程序员来学<code>JS</code>，但是他们发现<code>this</code>多余，就有了 <code>use strict</code> 严格模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">	// 严格模式</div><div class="line">  	&apos;use strict&apos;;</div><div class="line">	console.log(this)</div><div class="line">	console.log(arguments)</div><div class="line">&#125;</div><div class="line">f.call() // this 是 undefined</div><div class="line">f.call(null) // this 是 null</div><div class="line">f.call(undefined) // this 是 undefined</div><div class="line">f.call(&#123;name:&apos;frank&apos;&#125;) // &#123;name: &apos;frank&apos;&#125;, []</div><div class="line">f.call(&#123;name:&apos;frank&apos;&#125;,1,2) // &#123;name: &apos;frank&apos;&#125;, [1,2]</div></pre></td></tr></table></figure>
+<h5 id="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><a href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象" class="headerlink" title="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"></a>当以对象里的方法的方式调用函数时，它们的<code>this</code>是调用该函数的对象</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var message = &#123;</div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	Foo: function ()&#123;</div><div class="line">		console.log(message)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">message.Foo() // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div><div class="line">//等同于</div><div class="line">this.Foo() // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div><div class="line">//等同于</div><div class="line">this.Foo.call(this) // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div></pre></td></tr></table></figure>
+<h5 id="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><a href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。" class="headerlink" title="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"></a>当一个函数用作构造函数时（使用new关键字），它的<code>this</code>被绑定到正在构造的新对象。</h5><p>下面例子中，函数内的<code>this</code>被绑定到<code>human1</code>对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = &apos;zhao&apos;;</div><div class="line">	this.city = &apos;beijing&apos;;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo() </div><div class="line"></div><div class="line">human1.name // &quot;zhao&quot;</div><div class="line">human1.city // &quot;beijing&quot;</div></pre></td></tr></table></figure>
+<hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>) </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/15/「构造函数模式」和「原型模式」/" rel="next" title="「构造函数模式」和「原型模式」">
+                <i class="fa fa-chevron-left"></i> 「构造函数模式」和「原型模式」
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/23/ new 做了什么？/" rel="prev" title="new 做了什么？">
+                new 做了什么？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zhao Zhiying</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通模式：如果this是undefined或null，浏览器会把this变成window"><span class="nav-number">2.1.</span> <span class="nav-text">普通模式：如果this是undefined或null，浏览器会把this变成window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><span class="nav-number">2.2.</span> <span class="nav-text">严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><span class="nav-number">2.3.</span> <span class="nav-text">当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><span class="nav-number">2.4.</span> <span class="nav-text">当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Zhiying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
