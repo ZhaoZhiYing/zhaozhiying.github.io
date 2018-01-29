@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,161 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/29/AJAX/" itemprop="url">AJAX</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><ul>
+<li><code>form</code>可以发请求，但是会刷新页面或新开页面</li>
+<li><code>a</code>标签可以发<code>get</code>请求，但是会刷新页面或新开页面</li>
+<li><code>img</code> 可以发<code>get</code>请求，但是只能以图片的形式展示</li>
+<li><code>link</code>可以发<code>get</code>请求，但是只能以 <code>CSS</code> <code>favicon</code> 的形式展示</li>
+<li><code>script</code>可以发<code>get</code>请求，但是只能以脚本的形式运行</li>
+</ul>
+<p>那么问题来了，有没有什么方式可以实现？</p>
+<ul>
+<li><code>get</code> <code>post</code> <code>put</code> <code>delete</code> 请求都行</li>
+<li>想以什么形式展示就以什么形式展示</li>
+</ul>
+<h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
+<h5 id="AJAX诞生"><a href="#AJAX诞生" class="headerlink" title="AJAX诞生"></a><code>AJAX</code>诞生</h5><p>2005年，Jesse James Garrett 发表了一篇在线文章，在这篇文章里介绍了一种技术，叫 <code>AJAX</code>，是对 <code>Asynchronous JavaScript + XML</code> 的简写，译为异步的<code>JavaScript</code>和<code>XML</code>。</p>
+<ol>
+<li>使用 <code>XMLHttpRequest</code> 发请求</li>
+<li>服务器返回 <code>XML</code> 格式的字符串 (<code>XML</code>后来被<code>JSON</code>取代)</li>
+<li><code>JS</code> 解析 <code>XML</code>，并更新局部页面</li>
+</ol>
+<hr>
+<h4 id="XMLHTTPRequest"><a href="#XMLHTTPRequest" class="headerlink" title="XMLHTTPRequest"></a><code>XMLHTTPRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHTTPRequest</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">//main.js</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div><div class="line">    </div><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div><div class="line">   </div><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div><div class="line">```    </div><div class="line"></div><div class="line">`readyState`的五种状态，重点记住`4`</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png</div><div class="line">&apos;&gt;</div><div class="line"></div><div class="line">##### `XML`</div><div class="line">* 曾有一段时间，`XML`是互联网上传输结构化数据的事实标准。</div><div class="line"></div><div class="line">* 但是`XML`过于烦琐、冗长。为解决这个问题，涌现了一些方案。直到 2006年，`Douglas Crockford` 提出了 `JSON` 语言。</div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">#### `JSON`</div><div class="line">`JSON`是`JavaScript Object Notation`的简称，它是一种表示结构化数据的格式。相比`XML`，`JSON`是在`JavaScript`中读写结构化数据的更好的方式。因为可以把`JSON`</div><div class="line"></div><div class="line">##### `JSON` 与 `JavaScript` 的关系</div><div class="line">`JSON` 和`JavaScript`是两种不同的语法，`JSON`参考了`JavaScript`。</div><div class="line"></div><div class="line">##### `JSON` 与 `JavaScript` 的区别</div><div class="line">1.`JSON`没有`function`和`undefined`。&lt;br/&gt;</div><div class="line">2.`JSON`字符串首尾必须使用双引号。&lt;br/&gt;</div></pre></td></tr></table></figure>
+<p>“Hello world”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3.与`JavaScript`的对象字面量相比，`JSON`对象有两处不同：&lt;br/&gt;</div><div class="line"></div><div class="line">* `JSON`没有变量的概念，一个对象以`&#123;`开始并以`&#125;`结束。并且没有末尾的分号。</div><div class="line">* `JSON`中对象的属性名必须加双引号。</div></pre></td></tr></table></figure></p>
+<p>{“name”: “zhao”, “age”: 18}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4.`JSON`的数组也没有变量和分号，一个数组以`[`开始并以`]`结束。</div></pre></td></tr></table></figure></p>
+<p>[“name”, 18, true]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.`JSON`中没有原型链。</div><div class="line"></div><div class="line">---</div><div class="line">#### 同源策略与`CORS`跨域</div><div class="line">##### 同源策略</div><div class="line">只有 协议+端口+域名 一模一样才允许发 `AJAX` 请求，如下：</div></pre></td></tr></table></figure></p>
+<p><a href="http://baidu.com" target="_blank" rel="external">http://baidu.com</a> 可以向 <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a> 发 AJAX 请求吗 //no<br><a href="http://baidu.com:80" target="_blank" rel="external">http://baidu.com:80</a> 可以向 <a href="http://baidu.com:81" target="_blank" rel="external">http://baidu.com:81</a> 发 AJAX 请求吗 //no<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `CORS`</div><div class="line"></div><div class="line">* 只有 协议+端口+域名 一模一样才允许发 `AJAX` 请求</div><div class="line">* `CORS` 可以告诉浏览器，我俩一家的，别阻止他</div><div class="line">* `CORS`是`Cross-Origin Resource Sharing`的简称，译为跨源资源共享。</div></pre></td></tr></table></figure></p>
+<p>// 后端代码（JSON）<br>}else if(path === ‘/xxx’){<br> response.statusCode = 200<br> response.setHeader(‘Content-Type’, ‘text/XML’)<br> response.setHeader(‘Access-Control-Allow-Origin’, ‘<a href="http://frank.com:8001&#39;)//CORS" target="_blank" rel="external">http://frank.com:8001&#39;)//CORS</a><br> response.write(<code>{
+     &quot;note&quot;:{
+        &quot;to&quot;: &quot;糖糖&quot;,
+        &quot;from&quot;: &quot;照照&quot;,
+        &quot;heading&quot;: &quot;哈喽&quot;,
+        &quot;content&quot;: &quot;你好吗&quot;
+      }
+    }</code>)<br> response.end()<br>}<br>```</p>
+<hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +412,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -436,7 +591,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
                 2018-01-19
@@ -579,7 +734,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
                 2018-01-15
@@ -783,7 +938,7 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -968,161 +1123,6 @@ b.name = &quot;zhao&quot;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/AJAX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/09/AJAX/" itemprop="url">AJAX</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
-                2018-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><ul>
-<li><code>form</code>可以发请求，但是会刷新页面或新开页面</li>
-<li><code>a</code>标签可以发<code>get</code>请求，但是会刷新页面或新开页面</li>
-<li><code>img</code> 可以发<code>get</code>请求，但是只能以图片的形式展示</li>
-<li><code>link</code>可以发<code>get</code>请求，但是只能以 <code>CSS</code> <code>favicon</code> 的形式展示</li>
-<li><code>script</code>可以发<code>get</code>请求，但是只能以脚本的形式运行</li>
-</ul>
-<p>那么问题来了，有没有什么方式可以实现？</p>
-<ul>
-<li><code>get</code> <code>post</code> <code>put</code> <code>delete</code> 请求都行</li>
-<li>想以什么形式展示就以什么形式展示</li>
-</ul>
-<h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
-<h5 id="AJAX诞生"><a href="#AJAX诞生" class="headerlink" title="AJAX诞生"></a><code>AJAX</code>诞生</h5><p>2005年，Jesse James Garrett 发表了一篇在线文章，在这篇文章里介绍了一种技术，叫 <code>AJAX</code>，是对 <code>Asynchronous JavaScript + XML</code> 的简写，译为异步的<code>JavaScript</code>和<code>XML</code>。</p>
-<ol>
-<li>使用 <code>XMLHttpRequest</code> 发请求</li>
-<li>服务器返回 <code>XML</code> 格式的字符串 (<code>XML</code>后来被<code>JSON</code>取代)</li>
-<li><code>JS</code> 解析 <code>XML</code>，并更新局部页面</li>
-</ol>
-<hr>
-<h4 id="XMLHTTPRequest"><a href="#XMLHTTPRequest" class="headerlink" title="XMLHTTPRequest"></a><code>XMLHTTPRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHTTPRequest</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">//main.js</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div><div class="line">    </div><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div><div class="line">   </div><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div><div class="line">```    </div><div class="line"></div><div class="line">`readyState`的五种状态，重点记住`4`</div><div class="line"></div><div class="line">&lt;img src=&apos;https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png</div><div class="line">&apos;&gt;</div><div class="line"></div><div class="line">##### `XML`</div><div class="line">* 曾有一段时间，`XML`是互联网上传输结构化数据的事实标准。</div><div class="line"></div><div class="line">* 但是`XML`过于烦琐、冗长。为解决这个问题，涌现了一些方案。直到 2006年，`Douglas Crockford` 提出了 `JSON` 语言。</div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">#### `JSON`</div><div class="line">`JSON`是`JavaScript Object Notation`的简称，它是一种表示结构化数据的格式。相比`XML`，`JSON`是在`JavaScript`中读写结构化数据的更好的方式。因为可以把`JSON`</div><div class="line"></div><div class="line">##### `JSON` 与 `JavaScript` 的关系</div><div class="line">`JSON` 和`JavaScript`是两种不同的语法，`JSON`参考了`JavaScript`。</div><div class="line"></div><div class="line">##### `JSON` 与 `JavaScript` 的区别</div><div class="line">1.`JSON`没有`function`和`undefined`。&lt;br/&gt;</div><div class="line">2.`JSON`字符串首尾必须使用双引号。&lt;br/&gt;</div></pre></td></tr></table></figure>
-<p>“Hello world”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3.与`JavaScript`的对象字面量相比，`JSON`对象有两处不同：&lt;br/&gt;</div><div class="line"></div><div class="line">* `JSON`没有变量的概念，一个对象以`&#123;`开始并以`&#125;`结束。并且没有末尾的分号。</div><div class="line">* `JSON`中对象的属性名必须加双引号。</div></pre></td></tr></table></figure></p>
-<p>{“name”: “zhao”, “age”: 18}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4.`JSON`的数组也没有变量和分号，一个数组以`[`开始并以`]`结束。</div></pre></td></tr></table></figure></p>
-<p>[“name”, 18, true]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.`JSON`中没有原型链。</div><div class="line"></div><div class="line">---</div><div class="line">#### 同源策略与`CORS`跨域</div><div class="line">##### 同源策略</div><div class="line">只有 协议+端口+域名 一模一样才允许发 `AJAX` 请求，如下：</div></pre></td></tr></table></figure></p>
-<p><a href="http://baidu.com" target="_blank" rel="external">http://baidu.com</a> 可以向 <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a> 发 AJAX 请求吗 //no<br><a href="http://baidu.com:80" target="_blank" rel="external">http://baidu.com:80</a> 可以向 <a href="http://baidu.com:81" target="_blank" rel="external">http://baidu.com:81</a> 发 AJAX 请求吗 //no<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `CORS`</div><div class="line"></div><div class="line">* 只有 协议+端口+域名 一模一样才允许发 `AJAX` 请求</div><div class="line">* `CORS` 可以告诉浏览器，我俩一家的，别阻止他</div><div class="line">* `CORS`是`Cross-Origin Resource Sharing`的简称，译为跨源资源共享。</div></pre></td></tr></table></figure></p>
-<p>// 后端代码（JSON）<br>}else if(path === ‘/xxx’){<br> response.statusCode = 200<br> response.setHeader(‘Content-Type’, ‘text/XML’)<br> response.setHeader(‘Access-Control-Allow-Origin’, ‘<a href="http://frank.com:8001&#39;)//CORS" target="_blank" rel="external">http://frank.com:8001&#39;)//CORS</a><br> response.write(<code>{
-     &quot;note&quot;:{
-        &quot;to&quot;: &quot;糖糖&quot;,
-        &quot;from&quot;: &quot;照照&quot;,
-        &quot;heading&quot;: &quot;哈喽&quot;,
-        &quot;content&quot;: &quot;你好吗&quot;
-      }
-    }</code>)<br> response.end()<br>}<br>```</p>
-<hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/07/JS 的三大对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1152,7 +1152,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -1303,7 +1303,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -1466,7 +1466,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1914,7 +1914,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -2154,7 +2154,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -2323,7 +2323,7 @@ a.call()
                 <a href="/archives/">
               
                   <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2375,7 +2375,7 @@ a.call()
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
