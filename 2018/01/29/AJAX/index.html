@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="历史背景如何发请求？ form可以发请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete 请求都行 想以什">
+<meta name="description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="http://yoursite.com/2018/01/29/AJAX/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="历史背景如何发请求？ form可以发请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete 请求都行 想以什">
+<meta property="og:description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
 <meta property="og:image" content="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
 ">
-<meta property="og:updated_time" content="2018-01-29T15:58:37.000Z">
+<meta property="og:updated_time" content="2018-01-30T12:46:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX">
-<meta name="twitter:description" content="历史背景如何发请求？ form可以发请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete 请求都行 想以什">
+<meta name="twitter:description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
 <meta name="twitter:image" content="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
 ">
 
@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -262,7 +262,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -303,7 +303,7 @@
 
       
         <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><ul>
-<li><code>form</code>可以发请求，但是会刷新页面或新开页面</li>
+<li><code>form</code>可以发<code>get</code> <code>post</code>请求，但是会刷新页面或新开页面</li>
 <li><code>a</code>标签可以发<code>get</code>请求，但是会刷新页面或新开页面</li>
 <li><code>img</code> 可以发<code>get</code>请求，但是只能以图片的形式展示</li>
 <li><code>link</code>可以发<code>get</code>请求，但是只能以 <code>CSS</code> <code>favicon</code> 的形式展示</li>
@@ -322,7 +322,7 @@
 <li><code>JS</code> 解析 <code>XML</code>，并更新局部页面</li>
 </ol>
 <hr>
-<h4 id="XMLHTTPRequest"><a href="#XMLHTTPRequest" class="headerlink" title="XMLHTTPRequest"></a><code>XMLHTTPRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHTTPRequest</code>）</p>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><code>XMLHttpRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHttpRequest</code>）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//main.js</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -352,10 +352,10 @@
 <hr>
 <h4 id="同源策略与CORS跨域"><a href="#同源策略与CORS跨域" class="headerlink" title="同源策略与CORS跨域"></a>同源策略与<code>CORS</code>跨域</h4><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://baidu.com 可以向 http://www.baidu.com 发 AJAX 请求吗 //no</div><div class="line">http://baidu.com:80 可以向 http://baidu.com:81 发 AJAX 请求吗 //no</div></pre></td></tr></table></figure>
-<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><ul>
+<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><p><code>CORS</code>是跨源资源分享（<code>Cross-Origin Resource Sharing</code>）的缩写，译为跨源资源共享。它是<code>W3C</code>标准，是跨源<code>AJAX</code>请求的根本解决方法。相比<code>JSONP</code>只能发<code>GET</code>请求，<code>CORS</code>允许任何类型的请求。</p>
+<ul>
 <li>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求</li>
-<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他</li>
-<li><code>CORS</code>是<code>Cross-Origin Resource Sharing</code>的简称，译为跨源资源共享。</li>
+<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)//CORS</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
@@ -384,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/23/ new 做了什么？/" rel="next" title="new 做了什么？">
-                <i class="fa fa-chevron-left"></i> new 做了什么？
+              <a href="/2018/01/25/JSONP/" rel="next" title="JSONP">
+                <i class="fa fa-chevron-left"></i> JSONP
               </a>
             
           </div>
@@ -446,10 +446,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -469,8 +469,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -508,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#历史背景"><span class="nav-number">1.</span> <span class="nav-text">历史背景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何发请求？"><span class="nav-number">1.1.</span> <span class="nav-text">如何发请求？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#微软的突破"><span class="nav-number">1.2.</span> <span class="nav-text">微软的突破</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AJAX诞生"><span class="nav-number">1.3.</span> <span class="nav-text">AJAX诞生</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XMLHTTPRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHTTPRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">2.1.</span> <span class="nav-text">XML</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的关系"><span class="nav-number">3.1.</span> <span class="nav-text">JSON 与 JavaScript 的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的区别"><span class="nav-number">3.2.</span> <span class="nav-text">JSON 与 JavaScript 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同源策略与CORS跨域"><span class="nav-number">4.</span> <span class="nav-text">同源策略与CORS跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">4.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CORS"><span class="nav-number">4.2.</span> <span class="nav-text">CORS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#历史背景"><span class="nav-number">1.</span> <span class="nav-text">历史背景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何发请求？"><span class="nav-number">1.1.</span> <span class="nav-text">如何发请求？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#微软的突破"><span class="nav-number">1.2.</span> <span class="nav-text">微软的突破</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AJAX诞生"><span class="nav-number">1.3.</span> <span class="nav-text">AJAX诞生</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">2.1.</span> <span class="nav-text">XML</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的关系"><span class="nav-number">3.1.</span> <span class="nav-text">JSON 与 JavaScript 的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的区别"><span class="nav-number">3.2.</span> <span class="nav-text">JSON 与 JavaScript 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同源策略与CORS跨域"><span class="nav-number">4.</span> <span class="nav-text">同源策略与CORS跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">4.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CORS"><span class="nav-number">4.2.</span> <span class="nav-text">CORS</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -538,7 +538,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

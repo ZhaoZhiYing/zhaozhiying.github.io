@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -300,7 +300,7 @@
         
           
             <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><ul>
-<li><code>form</code>可以发请求，但是会刷新页面或新开页面</li>
+<li><code>form</code>可以发<code>get</code> <code>post</code>请求，但是会刷新页面或新开页面</li>
 <li><code>a</code>标签可以发<code>get</code>请求，但是会刷新页面或新开页面</li>
 <li><code>img</code> 可以发<code>get</code>请求，但是只能以图片的形式展示</li>
 <li><code>link</code>可以发<code>get</code>请求，但是只能以 <code>CSS</code> <code>favicon</code> 的形式展示</li>
@@ -319,7 +319,7 @@
 <li><code>JS</code> 解析 <code>XML</code>，并更新局部页面</li>
 </ol>
 <hr>
-<h4 id="XMLHTTPRequest"><a href="#XMLHTTPRequest" class="headerlink" title="XMLHTTPRequest"></a><code>XMLHTTPRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHTTPRequest</code>）</p>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><code>XMLHttpRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHttpRequest</code>）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//main.js</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -349,14 +349,183 @@
 <hr>
 <h4 id="同源策略与CORS跨域"><a href="#同源策略与CORS跨域" class="headerlink" title="同源策略与CORS跨域"></a>同源策略与<code>CORS</code>跨域</h4><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://baidu.com 可以向 http://www.baidu.com 发 AJAX 请求吗 //no</div><div class="line">http://baidu.com:80 可以向 http://baidu.com:81 发 AJAX 请求吗 //no</div></pre></td></tr></table></figure>
-<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><ul>
+<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><p><code>CORS</code>是跨源资源分享（<code>Cross-Origin Resource Sharing</code>）的缩写，译为跨源资源共享。它是<code>W3C</code>标准，是跨源<code>AJAX</code>请求的根本解决方法。相比<code>JSONP</code>只能发<code>GET</code>请求，<code>CORS</code>允许任何类型的请求。</p>
+<ul>
 <li>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求</li>
-<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他</li>
-<li><code>CORS</code>是<code>Cross-Origin Resource Sharing</code>的简称，译为跨源资源共享。</li>
+<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)//CORS</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/JSONP/" itemprop="url">JSONP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="数据库是什么？"><a href="#数据库是什么？" class="headerlink" title="数据库是什么？"></a>数据库是什么？</h4><p>只要能长久地存数据，就是数据库</p>
+<ol>
+<li>文件系统是一种数据库</li>
+<li><code>MySQL</code> 是一种数据库</li>
+</ol>
+<hr>
+<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
+<p>所谓”同源”指的是”三个相同”：</p>
+<ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<p>如果非同源，共有三种行为受到限制。</p>
+<ul>
+<li><code>Cookie</code> <code>LocalStorage</code> 和 <code>IndexDB</code> 无法读取。</li>
+<li><code>DOM</code> 无法获得。</li>
+<li><code>AJAX</code> 请求不能发送。</li>
+</ul>
+<p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
+<ul>
+<li><code>JSONP</code></li>
+<li><code>WebSocket</code></li>
+<li><code>CORS</code></li>
+</ul>
+<p>这里，我们主要讲 <code>JSONP</code>。</p>
+<hr>
+<h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//方案二：用 script 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    script.src = &apos;/pay&apos;</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(&apos;amount.innerText = &apos; + amount)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>无刷新，局部更新页面内容，这种技术叫做<code>SRJ</code> - <code>Server Rendered JavaScript</code></p>
+<hr>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h4><h5 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP?"></a>什么是 <code>JSONP</code>?</h5><ul>
+<li><code>JSONP</code>是<code>JSON with Padding</code>的简称。</li>
+<li><code>JSONP</code> 是服务器与客户端跨源通信的常用方法。是指动态创建 <code>script</code>，并调用我给你的<code>callback</code>技术。详细过程如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 请求方：frank.com 的前端程序员（浏览器）</div><div class="line">* 响应方：jack.com 的后端程序员（服务器）</div><div class="line"></div><div class="line">1. 请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=xxx ，xxx 是随机数。</div><div class="line">2. 响应方根据查询参数 callbackName ，构造形式如 xxx.call(undefined, &apos;你要的数据&apos;) 这样的响应。</div><div class="line">3. 浏览器接收到响应，就会执行 xxx.call(undefined, &apos;你要的数据&apos;)。 </div><div class="line">4. 那么请求方就知道了他要的数据。</div></pre></td></tr></table></figure>
+<p>约定</p>
+<ul>
+<li><code>callbackName</code> 约定叫做 <code>callback</code> </li>
+<li><code>xxx</code> 是随机数，比如：<code>&#39;frank&#39;+ parseInt(Math.random() * 100000,10)</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//方案三：JSONP</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    let functionName = &apos;frank&apos;+ parseInt(Math.random()*10000000 ,10)</div><div class="line">    window[functionName] = function()&#123;  // 每次请求之前搞出一个随机的函数</div><div class="line">        amount.innerText = amount.innerText - 0 - 1</div><div class="line">    &#125;</div><div class="line">    script.src = &apos;/pay?callback=&apos; + functionName</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"> //上面代码用 jQuery 写</div><div class="line"> $.ajax(&#123;</div><div class="line"> url: &quot;http://jack.com:8002/pay&quot;,</div><div class="line"> dataType: &quot;jsonp&quot;,</div><div class="line">	 success: function( response ) &#123;</div><div class="line">	     if(response === &apos;success&apos;)&#123;</div><div class="line">	    	 amount.innerText = amount.innerText - 1</div><div class="line">	     &#125;</div><div class="line">	 &#125;</div><div class="line"> &#125;)</div><div class="line"> $.jsonp()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    let callbackName = query.callback</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(`</div><div class="line">        $&#123;callbackName&#125;.call(undefined, &apos;success&apos;)</div><div class="line">    `)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="JSONP-为什么不支持-POST-请求？"><a href="#JSONP-为什么不支持-POST-请求？" class="headerlink" title="JSONP 为什么不支持 POST 请求？"></a><code>JSONP</code> 为什么不支持 <code>POST</code> 请求？</h5><p><code>JSONP</code>是通过动态创建 <code>script</code> 实现的，<code>script</code>标签的<code>src</code>属性没有跨域的限制。如果用<code>post</code>，就会检查是否跨域。</p>
+<hr>
+<p>参考：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">阮一峰 - 浏览器同源政策及其规避方法</a></p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
 
           
         
@@ -434,7 +603,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -613,7 +782,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
                 2018-01-19
@@ -756,7 +925,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
                 2018-01-15
@@ -960,7 +1129,7 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -1174,7 +1343,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -1325,7 +1494,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -1488,7 +1657,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1936,7 +2105,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -2134,171 +2303,11 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/JS 函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/29/JS 函数/" itemprop="url">JS 函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
-                2017-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
-<hr>
-<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令-函数声明"><a href="#1-function命令-函数声明" class="headerlink" title="1.function命令(函数声明)"></a>1.function命令(函数声明)</h5><pre><code>function print(s) {   //print是函数名，也叫标识符
-console.log(s);   //这是函数体
-} //函数的声明在结尾的大括号后面不用加分号    
-</code></pre><h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><pre><code>var print = function (s) { //这个匿名函数又称函数表达式
-console.log(s); 
- }; //函数的表达式需要在语句的结尾加上分号，表示语句结束     
-</code></pre><p>注意：采用函数表达式声明函数时，function命令后面不带有函数名。<br>      如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。</p>
-<pre><code>var print = function x(){
-  console.log(typeof x);
-};
-x// ReferenceError: x is not defined
-print()// function    
-</code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function  f(s) { 
-  console.log(s); 
-};    
-</code></pre><h5 id="4-Function构造函数（一般不用）"><a href="#4-Function构造函数（一般不用）" class="headerlink" title="4.Function构造函数（一般不用）"></a>4.<code>Function</code>构造函数（一般不用）</h5><pre><code>var add = new Function(
-  &apos;x&apos;,
-  &apos;y&apos;,
-  &apos;return x + y&apos;
-);
-// 等同于
-function add(x, y) {
-  return x + y;
-} 
-</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名) (x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名) (x , y) =&gt; { return x + y }</h5><ul>
-<li>引入箭头函数有两个方面的作用：更简短的函数并且不绑定this</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div></pre></td><td class="code"><pre><div class="line">(参数1, 参数2, …, 参数N) =&gt; &#123;函数声明&#125;</div><div class="line">(参数1, 参数2, …, 参数N) =&gt; 表达式（单一）</div><div class="line">//相当于：(参数1, 参数2, …, 参数N) =&gt;&#123; return表达式&#125;</div><div class="line">	</div><div class="line">// 当只有一个参数时，圆括号是可选的：</div><div class="line">(单一参数) =&gt; &#123;函数声明&#125;</div><div class="line">单一参数 =&gt; &#123;函数声明&#125;</div><div class="line">	</div><div class="line">// 没有参数的函数应该写成一对圆括号。</div><div class="line">() =&gt; &#123;函数声明&#125;</div><div class="line">```	</div><div class="line"></div><div class="line">##### `function print()&#123;&#125;`和`var s = function print()&#123;&#125;`区别</div><div class="line"></div><div class="line">	不一致性</div><div class="line">	输入console.log(print)时：</div><div class="line">	function print()&#123;&#125;可以访问，var s = function print()&#123;&#125;不能访问</div><div class="line">	</div><div class="line">-------</div><div class="line"></div><div class="line">#### 函数的属性和方法</div><div class="line">##### `name`属性</div><div class="line">`name`属性返回紧跟在`function`关键字之后的那个函数名。</div><div class="line"></div><div class="line">	function f1() &#123;&#125;; f1.name // &apos;f1&apos;</div><div class="line">	var f2 = function () &#123;&#125;; f2.name // ‘f2’</div><div class="line">	var f3 = function f4() &#123;&#125;; f3.name // ‘f4’</div><div class="line">	f5 = new Function(&apos;x&apos;, &apos;y&apos;,&apos;return x + y’)&#123;&#125;;   </div><div class="line">	f5.name//‘anonymous’ (匿名) </div><div class="line">  </div><div class="line">##### `length`属性</div><div class="line">`length`属性返回函数预先定义的参数个数。</div><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 函数作用域</div><div class="line">##### 定义</div><div class="line">作用域（scope）指的是变量存在的范围。Javascript 只有两种作用域：</div><div class="line"></div><div class="line">	(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；</div><div class="line">	     在函数外部声明的变量就是全局变量。</div><div class="line">	     </div><div class="line">	(2)函数作用域：在函数内部定义的变量，外部无法读取。</div><div class="line"></div><div class="line">注意：函数内部定义的变量，会在该作用域内覆盖同名全局变量。</div><div class="line">     对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一	  律都是全局变量。</div><div class="line">       </div><div class="line">-------  </div><div class="line">#### 函数内部的变量提升</div><div class="line">`var`命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</div><div class="line"></div><div class="line">	function foo(x) &#123;</div><div class="line">	  if (x &gt; 100) &#123;</div><div class="line">	    var tmp = x - 100; //会升到函数体头部</div><div class="line">	  &#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">-------</div><div class="line"></div><div class="line">#### `return`</div><div class="line">每个函数都有`return`</div><div class="line">如果你不写`return`，就相当于写了`return undefined`</div><div class="line">	</div><div class="line">-------</div><div class="line"></div><div class="line">#### 递归</div><div class="line">递归函数是一个直接或间接调用函数自身的嵌套型函数。</div><div class="line"></div><div class="line">	function fn(num) &#123;</div><div class="line">	  if (num === 0) return 0;</div><div class="line">	  if (num === 1) return 1;</div><div class="line">	  return fn(num - 2) + fn(num - 1);</div><div class="line">	&#125;</div><div class="line">	fn(6) // 8</div><div class="line"></div><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 闭包</div><div class="line">##### 什么是闭包</div><div class="line">“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</div><div class="line">`JavaScript`有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</div><div class="line"></div><div class="line">	function f1() &#123;</div><div class="line">	  var n = 1;</div><div class="line">	  function f2() &#123;</div><div class="line">	    console.log(n);</div><div class="line">	  &#125;</div><div class="line">	  return f2;</div><div class="line">	&#125; </div><div class="line">	//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div><div class="line"></div><div class="line">##### 闭包的用途</div><div class="line">1.从外部读取函数内部的变量。</div><div class="line"></div><div class="line">	function f1() &#123;</div><div class="line">	  var n = 9;</div><div class="line">	  function f2() &#123;</div><div class="line">	    console.log(n);</div><div class="line">	  &#125;</div><div class="line">	  return f2;</div><div class="line">	&#125; </div><div class="line">	var result = f1();</div><div class="line">	result(); // 9</div><div class="line">	//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。</div><div class="line"></div><div class="line">2.让这些变量始终保持在内存中。不会被垃圾机制回收。</div><div class="line"></div><div class="line">	function f1(n) &#123;</div><div class="line">	  return function () &#123;</div><div class="line">	    return n++;</div><div class="line">	  &#125;;</div><div class="line">	&#125;</div><div class="line">	var a1 = f1(1);</div><div class="line">	a1() // 1</div><div class="line">	a1() // 2</div><div class="line">	a1() // 3</div><div class="line">	//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。</div><div class="line"></div><div class="line">3.封装对象的私有属性和私有方法。</div><div class="line"></div><div class="line">	function f1(n) &#123;</div><div class="line">	  return function () &#123;</div><div class="line">	    return n++;</div><div class="line">	  &#125;;</div><div class="line">	&#125;</div><div class="line">	var a1 = f1(1);</div><div class="line">	a1() // 1</div><div class="line">	a1() // 2</div><div class="line">	a1() // 3</div><div class="line">	var a2 = f1(5);</div><div class="line">	a2() // 5</div><div class="line">	a2() // 6</div><div class="line">	a2() // 7</div><div class="line">	//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。</div><div class="line">-------</div><div class="line"></div><div class="line">#### 调用函数</div><div class="line">##### `call`</div><div class="line">`call`是函数的正常调用方式，并指定上下文`this`。</div><div class="line"></div><div class="line">##### `apply`</div><div class="line">`apply`的作用和`call`一样，只是在调用的时候，传参数的方式不同。</div><div class="line">`apply`接受的是数组参数，`call`接受的是连续参数。如下代码：</div></pre></td></tr></table></figure>
-<p>function add(a,b){<br>    return a+b;<br>}<br>add.call(add, 5, 3); //8<br>add.apply(add, [5, 3]); //8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">##### `bind`</div><div class="line">`bind` 接受的参数跟 `call` 一致，只是 `bind` 不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</div><div class="line"></div><div class="line">```	</div><div class="line">function add(a, b)&#123;</div><div class="line">    return a+b;</div><div class="line">&#125;</div><div class="line">var foo1 = add.bind(add, 5,3); </div><div class="line">foo1(); //8</div><div class="line">var foo1 = add.bind(add, 5,3); </div><div class="line">foo1(); //8</div><div class="line">```	    </div><div class="line">-------</div><div class="line"></div><div class="line">##### `eval()`</div><div class="line"> * `eval()`函数会将传入的字符串当做`JavaScript`代码进行执行。</div><div class="line"> * 语法：`eval(string)`</div><div class="line"> * 如果字符串表示的是表达式，`eval()`会对表达式进行求值。</div><div class="line"> * 如果参数表示一个或多个`JavaScript语句`， 那么`eval()`就会执行这些语句。</div></pre></td></tr></table></figure></p>
-<p>eval(‘var a = 1;’)<br>a // 1</p>
-<h2 id=""><a href="#" class="headerlink" title="```"></a>```</h2><h5 id="Call-Stack先入后出"><a href="#Call-Stack先入后出" class="headerlink" title="Call Stack先入后出"></a><code>Call Stack</code>先入后出</h5><p><code>call stack</code>调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
-<pre><code>function a(){
-    console.log(‘a’)
-    return a
-}
-a.call() 
-</code></pre><p>当调用时，<code>a.call()</code>会被记在 call stack 里。接着 <code>console.log(‘a’)</code> 记在 call stack 里。<code>return a</code> 到这一步时<code>console.log(‘a’)</code>会存在<code>a.call()</code>里，最后<code>a.call()</code>退出</p>
-<hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2344,8 +2353,8 @@ a.call()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2397,7 +2406,7 @@ a.call()
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

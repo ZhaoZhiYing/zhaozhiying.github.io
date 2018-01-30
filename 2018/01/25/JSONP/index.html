@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSONP">
+<meta property="og:url" content="http://yoursite.com/2018/01/25/JSONP/index.html">
+<meta property="og:site_name" content="Zhao Zhiying">
+<meta property="og:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
+<meta property="og:updated_time" content="2018-01-30T13:17:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSONP">
+<meta name="twitter:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/25/JSONP/"/>
+
+
+
+
+
+  <title>JSONP | Zhao Zhiying</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhao Zhiying</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JSONP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="数据库是什么？"><a href="#数据库是什么？" class="headerlink" title="数据库是什么？"></a>数据库是什么？</h4><p>只要能长久地存数据，就是数据库</p>
+<ol>
+<li>文件系统是一种数据库</li>
+<li><code>MySQL</code> 是一种数据库</li>
+</ol>
+<hr>
+<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
+<p>所谓”同源”指的是”三个相同”：</p>
+<ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<p>如果非同源，共有三种行为受到限制。</p>
+<ul>
+<li><code>Cookie</code> <code>LocalStorage</code> 和 <code>IndexDB</code> 无法读取。</li>
+<li><code>DOM</code> 无法获得。</li>
+<li><code>AJAX</code> 请求不能发送。</li>
+</ul>
+<p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
+<ul>
+<li><code>JSONP</code></li>
+<li><code>WebSocket</code></li>
+<li><code>CORS</code></li>
+</ul>
+<p>这里，我们主要讲 <code>JSONP</code>。</p>
+<hr>
+<h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//方案二：用 script 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    script.src = &apos;/pay&apos;</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(&apos;amount.innerText = &apos; + amount)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>无刷新，局部更新页面内容，这种技术叫做<code>SRJ</code> - <code>Server Rendered JavaScript</code></p>
+<hr>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h4><h5 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP?"></a>什么是 <code>JSONP</code>?</h5><ul>
+<li><code>JSONP</code>是<code>JSON with Padding</code>的简称。</li>
+<li><code>JSONP</code> 是服务器与客户端跨源通信的常用方法。是指动态创建 <code>script</code>，并调用我给你的<code>callback</code>技术。详细过程如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 请求方：frank.com 的前端程序员（浏览器）</div><div class="line">* 响应方：jack.com 的后端程序员（服务器）</div><div class="line"></div><div class="line">1. 请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=xxx ，xxx 是随机数。</div><div class="line">2. 响应方根据查询参数 callbackName ，构造形式如 xxx.call(undefined, &apos;你要的数据&apos;) 这样的响应。</div><div class="line">3. 浏览器接收到响应，就会执行 xxx.call(undefined, &apos;你要的数据&apos;)。 </div><div class="line">4. 那么请求方就知道了他要的数据。</div></pre></td></tr></table></figure>
+<p>约定</p>
+<ul>
+<li><code>callbackName</code> 约定叫做 <code>callback</code> </li>
+<li><code>xxx</code> 是随机数，比如：<code>&#39;frank&#39;+ parseInt(Math.random() * 100000,10)</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//方案三：JSONP</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    let functionName = &apos;frank&apos;+ parseInt(Math.random()*10000000 ,10)</div><div class="line">    window[functionName] = function()&#123;  // 每次请求之前搞出一个随机的函数</div><div class="line">        amount.innerText = amount.innerText - 0 - 1</div><div class="line">    &#125;</div><div class="line">    script.src = &apos;/pay?callback=&apos; + functionName</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"> //上面代码用 jQuery 写</div><div class="line"> $.ajax(&#123;</div><div class="line"> url: &quot;http://jack.com:8002/pay&quot;,</div><div class="line"> dataType: &quot;jsonp&quot;,</div><div class="line">	 success: function( response ) &#123;</div><div class="line">	     if(response === &apos;success&apos;)&#123;</div><div class="line">	    	 amount.innerText = amount.innerText - 1</div><div class="line">	     &#125;</div><div class="line">	 &#125;</div><div class="line"> &#125;)</div><div class="line"> $.jsonp()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    let callbackName = query.callback</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(`</div><div class="line">        $&#123;callbackName&#125;.call(undefined, &apos;success&apos;)</div><div class="line">    `)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="JSONP-为什么不支持-POST-请求？"><a href="#JSONP-为什么不支持-POST-请求？" class="headerlink" title="JSONP 为什么不支持 POST 请求？"></a><code>JSONP</code> 为什么不支持 <code>POST</code> 请求？</h5><p><code>JSONP</code>是通过动态创建 <code>script</code> 实现的，<code>script</code>标签的<code>src</code>属性没有跨域的限制。如果用<code>post</code>，就会检查是否跨域。</p>
+<hr>
+<p>参考：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">阮一峰 - 浏览器同源政策及其规避方法</a></p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/23/ new 做了什么？/" rel="next" title="new 做了什么？">
+                <i class="fa fa-chevron-left"></i> new 做了什么？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/29/AJAX/" rel="prev" title="AJAX">
+                AJAX <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zhao Zhiying</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库是什么？"><span class="nav-number">1.</span> <span class="nav-text">数据库是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同源策略"><span class="nav-number">2.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部刷新怎么做？"><span class="nav-number">3.</span> <span class="nav-text">局部刷新怎么做？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP"><span class="nav-number">4.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是-JSONP"><span class="nav-number">4.1.</span> <span class="nav-text">什么是 JSONP?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSONP-为什么不支持-POST-请求？"><span class="nav-number">4.2.</span> <span class="nav-text">JSONP 为什么不支持 POST 请求？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Zhiying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
