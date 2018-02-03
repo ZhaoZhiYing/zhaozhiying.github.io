@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/30/Promise/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="「同步」和「异步」JavaScript 语言本身并不慢，慢的是读写外部数据，比如等待 AJAX 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，Javascript 语言将任务的执行模式分成两种：「同步」（Synchronous）和「异步」（Asynchronous）。  一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文">
-<meta property="og:updated_time" content="2018-02-03T15:22:46.000Z">
+<meta property="og:updated_time" content="2018-02-03T15:36:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="「同步」和「异步」JavaScript 语言本身并不慢，慢的是读写外部数据，比如等待 AJAX 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，Javascript 语言将任务的执行模式分成两种：「同步」（Synchronous）和「异步」（Asynchronous）。  一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文">
@@ -329,11 +329,32 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
 <p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">step1(function (value1) &#123;</div><div class="line">  step2(value1, function(value2) &#123;</div><div class="line">    step3(value2, function(value3) &#123;</div><div class="line">      step4(value3, function(value4) &#123;</div><div class="line">        // ...</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line">``` </div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">#### `Promise`对象</div><div class="line">* 回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。而`Promise`对象可以使异步操作具备同步操作的接口，使程序具备正常的同步运行的流程，避免了嵌套多个层级。</div><div class="line"></div><div class="line">比如，异步操作`f1`返回一个`Promise`对象，它的回调函数`f2`写法如下。</div><div class="line"></div><div class="line">	(new Promise(f1)).then(f2);</div><div class="line">	</div><div class="line">这种写法对于多层嵌套的回调函数尤其方便。</div><div class="line"></div><div class="line">	(new Promise(step1))</div><div class="line">	  .then(step2)</div><div class="line">	  .then(step3)</div><div class="line">	  .then(step4);	</div><div class="line">	  </div><div class="line">`Promise`的最大问题是代码冗余，原来的任务被`Promise`包装了一下，不管什么操作，一眼看去都是一堆`then`，原来的语义变得很不清楚。  </div><div class="line"></div><div class="line">##### 基本用法</div><div class="line">语法</div></pre></td></tr></table></figure>
-<p>new Promise(function(resolve, reject) /<em> executor </em>/ )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `executor`</div></pre></td></tr></table></figure></p>
-<p>// executor 是带有 resolve 和 reject 两个参数的函数。<br>// Promise 构造函数执行时立即调用 executor 函数。<br>// resolve 和 reject 两个函数作为参数传递给 executor（ executor 函数在 Promise 构造函数返回新建对象前被调用）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `resolve` `reject`</div></pre></td></tr></table></figure></p>
-<p>// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去<br>// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `then`</div></pre></td></tr></table></figure></p>
-<p>// then 方法可以接受两个回调函数作为参数。<br>//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。<br>//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。<br>```</p>
+<pre><code>step1(function (value1) {
+  step2(value1, function(value2) {
+    step3(value2, function(value3) {
+      step4(value3, function(value4) {
+        // ...
+      })
+    })
+  })
+})
+</code></pre><hr>
+<h4 id="Promise对象"><a href="#Promise对象" class="headerlink" title="Promise对象"></a><code>Promise</code>对象</h4><ul>
+<li>回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。而<code>Promise</code>对象可以使异步操作具备同步操作的接口，使程序具备正常的同步运行的流程，避免了嵌套多个层级。</li>
+</ul>
+<p>比如，异步操作<code>f1</code>返回一个<code>Promise</code>对象，它的回调函数<code>f2</code>写法如下。</p>
+<pre><code>(new Promise(f1)).then(f2);
+</code></pre><p>这种写法对于多层嵌套的回调函数尤其方便。</p>
+<pre><code>(new Promise(step1))
+  .then(step2)
+  .then(step3)
+  .then(step4);    
+</code></pre><p><code>Promise</code>的最大问题是代码冗余，原来的任务被<code>Promise</code>包装了一下，不管什么操作，一眼看去都是一堆<code>then</code>，原来的语义变得很不清楚。  </p>
+<h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve, reject) /* executor */ )</div></pre></td></tr></table></figure>
+<h5 id="executor"><a href="#executor" class="headerlink" title="executor"></a><code>executor</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// executor 是带有 resolve 和 reject 两个参数的函数。</div><div class="line">// Promise 构造函数执行时立即调用 executor 函数。</div><div class="line">// resolve 和 reject 两个函数作为参数传递给 executor（ executor 函数在 Promise 构造函数返回新建对象前被调用）。</div></pre></td></tr></table></figure>
+<h5 id="resolve-reject"><a href="#resolve-reject" class="headerlink" title="resolve reject"></a><code>resolve</code> <code>reject</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去</div><div class="line">// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</div></pre></td></tr></table></figure>
+<h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// then 方法可以接受两个回调函数作为参数。</div><div class="line">//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。</div><div class="line">//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。</div></pre></td></tr></table></figure>
 <hr>
 <p>参考：</p>
 <p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
@@ -490,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#「同步」和「异步」"><span class="nav-number">1.</span> <span class="nav-text">「同步」和「异步」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#「同步」和「异步」"><span class="nav-number">1.</span> <span class="nav-text">「同步」和「异步」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise对象"><span class="nav-number">3.</span> <span class="nav-text">Promise对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本用法"><span class="nav-number">3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#executor"><span class="nav-number">3.2.</span> <span class="nav-text">executor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#resolve-reject"><span class="nav-number">3.3.</span> <span class="nav-text">resolve reject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#then"><span class="nav-number">3.4.</span> <span class="nav-text">then</span></a></li></ol></li></ol></div>
             
 
           </div>
