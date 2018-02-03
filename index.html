@@ -228,6 +228,429 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target与currentTarget/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/03/target与currentTarget/" itemprop="url">target与currentTarget</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
+                2018-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><code>currentTarget</code>：指绑定事件的对象。恒等于<code>this</code>。</li>
+<li><code>targt</code>：指触发事件的某个具体对象。</li>
+</ul>
+<p>举例1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">grand.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target);  </div><div class="line">    console.log(e.currentTarget); </div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  grand </div><div class="line">//这时的 this 指向 grand</div></pre></td></tr></table></figure>
+<p>举例2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">child.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target);  </div><div class="line">    console.log(e.currentTarget); </div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  child</div><div class="line">//这时的 this 指向 child</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/MVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/MVC/" itemprop="url">MVC</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="MVC-是什么？"><a href="#MVC-是什么？" class="headerlink" title="MVC 是什么？"></a><code>MVC</code> 是什么？</h4><p><code>MVC</code>（<code>Model View Controller</code> 模型-视图-控制）指一种代码组织形式。它将代码分成三层：</p>
+<ol>
+<li>“视图层”（<code>View</code>），它是提供给用户的操作界面，是程序的外壳。</li>
+<li>“数据层”（<code>Model</code>），也就是程序需要操作的数据或信息。</li>
+<li>“控制层”（<code>Controller</code>），它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
+</ol>
+<h4 id="MVC-三个对象分别有哪些重要属性和方法"><a href="#MVC-三个对象分别有哪些重要属性和方法" class="headerlink" title="MVC 三个对象分别有哪些重要属性和方法?"></a><code>MVC</code> 三个对象分别有哪些重要属性和方法?</h4><p><code>View</code></p>
+<pre><code>document.querySelector (获取对应的 html)
+</code></pre><p><code>Model</code></p>
+<pre><code>init (初始化)
+fetch (获取)
+save (保存) 
+</code></pre><p><code>Controller</code>  </p>
+<pre><code>init (初始化 model 和 view)
+loadMessages (加载数据)
+bindEvents (绑定事件)
+saveMessage (存储数据)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/Promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/30/Promise/" itemprop="url">Promise</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="「同步」和「异步」"><a href="#「同步」和「异步」" class="headerlink" title="「同步」和「异步」"></a>「同步」和「异步」</h4><p><code>JavaScript</code> 语言本身并不慢，慢的是读写外部数据，比如等待 <code>AJAX</code> 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，<code>Javascript</code> 语言将任务的执行模式分成两种：「同步」（<code>Synchronous</code>）和「异步」（<code>Asynchronous</code>）。</p>
+<ul>
+<li><p>一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文件。任务的第二段是处理文件。</p>
+</li>
+<li><p>「同步」是指后一个任务等待前一个任务执行结束，然后再执行。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">!function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;.call()</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A B C</div></pre></td></tr></table></figure>
+<ul>
+<li>「异步」是指前一个任务先发送一个请求，不等待返回（就是第二段的处理文件），直接进行下一个任务。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">setTimeout(function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;,1000)</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A C B</div><div class="line">// console.log(&apos;C&apos;) 就是异步执行的</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><ul>
+<li>一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。</li>
+<li><p>换言之，回调函数，就是把任务的第二段单独写在一个函数里面，在特定的事件或条件发生时，调用这个函数。</p>
+</li>
+<li><p>同步回调。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function add(a, b, callback) &#123;</div><div class="line">    callback(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1,2,function(result) &#123;</div><div class="line">    console.log(&quot;result:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">add(1,2,function(result)&#123;</div><div class="line">    console.log(&quot;结果是:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//result:3 结果是:3</div></pre></td></tr></table></figure>
+<ul>
+<li>异步回调。经常使用以下方法：<ul>
+<li>对于异步执行（例如读取文件和发出<code>HTTP</code>请求）</li>
+<li>在事件监听器/处理程序中</li>
+<li>在<code>setTimeout</code>和<code>setInterval</code>方法中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
+<p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">step1(function (value1) &#123;</div><div class="line">  step2(value1, function(value2) &#123;</div><div class="line">    step3(value2, function(value3) &#123;</div><div class="line">      step4(value3, function(value4) &#123;</div><div class="line">        // ...</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line">``` </div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">#### `Promise`对象</div><div class="line">* 回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。而`Promise`对象可以使异步操作具备同步操作的接口，使程序具备正常的同步运行的流程，避免了嵌套多个层级。</div><div class="line"></div><div class="line">比如，异步操作`f1`返回一个`Promise`对象，它的回调函数`f2`写法如下。</div><div class="line"></div><div class="line">	(new Promise(f1)).then(f2);</div><div class="line">	</div><div class="line">这种写法对于多层嵌套的回调函数尤其方便。</div><div class="line"></div><div class="line">	(new Promise(step1))</div><div class="line">	  .then(step2)</div><div class="line">	  .then(step3)</div><div class="line">	  .then(step4);	</div><div class="line">	  </div><div class="line">`Promise`的最大问题是代码冗余，原来的任务被`Promise`包装了一下，不管什么操作，一眼看去都是一堆`then`，原来的语义变得很不清楚。  </div><div class="line"></div><div class="line">##### 基本用法</div><div class="line">语法</div></pre></td></tr></table></figure>
+<p>new Promise(function(resolve, reject) /<em> executor </em>/ )<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `executor`</div></pre></td></tr></table></figure></p>
+<p>// executor 是带有 resolve 和 reject 两个参数的函数。<br>// Promise 构造函数执行时立即调用 executor 函数。<br>// resolve 和 reject 两个函数作为参数传递给 executor（ executor 函数在 Promise 构造函数返回新建对象前被调用）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `resolve` `reject`</div></pre></td></tr></table></figure></p>
+<p>// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去<br>// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### `then`</div></pre></td></tr></table></figure></p>
+<p>// then 方法可以接受两个回调函数作为参数。<br>//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。<br>//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。<br>```</p>
+<hr>
+<p>参考：</p>
+<p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1452,857 +1875,6 @@ b.name = &quot;zhao&quot;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/DOM 事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/04/DOM 事件/" itemprop="url">DOM 事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
-                2018-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p><code>javascript</code>操作<code>CSS</code>称为<code>脚本化CSS</code>，而<code>javascript</code>与<code>HTML</code>的交互是通过事件实现的。事件就是文档或浏览器窗口中发生的一些特定的交互瞬间，而事件流(又叫事件传播)描述的是从页面中接收事件的顺序。</p>
-<hr>
-<h3 id="DOM-事件发展"><a href="#DOM-事件发展" class="headerlink" title="DOM 事件发展"></a>DOM 事件发展</h3><h4 id="DOM-Level-0-事件"><a href="#DOM-Level-0-事件" class="headerlink" title="DOM Level 0 事件"></a><code>DOM Level 0 事件</code></h4><p>主要分为2个：</p>
-<p>1.标签内写 onclick 事件</p>
-<pre><code>&lt;button id=&quot;button1&quot; onclick=&quot;console.log(&apos;hi&apos;)&quot;&gt;A&lt;/button&gt;
-</code></pre><p>2.JS 里写 onlicke=function (){} 函数</p>
-<pre><code>document.getElementById(&quot;button1&quot;).onclick = function print(){
-    console.log(&apos;hi&apos;)
-}
-</code></pre><h4 id="DOM-Level-1-事件"><a href="#DOM-Level-1-事件" class="headerlink" title="DOM Level 1 事件"></a><code>DOM Level 1 事件</code></h4><p><code>DOM Level 1</code>于1998年10月1日成为 W3C 推荐标准。但是标准中并没有定义事件相关的内容，所以没有所谓的 <code>DOM Level 1</code> 事件模型。</p>
-<h4 id="DOM-Level-2-事件"><a href="#DOM-Level-2-事件" class="headerlink" title="DOM Level 2 事件"></a><code>DOM Level 2 事件</code></h4><ul>
-<li><p>在<code>DOM Level 0 事件</code>的基础上弥补了一个处理程序无法同时绑定多个处理函数的缺点，允许给一个处理程序添加多个处理函数。</p>
-</li>
-<li><p>只定义了两个方法，分别用来绑定和解绑事件：</p>
-<p>  <code>addEventListener()</code>   对应 IE8 中的 <code>attachEvent()</code><br>  <code>removeEventListener()</code>对应 IE8 中的 <code>detachEvent()</code></p>
-</li>
-<li><p>都有三个参数：</p>
-<p>  参数1：事件名（不要使用 “on” 前缀）<br><br>  参数2：事件触发时执行的函数<br><br>  参数3：事件是否在捕获或冒泡阶段执行（第三个参数为 true，为捕获阶段；不传第三个参数或者传 false 为冒泡阶段）<br></p>
-<p>  <strong>注意</strong>：如果又有捕获又有冒泡，那就不区分捕获还是冒泡，按照代码顺序。</p>
-</li>
-</ul>
-<p>HTML</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;grand1&quot;&gt;</div><div class="line">   爷爷</div><div class="line">    &lt;div id=&quot;parent1&quot;&gt;</div><div class="line">     爸爸</div><div class="line">      &lt;div id=&quot;child1&quot;&gt;</div><div class="line">       儿子</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line"> &lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>JS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1()&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">&#125;,true)//捕获阶段</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)//冒泡阶段</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)//冒泡阶段</div><div class="line">//当点击‘儿子’时，打印的顺序是：爷爷、儿子、爸爸</div></pre></td></tr></table></figure>
-<h4 id="DOM-Level-3-事件"><a href="#DOM-Level-3-事件" class="headerlink" title="DOM Level 3 事件"></a><code>DOM Level 3 事件</code></h4><p><code>DOM Level 3 事件</code>在<code>DOM Level 2 事件</code>的基础上添加了更多的事件类型，全部类型如下：</p>
-<pre><code>UI事件，当用户与页面上的元素交互时触发，如：load、scroll
-焦点事件，当元素获得或失去焦点时触发，如：blur、focus
-鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
-滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel
-文本事件，当在文档中输入文本时触发，如：textInput
-键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
-合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
-变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
-
-同时DOM3级事件也允许使用者自定义一些事件。
-</code></pre><hr>
-<h3 id="DOM-事件流"><a href="#DOM-事件流" class="headerlink" title="DOM 事件流"></a><code>DOM 事件流</code></h3><p>事件流又称为事件传播，<code>DOM Level 2 事件</code>规定的事件流包括三个阶段：</p>
-<pre><code>（1）捕获阶段：事件从 Document 节点自上而下向目标节点传播的阶段；
-（2）目标阶段：真正的目标节点正在处理事件的阶段；
-（3）冒泡阶段：事件从目标节点自上而下向 Document节点传播的阶段。
-</code></pre><h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置通过调用事件的<code>stopPropagation()</code>方法可以停止事件的传播过程    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/实现一个 jQuery 的 API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">实现一个 jQuery 的 API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
-  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
-  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
-  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
-  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
-  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
-<pre><code>var allChildren = item3.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== item3){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function getSiblings(node){
-    var allChildren = node.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== node){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-}
-getSiblings(item3)//调用
-</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
-item3.classList.add(&apos;b&apos;)
-item3.classList.add(&apos;c&apos;)
-</code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-classes.forEach((value) =&gt; item3.classList.add(value))
-</code></pre><p>加上<code>remove</code></p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-for(let key in classes){
-    var value = classes[key]
-    if(value){
-        item3.classList.add(key)
-    }else{
-        item3.classList.remove(key)
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function addClass(node,classes){
-    for(let key in classes){
-        var value = classes[key]
-        if(value){
-            node.classList.add(key)
-        }else{
-            node.classList.remove(key)
-        }
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
-</code></pre><p>优化代码（这里用到了三元运算符）</p>
-<pre><code>function addClass(node,classes){
-  for(let key in classes){
-      var value = classes[key]
-      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
-      node.classList[methodName](key)
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
-</code></pre><p>上面代码等于下面</p>
-<pre><code>function addClass(node,classes){
-    classes.forEach((value) =&gt; node.classList.add(value))
-}    
-addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
-</code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
-<pre><code>window.zzdom = {} //声明变量名 zzdom
-zzdom.getSiblings = getSiblings 
-zzdom.addClass = addClass
-//调用
-zzdom.getSiblings.call(item3)  
-zzdom.addClass.call(items, {a:true, b:false, c:true})    
-</code></pre><p>代码更新如下</p>
-<pre><code>window.zzdom = {}        
-zzdom.getSiblings = function (node){ 
-var allChildren = node.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== node){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-return array
-}
-zzdom.addClass = function (node,classes){
-  classes.forEach((value) =&gt; node.classList.add(value))
-}
-//调用
-zzdom.getSiblings(item3)
-zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>但是相比下，下面这种调用方法更好</p>
-<pre><code>//调用
-item3.getSiblings(item3)
-item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>解决办法：更改<code>Node</code>原型</p>
-<pre><code>Node.prototype.getSiblings = function (){ 
-    var allChildren = this.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== this){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-    }
-    Node.prototype.addClass = function (classes){
-        classes.forEach((value) =&gt; this.classList.add(value))
-}
-//调用
-item3.getSiblings.call(item3)
-item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><blockquote>
-<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
-</blockquote>
-<p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
-<pre><code>window.jQuery = function (node){
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(item3)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let node
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        node = document.querySelector(nodeOrSelector)
-    }else{
-        node = nodeOrSelector
-    }
-
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(&apos;#item3&apos;)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-       //伪数组
-       nodes = document.querySelectorAll(nodeOrSelector)
-    }else if(nodeOrSelector instanceof Node){
-        //伪数组，保持返回结果一致
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:NodeList
-</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }            
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:Object 
-</code></pre><p>添加<code>addClass</code>后代码如下</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    //`getText`获取文本
-    nodes.getText = function(){
-        var texts = []
-        for(let i=0; i&lt;nodes.length; i++){
-            texts.push(nodes[i].textContent)
-        }
-        return texts
-    }    
-    //`setText`设置文本
-    nodes.setText = function(text){
-        for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-    }    
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
-</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
-<pre><code>    window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    nodes.text = function (text){
-        if(text === undefined){
-            var texts = []
-            for(let i=0; i&lt;nodes.length; i++){
-             texts.push(nodes[i].textContent)
-          }
-           return texts
-       }else{
-            for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-      }    
-    }
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
-</code></pre><hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/30/DOM API/" itemprop="url">DOM 常用 API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
-                2017-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="DOM-理解"><a href="#DOM-理解" class="headerlink" title="DOM 理解"></a>DOM 理解</h5><pre><code>DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。
-Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
-
-* Document：XML(HTML 是 XML 的衍生品)
-* Element：节点对象代表文档树中的一个节点。
-* Text：模型
-</code></pre><hr>
-<h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a>DOM 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
-</code></pre><hr>
-<h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
-<pre><code>* Document：整个文档（DOM树的根节点），nodeType = 9
-* DocumentType：文档类型节点（比如&lt;!DOCTYPE html&gt;），nodeType = 10
-* Element：网页的各种HTML标签（比如&lt;body&gt;、&lt;a&gt;等），nodeType = 1
-* Attribute：网页元素的属性（比如class=&quot;right&quot;），nodeType = 2
-* Text：标签之间或标签包含的文本，nodeType = 3
-* Comment：注释，nodeType = 8
-* DocumentFragment：文档的片段，nodeType = 11
-</code></pre><p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</p>
-<hr>
-<h4 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a>Node 接口</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* childNodes 获取子节点（可以是文本、注释、属性） 
-* children 获取子标签节点 
-* firstChild 返回第一个子节点
-* lastChild 返回最后一个子节点     
-* nextSibling 返回给定节点的下一个子节点 
-* previousSibling 返回给定节点的上一个子节点 
-* parentNode （w3c标准）返回给定节点的父节点
-* parentElement （只ie支持）返回给定节点的父标签
-* ownerDocument 返回元素的根节点文档对象（即 document 对象）
-* innerText 里面的文本
-* textContent 
-
-* nodeName 节点的名称
-    标签节点的 nodeName 是标签名称
-    属性节点的 nodeName 是属性名称
-    文本节点的 nodeName 永远是 #text
-    文档节点的 nodeName 永远是 #document
-* nodeType 节点的类型     
-* nodeValue 节点的值
-    文本节点的 nodeValue 属性包含文本。
-    属性节点的 nodeValue 属性包含属性值。
-    nodeValue 属性对于文档节点和标签节点是不可用的。
-
-注意：
-* nodeName 只有 svg 是小写，其他是大写
-* nextSibling 可能获取到文本
-* innerText 和 textContent 区别     
-</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性</p>
-<pre><code>* appendChild() 将指定的节点添加到调用该方法的节点的子元素的末尾
-* removeChild() 删除指定的子节点并返回
-* replaceChild() 交换儿子（将另一个替换这一个，另一个去了内存）
-* cloneNode() 复制一个节点
-* insertBefore 添加一个节点到一个参照节点之前
-
-* contains() 一个元素是否包含另一个元素
-* hasChildNodes() 一个元素是否有儿子
-
-* isEqualNode() 是否相等（看起来一样）  
-* isSameNode() 是否相同（真的一样，等价于 ===）
-
-* normalize() 常规化，把不正常的变成正常的
-
-注意：
-1.cloneNode() 分为深拷贝和浅拷贝
-2.isEqualNode() 和 isSameNode() 区别
-</code></pre><hr>
-<h4 id="Document-接口（查询接口，因为一般从-document-开始查）"><a href="#Document-接口（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document 接口（查询接口，因为一般从 document 开始查）"></a>Document 接口（查询接口，因为一般从 document 开始查）</h4><h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>* characterSet 字符编码，比如‘UTF-8’
-* childElementCount 子元素的数量 
-* domain 域名
-* links 所有 a 标签
-* location 文档的 URL 相关的信息
-* onxxxxxxxxx 事件监听，比如 onclick 
-* origin 源
-* plugins 是否安装插件 
-* referrer 引荐
-</code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>* open() document步骤1.打开
-* close() document步骤3.关闭文档
-* write() document步骤2.（尽量不用write，用的话避免有延时性）
-* writeln() 写一行
-
-* createDocumentFragment() 创建一个 DocumentFragment，主要是用于添加大量节点到文档中时会使用到 
-* createElement() 创建元素
-* createTextNode() 创建文本节点
-
-* getElementById() 通过 id 获取元素
-* getElementsByClassName() 通过 className 获取元素
-* getElementsByName() 通过 name 获取元素，它返回一个即时的NodeList 对象。
-* getElementsByTagName() 通过 TagName 获取元素，比如 p button
-* getSelection() 获取用户选中的文本
-* querySelector() 通过选择器，返回一个元素
-* querySelectorAll() 通过选择器，返回多个元素组成的数组（一个元素也返回数组） 
-
-注意：
-1.获取元素主要使用 querySelector()、querySelectorAll() 
-</code></pre><hr>
-<h4 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a>Element 的接口</h4><p><code>DOM API</code>获取的<code>Elements</code>都是伪数组</p>
-<h5 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h5><pre><code>* children 子元素列表
-* childElementCount 子元素数量
-* firstElementChild 第一个子元素
-* lastElementChild 最后一个子元素
-
-* classList 类名列表（对象）
-* className 类名（字符串）
-* id 元素id
-
-* attributes 所有显性属性
-* innerHTML 元素内部的HTML标记
-* outerHTML 包含元素在内的HTML标记
-
-* clientWidth 内容区 + padding的宽度
-* clientHeight 内容区 + padding的高度
-* scrollHeight 元素中可以滚动的高度
-* scrollWidth 元素中可以滚动的宽度
-* scrollTop 元素中的内容已经向上滚出去多少
-* scrollLeft 元素中的内容已经向左滚出去多少
-</code></pre><h5 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h5><pre><code>* setAttribute() 创建或改变某个新属性
-* getAttribute() 通过名称获取属性的值
-* getElementsByClassName() 根据元素的 class 属性获取所有元素
-
-* createElement 通过传入指定的一个标签名来创建一个元素
-* createTextNode 创建一个文本节点
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2353,7 +1925,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
