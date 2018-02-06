@@ -1443,6 +1443,20 @@ var human1 = new Foo()
 
 human1.name // &quot;zhao&quot;
 human1.city // &quot;beijing&quot;
+</code></pre><h5 id="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"><a href="#当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。" class="headerlink" title="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"></a>当函数被用作事件处理函数时，它的<code>this</code>指向绑定事件的元素，恒等于<code>currentTarget</code>。</h5><pre><code> &lt;div id=&quot;grand&quot;&gt;
+    爷爷
+     &lt;div id=&quot;parent&quot;&gt;
+      爸爸
+       &lt;div id=&quot;child&quot;&gt;
+        儿子
+       &lt;/div&gt;
+     &lt;/div&gt;
+  &lt;/div&gt;
+grand.addEventListener(&apos;click&apos;,function(e){
+    console.log(寻找this) 
+},false)
+//当点击 grand 触发事件时，this 指向 grand
+//当点击 child 触发事件时，this 依然指向 grand
 </code></pre><h5 id="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与封闭词法上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
 var foo ={
  name: &apos;zhao&apos;,
