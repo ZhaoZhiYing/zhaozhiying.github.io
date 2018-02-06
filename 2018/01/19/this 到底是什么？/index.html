@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
+<meta name="description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this 到底是什么？">
 <meta property="og:url" content="http://yoursite.com/2018/01/19/this 到底是什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
-<meta property="og:updated_time" content="2018-02-03T15:26:28.000Z">
+<meta property="og:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头">
+<meta property="og:updated_time" content="2018-02-06T05:48:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this 到底是什么？">
-<meta name="twitter:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域 每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments。除了箭头">
+<meta name="twitter:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头">
 
 
 
@@ -304,23 +304,64 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message = 1</div><div class="line">console.log(this.message) // 1</div><div class="line">console.log(window.message) // 1</div></pre></td></tr></table></figure>
 <hr>
-<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><ul>
-<li><p>每个函数在被调用时都会自动取得两个特殊变量：<code>this</code> 和 <code>arguments</code>。除了箭头函数。</p>
-</li>
-<li><p><code>this</code>是函数的第一个参数（且必须是对象）,<code>arguments</code>是函数的第二个参数（包装成一个数组[]）。</p>
-</li>
-<li><p><code>this</code>是参数，所以只有在调用的时候才能确定。</p>
-</li>
-<li><p><code>this</code>为什么必须是对象，因为<code>this</code>就是函数与对象之间的羁绊。</p>
-</li>
-</ul>
-<h5 id="普通模式：如果this是undefined或null，浏览器会把this变成window"><a href="#普通模式：如果this是undefined或null，浏览器会把this变成window" class="headerlink" title="普通模式：如果this是undefined或null，浏览器会把this变成window"></a>普通模式：如果<code>this</code>是<code>undefined</code>或<code>null</code>，浏览器会把<code>this</code>变成<code>window</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">	console.log(this)</div><div class="line">	console.log(arguments)</div><div class="line">&#125;</div><div class="line">f.call() // this 是 window</div><div class="line">f.call(null) // this 是 window</div><div class="line">f.call(undefined) // this 是 window</div></pre></td></tr></table></figure>
-<h5 id="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><a href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。" class="headerlink" title="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"></a>严格模式：默认第一个参数是<code>undefined</code>。如果传了第一个参数，那传什么<code>this</code>就是什么。</h5><p>发明<code>JS</code>时，被要求要长得像<code>Java</code>，让<code>Java</code>程序员来学<code>JS</code>，但是他们发现<code>this</code>多余，就有了 <code>use strict</code> 严格模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function f()&#123;</div><div class="line">	// 严格模式</div><div class="line">  	&apos;use strict&apos;;</div><div class="line">	console.log(this)</div><div class="line">	console.log(arguments)</div><div class="line">&#125;</div><div class="line">f.call() // this 是 undefined</div><div class="line">f.call(null) // this 是 null</div><div class="line">f.call(undefined) // this 是 undefined</div><div class="line">f.call(&#123;name:&apos;frank&apos;&#125;) // &#123;name: &apos;frank&apos;&#125;, []</div><div class="line">f.call(&#123;name:&apos;frank&apos;&#125;,1,2) // &#123;name: &apos;frank&apos;&#125;, [1,2]</div></pre></td></tr></table></figure>
-<h5 id="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><a href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象" class="headerlink" title="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"></a>当以对象里的方法的方式调用函数时，它们的<code>this</code>是调用该函数的对象</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var message = &#123;</div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	Foo: function ()&#123;</div><div class="line">		console.log(message)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">message.Foo() // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div><div class="line">//等同于</div><div class="line">this.Foo() // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div><div class="line">//等同于</div><div class="line">this.Foo.call(this) // &#123;name: &quot;zhao&quot;, Foo: ƒ&#125;</div></pre></td></tr></table></figure>
-<h5 id="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><a href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。" class="headerlink" title="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"></a>当一个函数用作构造函数时（使用new关键字），它的<code>this</code>被绑定到正在构造的新对象。</h5><p>下面例子中，函数内的<code>this</code>被绑定到<code>human1</code>对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = &apos;zhao&apos;;</div><div class="line">	this.city = &apos;beijing&apos;;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo() </div><div class="line"></div><div class="line">human1.name // &quot;zhao&quot;</div><div class="line">human1.city // &quot;beijing&quot;</div></pre></td></tr></table></figure>
-<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><pre><code>每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头函数。
+
+this 是函数的第一个参数（且必须是对象）， arguments 是函数的第二个参数（包装成一个数组[]）。
+
+this 是参数，所以只有在调用的时候才能确定。
+
+this 为什么必须是对象，因为 this 就是函数与对象之间的羁绊。
+</code></pre><h5 id="普通模式：如果this是undefined或null，浏览器会把this变成window"><a href="#普通模式：如果this是undefined或null，浏览器会把this变成window" class="headerlink" title="普通模式：如果this是undefined或null，浏览器会把this变成window"></a>普通模式：如果<code>this</code>是<code>undefined</code>或<code>null</code>，浏览器会把<code>this</code>变成<code>window</code></h5><pre><code>function f(){
+    console.log(this)
+    console.log(arguments)
+}
+f.call() // this 是 window
+f.call(null) // this 是 window
+f.call(undefined) // this 是 window
+</code></pre><h5 id="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><a href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。" class="headerlink" title="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"></a>严格模式：默认第一个参数是<code>undefined</code>。如果传了第一个参数，那传什么<code>this</code>就是什么。</h5><p>发明<code>JS</code>时，被要求要长得像<code>Java</code>，让<code>Java</code>程序员来学<code>JS</code>，但是他们发现<code>this</code>多余，就有了 <code>use strict</code> 严格模式</p>
+<pre><code>function f(){
+    // 严格模式
+      &apos;use strict&apos;;
+    console.log(this)
+    console.log(arguments)
+}
+f.call() // this 是 undefined
+f.call(null) // this 是 null
+f.call(undefined) // this 是 undefined
+f.call({name:&apos;frank&apos;}) // {name: &apos;frank&apos;}, []
+f.call({name:&apos;frank&apos;},1,2) // {name: &apos;frank&apos;}, [1,2]
+</code></pre><h5 id="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><a href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象" class="headerlink" title="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"></a>当以对象里的方法的方式调用函数时，它们的<code>this</code>是调用该函数的对象</h5><pre><code>var message = {
+    name: &apos;zhao&apos;,
+    Foo: function (){
+        console.log(message)
+    }
+}
+
+message.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
+//等同于
+this.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
+//等同于
+this.Foo.call(this) // {name: &quot;zhao&quot;, Foo: ƒ}
+</code></pre><h5 id="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><a href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。" class="headerlink" title="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"></a>当一个函数用作构造函数时（使用<code>new</code>关键字），它的<code>this</code>被绑定到正在构造的新对象。</h5><p>下面例子中，函数内的<code>this</code>被绑定到<code>human1</code>对象。</p>
+<pre><code>function Foo(name, city){
+    this.name = &apos;zhao&apos;;
+    this.city = &apos;beijing&apos;;
+}
+
+var human1 = new Foo() 
+
+human1.name // &quot;zhao&quot;
+human1.city // &quot;beijing&quot;
+</code></pre><h5 id="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与封闭词法上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
+var foo ={
+ name: &apos;zhao&apos;,
+ bar:()=&gt;{
+   console.log(this.name)
+ }
+}
+foo.bar()
+//this 指向全局对象 window
+</code></pre><hr>
 <p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a> </p>
 
       
@@ -435,7 +476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -474,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通模式：如果this是undefined或null，浏览器会把this变成window"><span class="nav-number">2.1.</span> <span class="nav-text">普通模式：如果this是undefined或null，浏览器会把this变成window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><span class="nav-number">2.2.</span> <span class="nav-text">严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><span class="nav-number">2.3.</span> <span class="nav-text">当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><span class="nav-number">2.4.</span> <span class="nav-text">当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通模式：如果this是undefined或null，浏览器会把this变成window"><span class="nav-number">2.1.</span> <span class="nav-text">普通模式：如果this是undefined或null，浏览器会把this变成window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><span class="nav-number">2.2.</span> <span class="nav-text">严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><span class="nav-number">2.3.</span> <span class="nav-text">当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><span class="nav-number">2.4.</span> <span class="nav-text">当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><span class="nav-number">2.5.</span> <span class="nav-text">在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。</span></a></li></ol></li></ol></div>
             
 
           </div>
