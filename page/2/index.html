@@ -1152,31 +1152,158 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
           
             <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
 <hr>
-<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令-函数声明"><a href="#1-function命令-函数声明" class="headerlink" title="1.function命令(函数声明)"></a>1.<code>function</code>命令(函数声明)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function print(s)&#123; //print是函数名，也叫标识符</div><div class="line">	console.log(s) //这是函数体</div><div class="line">&#125; //函数的声明在结尾的大括号后面不用加分号</div></pre></td></tr></table></figure>
-<h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//采用函数表达式声明函数时， function 命令后面不带有函数名。</div><div class="line">var print = function (s)&#123; </div><div class="line">	console.log(s)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。</div><div class="line">var print = function f()&#123;</div><div class="line">  console.log(typeof f)</div><div class="line">&#125;</div><div class="line">f// ReferenceError: f is not defined</div><div class="line">print()// function</div></pre></td></tr></table></figure>
-<h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var print = function f(s)&#123; </div><div class="line">  console.log(s) </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="4-Function构造函数"><a href="#4-Function构造函数" class="headerlink" title="4.Function构造函数"></a>4.<code>Function</code>构造函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var add = new Function(</div><div class="line">  &apos;x&apos;,</div><div class="line">  &apos;y&apos;,</div><div class="line">  &apos;return x + y&apos;</div><div class="line">)</div><div class="line">// 等同于</div><div class="line">function add(x, y) &#123;</div><div class="line">  return x + y</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(参数1, 参数2, …, 参数N) =&gt; &#123;函数声明&#125;</div><div class="line">(参数1, 参数2, …, 参数N) =&gt; 表达式（单一）</div><div class="line">//相当于：(参数1, 参数2, …, 参数N) =&gt;&#123; return表达式&#125;</div><div class="line">	</div><div class="line">// 当只有一个参数时，圆括号是可选的：</div><div class="line">(单一参数) =&gt; &#123;函数声明&#125;</div><div class="line">单一参数 =&gt; &#123;函数声明&#125;</div><div class="line">	</div><div class="line">// 没有参数的函数应该写成一对圆括号。</div><div class="line">() =&gt; &#123;函数声明&#125;</div><div class="line">```	</div><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 函数的属性和方法</div><div class="line">##### `name`属性</div><div class="line">`name`属性返回紧跟在`function`关键字之后的那个函数名。</div></pre></td></tr></table></figure>
-<p>function f1() {}; f1.name // ‘f1’<br>var f2 = function () {}; f2.name // ‘f2’<br>var f3 = function f4() {}; f3.name // ‘f4’<br>f5 = new Function(‘x’, ‘y’,’return x + y’){}<br>f5.name//‘anonymous’ (匿名)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">##### `length`属性</div><div class="line">`length`属性返回函数预先定义的参数个数。</div><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 函数作用域</div><div class="line">##### 定义</div><div class="line">作用域`scope`指的是变量存在的范围。`Javascript` 只有两种作用域：</div></pre></td></tr></table></figure></p>
-<p>(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；在函数外部声明的变量就是全局变量。</p>
-<p>(2)函数作用域：在函数内部定义的变量，外部无法读取。</p>
-<p>//函数内部定义的变量，会在该作用域内覆盖同名全局变量。<br>//对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一律都是全局变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">       </div><div class="line">-------  </div><div class="line"></div><div class="line">#### 函数内部的变量提升</div><div class="line">`var`命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</div></pre></td></tr></table></figure></p>
-<p>function foo(x){<br>  if (x &gt; 100){<br>    var tmp = x - 100 //会升到函数体头部<br>  }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">-------</div><div class="line"></div><div class="line">#### `return`</div><div class="line">* 每个函数都有`return`。</div><div class="line">* 如果你不写`return`，就相当于写了`return undefined`。</div><div class="line">	</div><div class="line">-------</div><div class="line"></div><div class="line">#### 递归</div><div class="line">递归函数是一个直接或间接调用函数自身的嵌套型函数。</div></pre></td></tr></table></figure></p>
-<p>function fn(num){<br>  if (num === 0) return 0<br>  if (num === 1) return 1<br>  return fn(num - 2) + fn(num - 1)<br>}<br>fn(6) // 8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 闭包</div><div class="line">##### 什么是闭包</div><div class="line">* “函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</div><div class="line">* `JavaScript`有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</div><div class="line">* 换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</div></pre></td></tr></table></figure></p>
-<p>function f1(){<br>  var n = 1<br>  function f2(){<br>    console.log(n)<br>  }<br>  f2()<br>}<br>f1()<br>//这段代码中，函数 f2 和变量 n 的总和就叫做闭包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##### 闭包的用途</div><div class="line">1.从外部读取函数内部的变量。</div></pre></td></tr></table></figure></p>
-<p>function f1(){<br>  var n = 9<br>  function f2(){<br>    console.log(n)<br>  }<br>  f2()<br>}<br>f1() // 9<br>//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.让这些变量始终保持在内存中。不会被垃圾机制回收。</div></pre></td></tr></table></figure></p>
-<p>function f1(n) {<br>  return function () {<br>    return n++<br>  }<br>}<br>var a1 = f1(1)<br>a1() // 1<br>a1() // 2<br>a1() // 3<br>//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.封装对象的私有属性和私有方法。</div></pre></td></tr></table></figure></p>
-<p>function f1(n) {<br>  return function () {<br>    return n++<br>  }<br>}<br>var a1 = f1(1)<br>a1() // 1<br>a1() // 2<br>a1() // 3<br>var a2 = f1(5)<br>a2() // 5<br>a2() // 6<br>a2() // 7<br>//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">#### 调用函数</div><div class="line">##### `call`</div><div class="line">`call`是函数的正常调用方式，并指定上下文`this`。</div><div class="line"></div><div class="line">##### `apply`</div><div class="line">`apply`的作用和`call`一样，只是在调用的时候，传参数的方式不同。</div><div class="line">`apply`接受的是数组参数，`call`接受的是连续参数。如下代码：</div></pre></td></tr></table></figure></p>
-<p>function add(a,b){<br>    return a+b<br>}<br>add.call(add, 5, 3) //8<br>add.apply(add, [5, 3]) //8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">##### `bind`</div><div class="line">`bind` 接受的参数跟 `call` 一致，只是 `bind` 不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</div><div class="line"></div><div class="line">```	</div><div class="line">function add(a, b)&#123;</div><div class="line">    return a+b;</div><div class="line">&#125;</div><div class="line">var foo1 = add.bind(add, 5,3)</div><div class="line">foo1() //8</div><div class="line">var foo1 = add.bind(add, 5,3) </div><div class="line">foo1() //8</div><div class="line">```	 </div><div class="line">   </div><div class="line">-------</div><div class="line"></div><div class="line">##### `eval()`</div><div class="line"> * `eval()`函数会将传入的字符串当做`JavaScript`代码进行执行。</div><div class="line"> * 语法：`eval(string)`</div><div class="line"> * 如果字符串表示的是表达式，`eval()`会对表达式进行求值。</div><div class="line"> * 如果参数表示一个或多个`JavaScript语句`， 那么`eval()`就会执行这些语句。</div></pre></td></tr></table></figure></p>
-<p>eval(‘var a = 1;’)<br>a // 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-------</div><div class="line"></div><div class="line">##### `Call Stack`先入后出</div><div class="line">`call stack`调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</div></pre></td></tr></table></figure></p>
-<p>function a(){<br>    console.log(‘a’)<br>    return a<br>}<br>a.call() </p>
-<ul>
-<li>当调用时，<code>a.call()</code>会被记在 call stack 里。</li>
-<li>接着 <code>console.log(‘a’)</code> 记在 call stack 里。</li>
-<li><code>return a</code> 到这一步时<code>console.log(‘a’)</code>会存在<code>a.call()</code>里，最后<code>a.call()</code>退出。<br>```</li>
+<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令-函数声明"><a href="#1-function命令-函数声明" class="headerlink" title="1.function命令(函数声明)"></a>1.<code>function</code>命令(函数声明)</h5><pre><code>function print(s){ //print是函数名，也叫标识符
+    console.log(s) //这是函数体
+} //函数的声明在结尾的大括号后面不用加分号    
+</code></pre><h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
+var print = function (s){ 
+    console.log(s)
+}
+
+//如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+var print = function f(){
+  console.log(typeof f)
+}
+f// ReferenceError: f is not defined
+print()// function    
+</code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function f(s){ 
+  console.log(s) 
+}
+</code></pre><h5 id="4-Function构造函数"><a href="#4-Function构造函数" class="headerlink" title="4.Function构造函数"></a>4.<code>Function</code>构造函数</h5><pre><code>var add = new Function(
+  &apos;x&apos;,
+  &apos;y&apos;,
+  &apos;return x + y&apos;
+)
+// 等同于
+function add(x, y) {
+  return x + y
+} 
+</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
+<pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
+(参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
+//相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
+
+// 当只有一个参数时，圆括号是可选的：
+(单一参数) =&gt; {函数声明}
+单一参数 =&gt; {函数声明}
+
+// 没有参数的函数应该写成一对圆括号。
+() =&gt; {函数声明}
+</code></pre><hr>
+<h4 id="函数的属性和方法"><a href="#函数的属性和方法" class="headerlink" title="函数的属性和方法"></a>函数的属性和方法</h4><h5 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a><code>name</code>属性</h5><p><code>name</code>属性返回紧跟在<code>function</code>关键字之后的那个函数名。</p>
+<pre><code>function f1() {}; f1.name // &apos;f1&apos;
+var f2 = function () {}; f2.name // ‘f2’
+var f3 = function f4() {}; f3.name // ‘f4’
+f5 = new Function(&apos;x&apos;, &apos;y&apos;,&apos;return x + y’){}  
+f5.name//‘anonymous’ (匿名) 
+</code></pre><h5 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a><code>length</code>属性</h5><p><code>length</code>属性返回函数预先定义的参数个数。</p>
+<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>作用域<code>scope</code>指的是变量存在的范围。<code>Javascript</code> 只有两种作用域：</p>
+<pre><code>(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；在函数外部声明的变量就是全局变量。
+
+(2)函数作用域：在函数内部定义的变量，外部无法读取。
+
+//函数内部定义的变量，会在该作用域内覆盖同名全局变量。
+//对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一律都是全局变量。
+</code></pre><hr>
+<h4 id="函数内部的变量提升"><a href="#函数内部的变量提升" class="headerlink" title="函数内部的变量提升"></a>函数内部的变量提升</h4><p><code>var</code>命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p>
+<pre><code>function foo(x){
+  if (x &gt; 100){
+    var tmp = x - 100 //会升到函数体头部
+  }
+}
+</code></pre><hr>
+<h4 id="return"><a href="#return" class="headerlink" title="return"></a><code>return</code></h4><ul>
+<li>每个函数都有<code>return</code>。</li>
+<li>如果你不写<code>return</code>，就相当于写了<code>return undefined</code>。</li>
 </ul>
 <hr>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>递归函数是一个直接或间接调用函数自身的嵌套型函数。</p>
+<pre><code>function fn(num){
+  if (num === 0) return 0
+  if (num === 1) return 1
+  return fn(num - 2) + fn(num - 1)
+}
+fn(6) // 8
+</code></pre><hr>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
+<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
+<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
+<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
+<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
+<pre><code>function f1(){
+  var n = 9
+  function f2(){
+    console.log(n)
+  }
+  f2()
+} 
+f1() // 9
+//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
+</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
+</code></pre><p>3.封装对象的私有属性和私有方法。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+var a2 = f1(5)
+a2() // 5
+a2() // 6
+a2() // 7
+//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。
+</code></pre><hr>
+<h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><h5 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h5><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
+<h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h5><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
+<pre><code>function add(a,b){
+    return a+b
+}
+add.call(add, 5, 3) //8
+add.apply(add, [5, 3]) //8
+</code></pre><h5 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h5><p><code>bind</code> 接受的参数跟 <code>call</code> 一致，只是 <code>bind</code> 不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
+<pre><code>function add(a, b){
+    return a+b;
+}
+var foo1 = add.bind(add, 5,3)
+foo1() //8
+var foo1 = add.bind(add, 5,3) 
+foo1() //8
+</code></pre><hr>
+<h5 id="eval"><a href="#eval" class="headerlink" title="eval()"></a><code>eval()</code></h5><ul>
+<li><code>eval()</code>函数会将传入的字符串当做<code>JavaScript</code>代码进行执行。</li>
+<li>语法：<code>eval(string)</code></li>
+<li>如果字符串表示的是表达式，<code>eval()</code>会对表达式进行求值。</li>
+<li>如果参数表示一个或多个<code>JavaScript语句</code>， 那么<code>eval()</code>就会执行这些语句。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&apos;var a = 1;&apos;)</div><div class="line">a // 1</div></pre></td></tr></table></figure>
+<hr>
+<h5 id="Call-Stack先入后出"><a href="#Call-Stack先入后出" class="headerlink" title="Call Stack先入后出"></a><code>Call Stack</code>先入后出</h5><p><code>call stack</code>调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
+<pre><code>function a(){
+    console.log(&apos;a&apos;)
+    return a
+}
+a.call() 
+
+* 当调用时，a.call() 会被记在 call stack 里。
+* 接着 console.log(&apos;a&apos;) 记在 call stack 里。
+* return a 到这一步时`console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。
+</code></pre><hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
           
