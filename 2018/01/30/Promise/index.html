@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/30/Promise/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="「同步」和「异步」JavaScript 语言本身并不慢，慢的是读写外部数据，比如等待 AJAX 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，Javascript 语言将任务的执行模式分成两种：「同步」（Synchronous）和「异步」（Asynchronous）。  一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文">
-<meta property="og:updated_time" content="2018-02-03T15:36:17.000Z">
+<meta property="og:updated_time" content="2018-02-09T15:16:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="「同步」和「异步」JavaScript 语言本身并不慢，慢的是读写外部数据，比如等待 AJAX 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，Javascript 语言将任务的执行模式分成两种：「同步」（Synchronous）和「异步」（Asynchronous）。  一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文">
@@ -329,33 +329,46 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
 <p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
-<pre><code>step1(function (value1) {
-  step2(value1, function(value2) {
-    step3(value2, function(value3) {
-      step4(value3, function(value4) {
-        // ...
-      })
-    })
-  })
-})
+<pre><code>setTimeout(function(){
+  left(function(){
+    setTimeout(function(){
+       left(function(){
+         setTimeout(function(){
+           left();
+         },2000);
+       });
+    }, 2000);
+  });
+}, 2000);
 </code></pre><hr>
-<h4 id="Promise对象"><a href="#Promise对象" class="headerlink" title="Promise对象"></a><code>Promise</code>对象</h4><ul>
-<li>回调函数本身并没有问题，它的问题出现在多个回调函数嵌套。而<code>Promise</code>对象可以使异步操作具备同步操作的接口，使程序具备正常的同步运行的流程，避免了嵌套多个层级。</li>
-</ul>
-<p>比如，异步操作<code>f1</code>返回一个<code>Promise</code>对象，它的回调函数<code>f2</code>写法如下。</p>
-<pre><code>(new Promise(f1)).then(f2);
-</code></pre><p>这种写法对于多层嵌套的回调函数尤其方便。</p>
-<pre><code>(new Promise(step1))
-  .then(step2)
-  .then(step3)
-  .then(step4);    
-</code></pre><p><code>Promise</code>的最大问题是代码冗余，原来的任务被<code>Promise</code>包装了一下，不管什么操作，一眼看去都是一堆<code>then</code>，原来的语义变得很不清楚。  </p>
-<h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve, reject) /* executor */ )</div></pre></td></tr></table></figure>
-<h5 id="executor"><a href="#executor" class="headerlink" title="executor"></a><code>executor</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// executor 是带有 resolve 和 reject 两个参数的函数。</div><div class="line">// Promise 构造函数执行时立即调用 executor 函数。</div><div class="line">// resolve 和 reject 两个函数作为参数传递给 executor（ executor 函数在 Promise 构造函数返回新建对象前被调用）。</div></pre></td></tr></table></figure>
-<h5 id="resolve-reject"><a href="#resolve-reject" class="headerlink" title="resolve reject"></a><code>resolve</code> <code>reject</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去</div><div class="line">// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</div></pre></td></tr></table></figure>
-<h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// then 方法可以接受两个回调函数作为参数。</div><div class="line">//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。</div><div class="line">//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。</div></pre></td></tr></table></figure>
-<hr>
+<h4 id="Promise（全局-window-的属性）"><a href="#Promise（全局-window-的属性）" class="headerlink" title="Promise（全局 window 的属性）"></a><code>Promise</code>（全局 <code>window</code> 的属性）</h4><h5 id="Promise-对象有以下两个特点"><a href="#Promise-对象有以下两个特点" class="headerlink" title="Promise 对象有以下两个特点:"></a><code>Promise</code> 对象有以下两个特点:</h5><p>1.对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：</p>
+<pre><code>pending: 初始状态，既不是成功，也不是失败状态。
+fulfilled: 意味着操作成功完成。
+rejected: 意味着操作失败。
+
+//只有异步操作的结果，可以决定当前是哪一种状态。
+//任何其他操作都无法改变这个状态。
+</code></pre><p>2.一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
+<p><code>Promise</code> 的状态的变化途径只有两种：</p>
+<pre><code>1.异步操作从 pending 到 fulfilled ，表示异步操作成功，Promise 对象传回一个值，状态变为 resolved。
+2.异步操作从 pending 到 rejected ，表示异步操作失败，Promise 对象抛出一个错误，状态变为 rejected。
+
+//只要这两种情况发生，状态就凝固不会再变了，会一直保持这个结果。
+//就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。
+//这与事件完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
+</code></pre><h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
+<pre><code>new Promise(function(resolve, reject) /* executor */ )
+
+// executor 是 resolve 和 reject 两个函数。
+// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
+// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+</code></pre><h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><pre><code>// then 方法可以接受两个回调函数作为参数。
+//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。
+//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
+</code></pre><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a><code>catch</code></h5><pre><code>// catch 是用于指定发生错误时的回调函数。
+//建议总是使用 catch，catch() 使回调报错时不会卡死 JS 而是会继续往下执行。
+// Promise 对象的错误具有&quot;冒泡&quot;性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。
+</code></pre><hr>
 <p>参考：</p>
 <p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
 <p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
@@ -472,7 +485,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -511,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#「同步」和「异步」"><span class="nav-number">1.</span> <span class="nav-text">「同步」和「异步」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise对象"><span class="nav-number">3.</span> <span class="nav-text">Promise对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本用法"><span class="nav-number">3.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#executor"><span class="nav-number">3.2.</span> <span class="nav-text">executor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#resolve-reject"><span class="nav-number">3.3.</span> <span class="nav-text">resolve reject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#then"><span class="nav-number">3.4.</span> <span class="nav-text">then</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#「同步」和「异步」"><span class="nav-number">1.</span> <span class="nav-text">「同步」和「异步」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回调函数"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise（全局-window-的属性）"><span class="nav-number">3.</span> <span class="nav-text">Promise（全局 window 的属性）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-对象有以下两个特点"><span class="nav-number">3.1.</span> <span class="nav-text">Promise 对象有以下两个特点:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本用法"><span class="nav-number">3.2.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#then"><span class="nav-number">3.3.</span> <span class="nav-text">then</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#catch"><span class="nav-number">3.4.</span> <span class="nav-text">catch</span></a></li></ol></li></ol></div>
             
 
           </div>

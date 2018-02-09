@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/23/ new 做了什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
-<meta property="og:updated_time" content="2018-02-03T15:26:28.000Z">
+<meta property="og:updated_time" content="2018-02-09T14:41:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new 做了什么？">
 <meta name="twitter:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
@@ -342,21 +342,13 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 <li>用了<code>new</code>操作符创建新实例。</li>
 </ol>
 <h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
-<ol>
-<li>创建一个新对象，这个对象的类型是<code>object</code></li>
-</ol>
+<p>1.创建一个新对象，这个对象的类型是<code>object</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var human1 = &#123;&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</li>
-</ol>
+<p>2.将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">human1.__proto__ = Foo.prototype</div></pre></td></tr></table></figure>
-<ol>
-<li>执行构造函数中的代码（为这个新对象添加属性）</li>
-</ol>
+<p>3.执行构造函数中的代码（为这个新对象添加属性）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.call(human1)</div></pre></td></tr></table></figure>
-<ol>
-<li>返回新对象</li>
-</ol>
+<p>4.返回新对象</p>
 <hr>
 
       
@@ -471,7 +463,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
