@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="Cookie是什么? 作用识别身份记录历史">
+<meta name="description" content="Cookie是什么？Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie 特点1.服务器通过 Set-Cookie 响应头设置 Cookie。 Set-Cookie: key=value; //等号两边不能有空格 2.浏览器得到 Cookie 之后， 每次请求都要带上 Cookie。 3.服务器读取 Cookie 就知道登录用户的信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie">
 <meta property="og:url" content="http://yoursite.com/2018/02/05/Cookie/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="Cookie是什么? 作用识别身份记录历史">
-<meta property="og:updated_time" content="2018-02-09T15:17:21.000Z">
+<meta property="og:description" content="Cookie是什么？Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie 特点1.服务器通过 Set-Cookie 响应头设置 Cookie。 Set-Cookie: key=value; //等号两边不能有空格 2.浏览器得到 Cookie 之后， 每次请求都要带上 Cookie。 3.服务器读取 Cookie 就知道登录用户的信">
+<meta property="og:updated_time" content="2018-02-12T10:06:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie">
-<meta name="twitter:description" content="Cookie是什么? 作用识别身份记录历史">
+<meta name="twitter:description" content="Cookie是什么？Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie 特点1.服务器通过 Set-Cookie 响应头设置 Cookie。 Set-Cookie: key=value; //等号两边不能有空格 2.浏览器得到 Cookie 之后， 每次请求都要带上 Cookie。 3.服务器读取 Cookie 就知道登录用户的信">
 
 
 
@@ -298,8 +298,19 @@
       
 
       
-        <h4 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么?"></a><code>Cookie</code>是什么?</h4><hr>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><h5 id="识别身份"><a href="#识别身份" class="headerlink" title="识别身份"></a>识别身份</h5><h5 id="记录历史"><a href="#记录历史" class="headerlink" title="记录历史"></a>记录历史</h5><hr>
+        <h5 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a><code>Cookie</code>是什么？</h5><p><code>Cookie</code> 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。</p>
+<h5 id="Cookie-特点"><a href="#Cookie-特点" class="headerlink" title="Cookie 特点"></a><code>Cookie</code> 特点</h5><p>1.服务器通过 <code>Set-Cookie</code> 响应头设置 <code>Cookie</code>。</p>
+<pre><code>Set-Cookie: key=value;
+//等号两边不能有空格
+</code></pre><p>2.浏览器得到 <code>Cookie</code> 之后， 每次请求都要带上 <code>Cookie</code>。</p>
+<p>3.服务器读取 <code>Cookie</code> 就知道登录用户的信息。</p>
+<h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p><code>Cookie</code>同源策略跟 <code>AJAX</code> 的同源策略稍微有些不同。</p>
+<p>浏览器的同源政策规定，两个网址只要域名相同和端口相同，就可以共享 <code>Cookie</code>。</p>
+<p>注意，这里不要求协议相同。也就是说，<code>http://example.com</code> 设置的<code>Cookie</code>，可以被 <code>https://example.com</code> 读取。</p>
+<h5 id="Cookie缺点"><a href="#Cookie缺点" class="headerlink" title="Cookie缺点"></a><code>Cookie</code>缺点</h5><p>1.<code>Cookie</code>会被附加在每个<code>HTTP</code>请求中，所以无形中增加了流量。</p>
+<p>2.由于在<code>HTTP</code>请求中的<code>Cookie</code>是明文传递的，所以安全性成问题，除非用<code>HTTPS</code>。</p>
+<p>3.<code>Cookie</code>的大小限制在4KB左右，对于复杂的存储需求来说是不够用的。</p>
+<hr>
 
       
     </div>
@@ -334,7 +345,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/09/css单位/" rel="prev" title="css单位">
+              <a href="/2018/02/09/CSS 常用单位/" rel="prev" title="css单位">
                 css单位 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -413,7 +424,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -452,7 +463,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.</span> <span class="nav-text">Cookie是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#识别身份"><span class="nav-number">2.1.</span> <span class="nav-text">识别身份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#记录历史"><span class="nav-number">2.2.</span> <span class="nav-text">记录历史</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie是什么？"><span class="nav-number">1.</span> <span class="nav-text">Cookie是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie-特点"><span class="nav-number">2.</span> <span class="nav-text">Cookie 特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">3.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie缺点"><span class="nav-number">4.</span> <span class="nav-text">Cookie缺点</span></a></li></ol></div>
             
 
           </div>
