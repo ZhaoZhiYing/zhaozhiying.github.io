@@ -504,7 +504,7 @@ parent{display: flex; justify-content: space-between;}
 //如果媒体满足max-width: 375px，就生效这个css样式
 </code></pre><p><code>@media</code>可以用<code>css</code>文件代替，在<code>link</code>里加上<code>media</code>查询条件,才能生效。</p>
 <pre><code>&lt;link rel=“stylesheet” href=“style.css” media=“(max-width: 320px)”&gt;    
-</code></pre><p>避免<code>css</code>层叠覆盖：<br>1.范围条件不要有交集<br>2.范围大的写在前面  </p>
+</code></pre><p>避免<code>css</code>层叠覆盖：<br>1.范围条件不要有交集。<br>2.范围大的写在前面。  </p>
 <hr>
 <h5 id="2-手机端加一个meta（响应式）"><a href="#2-手机端加一个meta（响应式）" class="headerlink" title="2.手机端加一个meta（响应式）"></a>2.手机端加一个<code>meta</code>（响应式）</h5><p>快捷写法：<code>meta:vp</code></p>
 <pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt; 
@@ -522,16 +522,25 @@ user-scalable - 用户是否可以手动缩放
 <li>防止页面变成横屏 </li>
 </ul>
 <hr>
-<h5 id="3-方法一：使用JS动态调整REM"><a href="#3-方法一：使用JS动态调整REM" class="headerlink" title="3.方法一：使用JS动态调整REM"></a>3.方法一：使用<code>JS</code>动态调整<code>REM</code></h5><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+<h5 id="3-方法一：使用JS动态调整rem"><a href="#3-方法一：使用JS动态调整rem" class="headerlink" title="3.方法一：使用JS动态调整rem"></a>3.方法一：使用<code>JS</code>动态调整<code>rem</code></h5><p>由于<code>rem</code>代表根元素（<code>html</code>元素）的 <code>font-size</code> 大小。那么可以先设置<code>1rem = html 的 font-size = 1page width</code>，这样后面就可以按比例直接调整<code>rem</code>。</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
 &lt;script&gt;
     var pageWidth = window.innerWidth
-    document.write(&apos;&lt;style&gt;html{font-size:&apos;+pageWidth/10+&apos;px;}&lt;/style&gt;&apos;)
+    document.write(&apos;&lt;style&gt;html{font-size:&apos;+pageWidth/10+&apos;px;}&lt;/style&gt;&apos;) 
 &lt;/script&gt;
+
+// pageWidth/10 是将 rem 调整成整数，1rem = 0.1 html 的 font-size     
+</code></pre><p><code>rem</code>可以与其他单位同时存在</p>
+<pre><code>p{
+    font-size: 16px;
+    border: 1px solid red; //很小的单位上，可以用 px 或 em，比如线条。
+    width: 0.5rem; 
+}
 </code></pre><h5 id="方法二：在scss文件里添加，这个方法可实现px自动变rem"><a href="#方法二：在scss文件里添加，这个方法可实现px自动变rem" class="headerlink" title="方法二：在scss文件里添加，这个方法可实现px自动变rem"></a>方法二：在<code>scss</code>文件里添加，这个方法可实现<code>px</code>自动变<code>rem</code></h5><pre><code>@function px( $px ){
   @return $px/$designWidth*10 + rem;
 }
 
-$designWidth : 750;  
+$designWidth : 750; // 750 是设计稿的宽度。 
 
 .child{
   width: px(375);
