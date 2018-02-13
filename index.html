@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -228,6 +228,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/13/CSS 伪类和伪元素/" itemprop="url">CSS 伪类和伪元素</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
+                2018-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p><code>CSS</code>伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号<code>:</code></p>
+<p>常用伪类</p>
+<pre><code>a:link {color: #ddd;} //未访问的链接
+a:visited {color: #ddd;} //已访问的链接
+a:hover {color: #ddd;} //鼠标划过链接
+a:active {color: #ddd;} //已选中的链接
+
+//这四个伪类同时使用链接时，需遵循 LVHA 顺序。
+//即 link — :visited — :hover — :active。
+</code></pre><hr>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>CSS</code>伪元素也是添加到选择器的关键字，但它是为元素的某些部分设置样式。前缀是两个冒号<code>::</code> (<code>CSS3</code>中的标准是伪元素使用双冒号<code>::</code>，避免和伪类混淆。) </p>
+<p>常用伪元素</p>
+<pre><code>::after 用来创建一个伪元素，做为已选中元素的最后一个子元素。这个虚拟元素默认是行内元素。
+::before 用来创建一个伪元素，做为已选中元素的第一个子元素。这个虚拟元素默认是行内元素。
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a8313d23eabf.png
+"></p>
+<pre><code>::first-letter 会选中某块级元素第一行的第一个字母，并且文字所处的行之前没有其他内容（如图片和内联的表格）。    
+::first-line 在某块级元素的第一行应用样式
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a83157f799dd.png
+">    </p>
+<pre><code>::selection 应用于文档中被用户高亮的部分
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a831465d74e9.png
+"></p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/CSS 动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +393,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/13/CSS 动画/" itemprop="url">CSS动画</a></h1>
+                <a class="post-title-link" href="/2018/02/13/CSS 动画/" itemprop="url">CSS 动画</a></h1>
         
 
         <div class="post-meta">
@@ -257,7 +403,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T01:43:03+08:00">
                 2018-02-13
@@ -367,19 +513,19 @@ div:hover{
 </blockquote>
 <h4 id="transform"><a href="#transform" class="headerlink" title="transform"></a><code>transform</code></h4><p><code>transform</code>是一个静态的属性。可以看作是与<code>width</code> <code>height</code>等同类的属性。应用于元素的2D 或 3D 转换。</p>
 <pre><code>none 定义不进行转换。
-matrix(n,n,n,n,n,n)    定义 2D 转换，使用六个值的矩阵。
-matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)    定义 3D 转换，使用 16 个值的 4x4 矩阵。
+matrix(n,n,n,n,n,n) 定义 2D 转换，使用六个值的矩阵。
+matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) 定义 3D 转换，使用 16 个值的 4x4 矩阵。
 translate(x,y) 定义 2D 转换。
 translate3d(x,y,z) 定义 3D 转换。
-translateX(x)     定义转换，只是用 X 轴的值。
-translateY(y)     定义转换，只是用 Y 轴的值。
-translateZ(z)     定义 3D 转换，只是用 Z 轴的值。
+translateX(x) 定义转换，只是用 X 轴的值。
+translateY(y) 定义转换，只是用 Y 轴的值。
+translateZ(z) 定义 3D 转换，只是用 Z 轴的值。
 scale(x,y) 定义 2D 缩放转换。
 scale3d(x,y,z) 定义 3D 缩放转换。
-scaleX(x)    通过设置 X 轴的值来定义缩放转换。
-scaleY(y)    通过设置 Y 轴的值来定义缩放转换。
-scaleZ(z)    通过设置 Z 轴的值来定义 3D 缩放转换。
-rotate(angle)     定义 2D 旋转，在参数中规定角度。
+scaleX(x) 通过设置 X 轴的值来定义缩放转换。
+scaleY(y) 通过设置 Y 轴的值来定义缩放转换。
+scaleZ(z) 通过设置 Z 轴的值来定义 3D 缩放转换。
+rotate(angle) 定义 2D 旋转，在参数中规定角度。
 rotate3d(x,y,z,angle) 定义 3D 旋转。
 rotateX(angle) 定义沿着 X 轴的 3D 旋转。
 rotateY(angle) 定义沿着 Y 轴的 3D 旋转。
@@ -467,7 +613,7 @@ perspective(n) 为 3D 转换元素定义透视视图。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
                 2018-02-11
@@ -609,7 +755,7 @@ context.fillRect(10, 10, 50, 50)
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/09/CSS 常用单位/" itemprop="url">css单位</a></h1>
+                <a class="post-title-link" href="/2018/02/09/CSS 常用单位/" itemprop="url">CSS 常用单位</a></h1>
         
 
         <div class="post-meta">
@@ -619,7 +765,7 @@ context.fillRect(10, 10, 50, 50)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
                 2018-02-09
@@ -760,7 +906,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
                 2018-02-05
@@ -892,7 +1038,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
                 2018-02-03
@@ -1020,7 +1166,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
                 2018-02-02
@@ -1156,7 +1302,7 @@ saveMessage (存储数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
                 2018-01-30
@@ -1349,7 +1495,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -1531,7 +1677,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
                 2018-01-25
@@ -1658,177 +1804,6 @@ rejected: 意味着操作失败。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/ new 做了什么？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/ new 做了什么？/" itemprop="url">new 做了什么？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的<code>new</code>到底做了些什么？</p>
-<hr>
-<h4 id="「Object构造函数」"><a href="#「Object构造函数」" class="headerlink" title="「Object构造函数」"></a>「<code>Object</code>构造函数」</h4><p>创建自定义对象的最简单方式就是创建一个<code>Object</code>的实例，然后再为它添加属性和方法。如下：</p>
-<pre><code>var person = new Object()
-person.name = &apos;zhao&apos;;
-person.walk = function(){
-    console.log(&apos;走一步的代码&apos;)
-} 
-</code></pre><h5 id="转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"><a href="#转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。" class="headerlink" title="转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"></a>转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。</h5><hr>
-<h4 id="「对象字面量」"><a href="#「对象字面量」" class="headerlink" title="「对象字面量」"></a>「对象字面量」</h4><pre><code>var person = {
-    name: &apos;zhao&apos;,
-    walk: function(){
-        console.log(&apos;走一步的代码&apos;)
-    }
-}
-</code></pre><h5 id="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"><a href="#转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。" class="headerlink" title="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"></a>转折点：「<code>Object</code>构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。</h5><hr>
-<h4 id="「工厂模式」"><a href="#「工厂模式」" class="headerlink" title="「工厂模式」"></a>「工厂模式」</h4><p>「工厂模式」是指用函数来封装以特定接口创建对象的细节。</p>
-<pre><code>function Foo(name, city){
-    this.name = name;
-    this.city = city;
-    this.walk = function walk(){
-        console.log(&apos;走一步的代码&apos;)
-    }
-    return Foo
-}
-
-var human1 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
-var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
-</code></pre><h5 id="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"><a href="#转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。" class="headerlink" title="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"></a>转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。</h5><hr>
-<h4 id="「构造函数」"><a href="#「构造函数」" class="headerlink" title="「构造函数」"></a>「构造函数」</h4><p>随着<code>JavaScript</code>的发展，出现了一种新的模式 ——「构造函数」。</p>
-<ul>
-<li>构造函数可以创建特定类型的对象。</li>
-<li>此外，也可以创建自定义的构造函数，从而自定义对象类型的属性和方法。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
-<p>上面代码中，我们看到，与「工厂模式」的不同之处：</p>
-<ol>
-<li>没有显式地创建对象</li>
-<li>直接将属性和方法赋给了<code>this</code>对象</li>
-<li>没有<code>return</code>语句</li>
-<li>函数名首字母是大写<code>F</code>。按照惯例，构造函数始终以大写字母开头，主要是为了区别其他函数。</li>
-<li>用了<code>new</code>操作符创建新实例。</li>
-</ol>
-<h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
-<p>1.创建一个新对象，这个对象的类型是<code>object</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var human1 = &#123;&#125;</div></pre></td></tr></table></figure>
-<p>2.将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">human1.__proto__ = Foo.prototype</div></pre></td></tr></table></figure>
-<p>3.执行构造函数中的代码（为这个新对象添加属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.call(human1)</div></pre></td></tr></table></figure>
-<p>4.返回新对象</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1879,8 +1854,8 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1932,7 +1907,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -214,6 +214,177 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/ new 做了什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/ new 做了什么？/" itemprop="url">new 做了什么？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的<code>new</code>到底做了些什么？</p>
+<hr>
+<h4 id="「Object构造函数」"><a href="#「Object构造函数」" class="headerlink" title="「Object构造函数」"></a>「<code>Object</code>构造函数」</h4><p>创建自定义对象的最简单方式就是创建一个<code>Object</code>的实例，然后再为它添加属性和方法。如下：</p>
+<pre><code>var person = new Object()
+person.name = &apos;zhao&apos;;
+person.walk = function(){
+    console.log(&apos;走一步的代码&apos;)
+} 
+</code></pre><h5 id="转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"><a href="#转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。" class="headerlink" title="转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"></a>转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。</h5><hr>
+<h4 id="「对象字面量」"><a href="#「对象字面量」" class="headerlink" title="「对象字面量」"></a>「对象字面量」</h4><pre><code>var person = {
+    name: &apos;zhao&apos;,
+    walk: function(){
+        console.log(&apos;走一步的代码&apos;)
+    }
+}
+</code></pre><h5 id="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"><a href="#转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。" class="headerlink" title="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"></a>转折点：「<code>Object</code>构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。</h5><hr>
+<h4 id="「工厂模式」"><a href="#「工厂模式」" class="headerlink" title="「工厂模式」"></a>「工厂模式」</h4><p>「工厂模式」是指用函数来封装以特定接口创建对象的细节。</p>
+<pre><code>function Foo(name, city){
+    this.name = name;
+    this.city = city;
+    this.walk = function walk(){
+        console.log(&apos;走一步的代码&apos;)
+    }
+    return Foo
+}
+
+var human1 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
+var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
+</code></pre><h5 id="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"><a href="#转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。" class="headerlink" title="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"></a>转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。</h5><hr>
+<h4 id="「构造函数」"><a href="#「构造函数」" class="headerlink" title="「构造函数」"></a>「构造函数」</h4><p>随着<code>JavaScript</code>的发展，出现了一种新的模式 ——「构造函数」。</p>
+<ul>
+<li>构造函数可以创建特定类型的对象。</li>
+<li>此外，也可以创建自定义的构造函数，从而自定义对象类型的属性和方法。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<p>上面代码中，我们看到，与「工厂模式」的不同之处：</p>
+<ol>
+<li>没有显式地创建对象</li>
+<li>直接将属性和方法赋给了<code>this</code>对象</li>
+<li>没有<code>return</code>语句</li>
+<li>函数名首字母是大写<code>F</code>。按照惯例，构造函数始终以大写字母开头，主要是为了区别其他函数。</li>
+<li>用了<code>new</code>操作符创建新实例。</li>
+</ol>
+<h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
+<p>1.创建一个新对象，这个对象的类型是<code>object</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var human1 = &#123;&#125;</div></pre></td></tr></table></figure>
+<p>2.将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">human1.__proto__ = Foo.prototype</div></pre></td></tr></table></figure>
+<p>3.执行构造函数中的代码（为这个新对象添加属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.call(human1)</div></pre></td></tr></table></figure>
+<p>4.返回新对象</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +428,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
                 2018-01-19
@@ -455,7 +626,7 @@ foo.bar()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
                 2018-01-15
@@ -659,7 +830,7 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -873,7 +1044,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -1024,7 +1195,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -1214,7 +1385,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1662,7 +1833,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1902,7 +2073,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -2176,7 +2347,7 @@ a.call()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -2377,147 +2548,6 @@ for(var key in person){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/JS 的构成 /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/21/JS 的构成 /" itemprop="url">JS 的构成</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
-                2017-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="JavaScript是什么？"><a href="#JavaScript是什么？" class="headerlink" title="JavaScript是什么？"></a><code>JavaScript</code>是什么？</h3><p><code>JavaScript</code>是一种轻量的、解释性的、面向对象的头等函数语言，其最广为人知的应用是作为网页的脚本语言，但同时它也在很多非浏览器环境下使用。<code>JS</code>是一种动态的基于原型和多范式的脚本语言，支持面向对象、命令式和函数式的编程风格。</p>
-<hr>
-<h3 id="JavaScript的三大组成部分"><a href="#JavaScript的三大组成部分" class="headerlink" title="JavaScript的三大组成部分"></a><code>JavaScript</code>的三大组成部分</h3><ul>
-<li><p><strong>ECMAScript</strong></p>
-<p>  <code>ECMAScript</code>是一种开放的、国际上广为接受的脚本语言规范。由欧洲计算机制造商协会制定和发布。<code>Web</code>浏览器对于<code>ECMAScript</code>来说只是一个宿主环境，但它并不是唯一的宿主环境。</p>
-<p>  <code>ECMAScript</code>是由<code>ECMA-262</code>定义，<code>ECMA-262</code>标准规范了一种脚本语言实现应该包含的内容（语法、数据类型、语句、关键字、保留字、操作符以及对象）    </p>
-<p>  <code>ECMAScript</code>和<code>JavaScript</code>的关系是，前者是后者的规格，后者是前者的一种实现。在日常场合，这两个词是可以互换的。</p>
-</li>
-<li><p><strong>DOM</strong></p>
-<p>  <code>DOM</code>（<code>Document Object Model</code>文档对象模型）是<code>W3C</code>组织制定的一套用于访问和操作<code>XML</code>(<code>HTML</code>是<code>XML</code>的衍生品)文档的标准。它给文档提供了一种结构化的表示方法，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。</p>
-<p>  <code>DOM</code>将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。</p>
-</li>
-<li><p><strong>BOM</strong></p>
-<p>  <code>BOM</code>（<code>Browser Object Model</code>浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</p>
-<p>  由于<code>BOM</code>没有相关标准，每个浏览器都有其自己对<code>BOM</code>的实现方式。<code>BOM</code>有窗口对象、导航对象等一些实际上已经默认的标准，但对于这些对象和其它一些对象，每个浏览器都定义了自己的属性和方式。</p>
-<p>  例如：弹出新的浏览器窗口，移动、改变和关闭浏览器窗口，提供详细的网络浏览器信息（<code>navigator</code>），详细的页面信息（<code>location</code>），详细的用户屏幕分辨率的信息（<code>screen</code>），对<code>cookies</code>的支持等等。<code>BOM</code>作为<code>JavaScript</code>的一部分并没有相关标准的支持，每一个浏览器都有自己的实现，虽然有一些非事实的标准，但还是给开发者带来一定的麻烦。</p>
-</li>
-</ul>
-<hr>
-<p>参考：</p>
-<p>阮一峰的《JavaScript 标准参考教程》<a href="http://javascript.ruanyifeng.com/introduction/history.html#toc1" target="_blank" rel="external">http://javascript.ruanyifeng.com/introduction/history.html#toc1</a></p>
-<p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction</a>    </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2568,8 +2598,8 @@ for(var key in person){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2621,7 +2651,7 @@ for(var key in person){
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
