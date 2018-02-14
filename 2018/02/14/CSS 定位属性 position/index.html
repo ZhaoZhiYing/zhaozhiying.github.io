@@ -87,7 +87,9 @@
 <meta property="og:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
 <meta property="og:image" content="https://i.loli.net/2018/02/14/5a83f972f1307.png
 ">
-<meta property="og:updated_time" content="2018-02-14T08:58:34.000Z">
+<meta property="og:image" content="https://i.loli.net/2018/02/14/5a8429cb73349.png
+">
+<meta property="og:updated_time" content="2018-02-14T12:45:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 定位属性 position">
 <meta name="twitter:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
@@ -308,20 +310,25 @@
 </blockquote>
 <h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
 <h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
-<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><p>相对于拥有相对定位属性的父元素进行定位移动，它会脱离文档流。使用时，父元素要加上<code>relative</code>。绝对定位的元素可以设置外边距，且不会与其他边距合并。</p>
+<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><ul>
+<li>相对于相对于最近的非 <code>static</code> 祖先元素定位移动，它会脱离文档流。</li>
+<li>当这样的祖先元素不存在时，则相对于 <code>body</code> 定位。</li>
+<li>当父元素被为 <code>relative</code>，那 <code>absolute</code> 子元素将相对于其父元素定位。</li>
+<li>绝对定位的元素可以设置外边距，且不会与其他边距合并。</li>
+</ul>
 <h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
 <p>一张图说清楚上面四种值的用法区别，如下：</p>
 <p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
 "></p>
 <hr>
-<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。</p>
+<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。如下图：</p>
+<p><img src="https://i.loli.net/2018/02/14/5a8429cb73349.png
+"></p>
+<p>上图中 <code>child</code> 继承了 <code>parent</code> 的 <code>position</code>，都是相对于浏览器窗口定位，所以 <code>top</code> <code>left</code> 取等值时候位置一致。</p>
 <hr>
-<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>结合了 <code>relative</code> 和 <code>fixed</code> 两种定位功能于一体的特殊定位。适用于比如导航条在页面滚动后固定的情况。</p>
-<ul>
-<li>元素先按照普通文档流定位，然后相对于该元素在流中的 <code>flow root</code>（BFC）和 <code>containing block</code>（最近的块级祖先元素）定位。</li>
-<li>之后元素定位表现为在跨越特定阈值前为相对定位，最后为固定定位。</li>
-<li>这个特定阈值指的是 <code>top</code> <code>right</code> <code>bottom</code> <code>left</code> 之一。</li>
-</ul>
+<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>粘性定位是相对定位 <code>relative</code> 和固定定位 <code>fixed</code> 的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。粘性定位常用于页面滚动到一定程度时固定导航条的情况。</p>
+<pre><code>p{ position: sticky; top: 10px; }
+</code></pre><p>在 <code>viewport</code> 视口滚动到元素 <code>top &lt; 10px</code> 之前，元素为相对定位。之后，元素将固定在与顶部距离 <code>10px</code> 的位置，直到 <code>viewport</code> 视口回滚到阈值以下。    </p>
 <hr>
 
       
@@ -356,6 +363,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/14/JS 操作符/" rel="prev" title="JS 操作符">
+                JS 操作符 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -432,7 +443,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
