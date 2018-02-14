@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
+<meta name="description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 中的层叠上下文和层叠顺序">
-<meta property="og:url" content="http://yoursite.com/2017/12/10/CSS 中的层叠上下文和层叠顺序/index.html">
+<meta property="og:title" content="CSS 定位属性 position">
+<meta property="og:url" content="http://yoursite.com/2018/02/14/CSS 定位属性 position/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
-<meta property="og:updated_time" content="2018-02-03T15:26:28.000Z">
+<meta property="og:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
+<meta property="og:image" content="https://i.loli.net/2018/02/14/5a83f972f1307.png
+">
+<meta property="og:updated_time" content="2018-02-14T08:58:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 中的层叠上下文和层叠顺序">
-<meta name="twitter:description" content="层叠顺序（由下往上）1.负z-index（position） 2.background 3.border 4.block 5.float（float/inline在float上） 6.inline/inline-block 7.正z-index（position元素由z-index大小决定层叠） z-index某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有">
+<meta name="twitter:title" content="CSS 定位属性 position">
+<meta name="twitter:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
+<meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a83f972f1307.png
+">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/10/CSS 中的层叠上下文和层叠顺序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/"/>
 
 
 
 
 
-  <title>CSS 中的层叠上下文和层叠顺序 | Zhao Zhiying</title>
+  <title>CSS 定位属性 position | Zhao Zhiying</title>
   
 
 
@@ -231,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/CSS 中的层叠上下文和层叠顺序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -248,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 中的层叠上下文和层叠顺序</h1>
+          <h1 class="post-title" itemprop="name headline">CSS 定位属性 position</h1>
         
 
         <div class="post-meta">
@@ -260,8 +264,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
-                2017-12-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
+                2018-02-14
               </time>
             
 
@@ -298,29 +302,27 @@
       
 
       
-        <h4 id="层叠顺序（由下往上）"><a href="#层叠顺序（由下往上）" class="headerlink" title="层叠顺序（由下往上）"></a>层叠顺序（由下往上）</h4><pre><code>1.负z-index（position）
-2.background
-3.border
-4.block
-5.float（float/inline在float上）
-6.inline/inline-block
-7.正z-index（position元素由z-index大小决定层叠）
-</code></pre><p><code>z-index</code>某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有的元素都存在。    </p>
+        <blockquote>
+<p><code>position</code> 属性用于指定一个元素在文档中的定位方式。</p>
+<p>注意：<code>float</code>属性不可以和 <code>position</code> 属性共用。</p>
+</blockquote>
+<h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
+<h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
+<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><p>相对于拥有相对定位属性的父元素进行定位移动，它会脱离文档流。使用时，父元素要加上<code>relative</code>。绝对定位的元素可以设置外边距，且不会与其他边距合并。</p>
+<h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
+<p>一张图说清楚上面四种值的用法区别，如下：</p>
+<p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
+"></p>
 <hr>
-<h4 id="务必牢记的层叠准则"><a href="#务必牢记的层叠准则" class="headerlink" title="务必牢记的层叠准则"></a>务必牢记的层叠准则</h4><p>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
-<pre><code>1. 谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。
-2. 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。
-</code></pre><p>备注：</p>
-<pre><code>1.z-index:auto所在的&lt;div&gt;元素是一个普通的元素，这时候div里的元素不受父级元素影响；
-2.当z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。
-</code></pre><hr>
-<h4 id="满足两个条件才能形成层叠上下文"><a href="#满足两个条件才能形成层叠上下文" class="headerlink" title="满足两个条件才能形成层叠上下文"></a>满足两个条件才能形成层叠上下文</h4><pre><code>条件1：父级需要是display:flex或者display:inline-flex水平
-条件2：子元素的z-index不是auto，必须是数值。
-</code></pre><p>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
+<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。</p>
 <hr>
-<p>参考：</p>
-<p>写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>   </p>
-<p>张鑫旭 <a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/</a></p>
+<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>结合了 <code>relative</code> 和 <code>fixed</code> 两种定位功能于一体的特殊定位。适用于比如导航条在页面滚动后固定的情况。</p>
+<ul>
+<li>元素先按照普通文档流定位，然后相对于该元素在流中的 <code>flow root</code>（BFC）和 <code>containing block</code>（最近的块级祖先元素）定位。</li>
+<li>之后元素定位表现为在跨越特定阈值前为相对定位，最后为固定定位。</li>
+<li>这个特定阈值指的是 <code>top</code> <code>right</code> <code>bottom</code> <code>left</code> 之一。</li>
+</ul>
+<hr>
 
       
     </div>
@@ -345,8 +347,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/24/HTML 标签/" rel="next" title="HTML 标签">
-                <i class="fa fa-chevron-left"></i> HTML 标签
+              <a href="/2018/02/13/CSS 伪类和伪元素/" rel="next" title="CSS 伪类和伪元素">
+                <i class="fa fa-chevron-left"></i> CSS 伪类和伪元素
               </a>
             
           </div>
@@ -354,10 +356,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/11/CSS 中的 Flex 布局/" rel="prev" title="CSS 中的 Flex 布局">
-                CSS 中的 Flex 布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,7 +471,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠顺序（由下往上）"><span class="nav-number">1.</span> <span class="nav-text">层叠顺序（由下往上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#务必牢记的层叠准则"><span class="nav-number">2.</span> <span class="nav-text">务必牢记的层叠准则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#满足两个条件才能形成层叠上下文"><span class="nav-number">3.</span> <span class="nav-text">满足两个条件才能形成层叠上下文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#static默认定位"><span class="nav-number">1.</span> <span class="nav-text">static默认定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#relative相对定位"><span class="nav-number">2.</span> <span class="nav-text">relative相对定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#absolute绝对定位"><span class="nav-number">3.</span> <span class="nav-text">absolute绝对定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fixed固定定位"><span class="nav-number">4.</span> <span class="nav-text">fixed固定定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#inherit继承定位"><span class="nav-number">5.</span> <span class="nav-text">inherit继承定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sticky粘性定位"><span class="nav-number">6.</span> <span class="nav-text">sticky粘性定位</span></a></li></ol></div>
             
 
           </div>

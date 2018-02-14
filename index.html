@@ -228,6 +228,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/14/CSS 定位属性 position/" itemprop="url">CSS 定位属性 position</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
+                2018-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><code>position</code> 属性用于指定一个元素在文档中的定位方式。</p>
+<p>注意：<code>float</code>属性不可以和 <code>position</code> 属性共用。</p>
+</blockquote>
+<h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
+<h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
+<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><p>相对于拥有相对定位属性的父元素进行定位移动，它会脱离文档流。使用时，父元素要加上<code>relative</code>。绝对定位的元素可以设置外边距，且不会与其他边距合并。</p>
+<h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
+<p>一张图说清楚上面四种值的用法区别，如下：</p>
+<p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
+"></p>
+<hr>
+<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。</p>
+<hr>
+<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>结合了 <code>relative</code> 和 <code>fixed</code> 两种定位功能于一体的特殊定位。适用于比如导航条在页面滚动后固定的情况。</p>
+<ul>
+<li>元素先按照普通文档流定位，然后相对于该元素在流中的 <code>flow root</code>（BFC）和 <code>containing block</code>（最近的块级祖先元素）定位。</li>
+<li>之后元素定位表现为在跨越特定阈值前为相对定位，最后为固定定位。</li>
+<li>这个特定阈值指的是 <code>top</code> <code>right</code> <code>bottom</code> <code>left</code> 之一。</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1635,175 +1775,6 @@ rejected: 意味着操作失败。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/25/JSONP/" itemprop="url">JSONP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
-                2018-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="数据库是什么？"><a href="#数据库是什么？" class="headerlink" title="数据库是什么？"></a>数据库是什么？</h4><p>只要能长久地存数据，就是数据库</p>
-<ol>
-<li>文件系统是一种数据库</li>
-<li><code>MySQL</code> 是一种数据库</li>
-</ol>
-<hr>
-<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
-<p>所谓”同源”指的是”三个相同”：</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>如果非同源，共有三种行为受到限制。</p>
-<ul>
-<li><code>Cookie</code> <code>LocalStorage</code> 和 <code>IndexDB</code> 无法读取。</li>
-<li><code>DOM</code> 无法获得。</li>
-<li><code>AJAX</code> 请求不能发送。</li>
-</ul>
-<p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
-<ul>
-<li><code>JSONP</code></li>
-<li><code>WebSocket</code></li>
-<li><code>CORS</code></li>
-</ul>
-<p>这里，我们主要讲 <code>JSONP</code>。</p>
-<hr>
-<h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//方案二：用 script 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    script.src = &apos;/pay&apos;</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(&apos;amount.innerText = &apos; + amount)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>无刷新，局部更新页面内容，这种技术叫做<code>SRJ</code> - <code>Server Rendered JavaScript</code></p>
-<hr>
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h4><h5 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP?"></a>什么是 <code>JSONP</code>?</h5><ul>
-<li><code>JSONP</code>是<code>JSON with Padding</code>的简称。</li>
-<li><code>JSONP</code> 是服务器与客户端跨源通信的常用方法。是指动态创建 <code>script</code>，并调用我给你的<code>callback</code>技术。详细过程如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 请求方：frank.com 的前端程序员（浏览器）</div><div class="line">* 响应方：jack.com 的后端程序员（服务器）</div><div class="line"></div><div class="line">1. 请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=xxx ，xxx 是随机数。</div><div class="line">2. 响应方根据查询参数 callbackName ，构造形式如 xxx.call(undefined, &apos;你要的数据&apos;) 这样的响应。</div><div class="line">3. 浏览器接收到响应，就会执行 xxx.call(undefined, &apos;你要的数据&apos;)。 </div><div class="line">4. 那么请求方就知道了他要的数据。</div></pre></td></tr></table></figure>
-<p>约定</p>
-<ul>
-<li><code>callbackName</code> 约定叫做 <code>callback</code> </li>
-<li><code>xxx</code> 是随机数，比如：<code>&#39;frank&#39;+ parseInt(Math.random() * 100000,10)</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//方案三：JSONP</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    let functionName = &apos;frank&apos;+ parseInt(Math.random()*10000000 ,10)</div><div class="line">    window[functionName] = function()&#123;  // 每次请求之前搞出一个随机的函数</div><div class="line">        amount.innerText = amount.innerText - 0 - 1</div><div class="line">    &#125;</div><div class="line">    script.src = &apos;/pay?callback=&apos; + functionName</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"> //上面代码用 jQuery 写</div><div class="line"> $.ajax(&#123;</div><div class="line"> url: &quot;http://jack.com:8002/pay&quot;,</div><div class="line"> dataType: &quot;jsonp&quot;,</div><div class="line">	 success: function( response ) &#123;</div><div class="line">	     if(response === &apos;success&apos;)&#123;</div><div class="line">	    	 amount.innerText = amount.innerText - 1</div><div class="line">	     &#125;</div><div class="line">	 &#125;</div><div class="line"> &#125;)</div><div class="line"> $.jsonp()</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    let callbackName = query.callback</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(`</div><div class="line">        $&#123;callbackName&#125;.call(undefined, &apos;success&apos;)</div><div class="line">    `)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<h5 id="JSONP-为什么不支持-POST-请求？"><a href="#JSONP-为什么不支持-POST-请求？" class="headerlink" title="JSONP 为什么不支持 POST 请求？"></a><code>JSONP</code> 为什么不支持 <code>POST</code> 请求？</h5><p><code>JSONP</code>是通过动态创建 <code>script</code> 实现的，<code>script</code>标签的<code>src</code>属性没有跨域的限制。如果用<code>post</code>，就会检查是否跨域。</p>
-<hr>
-<p>参考：</p>
-<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">阮一峰 - 浏览器同源政策及其规避方法</a></p>
-<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1854,7 +1825,7 @@ rejected: 意味着操作失败。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
