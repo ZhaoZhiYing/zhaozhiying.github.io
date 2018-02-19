@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 操作符/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/toString 与 valueOf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -247,7 +247,126 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/14/JS 操作符/" itemprop="url">JS 操作符</a></h1>
+                <a class="post-title-link" href="/2018/02/19/toString 与 valueOf/" itemprop="url">toString</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
+                2018-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/14/JS 数据类型转换/" itemprop="url">JS 数据类型转换</a></h1>
         
 
         <div class="post-meta">
@@ -299,7 +418,129 @@
       
         
           
-            
+            <h4 id="转成-String"><a href="#转成-String" class="headerlink" title="转成 String"></a>转成 <code>String</code></h4><p>1.<code>string()</code>可以用于任何数据类型。该方法底层使用的也是 <code>toString()</code> 方法。转换规则如下：</p>
+<pre><code>Number：转为相应的字符串。
+    String(123) // &quot;123&quot;
+
+String：转换后还是原来的值。
+    String(&apos;abc&apos;) // &quot;abc&quot;
+
+Boolean：true 转为字符串 &quot;true&quot;，false转为字符串&quot;false&quot;。
+    String(true) // &quot;true&quot;
+
+undefined：转为字符串 &quot;undefined&quot;。
+    String(undefined) // &quot;undefined&quot;
+
+null：转为字符串 &quot;null&quot;。
+    String(null) // &quot;null&quot;
+
+String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
+    String({a: 1}) // &quot;[object Object]&quot;
+    String([1, 2, 3]) // &quot;1,2,3&quot;
+//这里先后隐式调用了 toString 和 valueOf 方法。    
+</code></pre><h5 id="string-与-toString-的区别"><a href="#string-与-toString-的区别" class="headerlink" title="string() 与 toString() 的区别"></a><code>string()</code> 与 <code>toString()</code> 的区别</h5><pre><code>* toString() 可以将所有的的数据都转换为字符串，但是要排除 null 和 undefined。
+* string() 可以将 null 和 undefined 转换为字符串，但是没法转进制字符串。
+</code></pre><h5 id="toString-与-valueOf-的区别"><a href="#toString-与-valueOf-的区别" class="headerlink" title="toString 与 valueOf 的区别"></a><code>toString</code> 与 <code>valueOf</code> 的区别</h5><p><code>toString()</code> 方法返回一个表示该对象的字符串。</p>
+<pre><code>语法：object.toString()
+</code></pre><p><code>valueOf()</code> 方法返回指定对象的原始值。</p>
+<pre><code>语法：object.valueOf()
+
+Array 返回数组对象本身。
+Boolean 布尔值。
+Function 函数本身。
+Number 数字值。
+Object 对象本身。这是默认情况。
+String 字符串值。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//1.这两个方法一般是交由 JS 去隐式调用，以满足不同的运算情况。</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div><div class="line"></div><div class="line">共同的缺点：无法获取 null 和 undefined 的值</div></pre></td></tr></table></figure>
+<p>2.+ 空字符串</p>
+<pre><code>123 + &apos;&apos; // &quot;123&quot;
+true + &apos;&apos; // &quot;true&quot;
+undefined + &apos;&apos; // &quot;undefined&quot;
+null + &apos;&apos; // &quot;null&quot;
+
+var obj = {}
+obj + &apos;&apos; // &quot;[object Object]&quot;
+</code></pre><hr>
+<h4 id="转成-Boolean"><a href="#转成-Boolean" class="headerlink" title="转成 Boolean"></a>转成 <code>Boolean</code></h4><p>1.<code>Boolean()</code> 可以用于任何数据类型。除了以下五个<code>falsy</code>值，其他的值全部为<code>true</code>。</p>
+<pre><code>//falsy 是在 boolean 上下文中认定可转换为 false 的值
+
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean(NaN) // false
+Boolean(&apos;&apos;) // false 
+</code></pre><p>2.任何数据取反两次都可以得到一个布尔值。</p>
+<pre><code>//五个 falsy 值
+!!undefined // false
+!!null // false
+!!0 // false
+!!NaN // false
+!!&apos;&apos; // false
+
+//其他
+!![] // true
+!!{} // true
+!!123 // true
+</code></pre><hr>
+<h4 id="转成-Number"><a href="#转成-Number" class="headerlink" title="转成 Number"></a>转成 <code>Number</code></h4><p>1.<code>number()</code>可以用于任何数据类型。转换规则如下：</p>
+<pre><code>* Boolean：true 和 false 分别转成 1 和 0
+        Number(true) // 1
+
+* Number：简单传入和返回
+        Number(5) // 5
+
+* Null：返回 0
+* undefined：返回 NaN
+
+* String
+    如果可以被解析为数值，则转换为相应的数值
+        Number(&apos;032&apos;) // 32
+    如果不可以被解析为数值，返回 NaN（非数字）
+        Number(&apos;abc&apos;) // NaN
+    空字符串转为0    
+        Number(&apos;&apos;) // 0
+
+* Object：返回 NaN，除非是包含单个数值的数组。
+        Number({name: &apos;zhao&apos;}) // NaN
+        Number([1, 2, 3]) // NaN
+        Number([1]) // 1
+//这里先后隐式调用了 valueOf 和 toString 方法。
+</code></pre><p>2.<code>parsetInt()</code>函数解析一个字符串参数，并返回一个指定基数的整数。</p>
+<pre><code>语法：parseInt(string, radix)
+
+parseInt(&quot;3.14&quot;) //3
+parseInt(&quot;3ff&quot;) //3
+parseInt(&quot;oo3&quot;) //3
+parseInt(&quot;&quot;) //十六进制
+parseInt(&quot;&quot;) //十进制
+parseInt(&quot;&quot;) //八进制
+parseInt(&quot;&quot;) //二进制
+</code></pre><p>3.<code>parsetFloat()</code>解析一个字符串参数并返回一个浮点数。只解析十进制，因此无第二个参数。</p>
+<pre><code>parseFloat(&quot;3.14&quot;) //3.14
+parseFloat(&quot;3.14.12&quot;) //3.14
+parseFloat(&quot;314e-2&quot;) //3.14
+parseFloat(&quot;0.0314E+2&quot;) //3.14
+parseFloat(&quot;3.14more&quot;) //3.14
+parseFloat(&quot;oo3.14&quot;) //NaN
+</code></pre><p>4.自动转换</p>
+<pre><code>&apos;5&apos; - &apos;2&apos; // 3
+&apos;5&apos; * &apos;2&apos; // 10
+true - 1  // 0
+false - 1 // -1
+&apos;1&apos; - 1   // 0
+&apos;5&apos; * []    // 0
+false / &apos;5&apos; // 0
+&apos;abc&apos; - 1   // NaN
+null + 1 // 1
+undefined + 1 // NaN
+
++&apos;abc&apos; // NaN
+-&apos;abc&apos; // NaN
++true // 1
+-false // 0
+</code></pre><hr>
+<p>参考：<a href="http://javascript.ruanyifeng.com/grammar/conversion.html#toc2" target="_blank" rel="external">阮一峰-数据类型转换</a></p>
+
           
         
       
@@ -1273,7 +1514,7 @@ p{font-size: 2rem} //32px
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target与currentTarget/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -1292,7 +1533,7 @@ p{font-size: 2rem} //32px
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/03/target与currentTarget/" itemprop="url">target与currentTarget</a></h1>
+                <a class="post-title-link" href="/2018/02/03/target 与 currentTarget/" itemprop="url">target与currentTarget</a></h1>
         
 
         <div class="post-meta">
@@ -1524,199 +1765,6 @@ saveMessage (存储数据)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/Promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/30/Promise/" itemprop="url">Promise</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="「同步」和「异步」"><a href="#「同步」和「异步」" class="headerlink" title="「同步」和「异步」"></a>「同步」和「异步」</h4><p><code>JavaScript</code> 语言本身并不慢，慢的是读写外部数据，比如等待 <code>AJAX</code> 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，<code>Javascript</code> 语言将任务的执行模式分成两种：「同步」（<code>Synchronous</code>）和「异步」（<code>Asynchronous</code>）。</p>
-<ul>
-<li><p>一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文件。任务的第二段是处理文件。</p>
-</li>
-<li><p>「同步」是指后一个任务等待前一个任务执行结束，然后再执行。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">!function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;.call()</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A B C</div></pre></td></tr></table></figure>
-<ul>
-<li>「异步」是指前一个任务先发送一个请求，不等待返回（就是第二段的处理文件），直接进行下一个任务。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">setTimeout(function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;,1000)</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A C B</div><div class="line">// console.log(&apos;C&apos;) 就是异步执行的</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><ul>
-<li>一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。</li>
-<li><p>换言之，回调函数，就是把任务的第二段单独写在一个函数里面，在特定的事件或条件发生时，调用这个函数。</p>
-</li>
-<li><p>同步回调。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function add(a, b, callback) &#123;</div><div class="line">    callback(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1,2,function(result) &#123;</div><div class="line">    console.log(&quot;result:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">add(1,2,function(result)&#123;</div><div class="line">    console.log(&quot;结果是:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//result:3 结果是:3</div></pre></td></tr></table></figure>
-<ul>
-<li>异步回调。经常使用以下方法：<ul>
-<li>对于异步执行（例如读取文件和发出<code>HTTP</code>请求）</li>
-<li>在事件监听器/处理程序中</li>
-<li>在<code>setTimeout</code>和<code>setInterval</code>方法中</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
-<p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
-<pre><code>setTimeout(function(){
-  left(function(){
-    setTimeout(function(){
-       left(function(){
-         setTimeout(function(){
-           left();
-         },2000);
-       });
-    }, 2000);
-  });
-}, 2000);
-</code></pre><hr>
-<h4 id="Promise（全局-window-的属性）"><a href="#Promise（全局-window-的属性）" class="headerlink" title="Promise（全局 window 的属性）"></a><code>Promise</code>（全局 <code>window</code> 的属性）</h4><h5 id="Promise-对象有以下两个特点"><a href="#Promise-对象有以下两个特点" class="headerlink" title="Promise 对象有以下两个特点:"></a><code>Promise</code> 对象有以下两个特点:</h5><p>1.对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：</p>
-<pre><code>pending: 初始状态，既不是成功，也不是失败状态。
-fulfilled: 意味着操作成功完成。
-rejected: 意味着操作失败。
-
-//只有异步操作的结果，可以决定当前是哪一种状态。
-//任何其他操作都无法改变这个状态。
-</code></pre><p>2.一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
-<p><code>Promise</code> 的状态的变化途径只有两种：</p>
-<pre><code>1.异步操作从 pending 到 fulfilled ，表示异步操作成功，Promise 对象传回一个值，状态变为 resolved。
-2.异步操作从 pending 到 rejected ，表示异步操作失败，Promise 对象抛出一个错误，状态变为 rejected。
-
-//只要这两种情况发生，状态就凝固不会再变了，会一直保持这个结果。
-//就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。
-//这与事件完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
-</code></pre><h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
-<pre><code>new Promise(function(resolve, reject) /* executor */ )
-
-// executor 是 resolve 和 reject 两个函数。
-// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
-// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-</code></pre><h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><pre><code>// then 方法可以接受两个回调函数作为参数。
-//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。
-//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
-</code></pre><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a><code>catch</code></h5><pre><code>// catch 是用于指定发生错误时的回调函数。
-//建议总是使用 catch，catch() 使回调报错时不会卡死 JS 而是会继续往下执行。
-// Promise 对象的错误具有&quot;冒泡&quot;性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。
-</code></pre><hr>
-<p>参考：</p>
-<p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
-<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1767,7 +1815,7 @@ rejected: 意味着操作失败。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

@@ -79,24 +79,16 @@
 
 
 
-<meta name="description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta name="description" content="转成 String1.string()可以用于任何数据类型。该方法底层使用的也是 toString() 方法。转换规则如下： Number：转为相应的字符串。     String(123) // &amp;quot;123&amp;quot;  String：转换后还是原来的值。     String(&amp;apos;abc&amp;apos;) // &amp;quot;abc&amp;quot;  Boolean：true 转为字符串">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 伪类和伪元素">
-<meta property="og:url" content="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/index.html">
+<meta property="og:title" content="JS 数据类型转换">
+<meta property="og:url" content="http://yoursite.com/2018/02/14/JS 数据类型转换/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a83157f799dd.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a831465d74e9.png
-">
-<meta property="og:updated_time" content="2018-02-13T16:47:26.000Z">
+<meta property="og:description" content="转成 String1.string()可以用于任何数据类型。该方法底层使用的也是 toString() 方法。转换规则如下： Number：转为相应的字符串。     String(123) // &amp;quot;123&amp;quot;  String：转换后还是原来的值。     String(&amp;apos;abc&amp;apos;) // &amp;quot;abc&amp;quot;  Boolean：true 转为字符串">
+<meta property="og:updated_time" content="2018-02-19T15:19:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 伪类和伪元素">
-<meta name="twitter:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
-<meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-">
+<meta name="twitter:title" content="JS 数据类型转换">
+<meta name="twitter:description" content="转成 String1.string()可以用于任何数据类型。该方法底层使用的也是 toString() 方法。转换规则如下： Number：转为相应的字符串。     String(123) // &amp;quot;123&amp;quot;  String：转换后还是原来的值。     String(&amp;apos;abc&amp;apos;) // &amp;quot;abc&amp;quot;  Boolean：true 转为字符串">
 
 
 
@@ -126,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/14/JS 数据类型转换/"/>
 
 
 
 
 
-  <title>CSS 伪类和伪元素 | Zhao Zhiying</title>
+  <title>JS 数据类型转换 | Zhao Zhiying</title>
   
 
 
@@ -239,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -256,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 伪类和伪元素</h1>
+          <h1 class="post-title" itemprop="name headline">JS 数据类型转换</h1>
         
 
         <div class="post-meta">
@@ -268,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
-                2018-02-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
+                2018-02-14
               </time>
             
 
@@ -306,33 +298,128 @@
       
 
       
-        <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p><code>CSS</code>伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号<code>:</code></p>
-<p>常用伪类</p>
-<pre><code>a:link {color: #ddd;} //未访问的链接
-a:visited {color: #ddd;} //已访问的链接
-a:hover {color: #ddd;} //鼠标划过链接
-a:active {color: #ddd;} //已选中的链接
+        <h4 id="转成-String"><a href="#转成-String" class="headerlink" title="转成 String"></a>转成 <code>String</code></h4><p>1.<code>string()</code>可以用于任何数据类型。该方法底层使用的也是 <code>toString()</code> 方法。转换规则如下：</p>
+<pre><code>Number：转为相应的字符串。
+    String(123) // &quot;123&quot;
 
-//这四个伪类同时使用链接时，需遵循 LVHA 顺序。
-//即 link — :visited — :hover — :active。
+String：转换后还是原来的值。
+    String(&apos;abc&apos;) // &quot;abc&quot;
+
+Boolean：true 转为字符串 &quot;true&quot;，false转为字符串&quot;false&quot;。
+    String(true) // &quot;true&quot;
+
+undefined：转为字符串 &quot;undefined&quot;。
+    String(undefined) // &quot;undefined&quot;
+
+null：转为字符串 &quot;null&quot;。
+    String(null) // &quot;null&quot;
+
+String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
+    String({a: 1}) // &quot;[object Object]&quot;
+    String([1, 2, 3]) // &quot;1,2,3&quot;
+//这里先后隐式调用了 toString 和 valueOf 方法。    
+</code></pre><h5 id="string-与-toString-的区别"><a href="#string-与-toString-的区别" class="headerlink" title="string() 与 toString() 的区别"></a><code>string()</code> 与 <code>toString()</code> 的区别</h5><pre><code>* toString() 可以将所有的的数据都转换为字符串，但是要排除 null 和 undefined。
+* string() 可以将 null 和 undefined 转换为字符串，但是没法转进制字符串。
+</code></pre><h5 id="toString-与-valueOf-的区别"><a href="#toString-与-valueOf-的区别" class="headerlink" title="toString 与 valueOf 的区别"></a><code>toString</code> 与 <code>valueOf</code> 的区别</h5><p><code>toString()</code> 方法返回一个表示该对象的字符串。</p>
+<pre><code>语法：object.toString()
+</code></pre><p><code>valueOf()</code> 方法返回指定对象的原始值。</p>
+<pre><code>语法：object.valueOf()
+
+Array 返回数组对象本身。
+Boolean 布尔值。
+Function 函数本身。
+Number 数字值。
+Object 对象本身。这是默认情况。
+String 字符串值。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//1.这两个方法一般是交由 JS 去隐式调用，以满足不同的运算情况。</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div><div class="line"></div><div class="line">共同的缺点：无法获取 null 和 undefined 的值</div></pre></td></tr></table></figure>
+<p>2.+ 空字符串</p>
+<pre><code>123 + &apos;&apos; // &quot;123&quot;
+true + &apos;&apos; // &quot;true&quot;
+undefined + &apos;&apos; // &quot;undefined&quot;
+null + &apos;&apos; // &quot;null&quot;
+
+var obj = {}
+obj + &apos;&apos; // &quot;[object Object]&quot;
 </code></pre><hr>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>CSS</code>伪元素也是添加到选择器的关键字，但它是为元素的某些部分设置样式。前缀是两个冒号<code>::</code> (<code>CSS3</code>中的标准是伪元素使用双冒号<code>::</code>，避免和伪类混淆。) </p>
-<p>常用伪元素</p>
-<pre><code>::after 用来创建一个伪元素，做为已选中元素的最后一个子元素。这个虚拟元素默认是行内元素。
-::before 用来创建一个伪元素，做为已选中元素的第一个子元素。这个虚拟元素默认是行内元素。
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-"></p>
-<pre><code>::first-letter 会选中某块级元素第一行的第一个字母，并且文字所处的行之前没有其他内容（如图片和内联的表格）。    
-::first-line 在某块级元素的第一行应用样式
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a83157f799dd.png
-">    </p>
-<pre><code>::selection 应用于文档中被用户高亮的部分
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a831465d74e9.png
-"></p>
-<hr>
+<h4 id="转成-Boolean"><a href="#转成-Boolean" class="headerlink" title="转成 Boolean"></a>转成 <code>Boolean</code></h4><p>1.<code>Boolean()</code> 可以用于任何数据类型。除了以下五个<code>falsy</code>值，其他的值全部为<code>true</code>。</p>
+<pre><code>//falsy 是在 boolean 上下文中认定可转换为 false 的值
+
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean(NaN) // false
+Boolean(&apos;&apos;) // false 
+</code></pre><p>2.任何数据取反两次都可以得到一个布尔值。</p>
+<pre><code>//五个 falsy 值
+!!undefined // false
+!!null // false
+!!0 // false
+!!NaN // false
+!!&apos;&apos; // false
+
+//其他
+!![] // true
+!!{} // true
+!!123 // true
+</code></pre><hr>
+<h4 id="转成-Number"><a href="#转成-Number" class="headerlink" title="转成 Number"></a>转成 <code>Number</code></h4><p>1.<code>number()</code>可以用于任何数据类型。转换规则如下：</p>
+<pre><code>* Boolean：true 和 false 分别转成 1 和 0
+        Number(true) // 1
+
+* Number：简单传入和返回
+        Number(5) // 5
+
+* Null：返回 0
+* undefined：返回 NaN
+
+* String
+    如果可以被解析为数值，则转换为相应的数值
+        Number(&apos;032&apos;) // 32
+    如果不可以被解析为数值，返回 NaN（非数字）
+        Number(&apos;abc&apos;) // NaN
+    空字符串转为0    
+        Number(&apos;&apos;) // 0
+
+* Object：返回 NaN，除非是包含单个数值的数组。
+        Number({name: &apos;zhao&apos;}) // NaN
+        Number([1, 2, 3]) // NaN
+        Number([1]) // 1
+//这里先后隐式调用了 valueOf 和 toString 方法。
+</code></pre><p>2.<code>parsetInt()</code>函数解析一个字符串参数，并返回一个指定基数的整数。</p>
+<pre><code>语法：parseInt(string, radix)
+
+parseInt(&quot;3.14&quot;) //3
+parseInt(&quot;3ff&quot;) //3
+parseInt(&quot;oo3&quot;) //3
+parseInt(&quot;&quot;) //十六进制
+parseInt(&quot;&quot;) //十进制
+parseInt(&quot;&quot;) //八进制
+parseInt(&quot;&quot;) //二进制
+</code></pre><p>3.<code>parsetFloat()</code>解析一个字符串参数并返回一个浮点数。只解析十进制，因此无第二个参数。</p>
+<pre><code>parseFloat(&quot;3.14&quot;) //3.14
+parseFloat(&quot;3.14.12&quot;) //3.14
+parseFloat(&quot;314e-2&quot;) //3.14
+parseFloat(&quot;0.0314E+2&quot;) //3.14
+parseFloat(&quot;3.14more&quot;) //3.14
+parseFloat(&quot;oo3.14&quot;) //NaN
+</code></pre><p>4.自动转换</p>
+<pre><code>&apos;5&apos; - &apos;2&apos; // 3
+&apos;5&apos; * &apos;2&apos; // 10
+true - 1  // 0
+false - 1 // -1
+&apos;1&apos; - 1   // 0
+&apos;5&apos; * []    // 0
+false / &apos;5&apos; // 0
+&apos;abc&apos; - 1   // NaN
+null + 1 // 1
+undefined + 1 // NaN
+
++&apos;abc&apos; // NaN
+-&apos;abc&apos; // NaN
++true // 1
+-false // 0
+</code></pre><hr>
+<p>参考：<a href="http://javascript.ruanyifeng.com/grammar/conversion.html#toc2" target="_blank" rel="external">阮一峰-数据类型转换</a></p>
 
       
     </div>
@@ -357,8 +444,8 @@ a:active {color: #ddd;} //已选中的链接
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/13/CSS 动画/" rel="next" title="CSS 动画">
-                <i class="fa fa-chevron-left"></i> CSS 动画
+              <a href="/2018/02/14/CSS 定位属性 position/" rel="next" title="CSS 定位属性 position">
+                <i class="fa fa-chevron-left"></i> CSS 定位属性 position
               </a>
             
           </div>
@@ -367,8 +454,8 @@ a:active {color: #ddd;} //已选中的链接
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/14/CSS 定位属性 position/" rel="prev" title="CSS 定位属性 position">
-                CSS 定位属性 position <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/19/toString 与 valueOf/" rel="prev" title="toString">
+                toString <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -485,7 +572,7 @@ a:active {color: #ddd;} //已选中的链接
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#转成-String"><span class="nav-number">1.</span> <span class="nav-text">转成 String</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#string-与-toString-的区别"><span class="nav-number">1.1.</span> <span class="nav-text">string() 与 toString() 的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#toString-与-valueOf-的区别"><span class="nav-number">1.2.</span> <span class="nav-text">toString 与 valueOf 的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转成-Boolean"><span class="nav-number">2.</span> <span class="nav-text">转成 Boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转成-Number"><span class="nav-number">3.</span> <span class="nav-text">转成 Number</span></a></li></ol></div>
             
 
           </div>

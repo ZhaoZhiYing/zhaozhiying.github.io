@@ -79,24 +79,16 @@
 
 
 
-<meta name="description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta name="description" content="currentTarget：指绑定事件的对象。恒等于this。 targt：指触发事件的某个具体对象。  举例1 12345678910111213141516 &amp;lt;div id=&amp;quot;grand&amp;quot;&amp;gt;    爷爷     &amp;lt;div id=&amp;quot;parent&amp;quot;&amp;gt;      爸爸       &amp;lt;div id=&amp;quot;child&amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 伪类和伪元素">
-<meta property="og:url" content="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/index.html">
+<meta property="og:title" content="target与currentTarget">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/target 与 currentTarget/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a83157f799dd.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a831465d74e9.png
-">
-<meta property="og:updated_time" content="2018-02-13T16:47:26.000Z">
+<meta property="og:description" content="currentTarget：指绑定事件的对象。恒等于this。 targt：指触发事件的某个具体对象。  举例1 12345678910111213141516 &amp;lt;div id=&amp;quot;grand&amp;quot;&amp;gt;    爷爷     &amp;lt;div id=&amp;quot;parent&amp;quot;&amp;gt;      爸爸       &amp;lt;div id=&amp;quot;child&amp;quot">
+<meta property="og:updated_time" content="2018-02-06T06:25:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 伪类和伪元素">
-<meta name="twitter:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
-<meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-">
+<meta name="twitter:title" content="target与currentTarget">
+<meta name="twitter:description" content="currentTarget：指绑定事件的对象。恒等于this。 targt：指触发事件的某个具体对象。  举例1 12345678910111213141516 &amp;lt;div id=&amp;quot;grand&amp;quot;&amp;gt;    爷爷     &amp;lt;div id=&amp;quot;parent&amp;quot;&amp;gt;      爸爸       &amp;lt;div id=&amp;quot;child&amp;quot">
 
 
 
@@ -126,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/03/target 与 currentTarget/"/>
 
 
 
 
 
-  <title>CSS 伪类和伪元素 | Zhao Zhiying</title>
+  <title>target与currentTarget | Zhao Zhiying</title>
   
 
 
@@ -239,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -256,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 伪类和伪元素</h1>
+          <h1 class="post-title" itemprop="name headline">target与currentTarget</h1>
         
 
         <div class="post-meta">
@@ -268,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
-                2018-02-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
+                2018-02-03
               </time>
             
 
@@ -306,32 +298,14 @@
       
 
       
-        <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p><code>CSS</code>伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号<code>:</code></p>
-<p>常用伪类</p>
-<pre><code>a:link {color: #ddd;} //未访问的链接
-a:visited {color: #ddd;} //已访问的链接
-a:hover {color: #ddd;} //鼠标划过链接
-a:active {color: #ddd;} //已选中的链接
-
-//这四个伪类同时使用链接时，需遵循 LVHA 顺序。
-//即 link — :visited — :hover — :active。
-</code></pre><hr>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>CSS</code>伪元素也是添加到选择器的关键字，但它是为元素的某些部分设置样式。前缀是两个冒号<code>::</code> (<code>CSS3</code>中的标准是伪元素使用双冒号<code>::</code>，避免和伪类混淆。) </p>
-<p>常用伪元素</p>
-<pre><code>::after 用来创建一个伪元素，做为已选中元素的最后一个子元素。这个虚拟元素默认是行内元素。
-::before 用来创建一个伪元素，做为已选中元素的第一个子元素。这个虚拟元素默认是行内元素。
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a8313d23eabf.png
-"></p>
-<pre><code>::first-letter 会选中某块级元素第一行的第一个字母，并且文字所处的行之前没有其他内容（如图片和内联的表格）。    
-::first-line 在某块级元素的第一行应用样式
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a83157f799dd.png
-">    </p>
-<pre><code>::selection 应用于文档中被用户高亮的部分
-//如下图
-</code></pre><p><img src="https://i.loli.net/2018/02/14/5a831465d74e9.png
-"></p>
+        <ul>
+<li><code>currentTarget</code>：指绑定事件的对象。恒等于<code>this</code>。</li>
+<li><code>targt</code>：指触发事件的某个具体对象。</li>
+</ul>
+<p>举例1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">grand.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  grand </div><div class="line">//这时的 this 指向 grand</div></pre></td></tr></table></figure>
+<p>举例2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">child.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  child</div><div class="line">//这时的 this 指向 child</div></pre></td></tr></table></figure>
 <hr>
 
       
@@ -357,8 +331,8 @@ a:active {color: #ddd;} //已选中的链接
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/13/CSS 动画/" rel="next" title="CSS 动画">
-                <i class="fa fa-chevron-left"></i> CSS 动画
+              <a href="/2018/02/02/MVC/" rel="next" title="MVC">
+                <i class="fa fa-chevron-left"></i> MVC
               </a>
             
           </div>
@@ -367,8 +341,8 @@ a:active {color: #ddd;} //已选中的链接
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/14/CSS 定位属性 position/" rel="prev" title="CSS 定位属性 position">
-                CSS 定位属性 position <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/05/Cookie/" rel="prev" title="Cookie">
+                Cookie <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -421,17 +395,8 @@ a:active {color: #ddd;} //已选中的链接
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -475,22 +440,6 @@ a:active {color: #ddd;} //已选中的链接
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
