@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,454 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/实现一个 jQuery 的 API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">实现一个 jQuery 的 API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
+  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
+  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
+  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
+  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
+  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
+<pre><code>var allChildren = item3.parentNode.children 
+var array = { 
+    length:0
+}
+for(let i = 0; i&lt;allChildren.length; i++){
+    if (allChildren[i] !== item3){
+        array[array.length] = allChildren[i]
+        array.length += 1
+    }
+}
+</code></pre><p>封装成函数</p>
+<pre><code>function getSiblings(node){
+    var allChildren = node.parentNode.children 
+    var array = { 
+        length:0
+    }
+    for(let i = 0; i&lt;allChildren.length; i++){
+        if (allChildren[i] !== node){
+            array[array.length] = allChildren[i]
+            array.length += 1
+        }
+    }
+    return array
+}
+getSiblings(item3)//调用
+</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
+item3.classList.add(&apos;b&apos;)
+item3.classList.add(&apos;c&apos;)
+</code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
+<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
+classes.forEach((value) =&gt; item3.classList.add(value))
+</code></pre><p>加上<code>remove</code></p>
+<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
+for(let key in classes){
+    var value = classes[key]
+    if(value){
+        item3.classList.add(key)
+    }else{
+        item3.classList.remove(key)
+    }
+}
+</code></pre><p>封装成函数</p>
+<pre><code>function addClass(node,classes){
+    for(let key in classes){
+        var value = classes[key]
+        if(value){
+            node.classList.add(key)
+        }else{
+            node.classList.remove(key)
+        }
+    }    
+}    
+addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
+</code></pre><p>优化代码（这里用到了三元运算符）</p>
+<pre><code>function addClass(node,classes){
+  for(let key in classes){
+      var value = classes[key]
+      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
+      node.classList[methodName](key)
+    }    
+}    
+addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
+</code></pre><p>上面代码等于下面</p>
+<pre><code>function addClass(node,classes){
+    classes.forEach((value) =&gt; node.classList.add(value))
+}    
+addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
+</code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
+<pre><code>window.zzdom = {} //声明变量名 zzdom
+zzdom.getSiblings = getSiblings 
+zzdom.addClass = addClass
+//调用
+zzdom.getSiblings.call(item3)  
+zzdom.addClass.call(items, {a:true, b:false, c:true})    
+</code></pre><p>代码更新如下</p>
+<pre><code>window.zzdom = {}        
+zzdom.getSiblings = function (node){ 
+var allChildren = node.parentNode.children 
+var array = { 
+    length:0
+}
+for(let i = 0; i&lt;allChildren.length; i++){
+    if (allChildren[i] !== node){
+        array[array.length] = allChildren[i]
+        array.length += 1
+    }
+}
+return array
+}
+zzdom.addClass = function (node,classes){
+  classes.forEach((value) =&gt; node.classList.add(value))
+}
+//调用
+zzdom.getSiblings(item3)
+zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>但是相比下，下面这种调用方法更好</p>
+<pre><code>//调用
+item3.getSiblings(item3)
+item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>解决办法：更改<code>Node</code>原型</p>
+<pre><code>Node.prototype.getSiblings = function (){ 
+    var allChildren = this.parentNode.children 
+    var array = { 
+        length:0
+    }
+    for(let i = 0; i&lt;allChildren.length; i++){
+        if (allChildren[i] !== this){
+            array[array.length] = allChildren[i]
+            array.length += 1
+        }
+    }
+    return array
+    }
+    Node.prototype.addClass = function (classes){
+        classes.forEach((value) =&gt; this.classList.add(value))
+}
+//调用
+item3.getSiblings.call(item3)
+item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><blockquote>
+<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
+</blockquote>
+<p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
+<pre><code>window.jQuery = function (node){
+    return{
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
+                array[array.length] = allChildren[i]
+                array.length += 1
+            }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
+}
+//调用
+var node2 = jQuery(item3)
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let node
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        node = document.querySelector(nodeOrSelector)
+    }else{
+        node = nodeOrSelector
+    }
+
+    return{
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
+                array[array.length] = allChildren[i]
+                array.length += 1
+            }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
+}
+//调用
+var node2 = jQuery(&apos;#item3&apos;)
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+       //伪数组
+       nodes = document.querySelectorAll(nodeOrSelector)
+    }else if(nodeOrSelector instanceof Node){
+        //伪数组，保持返回结果一致
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:NodeList
+</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }            
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:Object 
+</code></pre><p>添加<code>addClass</code>后代码如下</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    //`getText`获取文本
+    nodes.getText = function(){
+        var texts = []
+        for(let i=0; i&lt;nodes.length; i++){
+            texts.push(nodes[i].textContent)
+        }
+        return texts
+    }    
+    //`setText`设置文本
+    nodes.setText = function(text){
+        for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+    }    
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
+<pre><code>    window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    nodes.text = function (text){
+        if(text === undefined){
+            var texts = []
+            for(let i=0; i&lt;nodes.length; i++){
+             texts.push(nodes[i].textContent)
+          }
+           return texts
+       }else{
+            for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+      }    
+    }
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+</code></pre><hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +705,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -497,7 +945,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -612,49 +1060,6 @@ f5.name//‘anonymous’ (匿名)
 }
 fn(6) // 8
 </code></pre><hr>
-<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
-<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
-<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
-<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
-<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
-<pre><code>function f1(){
-  var n = 9
-  function f2(){
-    console.log(n)
-  }
-  f2()
-} 
-f1() // 9
-//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
-</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
-</code></pre><p>3.封装对象的私有属性和私有方法。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-var a2 = f1(5)
-a2() // 5
-a2() // 6
-a2() // 7
-//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。
-</code></pre><hr>
 <h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><h5 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h5><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
 <h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h5><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
 <pre><code>function add(a,b){
@@ -757,7 +1162,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -1006,7 +1411,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -1137,7 +1542,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -1297,7 +1702,7 @@ p{color:green;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -1489,7 +1894,7 @@ parent{display: flex; justify-content: space-between;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -1669,7 +2074,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -1838,7 +2243,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -1938,193 +2343,6 @@ stretch（默认值）：轴线占满整个交叉轴。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/HTML 标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/24/HTML 标签/" itemprop="url">HTML 标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
-                2017-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形）</p>
-<p>注意：除了<code>div</code>和<code>span</code>，其他标签都有默认样式</p>
-</blockquote>
-<h3 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a><code>iframe</code>标签</h3><p>在当前页面嵌套一个页面（可替换标签）(支持相对路径)</p>
-<pre><code>1.默认宽100px高50px
-2.默认有难看的border，所以默认写frameborder=0
-3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页打开窗口)       
-4.src指定路径（可以是相对路径）
-</code></pre><h3 id="lt-a-gt-标签"><a href="#lt-a-gt-标签" class="headerlink" title="&lt;a&gt;标签"></a><code>&lt;a&gt;</code>标签</h3><h5 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a><code>target</code>属性</h5><p>该属性指定在何处显示链接的资源。</p>
-<pre><code>* _self    默认属性。当前页面加载。
-* _blank   新窗口打开
-* _parent  父级页面打开。如果没有，同_self。
-* _top     顶级页面加载。如果没有，同_self。 
-</code></pre><h5 id="lt-href-gt-属性"><a href="#lt-href-gt-属性" class="headerlink" title="&lt;href&gt;属性"></a><code>&lt;href&gt;</code>属性</h5><p>必需属性。该属性规定链接的目标地址。</p>
-<pre><code>* href=&quot;//qq.com&quot; 无协议地址
-* href=&quot;#xxx&quot; 锚点#，不发起请求
-* href=&quot;?name=qq&quot; 发起请求
-* href=&quot;./xxx.html&quot; 相对路径 
-* href=&quot;javascript:;&quot; 让a标签不跳转
-* href=&quot;javascript:alert(1)&quot; 执行一段代码
-* href=&quot;http://write.blog.csdn.net&quot; 绝对 URL ，指向另一个站点
-* a href=&quot;&quot;；刷新页面
-* href=&quot;#top&quot; 返回到页面顶部
-* href=&quot;#&quot; 返回到页面顶部
-</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
-<pre><code>1. a 标签里加 download
-   &lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
-
-2. Content-type: application/octet-stream
-</code></pre><h3 id="lt-form-gt-标签"><a href="#lt-form-gt-标签" class="headerlink" title="&lt;form&gt;标签"></a><code>&lt;form&gt;</code>标签</h3><p>跳转页面（主要使用POST 请求，参数放到第四部分from datas）（使用GET请求时，参数默认放到查询参数）</p>
-<pre><code>1.如果 form 表单里没有提交按钮，就无法提交
-2.form 标签主要用来发起post请求
-3.name 属性值显示在第四部分
-4.target 属性同 a 标签
-</code></pre><h5 id="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"><a href="#注意：a标签和form标签都是用来发请求，a标签是get，form标签是post" class="headerlink" title="注意：a标签和form标签都是用来发请求，a标签是get，form标签是post"></a>注意：a标签和form标签都是用来发请求，a标签是get，form标签是post</h5><h3 id="lt-input-gt-标签"><a href="#lt-input-gt-标签" class="headerlink" title="&lt;input&gt;标签"></a><code>&lt;input&gt;</code>标签</h3><p>input没有子元素，button有子元素</p>
-<pre><code>type属性 
-1.如果一个form只有一个按钮button，没写type，自动升级为sunmit可提交。
-  submit是唯一能确定type能不能提交的按钮，button只是一个普通按钮。
-2.checkbox: 单选框
-3.radio: 复选框
-</code></pre><h3 id="lt-label-gt-标签"><a href="#lt-label-gt-标签" class="headerlink" title="&lt;label&gt;标签"></a><code>&lt;label&gt;</code>标签</h3><p>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
-<h3 id="lt-select-gt-标签"><a href="#lt-select-gt-标签" class="headerlink" title="&lt;select&gt;标签"></a><code>&lt;select&gt;</code>标签</h3><p>下拉列表</p>
-<h3 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h3><p>输入多行文本<br>1.通过 cols 和 rows 属性来规定 textarea 的尺寸，更好的办法是使用 CSS 的height 和 width 属性</p>
-<h3 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h3><p>表格</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
-</code></pre><h3 id="lt-colgroup-gt-标签"><a href="#lt-colgroup-gt-标签" class="headerlink" title="&lt;colgroup&gt;标签"></a><code>&lt;colgroup&gt;</code>标签</h3><p>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
-<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
-<hr>
-<h3 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h3><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
-<p>在<code>HTML</code>中，通常在一个空元素上使用一个闭标签是无效的。</p>
-<pre><code>例如，&lt;input type=&quot;text&quot;&gt; &lt;/input&gt; 的闭标签是无效的 HTML。
-</code></pre><p>常见的空元素有：</p>
-<pre><code>&lt;br&gt; 换行
-&lt;hr&gt; 添加水平横线
-&lt;img&gt; 为网页插入图片，此元素有两个必需的属性：src 和 alt。通过在 &lt;a&gt; 
-      标签中嵌套 &lt;img&gt; 标签，给图像添加到另一个文档的链接。
-&lt;input&gt; 用于为基于Web的表单创建交互式控件，以便接受来自用户的数据。
-        此元素在 &lt;form&gt; 元素中使用，用来声明允许用户输入数据的 input 
-        控件。输入字段可通过多种方式改变，取决于 type 属性。
-&lt;link&gt; 指定了外部资源与当前文档的关系，最常见的用途是链接css文件。
-       此元素只能存在于 &lt;head&gt; 元素内部，不过它可出现任何次数。
-&lt;meta&gt; 描述 HTML 文档的元数据（元数据是数据的数据信息），&lt;meta&gt; 标签
-       通常位于 &lt;head&gt; 元素内部。
-</code></pre><hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2175,8 +2393,8 @@ td(table data)元素定义表格单元(数据)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2228,7 +2446,7 @@ td(table data)元素定义表格单元(数据)
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

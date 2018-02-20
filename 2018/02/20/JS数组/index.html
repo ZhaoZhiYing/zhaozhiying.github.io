@@ -79,22 +79,13 @@
 
 
 
-<meta name="description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 定位属性 position">
-<meta property="og:url" content="http://yoursite.com/2018/02/14/CSS 定位属性 position/index.html">
+<meta property="og:title" content="JS数组">
+<meta property="og:url" content="http://yoursite.com/2018/02/20/JS数组/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a83f972f1307.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/02/14/5a8429cb73349.png
-">
-<meta property="og:updated_time" content="2018-02-14T12:45:08.000Z">
+<meta property="og:updated_time" content="2018-02-20T09:13:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 定位属性 position">
-<meta name="twitter:description" content="position 属性用于指定一个元素在文档中的定位方式。 注意：float属性不可以和 position 属性共用。  static默认定位默认值。没有定位，元素出现在正常的流中，此时top bottom left right z-index 无效。如果不用定位属性，那么这个position就不用设置。 relative相对定位相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。 ab">
-<meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a83f972f1307.png
-">
+<meta name="twitter:title" content="JS数组">
 
 
 
@@ -124,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/20/JS数组/"/>
 
 
 
 
 
-  <title>CSS 定位属性 position | Zhao Zhiying</title>
+  <title>JS数组 | Zhao Zhiying</title>
   
 
 
@@ -237,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -254,7 +245,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 定位属性 position</h1>
+          <h1 class="post-title" itemprop="name headline">JS数组</h1>
         
 
         <div class="post-meta">
@@ -266,8 +257,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
-                2018-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T17:13:10+08:00">
+                2018-02-20
               </time>
             
 
@@ -304,33 +295,7 @@
       
 
       
-        <blockquote>
-<p><code>position</code> 属性用于指定一个元素在文档中的定位方式。</p>
-<p>注意：<code>float</code>属性不可以和 <code>position</code> 属性共用。</p>
-</blockquote>
-<h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
-<h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
-<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><ul>
-<li>相对于相对于最近的非 <code>static</code> 祖先元素定位移动，它会脱离文档流。</li>
-<li>当这样的祖先元素不存在时，则相对于 <code>body</code> 定位。</li>
-<li>当父元素被为 <code>relative</code>，那 <code>absolute</code> 子元素将相对于其父元素定位。</li>
-<li>绝对定位的元素可以设置外边距，且不会与其他边距合并。</li>
-</ul>
-<h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
-<p>一张图说清楚上面四种值的用法区别，如下：</p>
-<p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
-"></p>
-<hr>
-<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。如下图：</p>
-<p><img src="https://i.loli.net/2018/02/14/5a8429cb73349.png
-"></p>
-<p>上图中 <code>child</code> 继承了 <code>parent</code> 的 <code>position</code>，都是相对于浏览器窗口定位，所以 <code>top</code> <code>left</code> 取等值时候位置一致。</p>
-<hr>
-<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>粘性定位是相对定位 <code>relative</code> 和固定定位 <code>fixed</code> 的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。粘性定位常用于页面滚动到一定程度时固定导航条的情况。</p>
-<pre><code>p{ position: sticky; top: 10px; }
-</code></pre><p>在 <code>viewport</code> 视口滚动到元素 <code>top &lt; 10px</code> 之前，元素为相对定位。之后，元素将固定在与顶部距离 <code>10px</code> 的位置，直到 <code>viewport</code> 视口回滚到阈值以下。    </p>
-<hr>
-
+        
       
     </div>
     
@@ -354,8 +319,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/13/CSS 伪类和伪元素/" rel="next" title="CSS 伪类和伪元素">
-                <i class="fa fa-chevron-left"></i> CSS 伪类和伪元素
+              <a href="/2018/02/19/JS 立即执行函数/" rel="next" title="toString">
+                <i class="fa fa-chevron-left"></i> toString
               </a>
             
           </div>
@@ -363,10 +328,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/14/JS 数据类型转换/" rel="prev" title="JS 数据类型转换">
-                JS 数据类型转换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,17 +379,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -472,22 +424,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#static默认定位"><span class="nav-number">1.</span> <span class="nav-text">static默认定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#relative相对定位"><span class="nav-number">2.</span> <span class="nav-text">relative相对定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#absolute绝对定位"><span class="nav-number">3.</span> <span class="nav-text">absolute绝对定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fixed固定定位"><span class="nav-number">4.</span> <span class="nav-text">fixed固定定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#inherit继承定位"><span class="nav-number">5.</span> <span class="nav-text">inherit继承定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sticky粘性定位"><span class="nav-number">6.</span> <span class="nav-text">sticky粘性定位</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,125 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/20/JS数组/" itemprop="url">JS数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T17:13:10+08:00">
+                2018-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +376,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
                 2018-02-19
@@ -320,27 +439,72 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
 <hr>
-<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><ol>
-<li><p>全局变量会造成同名覆盖的问题。解决办法：声明局部变量。</p>
+<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><ul>
+<li>全局变量会造成同名覆盖的问题。</li>
+<li>解决办法：声明局部变量。</li>
+<li><code>ES6</code> 之前，只有函数才有局部变量。</li>
+<li>于是我们声明一个 <code>function foo()</code>，然后 <code>foo.call()</code>，但是这个时候 <code>foo</code> 是全局变量（全局函数）。</li>
+<li>所以我们不能给这个函数名字，使用匿名函数 <code>function(){}.call()</code> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function ()&#123;&#125;.call()</div><div class="line">//Uncaught SyntaxError: Unexpected token (</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用 <code>function(){}.call()</code> 时候会报错（语法错误），这是因为 <code>JS</code> 引擎规定，如果 <code>function</code> 关键字出现在行首，一律解释成语句。因此，<code>JS</code> 引擎看到行首是 <code>function</code> 关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p>
 </li>
-<li><p>ES6 之前，只有函数才有局部变量。</p>
+<li><p>解决办法：不让 <code>function</code> 出现在行首，让 <code>JS</code> 引擎将其理解成一个表达式。如下：</p>
 </li>
-<li><p>于是我们声明一个 function xxx，然后 xxx.call()，但是这个时候 xxx 是全局变量（全局函数）</p>
-</li>
-<li><p>所以我们不能给这个函数名字，使用匿名函数 function(){}.call() </p>
-</li>
-<li><p>使用 function(){}.call() 时候 Chrome 会报错（语法错误）</p>
-</li>
-<li><p>于是试出来一种方法可以不报错。</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">!function()&#123;&#125;.call()</div><div class="line">//!会改变函数的返回值。</div></pre></td></tr></table></figure>
-<ol>
-<li><p>立即执行函数使得<code>函数内部变量</code>无法被外部访问</p>
-</li>
-<li><p>闭包使得匿名函数可以操作<code>函数内部变量</code>。<code>window.函数名</code> 保存了匿名函数的地址，任何地方都可以使用 <code>window.函数名</code> 操作 <code>函数内部变量</code>，但是不能直接访问<code>函数内部变量</code>。</p>
-</li>
-</ol>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//使用圆括号</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">// 函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//使用 ! ~ + -</div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//由于! ~ + -等运算符还会和函数的返回值进行运算，有时造成不必要的麻烦。</div><div class="line">//所以推荐使用 ()</div></pre></td></tr></table></figure>
+<ul>
+<li>立即执行函数使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</li>
+<li>解决办法：使用闭包。如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//函数1</div><div class="line">(function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">   &#125;</div><div class="line">	window.frankGrowUp = function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line">//或者</div><div class="line">window.frankGrowUp = (function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">         &#125;</div><div class="line">	return function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line"></div><div class="line">//函数2</div><div class="line">(function()&#123;</div><div class="line">	var newAge = window.frankGrowUp()</div><div class="line">	console.log(newAge)</div><div class="line">&#125;).call() </div><div class="line"></div><div class="line">// 19</div></pre></td></tr></table></figure>
+<p>闭包使得匿名函数可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
+<hr>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
+<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
+<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
+<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
+<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
+<pre><code>function f1(){
+  var n = 9
+  function f2(){
+    console.log(n)
+  }
+  f2()
+} 
+f1() // 9
+//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
+</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
+</code></pre><p>3.封装对象的私有属性和私有方法。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+var a2 = f1(5)
+a2() // 5
+a2() // 6
+a2() // 7
+//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。 
+</code></pre><hr>
+<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
 
           
         
@@ -418,7 +582,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
                 2018-02-14
@@ -662,7 +826,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
                 2018-02-14
@@ -807,7 +971,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
                 2018-02-13
@@ -953,7 +1117,7 @@ a:active {color: #ddd;} //已选中的链接
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T01:43:03+08:00">
                 2018-02-13
@@ -1163,7 +1327,7 @@ perspective(n) 为 3D 转换元素定义透视视图。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
                 2018-02-11
@@ -1315,7 +1479,7 @@ context.fillRect(10, 10, 50, 50)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
                 2018-02-09
@@ -1456,7 +1620,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
                 2018-02-05
@@ -1588,7 +1752,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
                 2018-02-03
@@ -1674,142 +1838,6 @@ p{font-size: 2rem} //32px
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/MVC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/02/MVC/" itemprop="url">MVC</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
-                2018-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="MVC-是什么？"><a href="#MVC-是什么？" class="headerlink" title="MVC 是什么？"></a><code>MVC</code> 是什么？</h4><p><code>MVC</code>（<code>Model View Controller</code> 模型-视图-控制）指一种代码组织形式。它将代码分成三层：</p>
-<ol>
-<li>“视图层”（<code>View</code>），它是提供给用户的操作界面，是程序的外壳。</li>
-<li>“数据层”（<code>Model</code>），也就是程序需要操作的数据或信息。</li>
-<li>“控制层”（<code>Controller</code>），它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
-</ol>
-<h4 id="MVC-三个对象分别有哪些重要属性和方法"><a href="#MVC-三个对象分别有哪些重要属性和方法" class="headerlink" title="MVC 三个对象分别有哪些重要属性和方法?"></a><code>MVC</code> 三个对象分别有哪些重要属性和方法?</h4><p><code>View</code></p>
-<pre><code>document.querySelector (获取对应的 html)
-</code></pre><p><code>Model</code></p>
-<pre><code>init (初始化)
-fetch (获取)
-save (保存) 
-</code></pre><p><code>Controller</code>  </p>
-<pre><code>init (初始化 model 和 view)
-loadMessages (加载数据)
-bindEvents (绑定事件)
-saveMessage (存储数据)
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1860,8 +1888,8 @@ saveMessage (存储数据)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1913,7 +1941,7 @@ saveMessage (存储数据)
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
