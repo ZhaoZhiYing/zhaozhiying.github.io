@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/toString 与 valueOf/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/JS 立即执行函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/19/toString 与 valueOf/" itemprop="url">toString</a></h1>
+                <a class="post-title-link" href="/2018/02/19/JS 立即执行函数/" itemprop="url">toString</a></h1>
         
 
         <div class="post-meta">
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
                 2018-02-19
@@ -299,7 +299,49 @@
       
         
           
-            
+            <h4 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><ul>
+<li><code>执行环境</code>定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
+<li>每个<code>执行环境</code>都有一个与之关联的<code>变量对象</code>，环境中定义的所有变量和函数都保存在这个对象中。</li>
+</ul>
+<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><ul>
+<li>当代码在一个<code>执行环境</code>中时，会创建<code>变量对象</code>的一个<code>作用域链</code>。</li>
+<li><p><code>作用域链</code>的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
+</li>
+<li><p><code>作用域</code>分为<strong><code>全局作用域</code></strong>和<strong><code>局部作用域</code>(也叫函数作用域)</strong></p>
+</li>
+<li><p><code>全局作用域</code>中声明的变量是<code>全局变量</code>，<code>函数作用域</code>中声明的变量是<code>局部变量</code>。</p>
+</li>
+<li>外部无法读取 <code>局部变量</code>，但函数内部可以读取 <code>全局变量</code>。同名的<code>局部变量</code>会在函数内部覆盖 <code>全局变量</code>。  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zhao&apos;</div><div class="line">function foo()&#123;</div><div class="line">	var name = &apos;tang&apos;</div><div class="line">	console.log(name)</div><div class="line">&#125;</div><div class="line">foo()//tang</div><div class="line"></div><div class="line">//函数 foo 内部的变量 name 覆盖了全局变量 name</div></pre></td></tr></table></figure>
+<h5 id="堆栈Call-Stack先入后出"><a href="#堆栈Call-Stack先入后出" class="headerlink" title="堆栈Call Stack先入后出"></a>堆栈<code>Call Stack</code>先入后出</h5><ul>
+<li>每个函数都有自己的<code>执行环境</code>。<code>执行环境</code>是用环境栈来管理的。</li>
+<li>最底层的是<code>全局执行环境</code>（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的<code>执行环境</code>就会被推入到<code>环境栈</code>中。如果在函数中继续执行函数，那么内部函数的<code>执行环境</code>就继续被推入<code>环境栈</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><ol>
+<li><p>全局变量会造成同名覆盖的问题。解决办法：声明局部变量。</p>
+</li>
+<li><p>ES6 之前，只有函数才有局部变量。</p>
+</li>
+<li><p>于是我们声明一个 function xxx，然后 xxx.call()，但是这个时候 xxx 是全局变量（全局函数）</p>
+</li>
+<li><p>所以我们不能给这个函数名字，使用匿名函数 function(){}.call() </p>
+</li>
+<li><p>使用 function(){}.call() 时候 Chrome 会报错（语法错误）</p>
+</li>
+<li><p>于是试出来一种方法可以不报错。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">!function()&#123;&#125;.call()</div><div class="line">//!会改变函数的返回值。</div></pre></td></tr></table></figure>
+<ol>
+<li><p>立即执行函数使得<code>函数内部变量</code>无法被外部访问</p>
+</li>
+<li><p>闭包使得匿名函数可以操作<code>函数内部变量</code>。<code>window.函数名</code> 保存了匿名函数的地址，任何地方都可以使用 <code>window.函数名</code> 操作 <code>函数内部变量</code>，但是不能直接访问<code>函数内部变量</code>。</p>
+</li>
+</ol>
+
           
         
       
@@ -376,7 +418,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
                 2018-02-14
@@ -447,11 +489,14 @@ String方法的参数如果是对象，返回一个类型字符串；如果是�
 
 Array 返回数组对象本身。
 Boolean 布尔值。
+Date    存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
 Function 函数本身。
 Number 数字值。
 Object 对象本身。这是默认情况。
 String 字符串值。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//1.这两个方法一般是交由 JS 去隐式调用，以满足不同的运算情况。</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div><div class="line"></div><div class="line">共同的缺点：无法获取 null 和 undefined 的值</div></pre></td></tr></table></figure>
+
+Math 和 Error 对象没有 valueOf 方法。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//1.调用情况</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div></pre></td></tr></table></figure>
 <p>2.+ 空字符串</p>
 <pre><code>123 + &apos;&apos; // &quot;123&quot;
 true + &apos;&apos; // &quot;true&quot;
@@ -617,7 +662,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
                 2018-02-14
@@ -762,7 +807,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
                 2018-02-13
@@ -908,7 +953,7 @@ a:active {color: #ddd;} //已选中的链接
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T01:43:03+08:00">
                 2018-02-13
@@ -1118,7 +1163,7 @@ perspective(n) 为 3D 转换元素定义透视视图。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
                 2018-02-11
@@ -1270,7 +1315,7 @@ context.fillRect(10, 10, 50, 50)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
                 2018-02-09
@@ -1411,7 +1456,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
                 2018-02-05
@@ -1543,7 +1588,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
                 2018-02-03
@@ -1671,7 +1716,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
                 2018-02-02
@@ -1816,7 +1861,7 @@ saveMessage (存储数据)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1868,7 +1913,7 @@ saveMessage (存储数据)
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

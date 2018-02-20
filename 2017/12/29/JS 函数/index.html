@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令(函数声明)function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print =">
+<meta name="description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的几种声明1.函数声明（function命令）function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print = fun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 函数">
 <meta property="og:url" content="http://yoursite.com/2017/12/29/JS 函数/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令(函数声明)function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print =">
-<meta property="og:updated_time" content="2018-02-06T06:09:48.000Z">
+<meta property="og:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的几种声明1.函数声明（function命令）function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print = fun">
+<meta property="og:updated_time" content="2018-02-20T08:26:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 函数">
-<meta name="twitter:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的5种声明1.function命令(函数声明)function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式(匿名)//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print =">
+<meta name="twitter:description" content="什么是函数函数就是一段可以反复调用的代码块。  函数的几种声明1.函数声明（function命令）function print(s){ //print是函数名，也叫标识符     console.log(s) //这是函数体 } //函数的声明在结尾的大括号后面不用加分号     2.函数表达式//采用函数表达式声明函数时， function 命令后面不带有函数名。 var print = fun">
 
 
 
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -300,10 +300,10 @@
       
         <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
 <hr>
-<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令-函数声明"><a href="#1-function命令-函数声明" class="headerlink" title="1.function命令(函数声明)"></a>1.<code>function</code>命令(函数声明)</h5><pre><code>function print(s){ //print是函数名，也叫标识符
+<h4 id="函数的几种声明"><a href="#函数的几种声明" class="headerlink" title="函数的几种声明"></a>函数的几种声明</h4><h5 id="1-函数声明（function命令）"><a href="#1-函数声明（function命令）" class="headerlink" title="1.函数声明（function命令）"></a>1.函数声明（<code>function</code>命令）</h5><pre><code>function print(s){ //print是函数名，也叫标识符
     console.log(s) //这是函数体
 } //函数的声明在结尾的大括号后面不用加分号    
-</code></pre><h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
+</code></pre><h5 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2.函数表达式"></a>2.函数表达式</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
 var print = function (s){ 
     console.log(s)
 }
@@ -314,10 +314,7 @@ var print = function f(){
 }
 f// ReferenceError: f is not defined
 print()// function    
-</code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function f(s){ 
-  console.log(s) 
-}
-</code></pre><h5 id="4-Function构造函数"><a href="#4-Function构造函数" class="headerlink" title="4.Function构造函数"></a>4.<code>Function</code>构造函数</h5><pre><code>var add = new Function(
+</code></pre><h5 id="3-Function-构造函数"><a href="#3-Function-构造函数" class="headerlink" title="3.Function 构造函数"></a>3.<code>Function</code> 构造函数</h5><pre><code>var add = new Function(
   &apos;x&apos;,
   &apos;y&apos;,
   &apos;return x + y&apos;
@@ -326,7 +323,7 @@ print()// function
 function add(x, y) {
   return x + y
 } 
-</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
+</code></pre><h5 id="4-箭头函数-匿名-x-y-gt-return-x-y"><a href="#4-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="4.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>4.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
 <pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
 (参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
 //相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
@@ -441,17 +438,6 @@ foo1() //8
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&apos;var a = 1;&apos;)</div><div class="line">a // 1</div></pre></td></tr></table></figure>
 <hr>
-<h5 id="Call-Stack先入后出"><a href="#Call-Stack先入后出" class="headerlink" title="Call Stack先入后出"></a><code>Call Stack</code>先入后出</h5><p><code>call stack</code>调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
-<pre><code>function a(){
-    console.log(&apos;a&apos;)
-    return a
-}
-a.call() 
-
-* 当调用时，a.call() 会被记在 call stack 里。
-* 接着 console.log(&apos;a&apos;) 记在 call stack 里。
-* return a 到这一步时`console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。
-</code></pre><hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
       
@@ -543,10 +529,10 @@ a.call()
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -567,7 +553,7 @@ a.call()
                 <a href="/archives/">
               
                   <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -605,7 +591,7 @@ a.call()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是函数"><span class="nav-number">1.</span> <span class="nav-text">什么是函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的5种声明"><span class="nav-number">2.</span> <span class="nav-text">函数的5种声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-function命令-函数声明"><span class="nav-number">2.1.</span> <span class="nav-text">1.function命令(函数声明)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-函数表达式-匿名"><span class="nav-number">2.2.</span> <span class="nav-text">2.函数表达式(匿名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-函数表达式-具名"><span class="nav-number">2.3.</span> <span class="nav-text">3.函数表达式(具名)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Function构造函数"><span class="nav-number">2.4.</span> <span class="nav-text">4.Function构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-箭头函数-匿名-x-y-gt-return-x-y"><span class="nav-number">2.5.</span> <span class="nav-text">5.箭头函数(匿名)(x , y) => { return x + y }</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">3.</span> <span class="nav-text">函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length属性"><span class="nav-number">3.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">4.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数内部的变量提升"><span class="nav-number">5.</span> <span class="nav-text">函数内部的变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#return"><span class="nav-number">6.</span> <span class="nav-text">return</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归"><span class="nav-number">7.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">8.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是闭包"><span class="nav-number">8.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包的用途"><span class="nav-number">8.2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用函数"><span class="nav-number">9.</span> <span class="nav-text">调用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#call"><span class="nav-number">9.1.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#apply"><span class="nav-number">9.2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bind"><span class="nav-number">9.3.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#eval"><span class="nav-number">9.4.</span> <span class="nav-text">eval()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Call-Stack先入后出"><span class="nav-number">9.5.</span> <span class="nav-text">Call Stack先入后出</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是函数"><span class="nav-number">1.</span> <span class="nav-text">什么是函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的几种声明"><span class="nav-number">2.</span> <span class="nav-text">函数的几种声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数声明（function命令）"><span class="nav-number">2.1.</span> <span class="nav-text">1.函数声明（function命令）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-函数表达式"><span class="nav-number">2.2.</span> <span class="nav-text">2.函数表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Function-构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">3.Function 构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-箭头函数-匿名-x-y-gt-return-x-y"><span class="nav-number">2.4.</span> <span class="nav-text">4.箭头函数(匿名)(x , y) => { return x + y }</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的属性和方法"><span class="nav-number">3.</span> <span class="nav-text">函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#length属性"><span class="nav-number">3.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">4.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数内部的变量提升"><span class="nav-number">5.</span> <span class="nav-text">函数内部的变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#return"><span class="nav-number">6.</span> <span class="nav-text">return</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归"><span class="nav-number">7.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">8.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是闭包"><span class="nav-number">8.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包的用途"><span class="nav-number">8.2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用函数"><span class="nav-number">9.</span> <span class="nav-text">调用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#call"><span class="nav-number">9.1.</span> <span class="nav-text">call</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#apply"><span class="nav-number">9.2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bind"><span class="nav-number">9.3.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#eval"><span class="nav-number">9.4.</span> <span class="nav-text">eval()</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -635,7 +621,7 @@ a.call()
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

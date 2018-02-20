@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/14/JS 数据类型转换/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="转成 String1.string()可以用于任何数据类型。该方法底层使用的也是 toString() 方法。转换规则如下： Number：转为相应的字符串。     String(123) // &amp;quot;123&amp;quot;  String：转换后还是原来的值。     String(&amp;apos;abc&amp;apos;) // &amp;quot;abc&amp;quot;  Boolean：true 转为字符串">
-<meta property="og:updated_time" content="2018-02-19T15:19:23.000Z">
+<meta property="og:updated_time" content="2018-02-19T15:23:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 数据类型转换">
 <meta name="twitter:description" content="转成 String1.string()可以用于任何数据类型。该方法底层使用的也是 toString() 方法。转换规则如下： Number：转为相应的字符串。     String(123) // &amp;quot;123&amp;quot;  String：转换后还是原来的值。     String(&amp;apos;abc&amp;apos;) // &amp;quot;abc&amp;quot;  Boolean：true 转为字符串">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -258,7 +258,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
                 2018-02-14
@@ -327,11 +327,14 @@ String方法的参数如果是对象，返回一个类型字符串；如果是�
 
 Array 返回数组对象本身。
 Boolean 布尔值。
+Date    存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
 Function 函数本身。
 Number 数字值。
 Object 对象本身。这是默认情况。
 String 字符串值。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//1.这两个方法一般是交由 JS 去隐式调用，以满足不同的运算情况。</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div><div class="line"></div><div class="line">共同的缺点：无法获取 null 和 undefined 的值</div></pre></td></tr></table></figure>
+
+Math 和 Error 对象没有 valueOf 方法。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//1.调用情况</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div></pre></td></tr></table></figure>
 <p>2.+ 空字符串</p>
 <pre><code>123 + &apos;&apos; // &quot;123&quot;
 true + &apos;&apos; // &quot;true&quot;
@@ -454,7 +457,7 @@ undefined + 1 // NaN
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/19/toString 与 valueOf/" rel="prev" title="toString">
+              <a href="/2018/02/19/JS 立即执行函数/" rel="prev" title="toString">
                 toString <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -510,10 +513,10 @@ undefined + 1 // NaN
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -534,7 +537,7 @@ undefined + 1 // NaN
                 <a href="/archives/">
               
                   <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -602,7 +605,7 @@ undefined + 1 // NaN
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -497,7 +497,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -541,10 +541,10 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
           
             <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
 <hr>
-<h4 id="函数的5种声明"><a href="#函数的5种声明" class="headerlink" title="函数的5种声明"></a>函数的5种声明</h4><h5 id="1-function命令-函数声明"><a href="#1-function命令-函数声明" class="headerlink" title="1.function命令(函数声明)"></a>1.<code>function</code>命令(函数声明)</h5><pre><code>function print(s){ //print是函数名，也叫标识符
+<h4 id="函数的几种声明"><a href="#函数的几种声明" class="headerlink" title="函数的几种声明"></a>函数的几种声明</h4><h5 id="1-函数声明（function命令）"><a href="#1-函数声明（function命令）" class="headerlink" title="1.函数声明（function命令）"></a>1.函数声明（<code>function</code>命令）</h5><pre><code>function print(s){ //print是函数名，也叫标识符
     console.log(s) //这是函数体
 } //函数的声明在结尾的大括号后面不用加分号    
-</code></pre><h5 id="2-函数表达式-匿名"><a href="#2-函数表达式-匿名" class="headerlink" title="2.函数表达式(匿名)"></a>2.函数表达式(匿名)</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
+</code></pre><h5 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2.函数表达式"></a>2.函数表达式</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
 var print = function (s){ 
     console.log(s)
 }
@@ -555,10 +555,7 @@ var print = function f(){
 }
 f// ReferenceError: f is not defined
 print()// function    
-</code></pre><h5 id="3-函数表达式-具名"><a href="#3-函数表达式-具名" class="headerlink" title="3.函数表达式(具名)"></a>3.函数表达式(具名)</h5><pre><code>var print = function f(s){ 
-  console.log(s) 
-}
-</code></pre><h5 id="4-Function构造函数"><a href="#4-Function构造函数" class="headerlink" title="4.Function构造函数"></a>4.<code>Function</code>构造函数</h5><pre><code>var add = new Function(
+</code></pre><h5 id="3-Function-构造函数"><a href="#3-Function-构造函数" class="headerlink" title="3.Function 构造函数"></a>3.<code>Function</code> 构造函数</h5><pre><code>var add = new Function(
   &apos;x&apos;,
   &apos;y&apos;,
   &apos;return x + y&apos;
@@ -567,7 +564,7 @@ print()// function
 function add(x, y) {
   return x + y
 } 
-</code></pre><h5 id="5-箭头函数-匿名-x-y-gt-return-x-y"><a href="#5-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="5.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>5.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
+</code></pre><h5 id="4-箭头函数-匿名-x-y-gt-return-x-y"><a href="#4-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="4.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>4.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
 <pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
 (参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
 //相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
@@ -682,17 +679,6 @@ foo1() //8
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&apos;var a = 1;&apos;)</div><div class="line">a // 1</div></pre></td></tr></table></figure>
 <hr>
-<h5 id="Call-Stack先入后出"><a href="#Call-Stack先入后出" class="headerlink" title="Call Stack先入后出"></a><code>Call Stack</code>先入后出</h5><p><code>call stack</code>调用堆栈，调用堆栈是一个方法列表，按调用顺序保存所有在运行期被调用的方法。</p>
-<pre><code>function a(){
-    console.log(&apos;a&apos;)
-    return a
-}
-a.call() 
-
-* 当调用时，a.call() 会被记在 call stack 里。
-* 接着 console.log(&apos;a&apos;) 记在 call stack 里。
-* return a 到这一步时`console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。
-</code></pre><hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
           
@@ -771,7 +757,7 @@ a.call()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -940,9 +926,6 @@ toString.call(new Date(1995, 11, 17)) // &quot;[object Date]&quot;
 toString.call(&apos;1&apos;) // &quot;[object String]&quot;
 toString.call(1) // &quot;[object Number]&quot;
 toString.call(Math) // &quot;[object Math]&quot;
-
-toString.call(undefined) // &quot;[object Undefined]&quot;
-toString.call(null) // &quot;[object Null]&quot;
 </code></pre><hr>
 <p>参考：</p>
 <p>[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
@@ -1023,7 +1006,7 @@ toString.call(null) // &quot;[object Null]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -1154,7 +1137,7 @@ toString.call(null) // &quot;[object Null]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -1314,7 +1297,7 @@ p{color:green;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -1506,7 +1489,7 @@ parent{display: flex; justify-content: space-between;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -1686,7 +1669,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -1855,7 +1838,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -1997,7 +1980,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
                 2017-10-24
@@ -2193,7 +2176,7 @@ td(table data)元素定义表格单元(数据)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">32</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2245,7 +2228,7 @@ td(table data)元素定义表格单元(数据)
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
