@@ -228,6 +228,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/21/stopPropagation()和preventDefault()/" itemprop="url">stopPropagation()和preventDefault()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的<code>stopPropagation()</code>方法停止事件的传播过程。    </p>
+<p>举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
+<h4 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a><code>preventDefault()</code></h4><p>阻止元素的默认事件。例如：</p>
+<ul>
+<li>当点击提交按钮时阻止对表单的提交</li>
+<li>当点击 <code>a</code> 链接时页面不会跳转</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.google.com.hk/?hl=zh-cn&quot;&gt;谷歌&lt;/a&gt;  </div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	$(&quot;a&quot;).click(function(event)&#123;             </div><div class="line">		event.preventDefault() //页面不会跳转  </div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS 数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,7 +491,7 @@ Array.isArray([1,2,3]) //true
 <p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。</p>
 </blockquote>
 <p>这时当检测<code>Array</code>实例时，<code>Array.isArray</code> 优于 <code>instanceof</code>,因为<code>Array.isArray</code>能检测<code>iframes</code>。</p>
-<p>示例</p>
+<p>举例</p>
 <pre><code>var iframe = document.createElement(&apos;iframe&apos;)
 document.body.appendChild(iframe)
 
@@ -381,7 +510,7 @@ arr instanceof Array // false
 <p>伪数组转成真数组方法 </p>
 <pre><code>var arr = Array.prototype.slice.call(fakeArray)
 //fakeArray 表示一个伪数组
-</code></pre><p>示例</p>
+</code></pre><p>举例</p>
 <pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2} //伪数组
 var arr1 = Array.prototype.slice.call(fakeArray)
 arr1[0] //&quot;a&quot;    
@@ -1800,134 +1929,6 @@ p{font-size: 2rem} //32px
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/03/target 与 currentTarget/" itemprop="url">target与currentTarget</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
-                2018-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><code>currentTarget</code>：指绑定事件的对象。恒等于<code>this</code>。</li>
-<li><code>targt</code>：指触发事件的某个具体对象。</li>
-</ul>
-<p>举例1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">grand.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  grand </div><div class="line">//这时的 this 指向 grand</div></pre></td></tr></table></figure>
-<p>举例2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">child.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  child</div><div class="line">//这时的 this 指向 child</div></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1978,7 +1979,7 @@ p{font-size: 2rem} //32px
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

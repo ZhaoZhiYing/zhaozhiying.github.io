@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/20/JS 数组/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="什么是数组人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））JS理解：数据就是原型链中有 Array.prototype 的对象。  创建数组1.使用 Array 构造函数。 var arr = new Array(8) //创建 length 为 8 的数组。 var arr = new Array(&amp;apos;red&amp;apos;, &amp;apos;blue&amp;apos;, &amp;apo">
-<meta property="og:updated_time" content="2018-02-21T09:33:06.000Z">
+<meta property="og:updated_time" content="2018-02-21T10:05:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 数组">
 <meta name="twitter:description" content="什么是数组人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））JS理解：数据就是原型链中有 Array.prototype 的对象。  创建数组1.使用 Array 构造函数。 var arr = new Array(8) //创建 length 为 8 的数组。 var arr = new Array(&amp;apos;red&amp;apos;, &amp;apos;blue&amp;apos;, &amp;apo">
@@ -361,7 +361,7 @@ Array.isArray([1,2,3]) //true
 <p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。</p>
 </blockquote>
 <p>这时当检测<code>Array</code>实例时，<code>Array.isArray</code> 优于 <code>instanceof</code>,因为<code>Array.isArray</code>能检测<code>iframes</code>。</p>
-<p>示例</p>
+<p>举例</p>
 <pre><code>var iframe = document.createElement(&apos;iframe&apos;)
 document.body.appendChild(iframe)
 
@@ -380,7 +380,7 @@ arr instanceof Array // false
 <p>伪数组转成真数组方法 </p>
 <pre><code>var arr = Array.prototype.slice.call(fakeArray)
 //fakeArray 表示一个伪数组
-</code></pre><p>示例</p>
+</code></pre><p>举例</p>
 <pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2} //伪数组
 var arr1 = Array.prototype.slice.call(fakeArray)
 arr1[0] //&quot;a&quot;    
@@ -421,6 +421,10 @@ arr2[0] //&quot;a&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/21/stopPropagation()和preventDefault()/" rel="prev" title="stopPropagation()和preventDefault()">
+                stopPropagation()和preventDefault() <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -497,7 +501,7 @@ arr2[0] //&quot;a&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

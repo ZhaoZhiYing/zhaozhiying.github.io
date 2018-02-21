@@ -79,22 +79,16 @@
 
 
 
-<meta name="description" content="元素的高度由什么决定？block元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。 * inline 元素从左往右，如遇到宽度不够就另起一行。 * block 元素从上往下另起一行。  1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）">
+<meta name="description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 布局套路">
-<meta property="og:url" content="http://yoursite.com/2017/12/16/CSS 布局套路/index.html">
+<meta property="og:title" content="stopPropagation()和preventDefault()">
+<meta property="og:url" content="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="元素的高度由什么决定？block元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。 * inline 元素从左往右，如遇到宽度不够就另起一行。 * block 元素从上往下另起一行。  1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）">
-<meta property="og:image" content="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
-">
-<meta property="og:updated_time" content="2018-02-14T07:02:33.000Z">
+<meta property="og:description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
+<meta property="og:updated_time" content="2018-02-21T10:22:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 布局套路">
-<meta name="twitter:description" content="元素的高度由什么决定？block元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。 * inline 元素从左往右，如遇到宽度不够就另起一行。 * block 元素从上往下另起一行。  1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）">
-<meta name="twitter:image" content="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
-">
+<meta name="twitter:title" content="stopPropagation()和preventDefault()">
+<meta name="twitter:description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
 
 
 
@@ -124,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/16/CSS 布局套路/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/"/>
 
 
 
 
 
-  <title>CSS 布局套路 | Zhao Zhiying</title>
+  <title>stopPropagation()和preventDefault() | Zhao Zhiying</title>
   
 
 
@@ -237,7 +231,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -254,7 +248,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 布局套路</h1>
+          <h1 class="post-title" itemprop="name headline">stopPropagation()和preventDefault()</h1>
         
 
         <div class="post-meta">
@@ -266,8 +260,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
-                2017-12-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
+                2018-02-21
               </time>
             
 
@@ -304,79 +298,16 @@
       
 
       
-        <h4 id="元素的高度由什么决定？"><a href="#元素的高度由什么决定？" class="headerlink" title="元素的高度由什么决定？"></a>元素的高度由什么决定？</h4><p><code>block</code>元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。</p>
-<pre><code>* inline 元素从左往右，如遇到宽度不够就另起一行。
-* block 元素从上往下另起一行。
-
-1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
-2.如果 div 里面有多行 inline 元素，div高度是这多行加起来的行高。
-3.如果一个 div 里面有div，那么这个div的高度由里面的div高度加 padding 加 margin（加margin分情况）
-</code></pre><h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><ul>
-<li>不到万不得已，不要写固定<code>width</code>和<code>height</code></li>
-<li>尽量用高级语法，如<code>calc``flex</code></li>
-<li>如果是<code>IE</code>，就全部写固定</li>
+        <h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的<code>stopPropagation()</code>方法停止事件的传播过程。    </p>
+<p>举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
+<h4 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a><code>preventDefault()</code></h4><p>阻止元素的默认事件。例如：</p>
+<ul>
+<li>当点击提交按钮时阻止对表单的提交</li>
+<li>当点击 <code>a</code> 链接时页面不会跳转</li>
 </ul>
-<h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
-* 父元素加 .clearfix{content:’’; display: block; clear: both;}
-             .clearfix{zoom: 1;} //支持IE6
-</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme``mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme``mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex
-* 父元素加 justify-content: space-between;
-</code></pre><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p><code>child</code>为不定宽<code>block</code>元素</p>
-<pre><code>//方法一：转为 inline 元素
-child{display: inline;}
-parent{text-align: center;}
-
-//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
-child{display: table; margin-left/right: auto;}
-
-//方法三：margin 左右设同等值
-child{margin-left/right: 20px;}
-
-//方法四：translateX -50%
-child{position: absolute; left: 50%; transform: translateX(-50%);}
-parent{position: relative;}
-</code></pre><p><code>child</code>为定宽<code>block</code>元素</p>
-<pre><code>child{width: 100px; margin-left/right: auto;}
-</code></pre><p><code>inline</code> <code>inline-block</code>元素以及图片</p>
-<pre><code>parent{text-align: center;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; justify-content: center;}    
-</code></pre><h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>高不确定）</p>
-<pre><code>//方法一：translateY -50%
-child{position: absolute; top: 50%; transform: translateY(-50%);}
-parent{position: relative;}
-
-//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
-parent{vertical-align：middle;}
-
-//方法三：padding 上下设同等值
-child{padding-top/bottom: 20px;}
-</code></pre><p><code>child</code>为单行<code>inline</code>文本</p>
-<pre><code>//方法一：height 和 line-height 设同等值
-parent{height: 40px; line-height: 40px;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p><code>child</code>为多行<code>inline</code>文本以及图片</p>
-<pre><code>//方法一：
-parent{display: table-cell; vertical-align: middle;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; align-items: center;}
-</code></pre><h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><pre><code>//float + -margin（兼容 IE）
-父元素加.clearfix{content:’’; display: block; clear: both;}
-子元素分别加 float: left; 和 float: right; 
-
-//flex + -margin (可实现上下图片数量不一时的平均布局)  
-parent{display: flex; justify-content: space-between;}
-</code></pre><h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
-"></p>
-<p>￼<code>flex</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
-"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.google.com.hk/?hl=zh-cn&quot;&gt;谷歌&lt;/a&gt;  </div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	$(&quot;a&quot;).click(function(event)&#123;             </div><div class="line">		event.preventDefault() //页面不会跳转  </div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
 
       
     </div>
@@ -401,8 +332,8 @@ parent{display: flex; justify-content: space-between;}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/13/CSS 移动端页面/" rel="next" title="CSS 移动端页面">
-                <i class="fa fa-chevron-left"></i> CSS 移动端页面
+              <a href="/2018/02/20/JS 数组/" rel="next" title="JS 数组">
+                <i class="fa fa-chevron-left"></i> JS 数组
               </a>
             
           </div>
@@ -410,10 +341,6 @@ parent{display: flex; justify-content: space-between;}
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/18/CSS 选择器/" rel="prev" title="CSS 选择器">
-                CSS 选择器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +456,7 @@ parent{display: flex; justify-content: space-between;}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#元素的高度由什么决定？"><span class="nav-number">1.</span> <span class="nav-text">元素的高度由什么决定？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局原则"><span class="nav-number">2.</span> <span class="nav-text">布局原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float浮动布局（支持IE8）"><span class="nav-number">3.</span> <span class="nav-text">float浮动布局（支持IE8）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex弹性布局（兼容chorme-mobile，不支持IE8）"><span class="nav-number">4.</span> <span class="nav-text">flex弹性布局（兼容chorme``mobile，不支持IE8）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">5.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">6.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#左右布局"><span class="nav-number">7.</span> <span class="nav-text">左右布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#平均布局"><span class="nav-number">8.</span> <span class="nav-text">平均布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#stopPropagation"><span class="nav-number">1.</span> <span class="nav-text">stopPropagation()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#preventDefault"><span class="nav-number">2.</span> <span class="nav-text">preventDefault()</span></a></li></ol></div>
             
 
           </div>
