@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="什么是数组人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））JS理解：数据就是原型链中有 Array.prototype 的对象。  创建数组1.使用 Array 构造函数。 var arr = new Array(8) //创建 length 为 8 的数组。 var arr = new Array(&amp;apos;red&amp;apos;, &amp;apos;blue&amp;apos;, &amp;apo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 数组">
 <meta property="og:url" content="http://yoursite.com/2018/02/20/JS 数组/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:updated_time" content="2018-02-20T11:43:09.000Z">
+<meta property="og:description" content="什么是数组人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））JS理解：数据就是原型链中有 Array.prototype 的对象。  创建数组1.使用 Array 构造函数。 var arr = new Array(8) //创建 length 为 8 的数组。 var arr = new Array(&amp;apos;red&amp;apos;, &amp;apos;blue&amp;apos;, &amp;apo">
+<meta property="og:updated_time" content="2018-02-21T09:33:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 数组">
+<meta name="twitter:description" content="什么是数组人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））JS理解：数据就是原型链中有 Array.prototype 的对象。  创建数组1.使用 Array 构造函数。 var arr = new Array(8) //创建 length 为 8 的数组。 var arr = new Array(&amp;apos;red&amp;apos;, &amp;apos;blue&amp;apos;, &amp;apo">
 
 
 
@@ -295,7 +298,97 @@
       
 
       
-        
+        <h4 id="什么是数组"><a href="#什么是数组" class="headerlink" title="什么是数组"></a>什么是数组</h4><p>人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））<br>JS理解：数据就是原型链中有 <code>Array.prototype</code> 的对象。</p>
+<hr>
+<h4 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h4><p>1.使用 <code>Array</code> 构造函数。</p>
+<pre><code>var arr = new Array(8) //创建 length 为 8 的数组。
+var arr = new Array(&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;) //创建了包含3个字符串的数组
+
+//new 操作符可省略，上面代码同等于下：
+var arr = Array(8) 
+var arr = Array(&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;) 
+</code></pre><p>2.数组字面量    </p>
+<pre><code>//创建了包含3个字符串的数组
+var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
+
+//除了在定义时赋值，数组也可以先定义后赋值。
+var arr = []
+arr[0] = &apos;a&apos;
+
+//数组可以保存任何类型的数据。
+var arr = [
+  {a: 1},
+  [1, 2, 3],
+  function() {return true;}
+]
+arr[0] // Object {a: 1}
+
+//如果数组的元素还是数组，就形成了多维数组。
+var a = [[1, 2], [3, 4]]
+a[0][1] // 2 
+a[1][1] // 4
+</code></pre><hr>
+<h4 id="length-属性"><a href="#length-属性" class="headerlink" title="length 属性"></a><code>length</code> 属性</h4><p>数组的<code>length</code>属性是可写的，如下：</p>
+<pre><code>var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
+arr.length = 4 
+arr[3] // undefined 
+
+var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
+arr.length = 2 // 这里删除了 arr[2]
+arr[2] // undefined 
+
+var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
+arr[3] = &apos;gray&apos; //这里增加了一项
+arr.length // 4
+</code></pre><hr>
+<h4 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h4><h5 id="instanceof-和-isArray"><a href="#instanceof-和-isArray" class="headerlink" title="instanceof 和 isArray"></a><code>instanceof</code> 和 <code>isArray</code></h5><p><code>instanceof</code>语法</p>
+<pre><code>object instanceof constructor
+//object 要检测的对象
+//constructor 某个构造函数
+
+//如下    
+var obj = []
+obj instanceof Array //true
+</code></pre><p><code>isArray</code>语法</p>
+<pre><code>Array.isArray(obj) //obj 需要检测的值
+
+//如下
+var obj = Array(1,2,3)
+Array.isArray(obj) //true
+
+Array.isArray([1,2,3]) //true
+</code></pre><blockquote>
+<p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。</p>
+</blockquote>
+<p>这时当检测<code>Array</code>实例时，<code>Array.isArray</code> 优于 <code>instanceof</code>,因为<code>Array.isArray</code>能检测<code>iframes</code>。</p>
+<p>示例</p>
+<pre><code>var iframe = document.createElement(&apos;iframe&apos;)
+document.body.appendChild(iframe)
+
+arr1 = window.frames[window.frames.length-1].Array
+var arr2 = new arr1(1,2,3) // [1,2,3]
+
+
+Array.isArray(arr) // true
+arr instanceof Array // false
+</code></pre><hr>
+<h4 id="伪数组（类数组）"><a href="#伪数组（类数组）" class="headerlink" title="伪数组（类数组）"></a>伪数组（类数组）</h4><ul>
+<li>有 0,1,2,3,4,5…n,length 这些 key 的对象</li>
+<li>原型链中没有 <code>Array.prototype</code>。或者说没有 <code>push</code> 方法。</li>
+</ul>
+<p>比如函数的<code>argument</code>参数，还有像调用<code>getElementsByTagName</code> <code>document.childNodes</code>之类的，它们都返回<code>NodeList</code>对象都属于伪数组。</p>
+<p>伪数组转成真数组方法 </p>
+<pre><code>var arr = Array.prototype.slice.call(fakeArray)
+//fakeArray 表示一个伪数组
+</code></pre><p>示例</p>
+<pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2} //伪数组
+var arr1 = Array.prototype.slice.call(fakeArray)
+arr1[0] //&quot;a&quot;    
+//或者
+var arr2 = [].slice.call(fakeArray) 
+arr2[0] //&quot;a&quot;
+</code></pre><hr>
+
       
     </div>
     
@@ -379,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -424,6 +526,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是数组"><span class="nav-number">1.</span> <span class="nav-text">什么是数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数组"><span class="nav-number">2.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#length-属性"><span class="nav-number">3.</span> <span class="nav-text">length 属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检测数组"><span class="nav-number">4.</span> <span class="nav-text">检测数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#instanceof-和-isArray"><span class="nav-number">4.1.</span> <span class="nav-text">instanceof 和 isArray</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪数组（类数组）"><span class="nav-number">5.</span> <span class="nav-text">伪数组（类数组）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
