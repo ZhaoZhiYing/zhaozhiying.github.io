@@ -89,7 +89,7 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
 ">
-<meta property="og:updated_time" content="2018-03-01T11:24:11.000Z">
+<meta property="og:updated_time" content="2018-03-01T11:30:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 布局套路">
 <meta name="twitter:description" content="元素的高度由什么决定？block元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。 * inline 元素从左往右，如遇到宽度不够就另起一行。 * block 元素从上往下另起一行。  1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）">
@@ -195,6 +195,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -276,28 +286,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -522,10 +510,10 @@ parent{display: flex; justify-content: space-between;}
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">Kategorien</span>
-                
+                </a>
               </div>
             
 

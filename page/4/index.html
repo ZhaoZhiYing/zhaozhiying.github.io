@@ -186,6 +186,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -888,57 +898,55 @@ delete 删除
         
           
             <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
-<li><p>Node.js 的安装和准备</p>
+<li><p><code>Node.js</code> 的安装和准备</p>
 </li>
-<li><p>git 的安装和准备</p>
+<li><p><code>git</code> 的安装和准备</p>
 </li>
-<li><p>gitHub 账户的配置</p>
+<li><p><code>gitHub</code> 账户的配置</p>
 </li>
-<li><p>了解基本的 markdown 语法</p>
+<li><p>了解基本的 <code>markdown</code> 语法</p>
 </li>
 <li><p>了解基本的命令行</p>
 </li>
 </ul>
-<p>接下来就可以进行后面的步骤，这里先检测下 node 和 git ，操作如下：</p>
-<p>打开 iTerm（操作系统为Mac），执行以下命令，检测 node ，显示版本号则无误</p>
+<p>接下来就可以进行后面的步骤，这里先检测下 <code>node</code> 和 <code>git</code> ，操作如下：</p>
+<p>打开 <code>iTerm</code>（操作系统为<code>Mac</code>），执行以下命令，检测 <code>node</code> ，显示版本号则无误</p>
 <pre><code>node -v
-</code></pre><p>执行以下命令检测 git ，显示版本号则无误</p>
+</code></pre><p>执行以下命令检测 <code>git</code> ，显示版本号则无误</p>
 <pre><code>git version
-</code></pre><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>在自己认为合适的地方创建一个文件夹，打开 iTerm ，进入到该目录执行以下命令：</p>
+</code></pre><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>在自己认为合适的地方创建一个文件夹，打开 <code>iTerm</code> ，进入到该目录执行以下命令：</p>
 <pre><code>npm install -g hexo-cli
-</code></pre><p>这里也可以再验证是否安装成功，执行以下命令检测 hexo ，显示版本号则无误</p>
+</code></pre><p>这里也可以再验证是否安装成功，执行以下命令检测 <code>hexo</code> ，显示版本号则无误</p>
 <pre><code>hexo -v
 </code></pre><h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>1.执行以下命令：</p>
 <pre><code>hexo init blog
-</code></pre><p>&nbsp;&nbsp;&nbsp;(blog是存放博客目录的文件夹，可自定义)</p>
-<p>2.执行以下命令，进入 blog：</p>
+</code></pre><p>&nbsp;&nbsp;&nbsp;(<code>blog</code>是存放博客目录的文件夹，可自定义)</p>
+<p>2.执行以下命令，进入 <code>blog</code>：</p>
 <pre><code>cd blog
 </code></pre><p>3.最后执行以下命令：</p>
 <pre><code>npm i
-</code></pre><h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h3><p>1.执行以下命令,会看到一个 md 文件的路径：</p>
+</code></pre><h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h3><p>1.执行以下命令,会看到一个 <code>md</code> 文件的路径：</p>
 <pre><code>hexo new 开博大吉
 </code></pre><p>2.执行以下命令，会打开编辑器，编辑这个 md 文件，内容随意：</p>
 <pre><code>start xxx.md
-</code></pre><p>&nbsp;&nbsp;( macOS 上对应的命令是 open xxx.md )</p>
+</code></pre><p><code>macOS</code> 上对应的命令是 <code>open xxx.md</code></p>
 <p>3.执行以下命令：</p>
 <pre><code>start _config.yml
-</code></pre><p>&nbsp;&nbsp;( macOS 上对应的命令是 open _config.yml )</p>
-<h4 id="这时会打开编辑器，按照下面顺序操作，编辑网站配置："><a href="#这时会打开编辑器，按照下面顺序操作，编辑网站配置：" class="headerlink" title="这时会打开编辑器，按照下面顺序操作，编辑网站配置："></a>这时会打开编辑器，按照下面顺序操作，编辑网站配置：</h4><p>&nbsp;(1)把第 6 行的 title 改成你想要的名字</p>
-<p>&nbsp;(2)把第 9 行的 author 改成你的大名</p>
-<p>&nbsp;(3)把最后一行的 type 改成 type: git</p>
-<p>&nbsp;(4)在最后一行，与type平齐，加上一行 repo: 仓库地址（请将仓库地址改为「你的用户名.github.io」对</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应的仓库地址）</p>
-<h4 id="仓库地址以-git-github-com-开头，获取步骤如下："><a href="#仓库地址以-git-github-com-开头，获取步骤如下：" class="headerlink" title="仓库地址以 git@github.com: 开头，获取步骤如下："></a>仓库地址以 git@github.com: 开头，获取步骤如下：</h4><p>&nbsp;(1)在 GitHub 上新建一个空 repo，repo名称是「你的用户名.github.io」（请将你的用户名替换成真正的</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名）</p>
-<p>&nbsp;(2)创建后进入到一个页面，会看到仓库地址SSH Keys（ git@github.com: 开头）</p>
-<p>4.回到iTerm，执行以下命令，安装 git 部署插件：</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>5.执行以下命令，部署Hexo:</p>
-<pre><code>hexo deploy
-</code></pre><h3 id="进入博客"><a href="#进入博客" class="headerlink" title="进入博客"></a>进入博客</h3><p>1.进入「你的用户名.github.io」对应的 repo</p>
-<p>2.进入Settings</p>
-<p>3.点击GitHub Pages的预览链接，就进入你的博客了！</p>
-<h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p>1.进入 <a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes版块</a>，以 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a> 为例，点击进入主题 GitHub 首页。</p>
+</code></pre><p><code>macOS</code> 上对应的命令是 <code>open _config.yml</code></p>
+<h5 id="这时会打开编辑器，按照下面顺序操作，编辑网站配置："><a href="#这时会打开编辑器，按照下面顺序操作，编辑网站配置：" class="headerlink" title="这时会打开编辑器，按照下面顺序操作，编辑网站配置："></a>这时会打开编辑器，按照下面顺序操作，编辑网站配置：</h5><pre><code>1.把第 6 行的 title 改成你想要的名字
+2.把第 9 行的 author 改成你的大名
+3.把最后一行的 type 改成 type: git
+4.在最后一行，与type平齐，加上一行 repo: 仓库地址（请将仓库地址改为「你的用户名.github.io」对应的仓库地址）
+</code></pre><h5 id="仓库地址以-git-github-com-开头，获取步骤如下："><a href="#仓库地址以-git-github-com-开头，获取步骤如下：" class="headerlink" title="仓库地址以 git@github.com: 开头，获取步骤如下："></a>仓库地址以 <code>git@github.com:</code> 开头，获取步骤如下：</h5><pre><code>1.在 GitHub 上新建一个空 repo ，repo 名称是「你的用户名.github.io 」（请将你的用户名替换成真正的用户名）
+2.创建后进入到一个页面，会看到仓库地址 SSH Keys（ git@github.com: 开头）
+3.回到 iTerm ，执行以下命令，安装 git 部署插件：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>4.执行以下命令，部署 <code>Hexo</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="进入博客"><a href="#进入博客" class="headerlink" title="进入博客"></a>进入博客</h3><pre><code>1.进入「你的用户名.github.io」对应的 repo
+2.进入Settings
+3.点击GitHub Pages的预览链接，就进入你的博客了！
+</code></pre><h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p>1.进入 <a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes版块</a>，以 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a> 为例，点击进入主题 <code>GitHub</code> 首页。</p>
 <p>2.依次执行以下命令行：</p>
 <pre><code>cd ~/Desktop/myBlog
 
@@ -947,12 +955,20 @@ cd themes
 git clone git@github.com:litten/hexo-theme-yilia.git
 
 cd ..
-</code></pre><p>3.编辑 _config.yml ，将第 75 行改为：</p>
+</code></pre><p>3.编辑 <code>_config.yml</code> ，将第 75 行改为：</p>
 <pre><code>theme: hexo-theme-yilia    
 </code></pre><p>4.依次执行完以下命令，刷新博客页面，会看到新的主题页面：</p>
 <pre><code>hexo generate
 
 hexo deploy
+</code></pre><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><pre><code>node_modules：是依赖包
+public：存放的是生成的页面
+scaffolds：命令生成文章等的模板
+source：用命令创建的各种文章
+themes：主题
+_config.yml：整个博客的配置
+db.json：source解析所得到的
+package.json：项目所需模块项目的配置信息
 </code></pre><hr>
 <p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
 
@@ -1050,10 +1066,10 @@ hexo deploy
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">Kategorien</span>
-                
+                </a>
               </div>
             
 
