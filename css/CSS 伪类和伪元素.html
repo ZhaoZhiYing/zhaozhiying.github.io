@@ -79,12 +79,24 @@
 
 
 
+<meta name="description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Zhao Zhiying">
-<meta property="og:url" content="http://yoursite.com/archives/2017/10/index.html">
+<meta property="og:title" content="CSS 伪类和伪元素">
+<meta property="og:url" content="http://yoursite.com/CSS/CSS 伪类和伪元素.html">
 <meta property="og:site_name" content="Zhao Zhiying">
+<meta property="og:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta property="og:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/02/14/5a83157f799dd.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/02/14/5a831465d74e9.png
+">
+<meta property="og:updated_time" content="2018-02-13T16:47:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhao Zhiying">
+<meta name="twitter:title" content="CSS 伪类和伪元素">
+<meta name="twitter:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
+">
 
 
 
@@ -114,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/10/"/>
+  <link rel="canonical" href="http://yoursite.com/CSS/CSS 伪类和伪元素.html"/>
 
 
 
 
 
-  <title>Archiv | Zhao Zhiying</title>
+  <title>CSS 伪类和伪元素 | Zhao Zhiying</title>
   
 
 
@@ -139,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,148 +225,63 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Öhm..! Insgesamt 25 Artikel. Bleib dran.
-      </span>
+	<h1 class="post-title" itemprop="name headline">CSS 伪类和伪元素</h1>
+
+
+
+</header>
 
       
+      
+      
+      <div class="post-body">
+        
+        
+          <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p><code>CSS</code>伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号<code>:</code></p>
+<p>常用伪类</p>
+<pre><code>a:link {color: #ddd;} //未访问的链接
+a:visited {color: #ddd;} //已访问的链接
+a:hover {color: #ddd;} //鼠标划过链接
+a:active {color: #ddd;} //已选中的链接
+
+//这四个伪类同时使用链接时，需遵循 LVHA 顺序。
+//即 link — :visited — :hover — :active。
+</code></pre><hr>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>CSS</code>伪元素也是添加到选择器的关键字，但它是为元素的某些部分设置样式。前缀是两个冒号<code>::</code> (<code>CSS3</code>中的标准是伪元素使用双冒号<code>::</code>，避免和伪类混淆。) </p>
+<p>常用伪元素</p>
+<pre><code>::after 用来创建一个伪元素，做为已选中元素的最后一个子元素。这个虚拟元素默认是行内元素。
+::before 用来创建一个伪元素，做为已选中元素的第一个子元素。这个虚拟元素默认是行内元素。
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a8313d23eabf.png
+"></p>
+<pre><code>::first-letter 会选中某块级元素第一行的第一个字母，并且文字所处的行之前没有其他内容（如图片和内联的表格）。    
+::first-line 在某块级元素的第一行应用样式
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a83157f799dd.png
+">    </p>
+<pre><code>::selection 应用于文档中被用户高亮的部分
+//如下图
+</code></pre><p><img src="https://i.loli.net/2018/02/14/5a831465d74e9.png
+"></p>
+<hr>
 
         
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/24/HTML 标签/" itemprop="url">
-              
-                <span itemprop="name">HTML 标签</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-24T10:32:19+08:00"
-              content="2017-10-24" >
-          10-24
-        </time>
       </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/19/一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？/" itemprop="url">
-              
-                <span itemprop="name">一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-19T13:42:12+08:00"
-              content="2017-10-19" >
-          10-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/09/如何使用 Hexo+Github 搭建博客/" itemprop="url">
-              
-                <span itemprop="name">如何使用 Hexo+Github 搭建博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-09T22:25:20+08:00"
-              content="2017-10-09" >
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
     </div>
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -362,6 +289,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -382,8 +313,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -427,6 +367,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -560,6 +516,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
