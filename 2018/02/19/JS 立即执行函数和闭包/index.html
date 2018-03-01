@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="执行环境和作用域执行环境 执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个执行环境中时，会创建变量对象的一个作用域链。 作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  作用域分为全局作用域和局部作用域(也叫函数作用域)  全局作用域中声明的变量是全">
+<meta name="description" content="执行环境和作用域执行环境 「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。 「作用域链」的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  「作用域」分为全局作用域和局部作用域(也叫函数作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 立即执行函数和闭包">
 <meta property="og:url" content="http://yoursite.com/2018/02/19/JS 立即执行函数和闭包/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="执行环境和作用域执行环境 执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个执行环境中时，会创建变量对象的一个作用域链。 作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  作用域分为全局作用域和局部作用域(也叫函数作用域)  全局作用域中声明的变量是全">
-<meta property="og:updated_time" content="2018-02-20T11:42:27.000Z">
+<meta property="og:description" content="执行环境和作用域执行环境 「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。 「作用域链」的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  「作用域」分为全局作用域和局部作用域(也叫函数作用域">
+<meta property="og:updated_time" content="2018-03-01T07:57:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 立即执行函数和闭包">
-<meta name="twitter:description" content="执行环境和作用域执行环境 执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个执行环境中时，会创建变量对象的一个作用域链。 作用域链的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  作用域分为全局作用域和局部作用域(也叫函数作用域)  全局作用域中声明的变量是全">
+<meta name="twitter:description" content="执行环境和作用域执行环境 「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。  作用域 当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。 「作用域链」的用途是保证对执行环境有权访问的所有变量和函数的有序访问。  「作用域」分为全局作用域和局部作用域(也叫函数作用域">
 
 
 
@@ -299,30 +299,29 @@
 
       
         <h4 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><ul>
-<li><code>执行环境</code>定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
-<li>每个<code>执行环境</code>都有一个与之关联的<code>变量对象</code>，环境中定义的所有变量和函数都保存在这个对象中。</li>
+<li>「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
+<li>每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。</li>
 </ul>
 <h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><ul>
-<li>当代码在一个<code>执行环境</code>中时，会创建<code>变量对象</code>的一个<code>作用域链</code>。</li>
-<li><p><code>作用域链</code>的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
+<li>当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。</li>
+<li><p>「作用域链」的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
 </li>
-<li><p><code>作用域</code>分为<strong><code>全局作用域</code></strong>和<strong><code>局部作用域</code>(也叫函数作用域)</strong></p>
+<li><p>「作用域」分为<strong>全局作用域</strong>和<strong>局部作用域(也叫函数作用域)</strong><br>「全局变量」，「函数作用域」中声明的变量是「局部变量」。</p>
 </li>
-<li><p><code>全局作用域</code>中声明的变量是<code>全局变量</code>，<code>函数作用域</code>中声明的变量是<code>局部变量</code>。</p>
-</li>
-<li>外部无法读取 <code>局部变量</code>，但函数内部可以读取 <code>全局变量</code>。同名的<code>局部变量</code>会在函数内部覆盖 <code>全局变量</code>。  </li>
+<li>外部无法读取「局部变量」，但函数内部可以读取「全局变量」。同名的「局部变量」会在函数内部覆盖「全局变量」。  </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zhao&apos;</div><div class="line">function foo()&#123;</div><div class="line">	var name = &apos;tang&apos;</div><div class="line">	console.log(name)</div><div class="line">&#125;</div><div class="line">foo()//tang</div><div class="line"></div><div class="line">//函数 foo 内部的变量 name 覆盖了全局变量 name</div></pre></td></tr></table></figure>
 <h5 id="堆栈Call-Stack先入后出"><a href="#堆栈Call-Stack先入后出" class="headerlink" title="堆栈Call Stack先入后出"></a>堆栈<code>Call Stack</code>先入后出</h5><ul>
-<li>每个函数都有自己的<code>执行环境</code>。<code>执行环境</code>是用环境栈来管理的。</li>
-<li>最底层的是<code>全局执行环境</code>（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的<code>执行环境</code>就会被推入到<code>环境栈</code>中。如果在函数中继续执行函数，那么内部函数的<code>执行环境</code>就继续被推入<code>环境栈</code>。</li>
+<li>每个函数都有自己的「执行环境」。「执行环境」是用环境栈来管理的。</li>
+<li>最底层的是「全局执行环境」（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的「执行环境」就会被推入到「环境栈」中。如果在函数中继续执行函数，那么内部函数的「执行环境」就继续被推入「环境栈」。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
 <hr>
-<h4 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h4><ul>
+<h4 id="「立即执行函数」"><a href="#「立即执行函数」" class="headerlink" title="「立即执行函数」"></a>「立即执行函数」</h4><ul>
 <li>全局变量会造成同名覆盖的问题。</li>
 <li>解决办法：声明局部变量。</li>
 <li><code>ES6</code> 之前，只有函数才有局部变量。</li>
+<li><code>立即执行函数</code>是指声明一个函数，然后立即调用它。为了用局部变量。</li>
 <li>于是我们声明一个 <code>function foo()</code>，然后 <code>foo.call()</code>，但是这个时候 <code>foo</code> 是全局变量（全局函数）。</li>
 <li>所以我们不能给这个函数名字，使用匿名函数 <code>function(){}.call()</code> </li>
 </ul>
@@ -333,15 +332,13 @@
 <li><p>解决办法：不让 <code>function</code> 出现在行首，让 <code>JS</code> 引擎将其理解成一个表达式。如下：</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//使用圆括号</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">// 函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//使用 ! ~ + -</div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//由于! ~ + -等运算符还会和函数的返回值进行运算，有时造成不必要的麻烦。</div><div class="line">//所以推荐使用 ()</div></pre></td></tr></table></figure>
-<ul>
-<li>立即执行函数使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</li>
-<li>解决办法：使用闭包。如下：</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//1.将整个函数用圆括号括起来</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">//2.函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//2.function 前面加符：+ - ! ~ </div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//! ~ + - 等运算符还会和函数的返回值进行运算，有时会造成不必要的麻烦。</div></pre></td></tr></table></figure>
+<p><strong>问题：</strong>「立即执行函数」使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</p>
+<p><strong>解决办法：</strong>使用「闭包」。如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//函数1</div><div class="line">(function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">   &#125;</div><div class="line">	window.frankGrowUp = function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line">//或者</div><div class="line">window.frankGrowUp = (function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">         &#125;</div><div class="line">	return function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line"></div><div class="line">//函数2</div><div class="line">(function()&#123;</div><div class="line">	var newAge = window.frankGrowUp()</div><div class="line">	console.log(newAge)</div><div class="line">&#125;).call() </div><div class="line"></div><div class="line">// 19</div></pre></td></tr></table></figure>
-<p>闭包使得匿名函数可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
+<p>「闭包」使得「匿名函数」可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
 <hr>
-<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
+<h4 id="「闭包」"><a href="#「闭包」" class="headerlink" title="「闭包」"></a>「闭包」</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
 <li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
 <li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
 <li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
@@ -505,6 +502,15 @@ a2() // 7
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
 
             
 
@@ -537,7 +543,7 @@ a2() // 7
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境和作用域"><span class="nav-number">1.</span> <span class="nav-text">执行环境和作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行环境"><span class="nav-number">1.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用域"><span class="nav-number">1.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#堆栈Call-Stack先入后出"><span class="nav-number">1.3.</span> <span class="nav-text">堆栈Call Stack先入后出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#立即执行函数"><span class="nav-number">2.</span> <span class="nav-text">立即执行函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是闭包"><span class="nav-number">3.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包的用途"><span class="nav-number">3.2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境和作用域"><span class="nav-number">1.</span> <span class="nav-text">执行环境和作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行环境"><span class="nav-number">1.1.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作用域"><span class="nav-number">1.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#堆栈Call-Stack先入后出"><span class="nav-number">1.3.</span> <span class="nav-text">堆栈Call Stack先入后出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#「立即执行函数」"><span class="nav-number">2.</span> <span class="nav-text">「立即执行函数」</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#「闭包」"><span class="nav-number">3.</span> <span class="nav-text">「闭包」</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是闭包"><span class="nav-number">3.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包的用途"><span class="nav-number">3.2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></li></ol></div>
             
 
           </div>
