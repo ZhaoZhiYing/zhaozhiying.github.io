@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,344 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/11/canvas/" itemprop="url">canvas</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
+                2018-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><ul>
+<li><code>canvas</code>负责在页面中设定一个区域，然后就可以通过<code>JS</code>动态地在这个区域中绘制图形。</li>
+<li><code>canvas</code>默认是 <code>display: inline-block;</code></li>
+<li><code>canvas</code>默认大小为 <code>宽300像素×高150像素</code>。</li>
+<li>要使用<code>canvas</code>元素，必须先设置<code>width</code> <code>height</code>属性，指定可以绘图的区域大小。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;drawing&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;绘图区域&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>要在这区域绘图，必须先取得绘图上下文，利用 <code>getContext()</code> 方法，如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var drawing = document.getElementById(&quot;drawing&quot;)</div><div class="line">var context = drawing.getContext(&quot;2d&quot;)</div></pre></td></tr></table></figure>
+<ul>
+<li>使用 <code>toDataURL()</code> 方法，可导出图片。这个方法接收一个参数，即图片的格式，默认是<code>png</code>。如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//取得图片的 URL</div><div class="line">var imgURL = drawing.toDataURL(&quot;image/jpg&quot;)</div><div class="line"></div><div class="line">//显示图片</div><div class="line">var img = document.createElement(&quot;img&quot;)</div><div class="line">img.src = imgURL</div><div class="line">document.body.appendChild(img)</div><div class="line"></div><div class="line">//设置其他</div><div class="line">img.download = &apos;我的画&apos;</div><div class="line">img.target = &apos;_blank&apos;</div><div class="line">...</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><h5 id="填充和描边"><a href="#填充和描边" class="headerlink" title="填充和描边"></a>填充和描边</h5><pre><code>strokeStyle 描边样式
+fillStyle 填充样式
+
+//用法
+context.strokeStyle = &apos;blue&apos;
+context.fillStyle = &apos;red&apos;
+</code></pre><h5 id="绘制形状"><a href="#绘制形状" class="headerlink" title="绘制形状"></a>绘制形状</h5><pre><code>strokeRect(x, y, width, height) 边框坐标 
+fillRect(x, y, width, height) 填充坐标
+
+//绘制蓝色矩形
+context.fillStyle = &apos;blue&apos;
+context.fillRect(10, 10, 50, 50)
+</code></pre><h5 id="橡皮擦"><a href="#橡皮擦" class="headerlink" title="橡皮擦"></a>橡皮擦</h5><pre><code>clearRect(x, y, width, height) 橡皮擦坐标
+</code></pre><p>三者结合详细用法如下图：</p>
+<p><img src="https://i.loli.net/2018/02/13/5a827d0ede746.png
+"></p>
+<p>待完善…</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/CSS 常用单位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/09/CSS 常用单位/" itemprop="url">CSS 常用单位</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
+                2018-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h3><h3 id="px"><a href="#px" class="headerlink" title="px"></a><code>px</code></h3><p>像素<code>px</code>是相对于显示器屏幕分辨率而言的。</p>
+<p><strong>12像素原则：</strong>网页默认字体大小是<code>16px</code>，<code>Chorme</code>默认字体大小是 <code>12px</code>（比如如果设置是 <code>6px</code>，最小字号依然是 12px），<code>safari</code>没有最小字号。</p>
+<p><strong>特点：</strong>像素的大小是固定的。</p>
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a><code>em</code></h3><p><strong>特点：</strong>1.<code>em</code>的值并不是固定的。2.<code>em</code>会继承父级元素的字体大小。</p>
+<p>当定义<code>font-size</code>属性时，<code>1em</code>等于元素的父元素的字体大小。</p>
+<p>如果没有设置文字大小，那它将等于浏览器默认文字大小<code>16px</code>。所以通<code>1em = 16px</code>，<code>2em = 32px</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;p1&quot;&gt;</div><div class="line">	&lt;div class=&quot;p2&quot;&gt;1&lt;/div&gt;</div><div class="line">  	&lt;div class=&quot;p3&quot;&gt;1&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.p1 &#123;font-size: 16px; line-height: 32px;&#125;</div><div class="line">.P2 &#123;font-size: 1em;&#125;</div><div class="line">.P3 &#123;font-size: 2em; line-height: 2em;&#125;</div><div class="line"></div><div class="line">//P2&#123;font-size: 16px; line-height: 32px&#125; </div><div class="line">//P3&#123;font-size: 32px; line-height: 64px&#125;</div></pre></td></tr></table></figure>
+<p><code>em</code>相比<code>px</code>更加灵活，可用下面公式计算像素大小的等价 <code>em</code> 大小：</p>
+<pre><code>em = 希望得到的像素大小 / 父元素字体像素大小
+</code></pre><blockquote>
+<p><code>em</code> 可用于 <code>line-height</code> <code>font-size</code> <code>margin-bottom</code> <code>margin-top</code></p>
+</blockquote>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a><code>rem</code></h3><p><code>rem</code>代表根元素（<code>html</code>元素）的 <code>font-size</code> 大小。当用在根元素的 <code>font-size</code> 上面时，它代表了它的初始值。</p>
+<pre><code>html{font-size: 2rem} //32px
+</code></pre><p>当用在非根元素的 <code>font-size</code> 上面时，相对于根元素字体大小。</p>
+<pre><code>html{font-size: 1rem} // 此时 1rem = 1em = 16px
+p{font-size: 2rem} //32px
+</code></pre><hr>
+<h3 id="视口大小"><a href="#视口大小" class="headerlink" title="视口大小"></a>视口大小</h3><h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a><code>vh</code></h3><p>视口高度，1vh=视口高度的1%</p>
+<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a><code>vw</code></h3><p>视口宽度，1vw=视口宽度的1%</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +605,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
                 2018-02-05
@@ -288,7 +626,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -421,7 +759,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
                 2018-02-03
@@ -442,7 +780,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -571,7 +909,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
                 2018-02-02
@@ -592,7 +930,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -735,7 +1073,7 @@ saveMessage (存储数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
                 2018-01-30
@@ -756,7 +1094,7 @@ saveMessage (存储数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -950,7 +1288,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -971,7 +1309,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1154,7 +1492,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
                 2018-01-25
@@ -1175,7 +1513,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1345,7 +1683,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -1366,7 +1704,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1538,7 +1876,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
                 2018-01-19
@@ -1559,7 +1897,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1716,468 +2054,6 @@ foo.bar()
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/15/「构造函数模式」和「原型模式」/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/15/「构造函数模式」和「原型模式」/" itemprop="url">「构造函数模式」和「原型模式」</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
-                2018-01-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><ul>
-<li>创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。</li>
-<li>如果只是一个单独的对象，直接使用「对象字面量」</li>
-<li>如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」</li>
-</ul>
-<h5 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h5><ol>
-<li>构造函数的首字母必须大写，用来区分于普通函数</li>
-<li>内部使用的<code>this</code>对象，来指向即将要生成的实例对象</li>
-<li>使用<code>new</code>操作符来创建实例对象</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
-<h5 id="构造函数与普通函数的区别"><a href="#构造函数与普通函数的区别" class="headerlink" title="构造函数与普通函数的区别"></a>构造函数与普通函数的区别</h5><p>构造函数与普通函数的区别，在于调用它们的方式不同。</p>
-<ul>
-<li>任何函数，只要通过<code>new</code>操作符来调用，那它就可以作为构造函数。</li>
-<li>而任何函数，如果不通过<code>new</code>操作符来调用，那它就是普通函数。</li>
-</ul>
-<h5 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h5><ol>
-<li>在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。</li>
-<li>更严重的是，当对象需要定义很多方法时，那就要定义多个全局函数。</li>
-</ol>
-<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>通过使用原型链模式</p>
-<hr>
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h5 id="什么是共有属性？"><a href="#什么是共有属性？" class="headerlink" title="什么是共有属性？"></a>什么是共有属性？</h5><p>当我们在写<code>var x1 = new x2</code>的时候：<code>x1</code>的类型是对象，<code>x2</code>的类型是函数对象。</p>
-<pre><code>var n = new Number(1)
-var s = new String(&quot;1&quot;)
-var b = new Boolean(true)
-var o = new Object()
-</code></pre><p>上面代码中<code>n``s``b``o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
-<p>解决办法：将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1``n2``n3``n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
-<p><img src="https://i.loli.net/2018/01/26/5a6b32120b98d.png
-"></p>
-<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><ul>
-<li><p>每一个函数在创建后都会有一个属性<code>prototype</code>，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。</p>
-</li>
-<li><p>在默认情况下，所有「原型对象」都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。 </p>
-</li>
-<li><p><strong>注意</strong>：由于这个<code>prototype</code>属性不标准，因此一般不提倡使用。<code>ES5</code>中用<code>Object.getPrototypeOf</code>函数获得一个对象的<code>prototype</code>。<code>ES6</code>中使用<code>Object.setPrototypeOf</code>可以直接修改一个对象的<code>prototype</code>。</p>
-</li>
-</ul>
-<h4 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h4><ul>
-<li><p>在<code>ES5</code>之前没有标准的方法访问内置属性<code>prototype</code>，于是很多浏览器都给「每一个对象」提供了一个属性<code>__proto__</code>，通过<code>__proto__</code>就可以访问<code>prototype</code>。</p>
-</li>
-<li><p>这个连接存在于「实例」与「构造函数的原型对象」之间，而不是存在「实例」与「构造函数」之间</p>
-</li>
-</ul>
-<h5 id="什么叫原型链？"><a href="#什么叫原型链？" class="headerlink" title="什么叫原型链？"></a>什么叫原型链？</h5><pre><code>function Foo(){}
-var obj = new Foo()
-</code></pre><p>当我们输入<code>obj.toString</code>时，JS 引擎会做下面的事情：</p>
-<ol>
-<li>看看 <code>obj</code> 对象本身有没有 <code>toString</code> 属性。没有就走到下一步。</li>
-<li>看看 <code>obj.__proto__</code> 对象有没有 <code>toString</code> 属性。</li>
-<li>如果 <code>obj.__proto__</code> 没有，那么浏览器会继续查看 <code>obj.__proto__.__proto__</code> ，直到找到 <code>toString</code> 或者 <code>__proto__</code> 为<code>null</code>。</li>
-</ol>
-<p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
-<p><img src="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
-"></p>
-<h5 id="默认原型"><a href="#默认原型" class="headerlink" title="默认原型"></a>默认原型</h5><ul>
-<li><p>所有引用类型都默认继承了<code>Object</code>，这个继承是通过原型链实现的。</p>
-</li>
-<li><p>所有函数的默认原型都是<code>Object</code>的实例，因此默认原型都会有一个指针，指向<code>Object.prototype</code>。这也是所有自定义类型都会继承<code>toString()</code> <code>valueOf()</code>等默认方法的根本原因。</p>
-</li>
-<li><p>而每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.__proto__ = null</div></pre></td></tr></table></figure>
-<h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><ol>
-<li>原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。</li>
-<li>由于实例对象的<code>__proto__</code>都指向了<code>Foo.prototype</code>，使得他们的属性值无法保持独立。</li>
-</ol>
-<p>如下代码中，数组<code>interest</code>存在于<code>Foo.prototype</code>中而不是<code>human1</code>中，当<code>human1.interest.push(&#39;swimming&#39;)</code>更改这个数组时，<code>human2.interest</code>也被更改了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo, </div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	city: &apos;beijing&apos;,</div><div class="line">	interest: [&apos;reading&apos;, &apos;fitness&apos;],</div><div class="line">	walk: function()&#123;</div><div class="line">	 	console.log(&apos;走一步的代码&apos;);</div><div class="line">	 &#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo()</div><div class="line">var human2 = new Foo()</div><div class="line"></div><div class="line">human1.interest.push(&apos;swimming&apos;)</div><div class="line"></div><div class="line">console.log(human1.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div><div class="line">console.log(human2.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div></pre></td></tr></table></figure>
-<h5 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h5><p>组合使用「构造函数模式」和「原型模式」。</p>
-<hr>
-<h3 id="组合使用「构造函数模式」和「原型模式」"><a href="#组合使用「构造函数模式」和「原型模式」" class="headerlink" title="组合使用「构造函数模式」和「原型模式」"></a>组合使用「构造函数模式」和「原型模式」</h3><p>「构造函数」用于定义实例属性，而「原型模式」用于定义和共享的属性和方法。这样，每个实例都会有自己的一份实例属性副本，同时又共享着属性和方法，最大限度地节省了内存。</p>
-<h5 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a><code>constructor</code> 属性</h5><ul>
-<li><p><code>new</code>操作为了记录临时对象是由哪个函数创建的，在默认情况下，所有原型对象都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。</p>
-</li>
-<li><p>如果你重新对原型对象赋值，那么这个<code>constructor</code>属性就没了，所以同时需要给 <code>constructor</code>重新赋值</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo,</div><div class="line">	walk: function()&#123;</div><div class="line">		console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
-<p>对上面代码的理解如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// human1 和 human2 是构造函数 Foo() 声明的两个实例，这两个对象有属性__proto__ ，指向构造函数的原型对象。</div><div class="line">human1.__proto__ = Foo.prototype</div><div class="line">human2.__proto__ = Foo.prototype</div><div class="line"></div><div class="line">//构造函数 Foo() 是方法，也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。函数的构造函数是 Function。</div><div class="line">Foo.__proto__ = Function.prototype</div><div class="line"></div><div class="line">// 原型对象也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。</div><div class="line">Foo.prototype.__proto__ = Object.prototype</div><div class="line"></div><div class="line">// 原型对象的 constructor(构造函数) 属性，指向 prototype 属性所在函数。故得到如下：</div><div class="line">Foo.prototype.constructor === Foo</div><div class="line">human1.__proto__.constructor === Foo</div><div class="line">human2.__proto__.constructor === Foo</div></pre></td></tr></table></figure>
-<hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/09/JS 内存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/09/JS 内存/" itemprop="url">JS 内存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
-                2018-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h3><ul>
-<li>比如买一个 8G 的内存条</li>
-<li>开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给<code>HTML</code>+<code>CSS</code>+<code>JS</code>+网络<code>HTTP</code>+其他)  </li>
-<li><code>JS</code>最多分到 100M 内存</li>
-<li><code>JS</code>引擎将内存分为代码区和数据区</li>
-<li>数据区分为<code>Stack</code>（栈内存）和<code>Heap</code>（堆内存）</li>
-<li>基本类型的数据直接存在<code>Stack</code>里（数字64位，字符16位）</li>
-<li>复杂类型的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
-</ul>
-<hr>
-<h3 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h3><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
-var b = a
-b = {name: &quot;zhao&quot;}
-a.name = ? // &quot;tang&quot;
-</code></pre><p>当执行 <code>var b = a</code> 时，内存变化如下：</p>
-<p><img src="https://i.loli.net/2018/01/24/5a6892882ff3c.png
-">    </p>
-<p>当执行 <code>b = { name: &quot;zhao&quot; }</code> 时，内存变化如下：</p>
-<p><img src="https://i.loli.net/2018/01/24/5a688d4447585.png
-"></p>
-<h5 id="举例2"><a href="#举例2" class="headerlink" title="举例2"></a>举例2</h5><pre><code>var a = {name: &quot;tang&quot;}
-var b = a
-b.name = &apos;zhao&apos;
-a.name = ? // &quot;zhao&quot;
-</code></pre><p>当执行 <code>b.name = &quot;zhao&quot;</code>时，内存变化如下：</p>
-<p><img src="https://i.loli.net/2018/01/24/5a688d63302b0.png
-">    </p>
-<h5 id="举例3"><a href="#举例3" class="headerlink" title="举例3"></a>举例3</h5><pre><code>var a = {name: &quot;tang&quot;}
-var b = a
-b = null
-a = ? // {name: &quot;tang&quot;}
-</code></pre><p>当执行 <code>b = null</code>时，内存变化如下：</p>
-<p><img src="https://i.loli.net/2018/01/24/5a688d7803b75.png
-">    </p>
-<hr>
-<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><p>如果一个对象没有被引用，它就是垃圾，将被回收。</p>
-<h5 id="举例1-1"><a href="#举例1-1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
-var b = {name: &quot;zhao&quot;}
-a = b 
-// 这时 {name: &quot;tang&quot;} 就是垃圾
-</code></pre><h5 id="举例2-1"><a href="#举例2-1" class="headerlink" title="举例2"></a>举例2</h5><p>请问下面的<code>function(){}</code>会被回收吗？</p>
-<pre><code>var fn = function(){}
-document.body.onclick = fn
-fn = null
-</code></pre><p>当执行到 <code>document.body.onclick = fn</code>时，内存变化如下：</p>
-<p><img src="https://i.loli.net/2018/01/24/5a6894373204b.png
-">    </p>
-<p>当执行到 <code>fn = null</code>时，由于<code>function(){}</code>仍然被<code>document</code>引用，故不会被回收，内存变化如下:</p>
-<p><img src="https://i.loli.net/2018/01/24/5a6894597cc45.png
-"></p>
-<h5 id="举例3-1"><a href="#举例3-1" class="headerlink" title="举例3"></a>举例3</h5><p>下面的<code>function(){}</code>会被回收</p>
-<pre><code>var fn = function(){}
-document.body.onclick = fn
-document.body.onclick = null
-</code></pre><ul>
-<li>注意：IE 的 bug，使得该被标记为垃圾的没有被标记，这叫做‘内存泄漏’。</li>
-<li>解决办法：页面关闭前，将所有事件 = null</li>
-</ul>
-<hr>
-<h3 id="基本类型（值）和复杂类型（引用）的区别"><a href="#基本类型（值）和复杂类型（引用）的区别" class="headerlink" title="基本类型（值）和复杂类型（引用）的区别"></a>基本类型（值）和复杂类型（引用）的区别</h3><p>基本类型：<code>Number</code> <code>String</code> <code>undefined</code> <code>null</code> <code>Boolean</code> <code>Symbol</code><br>复杂类型：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
-<h5 id="区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"><a href="#区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。" class="headerlink" title="区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"></a>区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var n1 = new object()</div><div class="line">var n2 = 1</div></pre></td></tr></table></figure>
-<p>n1 和 n2 在内存的情况如下：</p>
-<p><img src="https://i.loli.net/2018/01/27/5a6c49bee3322.png
-"></p>
-<p>值得注意的是：</p>
-<ul>
-<li>由于历史原因要求<code>JS</code>长得像<code>Java</code>，故发明了<code>var n = new Number(1)</code>这种写法。</li>
-<li>但是<code>var n = 1</code>这种写法更简单，这种写法有个缺点：因为基本类型没有属性，不能使用<code>toString</code>方法。</li>
-<li>于是 JS之父 发明了一个妙计，当写<code>n.toString()</code>时，声明一个临时对象<code>temp = new Number(n)</code>，将<code>temp.toString()</code>的值作为<code>n.toString()</code>的值，转换完成后就干掉<code>temp</code>，内存变化如下：</li>
-</ul>
-<p><img src="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
-"></p>
-<p>引用《JavaScript 高级程序设计》里的话来总结：</p>
-<ul>
-<li>为了便于操作基本类型值，<code>ECMAScript</code> 还提供了3个特殊的引用类型（也叫基本包装类型），分别是 <code>Boolean</code> <code>Number</code> <code>String</code> 。这些类型与其他引用类型相似，同时具有各自的基本类型相应的特殊行为。</li>
-<li>引用类型与基本包装类型的主要区别就是对象的生存期。使用<code>new</code>操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。</li>
-</ul>
-<hr>
-<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>对于基本类型来说，只有深拷贝。这里我们只讲对象。</p>
-<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>对于对象来说，深拷贝是指在<code>栈内存</code>中新增一个指针，并且在<code>堆内存</code>中申请了一个新的内存。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a 
-b.name = &quot;zhao&quot;;  
-//a.name = &quot;tang&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
-">    </p>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>对于对象来说，浅拷贝只是在<code>栈内存</code>中新增一个指针指向原有的内存，只是拷贝了内存地址（<code>Heap</code>地址）。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a
-b.name = &quot;zhao&quot;
-//a.name = &quot;zhao&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">    </p>
-<h5 id="如何实现深拷贝？（后续来补）"><a href="#如何实现深拷贝？（后续来补）" class="headerlink" title="如何实现深拷贝？（后续来补）"></a>如何实现深拷贝？（后续来补）</h5><hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2228,8 +2104,8 @@ b.name = &quot;zhao&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2240,7 +2116,7 @@ b.name = &quot;zhao&quot;
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2288,7 +2164,7 @@ b.name = &quot;zhao&quot;
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

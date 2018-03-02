@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -267,7 +267,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:14:42+08:00">
                 2018-03-02
@@ -288,7 +288,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -414,6 +414,279 @@ hexo deploy //部署
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/setInterval() 和 setTimeout()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/28/setInterval() 和 setTimeout()/" itemprop="url">setInterval() 和 setTimeout()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:03:39+08:00">
+                2018-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a><code>setInterval()</code></h4><p>重复调用一个函数或执行一个代码段，在每次调用之间具有固定的时间延迟。</p>
+<ul>
+<li>使用 <code>clearInterval()</code> 方法来阻止函数的执行。由 <code>setInterval()</code> 返回的 <code>ID</code> 值用作 <code>clearInterval()</code> 方法的参数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setInterval(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&gt;=5)&#123;</div><div class="line">			window.clearInterval(id)</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a><code>setTimeout()</code></h4><p>设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码，仅执行一次。</p>
+<ul>
+<li>使用 <code>clearTimeout()</code> 方法来阻止函数的执行。由 <code>setTimeout()</code> 返回的 <code>ID</code> 值用作 <code>clearTimeout()</code> 方法的参数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1</div></pre></td></tr></table></figure>
+<h5 id="所有的-setInterval-都可以改写成-setTimeout"><a href="#所有的-setInterval-都可以改写成-setTimeout" class="headerlink" title="所有的 setInterval()  都可以改写成 setTimeout()"></a>所有的 <code>setInterval()</code>  都可以改写成 <code>setTimeout()</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(function fn()&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&lt;5)&#123;</div><div class="line">			setTimeout(fn, 3000) //再次调用 fn</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/CSS 中 Display 的属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/26/CSS 中 Display 的属性/" itemprop="url">display的几种值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T11:47:49+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -443,7 +716,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
                 2018-02-21
@@ -464,7 +737,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -594,7 +867,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T17:13:10+08:00">
                 2018-02-20
@@ -615,7 +888,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -956,7 +1229,7 @@ a
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
                 2018-02-19
@@ -977,7 +1250,7 @@ a
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1181,7 +1454,7 @@ a2() // 7
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
                 2018-02-14
@@ -1202,7 +1475,7 @@ a2() // 7
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1447,7 +1720,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
                 2018-02-14
@@ -1468,7 +1741,7 @@ undefined + 1 // NaN
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1614,7 +1887,7 @@ undefined + 1 // NaN
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
                 2018-02-13
@@ -1635,7 +1908,7 @@ undefined + 1 // NaN
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1782,7 +2055,7 @@ a:active {color: #ddd;} //已选中的链接
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T01:43:03+08:00">
                 2018-02-13
@@ -1803,7 +2076,7 @@ a:active {color: #ddd;} //已选中的链接
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1972,344 +2245,6 @@ perspective(n) 为 3D 转换元素定义透视视图。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/canvas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/11/canvas/" itemprop="url">canvas</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
-                2018-02-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><ul>
-<li><code>canvas</code>负责在页面中设定一个区域，然后就可以通过<code>JS</code>动态地在这个区域中绘制图形。</li>
-<li><code>canvas</code>默认是 <code>display: inline-block;</code></li>
-<li><code>canvas</code>默认大小为 <code>宽300像素×高150像素</code>。</li>
-<li>要使用<code>canvas</code>元素，必须先设置<code>width</code> <code>height</code>属性，指定可以绘图的区域大小。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;drawing&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;绘图区域&lt;/canvas&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>要在这区域绘图，必须先取得绘图上下文，利用 <code>getContext()</code> 方法，如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var drawing = document.getElementById(&quot;drawing&quot;)</div><div class="line">var context = drawing.getContext(&quot;2d&quot;)</div></pre></td></tr></table></figure>
-<ul>
-<li>使用 <code>toDataURL()</code> 方法，可导出图片。这个方法接收一个参数，即图片的格式，默认是<code>png</code>。如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//取得图片的 URL</div><div class="line">var imgURL = drawing.toDataURL(&quot;image/jpg&quot;)</div><div class="line"></div><div class="line">//显示图片</div><div class="line">var img = document.createElement(&quot;img&quot;)</div><div class="line">img.src = imgURL</div><div class="line">document.body.appendChild(img)</div><div class="line"></div><div class="line">//设置其他</div><div class="line">img.download = &apos;我的画&apos;</div><div class="line">img.target = &apos;_blank&apos;</div><div class="line">...</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><h5 id="填充和描边"><a href="#填充和描边" class="headerlink" title="填充和描边"></a>填充和描边</h5><pre><code>strokeStyle 描边样式
-fillStyle 填充样式
-
-//用法
-context.strokeStyle = &apos;blue&apos;
-context.fillStyle = &apos;red&apos;
-</code></pre><h5 id="绘制形状"><a href="#绘制形状" class="headerlink" title="绘制形状"></a>绘制形状</h5><pre><code>strokeRect(x, y, width, height) 边框坐标 
-fillRect(x, y, width, height) 填充坐标
-
-//绘制蓝色矩形
-context.fillStyle = &apos;blue&apos;
-context.fillRect(10, 10, 50, 50)
-</code></pre><h5 id="橡皮擦"><a href="#橡皮擦" class="headerlink" title="橡皮擦"></a>橡皮擦</h5><pre><code>clearRect(x, y, width, height) 橡皮擦坐标
-</code></pre><p>三者结合详细用法如下图：</p>
-<p><img src="https://i.loli.net/2018/02/13/5a827d0ede746.png
-"></p>
-<p>待完善…</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/CSS 常用单位/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/09/CSS 常用单位/" itemprop="url">CSS 常用单位</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
-                2018-02-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h3><h3 id="px"><a href="#px" class="headerlink" title="px"></a><code>px</code></h3><p>像素<code>px</code>是相对于显示器屏幕分辨率而言的。</p>
-<p><strong>12像素原则：</strong>网页默认字体大小是<code>16px</code>，<code>Chorme</code>默认字体大小是 <code>12px</code>（比如如果设置是 <code>6px</code>，最小字号依然是 12px），<code>safari</code>没有最小字号。</p>
-<p><strong>特点：</strong>像素的大小是固定的。</p>
-<h3 id="em"><a href="#em" class="headerlink" title="em"></a><code>em</code></h3><p><strong>特点：</strong>1.<code>em</code>的值并不是固定的。2.<code>em</code>会继承父级元素的字体大小。</p>
-<p>当定义<code>font-size</code>属性时，<code>1em</code>等于元素的父元素的字体大小。</p>
-<p>如果没有设置文字大小，那它将等于浏览器默认文字大小<code>16px</code>。所以通<code>1em = 16px</code>，<code>2em = 32px</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;p1&quot;&gt;</div><div class="line">	&lt;div class=&quot;p2&quot;&gt;1&lt;/div&gt;</div><div class="line">  	&lt;div class=&quot;p3&quot;&gt;1&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.p1 &#123;font-size: 16px; line-height: 32px;&#125;</div><div class="line">.P2 &#123;font-size: 1em;&#125;</div><div class="line">.P3 &#123;font-size: 2em; line-height: 2em;&#125;</div><div class="line"></div><div class="line">//P2&#123;font-size: 16px; line-height: 32px&#125; </div><div class="line">//P3&#123;font-size: 32px; line-height: 64px&#125;</div></pre></td></tr></table></figure>
-<p><code>em</code>相比<code>px</code>更加灵活，可用下面公式计算像素大小的等价 <code>em</code> 大小：</p>
-<pre><code>em = 希望得到的像素大小 / 父元素字体像素大小
-</code></pre><blockquote>
-<p><code>em</code> 可用于 <code>line-height</code> <code>font-size</code> <code>margin-bottom</code> <code>margin-top</code></p>
-</blockquote>
-<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a><code>rem</code></h3><p><code>rem</code>代表根元素（<code>html</code>元素）的 <code>font-size</code> 大小。当用在根元素的 <code>font-size</code> 上面时，它代表了它的初始值。</p>
-<pre><code>html{font-size: 2rem} //32px
-</code></pre><p>当用在非根元素的 <code>font-size</code> 上面时，相对于根元素字体大小。</p>
-<pre><code>html{font-size: 1rem} // 此时 1rem = 1em = 16px
-p{font-size: 2rem} //32px
-</code></pre><hr>
-<h3 id="视口大小"><a href="#视口大小" class="headerlink" title="视口大小"></a>视口大小</h3><h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a><code>vh</code></h3><p>视口高度，1vh=视口高度的1%</p>
-<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a><code>vw</code></h3><p>视口宽度，1vw=视口宽度的1%</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2360,8 +2295,8 @@ p{font-size: 2rem} //32px
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2372,7 +2307,7 @@ p{font-size: 2rem} //32px
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2420,7 +2355,7 @@ p{font-size: 2rem} //32px
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
