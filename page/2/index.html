@@ -238,6 +238,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/Cookie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/05/Cookie/" itemprop="url">Cookie</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
+                2018-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a><code>Cookie</code>是什么？</h5><p><code>Cookie</code> 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。</p>
+<h5 id="Cookie-特点"><a href="#Cookie-特点" class="headerlink" title="Cookie 特点"></a><code>Cookie</code> 特点</h5><p>1.服务器通过 <code>Set-Cookie</code> 响应头设置 <code>Cookie</code>。</p>
+<pre><code>Set-Cookie: key=value;
+//等号两边不能有空格
+</code></pre><p>2.浏览器得到 <code>Cookie</code> 之后， 每次请求都要带上 <code>Cookie</code>。</p>
+<p>3.服务器读取 <code>Cookie</code> 就知道登录用户的信息。</p>
+<h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p><code>Cookie</code>同源策略跟 <code>AJAX</code> 的同源策略稍微有些不同。</p>
+<p>浏览器的同源政策规定，两个网址只要域名相同和端口相同，就可以共享 <code>Cookie</code>。</p>
+<p>注意，这里不要求协议相同。也就是说，<code>http://example.com</code> 设置的<code>Cookie</code>，可以被 <code>https://example.com</code> 读取。</p>
+<h5 id="Cookie缺点"><a href="#Cookie缺点" class="headerlink" title="Cookie缺点"></a><code>Cookie</code>缺点</h5><p>1.<code>Cookie</code>会被附加在每个<code>HTTP</code>请求中，所以无形中增加了流量。</p>
+<p>2.由于在<code>HTTP</code>请求中的<code>Cookie</code>是明文传递的，所以安全性成问题，除非用<code>HTTPS</code>。</p>
+<p>3.<code>Cookie</code>的大小限制在4KB左右，对于复杂的存储需求来说是不够用的。</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2024,179 +2178,6 @@ b.name = &quot;zhao&quot;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/07/JS 的三大对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/07/JS 的三大对象/" itemprop="url">JS 的三大对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
-                2018-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><ul>
-<li><p><code>ECMA-262</code>把本地对象定义为“独立于宿主环境的<code>ECMAScript</code>实现提供的对象”。</p>
-</li>
-<li><p>简单来说，本地对象就是<code>ECMA-262</code>定义的类（引用类型）。</p>
-</li>
-<li><p>这些引用类型在运行过程中需要通过<code>new</code>来创建所需的实例对象。</p>
-</li>
-<li><p>包含：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
-<p>  和三个基本包装类型 <code>String</code> <code>Boolean</code> <code>Number</code></p>
-</li>
-</ul>
-<hr>
-<h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><ul>
-<li><p><code>ECMA-262</code>把内置对象定义为“由<code>ECMAScript</code>实现提供的、独立于宿主环境的所有对象，在<code>ECMAScript</code>程序开始执行时出现”。这意味着开发者不必明确实例化内置对象，它已被实例化了。</p>
-</li>
-<li><p><code>ECMA-262</code>只定义了两个内置对象，即<code>Global</code>和<code>Math</code>。</p>
-</li>
-<li><p><strong>根据定义，内置对象是本地对象的一种。</strong></p>
-</li>
-</ul>
-<hr>
-<h4 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h4><ul>
-<li><p><code>ECMAScript</code>中的“宿主”是指网页的运行环境，即“操作系统”和“浏览器”。</p>
-</li>
-<li><p><code>ECMAScript</code>官方未定义的对象都属于宿主对象。包含两大类，一个是宿主提供，一个是自定义类对象</p>
-</li>
-<li><p>所有非本地对象都是宿主对象，即由<code>ECMAScript</code>实现的宿主环境提供的对象。</p>
-</li>
-<li><p>所有的<code>BOM</code>和<code>DOM</code>都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
-</li>
-</ul>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2247,7 +2228,7 @@ b.name = &quot;zhao&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
