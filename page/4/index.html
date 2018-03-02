@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,6 +224,612 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/JS 的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/JS 的数据类型/" itemprop="url">JS 的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>JavaScript</code>语言的每一个值，都属于某一种数据类型。<code>JavaScript</code>的数据类型，共有七种。</p>
+<hr>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
+string 字符串
+boolean 布尔值
+undefined 
+null
+symbol 符号
+</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
+
+下面两种也属于对象：
+* 数组（array）
+* 函数（function）
+</code></pre><hr>
+<h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number(数值)"></a>1.<code>number</code>(数值)</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
+           科学计数法：12e2 // 1200
+                        12e-2 // 0.12
+(2) 二进制：0b开头
+(3) 八进制：0开头
+(4) 十六进制：0x开头
+</code></pre><hr>
+<h4 id="2-string-字符串）"><a href="#2-string-字符串）" class="headerlink" title="2.string(字符串）"></a>2.<code>string</code>(字符串）</h4><pre><code>(1) 用 &apos;&apos; 或 &quot;&quot; 引起来
+(2)转义符：\（同命令行回车：\ ）
+(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
+(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
+</code></pre><hr>
+<h4 id="3-boolean-布尔值）"><a href="#3-boolean-布尔值）" class="headerlink" title="3.boolean(布尔值）"></a>3.<code>boolean</code>(布尔值）</h4><pre><code>true（真）和 false（假）两个特定值
+</code></pre><hr>
+<h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.<code>undefined</code></h4><p>在使用<code>var</code>声明变量但未对其初始化时，这个变量的值就是<code>undefined</code></p>
+<pre><code>var message;
+message === undefined; // true
+</code></pre><p>对为初始化和未声明的变量执行<code>typeof</code>操作符都返回<code>undefined</code>值</p>
+<pre><code>var message; //message 声明后默认取得了 undefined 值
+//var age  // age 未声明
+
+typeof message //undefined    
+typeof age //undefined        
+</code></pre><hr>
+<h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.<code>null</code></h4><p><code>null</code>表示一个空对象指针</p>
+<pre><code>typrof null //&quot;object&quot;
+</code></pre><p>如果定义的变量准备将来用来保存对象，那么最好将该变量初始化为<code>null</code>。</p>
+<pre><code>var message = null    
+</code></pre><p><code>undefined</code>派生自<code>null</code>，<code>ECMA-262</code>规定它们的相等性测试(==)返回<code>true</code></p>
+<pre><code>undefined == null //true
+</code></pre><h4 id="6-symbol-符号）"><a href="#6-symbol-符号）" class="headerlink" title="6.symbol(符号）"></a>6.<code>symbol</code>(符号）</h4><p><code>symbol</code>可以创建一个独一无二的值（但并不是字符串）。</p>
+<pre><code>var x = Symbol(&apos;a&apos;)
+var y = Symbol(&apos;a&apos;)
+x !== y // true
+</code></pre><hr>
+<h4 id="7-object-对象）"><a href="#7-object-对象）" class="headerlink" title="7.object(对象）"></a>7.<code>object</code>(对象）</h4><p>对象就是一组“键值对”<code>key-value</code>的集合，是一种无序的复合数据集合。</p>
+<pre><code>var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
+    &apos;Age&apos;: 18，//键值是数值，
+    &apos;married&apos;: true,  //键值是布尔值
+    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
+    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
+    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
+ } 
+ person[&apos;name&apos;]//zhaozhao
+</code></pre><h5 id="键名和键值"><a href="#键名和键值" class="headerlink" title="键名和键值"></a>键名和键值</h5><pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
+* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
+* 对象的每一个“键名”又称为“属性”。
+* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
+</code></pre><h5 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h5><pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
+* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
+* 数值只能用方括号运算符：obj[0xFF]
+* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
+</code></pre><h5 id="检查变量是否声明-in运算符）"><a href="#检查变量是否声明-in运算符）" class="headerlink" title="检查变量是否声明(in运算符）"></a>检查变量是否声明(<code>in</code>运算符）</h5><pre><code>var o = { p: 1 };
+&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
+</code></pre><h5 id="查看所有属性Object-keys"><a href="#查看所有属性Object-keys" class="headerlink" title="查看所有属性Object.keys"></a>查看所有属性<code>Object.keys</code></h5><pre><code>var o = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(o);
+// [&apos;key1&apos;, &apos;key2&apos;]
+</code></pre><h5 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a><code>delete</code>命令</h5><pre><code>//无 value 无 key
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ delete person[&apos;name&apos;]
+ person.name //undefined
+ &apos;name&apos; in person //false
+
+ //无 value 有 key
+ var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ person.name = undefined
+ &apos;name&apos; in person //true
+</code></pre><h5 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a><code>for…in</code>循环</h5><pre><code>//遍历键值
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;,
+    &apos;age&apos;: 18,
+ }     
+ for(var key in person){
+     console.log(person[key])
+ }
+ //zhaozhao
+//18
+
+//遍历键名
+for(var key in person){
+     console.log(key)
+ }
+//name
+//age
+</code></pre><hr>
+<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><h5 id="检测基本类型typeof"><a href="#检测基本类型typeof" class="headerlink" title="检测基本类型typeof"></a>检测基本类型<code>typeof</code></h5><ul>
+<li>要检测一个变量是字符串、数值、布尔值还是<code>undefined</code>，用<code>typeof</code>操作符。</li>
+<li><code>typeof</code>操作符返回一个字符串，指示未经计算的操作数的类型。</li>
+<li>语法：<code>typeof operand</code>，<code>operand</code>是一个表达式，表示对象或原始值，其类型将被返回。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var s = &apos;message&apos;</div><div class="line">typeof s //&quot;string&quot;</div></pre></td></tr></table></figure>
+<h5 id="检测对象instanceof"><a href="#检测对象instanceof" class="headerlink" title="检测对象instanceof"></a>检测对象<code>instanceof</code></h5><ul>
+<li>如果变量的值是一个对象或<code>null</code>，则用<code>instanceof</code>操作符</li>
+<li>语法：<code>object instanceof constructor</code>，返回一个布尔值。</li>
+<li><code>instanceof</code>运算符用来检测<code>constructor.prototype</code>是否存在于参数 <code>object</code>的原型链上。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">obj instanceof Object //true</div><div class="line">obj instanceof Array //false</div></pre></td></tr></table></figure>
+<h5 id="检测对象-toString"><a href="#检测对象-toString" class="headerlink" title="检测对象 toString()"></a>检测对象 <code>toString()</code></h5><p>为了每个对象都能通过 <code>Object.prototype.toString()</code> 来检测，需要以 <code>Function.prototype.call()</code> 或者 <code>Function.prototype.apply()</code> 的形式来调用，传递要检查的对象作为第一个参数。</p>
+<pre><code>var toString = Object.prototype.toString
+
+toString.call(new Date(1995, 11, 17)) // &quot;[object Date]&quot;
+toString.call(&apos;1&apos;) // &quot;[object String]&quot;
+toString.call(1) // &quot;[object Number]&quot;
+toString.call(Math) // &quot;[object Math]&quot;
+</code></pre><hr>
+<p>参考：</p>
+<p>[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/JS 的构成 /">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/21/JS 的构成 /" itemprop="url">JS 的构成</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="JavaScript是什么？"><a href="#JavaScript是什么？" class="headerlink" title="JavaScript是什么？"></a><code>JavaScript</code>是什么？</h3><p><code>JavaScript</code>是一种轻量的、解释性的、面向对象的头等函数语言，其最广为人知的应用是作为网页的脚本语言，但同时它也在很多非浏览器环境下使用。<code>JS</code>是一种动态的基于原型和多范式的脚本语言，支持面向对象、命令式和函数式的编程风格。</p>
+<hr>
+<h3 id="JavaScript的三大组成部分"><a href="#JavaScript的三大组成部分" class="headerlink" title="JavaScript的三大组成部分"></a><code>JavaScript</code>的三大组成部分</h3><p><strong><code>ECMAScript</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ECMAScript 是一种开放的、国际上广为接受的脚本语言规范。由欧洲计算机制造商协会制定和发布。 Web 浏览器对于 ECMAScript 来说只是一个宿主环境，但它并不是唯一的宿主环境。</div><div class="line">	</div><div class="line">ECMAScript 是由 ECMA-262 定义， ECMA-262 标准规范了一种脚本语言实现应该包含的内容（语法、数据类型、语句、关键字、保留字、操作符以及对象）	</div><div class="line">	</div><div class="line">ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。在日常场合，这两个词是可以互换的。</div></pre></td></tr></table></figure>
+<p><strong><code>DOM</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DOM (Document Object Model 文档对象模型）是 W3C 组织制定的一套用于访问和操作 XML ( HTML 是 XML 的衍生品)文档的标准。</div><div class="line"></div><div class="line">它给文档提供了一种结构化的表示方法，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。</div><div class="line"></div><div class="line">DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。</div></pre></td></tr></table></figure>
+<p><strong><code>BOM</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BOM（Browser Object Model浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</div><div class="line">	</div><div class="line">由于 BOM 没有相关标准，每个浏览器都有其自己对 BOM 的实现方式。 BOM 有窗口对象、导航对象等一些实际上已经默认的标准，但对于这些对象和其它一些对象，每个浏览器都定义了自己的属性和方式。</div><div class="line">	</div><div class="line">例如：弹出新的浏览器窗口，移动、改变和关闭浏览器窗口，提供详细的网络浏览器信息（navigator），详细的页面信息（location），详细的用户屏幕分辨率的信息（screen），对 cookies 的支持等等。BOM 作为 JavaScript 的一部分并没有相关标准的支持，每一个浏览器都有自己的实现，虽然有一些非事实的标准，但还是给开发者带来一定的麻烦。</div></pre></td></tr></table></figure>
+<hr>
+<p>参考：</p>
+<p>阮一峰的《JavaScript 标准参考教程》<a href="http://javascript.ruanyifeng.com/introduction/history.html#toc1" target="_blank" rel="external">http://javascript.ruanyifeng.com/introduction/history.html#toc1</a></p>
+<p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction</a>    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/CSS 选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/CSS 选择器/" itemprop="url">CSS 选择器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="通用选择器："><a href="#通用选择器：" class="headerlink" title="通用选择器："></a>通用选择器：</h5><pre><code>*{}
+//匹配所有元素
+</code></pre><h5 id="标签选择器："><a href="#标签选择器：" class="headerlink" title="标签选择器："></a>标签选择器：</h5><pre><code>h1{}
+</code></pre><h5 id="类选择器："><a href="#类选择器：" class="headerlink" title="类选择器："></a>类选择器：</h5><pre><code>.name{}
+//匹配所有类名为 name 的元素
+</code></pre><h5 id="ID选择器："><a href="#ID选择器：" class="headerlink" title="ID选择器："></a>ID选择器：</h5><pre><code>#name{}
+//匹配所有 ID 名为 name 的元素
+</code></pre><h5 id="属性选择器："><a href="#属性选择器：" class="headerlink" title="属性选择器："></a>属性选择器：</h5><pre><code>[target = blank]
+//匹配所有以 target 命名，值为 blank 的元素
+</code></pre><h5 id="后代选择器："><a href="#后代选择器：" class="headerlink" title="后代选择器："></a>后代选择器：</h5><pre><code>.header .box{}
+//匹配由 .header 作为祖先元素(但不一定是父元素)的后代元素 .box
+</code></pre><h5 id="子选择器："><a href="#子选择器：" class="headerlink" title="子选择器："></a>子选择器：</h5><pre><code>.content &gt; .title{}
+ //匹配由 .content 作为父元素的直接后代(子元素) .title
+</code></pre><h5 id="即-又-选择器："><a href="#即-又-选择器：" class="headerlink" title="即..又 选择器："></a>即..又 选择器：</h5><pre><code>.header.active{}
+//同时匹配 .header 和 .active , 一般会忽略前一个 class。
+</code></pre><h5 id="多标签选择器："><a href="#多标签选择器：" class="headerlink" title="多标签选择器："></a>多标签选择器：</h5><pre><code>p1,span{} 
+//同时匹配 p1 和 span ，样式作用于两者。
+</code></pre><h5 id="选择相邻的下一个："><a href="#选择相邻的下一个：" class="headerlink" title="选择相邻的下一个："></a>选择相邻的下一个：</h5><pre><code>div+p{}
+//匹配所有紧接着`&lt;div&gt;`元素之后的`&lt;p&gt;`元素
+</code></pre><h5 id="选择所有同级的邻居："><a href="#选择所有同级的邻居：" class="headerlink" title="选择所有同级的邻居："></a>选择所有同级的邻居：</h5><pre><code>div~p{}
+//匹配所有父级是`&lt;div&gt;`元素的`&lt;p&gt;`元素
+</code></pre><h5 id="伪类："><a href="#伪类：" class="headerlink" title="伪类："></a>伪类：</h5><pre><code>#header:hover{}
+//CSS3中的标准是伪类使用单冒号“:” 
+</code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
+//CSS3中的标准是伪元素使用双冒号“::”（避免和伪类混淆） 
+</code></pre><h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a>CSS的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
+<p>HTML</p>
+<pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
+</code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
+<pre><code>p{color: blue;}
+</code></pre><p>这里分为可继承和不可继承的样式</p>
+<pre><code>可继承的样式： font-size font-family color, UL LI DL DD DT;
+不可继承的样式：border padding margin width height ;
+</code></pre><h5 id="inherit-关键字"><a href="#inherit-关键字" class="headerlink" title="inherit 关键字"></a>inherit 关键字</h5><p>显式指定一个属性继承祖先元素的值，可用于继承性/非继承性属性。</p>
+<h5 id="重要性-important"><a href="#重要性-important" class="headerlink" title="重要性!important"></a>重要性<code>!important</code></h5><p>当在一个样式声明中加上<code>!important</code>时，此声明将覆盖任何其他声明。</p>
+<pre><code>p{color:red !important;}//这个会被应用
+p{color:green;}
+</code></pre><blockquote>
+<p>注意：应该尽量避免使用<code>!important</code>，因为这破坏了样式表中的固有的级联规则 使得调试找bug变得更加困难了。    </p>
+</blockquote>
+<p>￼</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +873,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -288,7 +894,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -481,7 +1087,7 @@ parent{display: flex; justify-content: space-between;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -502,7 +1108,7 @@ parent{display: flex; justify-content: space-between;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -683,7 +1289,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -704,7 +1310,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -754,14 +1360,15 @@ $designWidth : 750; // 750 是设计稿的宽度。
 </code></pre><h5 id="行内元素也可以使用Flex布局。"><a href="#行内元素也可以使用Flex布局。" class="headerlink" title="行内元素也可以使用Flex布局。"></a>行内元素也可以使用<code>Flex</code>布局。</h5><pre><code>.box{
   display: inline-flex;
 }
-</code></pre><p><code>Webkit</code> 内核的浏览器(<code>Chrome</code>，<code>Safari</code>)，必须加上 <code>-webkit</code> 前缀。</p>
-<pre><code>.box{
+</code></pre><h5 id="Webkit-内核的浏览器-Chrome，Safari-，必须加上-webkit-前缀。"><a href="#Webkit-内核的浏览器-Chrome，Safari-，必须加上-webkit-前缀。" class="headerlink" title="Webkit 内核的浏览器(Chrome，Safari)，必须加上 -webkit 前缀。"></a><code>Webkit</code> 内核的浏览器(<code>Chrome</code>，<code>Safari</code>)，必须加上 <code>-webkit</code> 前缀。</h5><pre><code>.box{
   display: -webkit-flex; /* Safari */
   display: flex;
 }
 </code></pre><h5 id="注意：设为-Flex-布局以后，子元素的float-clear和vertical-align属性将失效。"><a href="#注意：设为-Flex-布局以后，子元素的float-clear和vertical-align属性将失效。" class="headerlink" title="注意：设为 Flex 布局以后，子元素的float``clear和vertical-align属性将失效。"></a>注意：设为 <code>Flex</code> 布局以后，子元素的<code>float``clear</code>和<code>vertical-align</code>属性将失效。</h5><hr>
-<p>采用<code>Flex</code>布局的元素，称为<code>Flex</code>容器。它的所有子元素自动成为容器成员，称为 Flex 项目。</p>
-<h4 id="flex-container容器属性"><a href="#flex-container容器属性" class="headerlink" title="flex-container容器属性"></a><code>flex-container</code>容器属性</h4><h5 id="1-flex-direction属性决定主轴的方向（即项目的排列方向）"><a href="#1-flex-direction属性决定主轴的方向（即项目的排列方向）" class="headerlink" title="1.flex-direction属性决定主轴的方向（即项目的排列方向）"></a>1.<code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）</h5><pre><code>row（默认值）：主轴为水平方向，起点在左端。
+<p>采用 <code>Flex</code> 布局的元素，称为<code>Flex</code>容器。它的所有子元素自动成为容器成员，称为 <code>Flex</code> 项目。</p>
+<h4 id="flex-container容器属性"><a href="#flex-container容器属性" class="headerlink" title="flex-container容器属性"></a><code>flex-container</code>容器属性</h4><p><img src="https://i.loli.net/2018/03/02/5a992f62c1b66.png
+"></p>
+<h5 id="1-flex-direction属性决定主轴的方向（即项目的排列方向）"><a href="#1-flex-direction属性决定主轴的方向（即项目的排列方向）" class="headerlink" title="1.flex-direction属性决定主轴的方向（即项目的排列方向）"></a>1.<code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）</h5><pre><code>row（默认值）：主轴为水平方向，起点在左端。
 row-reverse：主轴为水平方向，起点在右端。
 column：主轴为垂直方向，起点在上沿。
 column-reverse：主轴为垂直方向，起点在下沿。
@@ -796,7 +1403,9 @@ stretch（默认值）：轴线占满整个交叉轴。
 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
 </code></pre><h5 id="6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="6.align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a>6.<code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于stretch。</h5><pre><code>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
 </code></pre><hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+<p>参考：</p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰 - Flex 布局</a></p>
 
           
         
@@ -874,7 +1483,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -895,7 +1504,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1038,7 +1647,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
                 2017-10-24
@@ -1059,7 +1668,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1248,7 +1857,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
                 2017-10-19
@@ -1269,7 +1878,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1528,7 +2137,7 @@ delete 删除
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-09T22:25:20+08:00">
                 2017-10-09
@@ -1549,7 +2158,7 @@ delete 删除
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1751,8 +2360,8 @@ package.json：项目所需模块项目的配置信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1763,7 +2372,7 @@ package.json：项目所需模块项目的配置信息
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -1811,7 +2420,7 @@ package.json：项目所需模块项目的配置信息
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,6 +224,610 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/25/JSONP/" itemprop="url">JSONP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="数据库是什么？"><a href="#数据库是什么？" class="headerlink" title="数据库是什么？"></a>数据库是什么？</h4><p>只要能长久地存数据，就是数据库</p>
+<ol>
+<li>文件系统是一种数据库</li>
+<li><code>MySQL</code> 是一种数据库</li>
+</ol>
+<hr>
+<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
+<p>所谓”同源”指的是”三个相同”：</p>
+<ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<p>如果非同源，共有三种行为受到限制。</p>
+<ul>
+<li><code>Cookie</code> <code>LocalStorage</code> 和 <code>IndexDB</code> 无法读取。</li>
+<li><code>DOM</code> 无法获得。</li>
+<li><code>AJAX</code> 请求不能发送。</li>
+</ul>
+<p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
+<ul>
+<li><code>JSONP</code></li>
+<li><code>WebSocket</code></li>
+<li><code>CORS</code></li>
+</ul>
+<p>这里，我们主要讲 <code>JSONP</code>。</p>
+<hr>
+<h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//方案二：用 script 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    script.src = &apos;/pay&apos;</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(&apos;amount.innerText = &apos; + amount)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>无刷新，局部更新页面内容，这种技术叫做<code>SRJ</code> - <code>Server Rendered JavaScript</code></p>
+<hr>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h4><h5 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP?"></a>什么是 <code>JSONP</code>?</h5><ul>
+<li><code>JSONP</code>是<code>JSON with Padding</code>的简称。</li>
+<li><code>JSONP</code> 是服务器与客户端跨源通信的常用方法。是指动态创建 <code>script</code>，并调用我给你的<code>callback</code>技术。详细过程如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 请求方：frank.com 的前端程序员（浏览器）</div><div class="line">* 响应方：jack.com 的后端程序员（服务器）</div><div class="line"></div><div class="line">1. 请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=xxx ，xxx 是随机数。</div><div class="line">2. 响应方根据查询参数 callbackName ，构造形式如 xxx.call(undefined, &apos;你要的数据&apos;) 这样的响应。</div><div class="line">3. 浏览器接收到响应，就会执行 xxx.call(undefined, &apos;你要的数据&apos;)。 </div><div class="line">4. 那么请求方就知道了他要的数据。</div></pre></td></tr></table></figure>
+<p>约定</p>
+<ul>
+<li><code>callbackName</code> 约定叫做 <code>callback</code> </li>
+<li><code>xxx</code> 是随机数，比如：<code>&#39;frank&#39;+ parseInt(Math.random() * 100000,10)</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//方案三：JSONP</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    let functionName = &apos;frank&apos;+ parseInt(Math.random()*10000000 ,10)</div><div class="line">    window[functionName] = function()&#123;  // 每次请求之前搞出一个随机的函数</div><div class="line">        amount.innerText = amount.innerText - 0 - 1</div><div class="line">    &#125;</div><div class="line">    script.src = &apos;/pay?callback=&apos; + functionName</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"> //上面代码用 jQuery 写</div><div class="line"> $.ajax(&#123;</div><div class="line"> url: &quot;http://jack.com:8002/pay&quot;,</div><div class="line"> dataType: &quot;jsonp&quot;,</div><div class="line">	 success: function( response ) &#123;</div><div class="line">	     if(response === &apos;success&apos;)&#123;</div><div class="line">	    	 amount.innerText = amount.innerText - 1</div><div class="line">	     &#125;</div><div class="line">	 &#125;</div><div class="line"> &#125;)</div><div class="line"> $.jsonp()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    let callbackName = query.callback</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(`</div><div class="line">        $&#123;callbackName&#125;.call(undefined, &apos;success&apos;)</div><div class="line">    `)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<h5 id="JSONP-为什么不支持-POST-请求？"><a href="#JSONP-为什么不支持-POST-请求？" class="headerlink" title="JSONP 为什么不支持 POST 请求？"></a><code>JSONP</code> 为什么不支持 <code>POST</code> 请求？</h5><p><code>JSONP</code>是通过动态创建 <code>script</code> 实现的，<code>script</code>标签的<code>src</code>属性没有跨域的限制。如果用<code>post</code>，就会检查是否跨域。</p>
+<hr>
+<p>参考：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">阮一峰 - 浏览器同源政策及其规避方法</a></p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/ new 做了什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/ new 做了什么？/" itemprop="url">new 做了什么？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的<code>new</code>到底做了些什么？</p>
+<hr>
+<h4 id="「Object构造函数」"><a href="#「Object构造函数」" class="headerlink" title="「Object构造函数」"></a>「<code>Object</code>构造函数」</h4><p>创建自定义对象的最简单方式就是创建一个<code>Object</code>的实例，然后再为它添加属性和方法。如下：</p>
+<pre><code>var person = new Object()
+person.name = &apos;zhao&apos;;
+person.walk = function(){
+    console.log(&apos;走一步的代码&apos;)
+} 
+</code></pre><h5 id="转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"><a href="#转折点：早期的-JS开发人员-经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。" class="headerlink" title="转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。"></a>转折点：早期的 JS开发人员 经常使用这个模式创建对象。后来，「对象字面量」凭着用更少代码的优势，成为创建对象的首选模式。</h5><hr>
+<h4 id="「对象字面量」"><a href="#「对象字面量」" class="headerlink" title="「对象字面量」"></a>「对象字面量」</h4><pre><code>var person = {
+    name: &apos;zhao&apos;,
+    walk: function(){
+        console.log(&apos;走一步的代码&apos;)
+    }
+}
+</code></pre><h5 id="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"><a href="#转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。" class="headerlink" title="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"></a>转折点：「<code>Object</code>构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。</h5><hr>
+<h4 id="「工厂模式」"><a href="#「工厂模式」" class="headerlink" title="「工厂模式」"></a>「工厂模式」</h4><p>「工厂模式」是指用函数来封装以特定接口创建对象的细节。</p>
+<pre><code>function Foo(name, city){
+    this.name = name;
+    this.city = city;
+    this.walk = function walk(){
+        console.log(&apos;走一步的代码&apos;)
+    }
+    return Foo
+}
+
+var human1 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
+var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
+</code></pre><h5 id="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"><a href="#转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。" class="headerlink" title="转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。"></a>转折点：「工厂模式」解决了创建同一个接口多个对象的问题，但每次都会返回一个包含多个属性的对象。重点是不能识别一个对象的类型。</h5><hr>
+<h4 id="「构造函数」"><a href="#「构造函数」" class="headerlink" title="「构造函数」"></a>「构造函数」</h4><p>随着<code>JavaScript</code>的发展，出现了一种新的模式 ——「构造函数」。</p>
+<ul>
+<li>构造函数可以创建特定类型的对象。</li>
+<li>此外，也可以创建自定义的构造函数，从而自定义对象类型的属性和方法。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<p>上面代码中，我们看到，与「工厂模式」的不同之处：</p>
+<ol>
+<li>没有显式地创建对象</li>
+<li>直接将属性和方法赋给了<code>this</code>对象</li>
+<li>没有<code>return</code>语句</li>
+<li>函数名首字母是大写<code>F</code>。按照惯例，构造函数始终以大写字母开头，主要是为了区别其他函数。</li>
+<li>用了<code>new</code>操作符创建新实例。</li>
+</ol>
+<h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
+<p>1.创建一个新对象，这个对象的类型是<code>object</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var human1 = &#123;&#125;</div></pre></td></tr></table></figure>
+<p>2.将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">human1.__proto__ = Foo.prototype</div></pre></td></tr></table></figure>
+<p>3.执行构造函数中的代码（为这个新对象添加属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Foo.call(human1)</div></pre></td></tr></table></figure>
+<p>4.返回新对象</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/this 到底是什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/19/this 到底是什么？/" itemprop="url">this 到底是什么？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><ul>
+<li>无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）<code>this</code>都指代全局对象。</li>
+<li>在浏览器中，全局对象是<code>window</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message = 1</div><div class="line">console.log(this.message) // 1</div><div class="line">console.log(window.message) // 1</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><pre><code>每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头函数。
+
+this 是函数的第一个参数（且必须是对象）， arguments 是函数的第二个参数（包装成一个数组[]）。
+
+this 是参数，所以只有在调用的时候才能确定。
+
+this 为什么必须是对象，因为 this 就是函数与对象之间的羁绊。
+</code></pre><h5 id="普通模式：如果this是undefined或null，浏览器会把this变成window"><a href="#普通模式：如果this是undefined或null，浏览器会把this变成window" class="headerlink" title="普通模式：如果this是undefined或null，浏览器会把this变成window"></a>普通模式：如果<code>this</code>是<code>undefined</code>或<code>null</code>，浏览器会把<code>this</code>变成<code>window</code></h5><pre><code>function f(){
+    console.log(this)
+    console.log(arguments)
+}
+f.call() // this 是 window
+f.call(null) // this 是 window
+f.call(undefined) // this 是 window
+</code></pre><h5 id="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><a href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。" class="headerlink" title="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"></a>严格模式：默认第一个参数是<code>undefined</code>。如果传了第一个参数，那传什么<code>this</code>就是什么。</h5><p>发明<code>JS</code>时，被要求要长得像<code>Java</code>，让<code>Java</code>程序员来学<code>JS</code>，但是他们发现<code>this</code>多余，就有了 <code>use strict</code> 严格模式</p>
+<pre><code>function f(){
+    // 严格模式
+      &apos;use strict&apos;;
+    console.log(this)
+    console.log(arguments)
+}
+f.call() // this 是 undefined
+f.call(null) // this 是 null
+f.call(undefined) // this 是 undefined
+f.call({name:&apos;frank&apos;}) // {name: &apos;frank&apos;}, []
+f.call({name:&apos;frank&apos;},1,2) // {name: &apos;frank&apos;}, [1,2]
+</code></pre><h5 id="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><a href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象" class="headerlink" title="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"></a>当以对象里的方法的方式调用函数时，它们的<code>this</code>是调用该函数的对象</h5><pre><code>var message = {
+    name: &apos;zhao&apos;,
+    Foo: function (){
+        console.log(message)
+    }
+}
+
+message.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
+//等同于
+this.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
+//等同于
+this.Foo.call(this) // {name: &quot;zhao&quot;, Foo: ƒ}
+</code></pre><h5 id="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><a href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。" class="headerlink" title="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"></a>当一个函数用作构造函数时（使用<code>new</code>关键字），它的<code>this</code>被绑定到正在构造的新对象。</h5><p>下面例子中，函数内的<code>this</code>被绑定到<code>human1</code>对象。</p>
+<pre><code>function Foo(name, city){
+    this.name = &apos;zhao&apos;;
+    this.city = &apos;beijing&apos;;
+}
+
+var human1 = new Foo() 
+
+human1.name // &quot;zhao&quot;
+human1.city // &quot;beijing&quot;
+</code></pre><h5 id="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"><a href="#当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。" class="headerlink" title="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"></a>当函数被用作事件处理函数时，它的<code>this</code>指向绑定事件的元素，恒等于<code>currentTarget</code>。</h5><pre><code> &lt;div id=&quot;grand&quot;&gt;
+    爷爷
+     &lt;div id=&quot;parent&quot;&gt;
+      爸爸
+       &lt;div id=&quot;child&quot;&gt;
+        儿子
+       &lt;/div&gt;
+     &lt;/div&gt;
+  &lt;/div&gt;
+grand.addEventListener(&apos;click&apos;,function(e){
+    console.log(寻找this) 
+},false)
+//当点击 grand 触发事件时，this 指向 grand
+//当点击 child 触发事件时，this 依然指向 grand
+</code></pre><h5 id="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与封闭词法上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
+var foo ={
+ name: &apos;zhao&apos;,
+ bar:()=&gt;{
+   console.log(this.name)
+ }
+}
+foo.bar()
+//this 指向全局对象 window
+</code></pre><hr>
+<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a> </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +871,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
                 2018-01-15
@@ -288,7 +892,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -493,7 +1097,7 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -514,7 +1118,7 @@ var obj = new Foo()
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -729,7 +1333,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -750,7 +1354,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -902,7 +1506,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -923,7 +1527,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1114,7 +1718,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1135,7 +1739,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1584,7 +2188,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1605,7 +2209,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1843,7 +2447,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1864,7 +2468,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2053,612 +2657,6 @@ foo1() //8
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/JS 的数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/28/JS 的数据类型/" itemprop="url">JS 的数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
-                2017-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>JavaScript</code>语言的每一个值，都属于某一种数据类型。<code>JavaScript</code>的数据类型，共有七种。</p>
-<hr>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
-string 字符串
-boolean 布尔值
-undefined 
-null
-symbol 符号
-</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
-
-下面两种也属于对象：
-* 数组（array）
-* 函数（function）
-</code></pre><hr>
-<h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number(数值)"></a>1.<code>number</code>(数值)</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
-           科学计数法：12e2 // 1200
-                        12e-2 // 0.12
-(2) 二进制：0b开头
-(3) 八进制：0开头
-(4) 十六进制：0x开头
-</code></pre><hr>
-<h4 id="2-string-字符串）"><a href="#2-string-字符串）" class="headerlink" title="2.string(字符串）"></a>2.<code>string</code>(字符串）</h4><pre><code>(1) 用 &apos;&apos; 或 &quot;&quot; 引起来
-(2)转义符：\（同命令行回车：\ ）
-(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
-(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
-</code></pre><hr>
-<h4 id="3-boolean-布尔值）"><a href="#3-boolean-布尔值）" class="headerlink" title="3.boolean(布尔值）"></a>3.<code>boolean</code>(布尔值）</h4><pre><code>true（真）和 false（假）两个特定值
-</code></pre><hr>
-<h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.<code>undefined</code></h4><p>在使用<code>var</code>声明变量但未对其初始化时，这个变量的值就是<code>undefined</code></p>
-<pre><code>var message;
-message === undefined; // true
-</code></pre><p>对为初始化和未声明的变量执行<code>typeof</code>操作符都返回<code>undefined</code>值</p>
-<pre><code>var message; //message 声明后默认取得了 undefined 值
-//var age  // age 未声明
-
-typeof message //undefined    
-typeof age //undefined        
-</code></pre><hr>
-<h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.<code>null</code></h4><p><code>null</code>表示一个空对象指针</p>
-<pre><code>typrof null //&quot;object&quot;
-</code></pre><p>如果定义的变量准备将来用来保存对象，那么最好将该变量初始化为<code>null</code>。</p>
-<pre><code>var message = null    
-</code></pre><p><code>undefined</code>派生自<code>null</code>，<code>ECMA-262</code>规定它们的相等性测试(==)返回<code>true</code></p>
-<pre><code>undefined == null //true
-</code></pre><h4 id="6-symbol-符号）"><a href="#6-symbol-符号）" class="headerlink" title="6.symbol(符号）"></a>6.<code>symbol</code>(符号）</h4><p><code>symbol</code>可以创建一个独一无二的值（但并不是字符串）。</p>
-<pre><code>var x = Symbol(&apos;a&apos;)
-var y = Symbol(&apos;a&apos;)
-x !== y // true
-</code></pre><hr>
-<h4 id="7-object-对象）"><a href="#7-object-对象）" class="headerlink" title="7.object(对象）"></a>7.<code>object</code>(对象）</h4><p>对象就是一组“键值对”<code>key-value</code>的集合，是一种无序的复合数据集合。</p>
-<pre><code>var person = {
-    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
-    &apos;Age&apos;: 18，//键值是数值，
-    &apos;married&apos;: true,  //键值是布尔值
-    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
-    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
-    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
- } 
- person[&apos;name&apos;]//zhaozhao
-</code></pre><h5 id="键名和键值"><a href="#键名和键值" class="headerlink" title="键名和键值"></a>键名和键值</h5><pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
-* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
-* 对象的每一个“键名”又称为“属性”。
-* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
-</code></pre><h5 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h5><pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
-* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
-* 数值只能用方括号运算符：obj[0xFF]
-* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
-</code></pre><h5 id="检查变量是否声明-in运算符）"><a href="#检查变量是否声明-in运算符）" class="headerlink" title="检查变量是否声明(in运算符）"></a>检查变量是否声明(<code>in</code>运算符）</h5><pre><code>var o = { p: 1 };
-&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
-</code></pre><h5 id="查看所有属性Object-keys"><a href="#查看所有属性Object-keys" class="headerlink" title="查看所有属性Object.keys"></a>查看所有属性<code>Object.keys</code></h5><pre><code>var o = {
-  key1: 1,
-  key2: 2
-};
-
-Object.keys(o);
-// [&apos;key1&apos;, &apos;key2&apos;]
-</code></pre><h5 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a><code>delete</code>命令</h5><pre><code>//无 value 无 key
-var person = {
-    &apos;name&apos;: &apos;zhaozhao&apos;
- } 
- delete person[&apos;name&apos;]
- person.name //undefined
- &apos;name&apos; in person //false
-
- //无 value 有 key
- var person = {
-    &apos;name&apos;: &apos;zhaozhao&apos;
- } 
- person.name = undefined
- &apos;name&apos; in person //true
-</code></pre><h5 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a><code>for…in</code>循环</h5><pre><code>//遍历键值
-var person = {
-    &apos;name&apos;: &apos;zhaozhao&apos;,
-    &apos;age&apos;: 18,
- }     
- for(var key in person){
-     console.log(person[key])
- }
- //zhaozhao
-//18
-
-//遍历键名
-for(var key in person){
-     console.log(key)
- }
-//name
-//age
-</code></pre><hr>
-<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><h5 id="检测基本类型typeof"><a href="#检测基本类型typeof" class="headerlink" title="检测基本类型typeof"></a>检测基本类型<code>typeof</code></h5><ul>
-<li>要检测一个变量是字符串、数值、布尔值还是<code>undefined</code>，用<code>typeof</code>操作符。</li>
-<li><code>typeof</code>操作符返回一个字符串，指示未经计算的操作数的类型。</li>
-<li>语法：<code>typeof operand</code>，<code>operand</code>是一个表达式，表示对象或原始值，其类型将被返回。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var s = &apos;message&apos;</div><div class="line">typeof s //&quot;string&quot;</div></pre></td></tr></table></figure>
-<h5 id="检测对象instanceof"><a href="#检测对象instanceof" class="headerlink" title="检测对象instanceof"></a>检测对象<code>instanceof</code></h5><ul>
-<li>如果变量的值是一个对象或<code>null</code>，则用<code>instanceof</code>操作符</li>
-<li>语法：<code>object instanceof constructor</code>，返回一个布尔值。</li>
-<li><code>instanceof</code>运算符用来检测<code>constructor.prototype</code>是否存在于参数 <code>object</code>的原型链上。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">obj instanceof Object //true</div><div class="line">obj instanceof Array //false</div></pre></td></tr></table></figure>
-<h5 id="检测对象-toString"><a href="#检测对象-toString" class="headerlink" title="检测对象 toString()"></a>检测对象 <code>toString()</code></h5><p>为了每个对象都能通过 <code>Object.prototype.toString()</code> 来检测，需要以 <code>Function.prototype.call()</code> 或者 <code>Function.prototype.apply()</code> 的形式来调用，传递要检查的对象作为第一个参数。</p>
-<pre><code>var toString = Object.prototype.toString
-
-toString.call(new Date(1995, 11, 17)) // &quot;[object Date]&quot;
-toString.call(&apos;1&apos;) // &quot;[object String]&quot;
-toString.call(1) // &quot;[object Number]&quot;
-toString.call(Math) // &quot;[object Math]&quot;
-</code></pre><hr>
-<p>参考：</p>
-<p>[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/JS 的构成 /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/21/JS 的构成 /" itemprop="url">JS 的构成</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
-                2017-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="JavaScript是什么？"><a href="#JavaScript是什么？" class="headerlink" title="JavaScript是什么？"></a><code>JavaScript</code>是什么？</h3><p><code>JavaScript</code>是一种轻量的、解释性的、面向对象的头等函数语言，其最广为人知的应用是作为网页的脚本语言，但同时它也在很多非浏览器环境下使用。<code>JS</code>是一种动态的基于原型和多范式的脚本语言，支持面向对象、命令式和函数式的编程风格。</p>
-<hr>
-<h3 id="JavaScript的三大组成部分"><a href="#JavaScript的三大组成部分" class="headerlink" title="JavaScript的三大组成部分"></a><code>JavaScript</code>的三大组成部分</h3><p><strong><code>ECMAScript</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ECMAScript 是一种开放的、国际上广为接受的脚本语言规范。由欧洲计算机制造商协会制定和发布。 Web 浏览器对于 ECMAScript 来说只是一个宿主环境，但它并不是唯一的宿主环境。</div><div class="line">	</div><div class="line">ECMAScript 是由 ECMA-262 定义， ECMA-262 标准规范了一种脚本语言实现应该包含的内容（语法、数据类型、语句、关键字、保留字、操作符以及对象）	</div><div class="line">	</div><div class="line">ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现。在日常场合，这两个词是可以互换的。</div></pre></td></tr></table></figure>
-<p><strong><code>DOM</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DOM (Document Object Model 文档对象模型）是 W3C 组织制定的一套用于访问和操作 XML ( HTML 是 XML 的衍生品)文档的标准。</div><div class="line"></div><div class="line">它给文档提供了一种结构化的表示方法，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。</div><div class="line"></div><div class="line">DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。</div></pre></td></tr></table></figure>
-<p><strong><code>BOM</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BOM（Browser Object Model浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</div><div class="line">	</div><div class="line">由于 BOM 没有相关标准，每个浏览器都有其自己对 BOM 的实现方式。 BOM 有窗口对象、导航对象等一些实际上已经默认的标准，但对于这些对象和其它一些对象，每个浏览器都定义了自己的属性和方式。</div><div class="line">	</div><div class="line">例如：弹出新的浏览器窗口，移动、改变和关闭浏览器窗口，提供详细的网络浏览器信息（navigator），详细的页面信息（location），详细的用户屏幕分辨率的信息（screen），对 cookies 的支持等等。BOM 作为 JavaScript 的一部分并没有相关标准的支持，每一个浏览器都有自己的实现，虽然有一些非事实的标准，但还是给开发者带来一定的麻烦。</div></pre></td></tr></table></figure>
-<hr>
-<p>参考：</p>
-<p>阮一峰的《JavaScript 标准参考教程》<a href="http://javascript.ruanyifeng.com/introduction/history.html#toc1" target="_blank" rel="external">http://javascript.ruanyifeng.com/introduction/history.html#toc1</a></p>
-<p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model/Introduction</a>    </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/CSS 选择器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/CSS 选择器/" itemprop="url">CSS 选择器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="通用选择器："><a href="#通用选择器：" class="headerlink" title="通用选择器："></a>通用选择器：</h5><pre><code>*{}
-//匹配所有元素
-</code></pre><h5 id="标签选择器："><a href="#标签选择器：" class="headerlink" title="标签选择器："></a>标签选择器：</h5><pre><code>h1{}
-</code></pre><h5 id="类选择器："><a href="#类选择器：" class="headerlink" title="类选择器："></a>类选择器：</h5><pre><code>.name{}
-//匹配所有类名为 name 的元素
-</code></pre><h5 id="ID选择器："><a href="#ID选择器：" class="headerlink" title="ID选择器："></a>ID选择器：</h5><pre><code>#name{}
-//匹配所有 ID 名为 name 的元素
-</code></pre><h5 id="属性选择器："><a href="#属性选择器：" class="headerlink" title="属性选择器："></a>属性选择器：</h5><pre><code>[target = blank]
-//匹配所有以 target 命名，值为 blank 的元素
-</code></pre><h5 id="后代选择器："><a href="#后代选择器：" class="headerlink" title="后代选择器："></a>后代选择器：</h5><pre><code>.header .box{}
-//匹配由 .header 作为祖先元素(但不一定是父元素)的后代元素 .box
-</code></pre><h5 id="子选择器："><a href="#子选择器：" class="headerlink" title="子选择器："></a>子选择器：</h5><pre><code>.content &gt; .title{}
- //匹配由 .content 作为父元素的直接后代(子元素) .title
-</code></pre><h5 id="即-又-选择器："><a href="#即-又-选择器：" class="headerlink" title="即..又 选择器："></a>即..又 选择器：</h5><pre><code>.header.active{}
-//同时匹配 .header 和 .active , 一般会忽略前一个 class。
-</code></pre><h5 id="多标签选择器："><a href="#多标签选择器：" class="headerlink" title="多标签选择器："></a>多标签选择器：</h5><pre><code>p1,span{} 
-//同时匹配 p1 和 span ，样式作用于两者。
-</code></pre><h5 id="选择相邻的下一个："><a href="#选择相邻的下一个：" class="headerlink" title="选择相邻的下一个："></a>选择相邻的下一个：</h5><pre><code>div+p{}
-//匹配所有紧接着`&lt;div&gt;`元素之后的`&lt;p&gt;`元素
-</code></pre><h5 id="选择所有同级的邻居："><a href="#选择所有同级的邻居：" class="headerlink" title="选择所有同级的邻居："></a>选择所有同级的邻居：</h5><pre><code>div~p{}
-//匹配所有父级是`&lt;div&gt;`元素的`&lt;p&gt;`元素
-</code></pre><h5 id="伪类："><a href="#伪类：" class="headerlink" title="伪类："></a>伪类：</h5><pre><code>#header:hover{}
-//CSS3中的标准是伪类使用单冒号“:” 
-</code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
-//CSS3中的标准是伪元素使用双冒号“::”（避免和伪类混淆） 
-</code></pre><h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a>CSS的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
-<p>HTML</p>
-<pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
-</code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
-<pre><code>p{color: blue;}
-</code></pre><p>这里分为可继承和不可继承的样式</p>
-<pre><code>可继承的样式： font-size font-family color, UL LI DL DD DT;
-不可继承的样式：border padding margin width height ;
-</code></pre><h5 id="inherit-关键字"><a href="#inherit-关键字" class="headerlink" title="inherit 关键字"></a>inherit 关键字</h5><p>显式指定一个属性继承祖先元素的值，可用于继承性/非继承性属性。</p>
-<h5 id="重要性-important"><a href="#重要性-important" class="headerlink" title="重要性!important"></a>重要性<code>!important</code></h5><p>当在一个样式声明中加上<code>!important</code>时，此声明将覆盖任何其他声明。</p>
-<pre><code>p{color:red !important;}//这个会被应用
-p{color:green;}
-</code></pre><blockquote>
-<p>注意：应该尽量避免使用<code>!important</code>，因为这破坏了样式表中的固有的级联规则 使得调试找bug变得更加困难了。    </p>
-</blockquote>
-<p>￼</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2709,8 +2707,8 @@ p{color:green;}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2721,7 +2719,7 @@ p{color:green;}
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2769,7 +2767,7 @@ p{color:green;}
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

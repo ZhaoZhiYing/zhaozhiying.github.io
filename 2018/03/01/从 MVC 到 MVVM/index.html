@@ -79,16 +79,13 @@
 
 
 
-<meta name="description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stopPropagation() 和 preventDefault()">
-<meta property="og:url" content="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/index.html">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/从 MVC 到 MVVM/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
-<meta property="og:updated_time" content="2018-03-02T09:39:47.000Z">
+<meta property="og:updated_time" content="2018-03-01T07:34:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stopPropagation() 和 preventDefault()">
-<meta name="twitter:description" content="stopPropagation()在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的stopPropagation()方法停止事件的传播过程。     举例 1234567891011grand1.addEventListener(&amp;apos;click&amp;apos;, function fn1(e)&amp;#123;  console.log(&amp;apos;爷爷&amp;apos;)  e.stopProp">
+<meta name="twitter:title" content="jQuery">
 
 
 
@@ -118,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/从 MVC 到 MVVM/"/>
 
 
 
 
 
-  <title>stopPropagation() 和 preventDefault() | Zhao Zhiying</title>
+  <title>jQuery | Zhao Zhiying</title>
   
 
 
@@ -241,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/从 MVC 到 MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -258,7 +255,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">stopPropagation() 和 preventDefault()</h1>
+          <h1 class="post-title" itemprop="name headline">jQuery</h1>
         
 
         <div class="post-meta">
@@ -270,8 +267,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
-                2018-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T15:34:10+08:00">
+                2018-03-01
               </time>
             
 
@@ -280,28 +277,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -330,17 +305,7 @@
       
 
       
-        <h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的<code>stopPropagation()</code>方法停止事件的传播过程。    </p>
-<p>举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
-<h4 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a><code>preventDefault()</code></h4><p>阻止元素的默认事件。例如：</p>
-<ul>
-<li>当点击提交按钮时阻止对表单的提交</li>
-<li>当点击 <code>a</code> 链接时页面不会跳转</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.google.com.hk/?hl=zh-cn&quot;&gt;谷歌&lt;/a&gt;  </div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	$(&quot;a&quot;).click(function(event)&#123;             </div><div class="line">		event.preventDefault() //页面不会跳转  </div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<hr>
-
+        
       
     </div>
     
@@ -364,8 +329,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/20/JS 数组/" rel="next" title="JS 数组">
-                <i class="fa fa-chevron-left"></i> JS 数组
+              <a href="/2018/02/28/setInterval() 和 setTimeout()/" rel="next" title="setInterval() 和 setTimeout()">
+                <i class="fa fa-chevron-left"></i> setInterval() 和 setTimeout()
               </a>
             
           </div>
@@ -374,8 +339,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/23/BOM 常用API/" rel="prev" title="BOM 常用API">
-                BOM 常用API <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/02/Git 使用/" rel="prev" title="Git 使用">
+                Git 使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -428,17 +393,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -489,22 +445,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#stopPropagation"><span class="nav-number">1.</span> <span class="nav-text">stopPropagation()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#preventDefault"><span class="nav-number">2.</span> <span class="nav-text">preventDefault()</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

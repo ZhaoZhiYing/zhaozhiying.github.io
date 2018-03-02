@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="基本值 none 元素不会被显示。 block 该元素生成一个块元素盒。 inline    该元素生成一个或多个行内元素盒。 list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。 扩展值     inline-block 内联盒子内的块盒子。 表格模型值     inline-table 作用同 &amp;lt;table&amp;gt;，但是作为内联框，而不是块级框。表格框内是一个块级上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="display的几种值">
+<meta property="og:title" content="CSS 中 Display 的属性">
 <meta property="og:url" content="http://yoursite.com/2018/02/26/CSS 中 Display 的属性/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:updated_time" content="2018-02-26T03:47:49.000Z">
+<meta property="og:description" content="基本值 none 元素不会被显示。 block 该元素生成一个块元素盒。 inline    该元素生成一个或多个行内元素盒。 list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。 扩展值     inline-block 内联盒子内的块盒子。 表格模型值     inline-table 作用同 &amp;lt;table&amp;gt;，但是作为内联框，而不是块级框。表格框内是一个块级上">
+<meta property="og:updated_time" content="2018-03-02T11:14:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="display的几种值">
+<meta name="twitter:title" content="CSS 中 Display 的属性">
+<meta name="twitter:description" content="基本值 none 元素不会被显示。 block 该元素生成一个块元素盒。 inline    该元素生成一个或多个行内元素盒。 list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。 扩展值     inline-block 内联盒子内的块盒子。 表格模型值     inline-table 作用同 &amp;lt;table&amp;gt;，但是作为内联框，而不是块级框。表格框内是一个块级上">
 
 
 
@@ -121,7 +124,7 @@
 
 
 
-  <title>display的几种值 | Zhao Zhiying</title>
+  <title>CSS 中 Display 的属性 | Zhao Zhiying</title>
   
 
 
@@ -181,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -255,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">display的几种值</h1>
+          <h1 class="post-title" itemprop="name headline">CSS 中 Display 的属性</h1>
         
 
         <div class="post-meta">
@@ -265,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T11:47:49+08:00">
                 2018-02-26
@@ -277,6 +280,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -305,7 +330,31 @@
       
 
       
-        
+        <p>基本值</p>
+<pre><code>none 元素不会被显示。
+block 该元素生成一个块元素盒。
+inline    该元素生成一个或多个行内元素盒。
+list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。
+</code></pre><p>扩展值    </p>
+<pre><code>inline-block 内联盒子内的块盒子。
+</code></pre><p>表格模型值    </p>
+<pre><code>inline-table 作用同 &lt;table&gt;，但是作为内联框，而不是块级框。表格框内是一个块级上下文。
+table 作用同 &lt;table&gt; ，它定义了一个块级盒子。
+table-caption 作用同 &lt;caption&gt;
+table-cell 作用同 &lt;td&gt;
+table-column 作用同 &lt;col&gt;
+table-column-group 作用同 &lt;colgroup&gt;
+table-footer-group 作用同 &lt;tfoot&gt; 
+table-header-group 作用同 &lt;thead&gt;
+table-row 作用同 &lt;tr&gt;
+table-row-group 作用同 &lt;tbody&gt;
+</code></pre><p><code>Flexbox</code>模型值    </p>
+<pre><code>flex 弹性布局
+inline-flex ???
+</code></pre><p>栅格盒模型值</p>
+<pre><code>grid 网格布局。CSS 中最强大的布局系统
+inline-grid ???    
+</code></pre>
       
     </div>
     
@@ -329,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/21/stopPropagation()和preventDefault()/" rel="next" title="stopPropagation() 和 preventDefault()">
-                <i class="fa fa-chevron-left"></i> stopPropagation() 和 preventDefault()
+              <a href="/2018/02/24/ECMAScript/" rel="next" title="ECMAScript">
+                <i class="fa fa-chevron-left"></i> ECMAScript
               </a>
             
           </div>
@@ -409,8 +458,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -421,7 +470,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -469,7 +518,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
