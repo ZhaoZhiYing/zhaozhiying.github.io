@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="字体大小px像素px是相对于显示器屏幕分辨率而言的。 12像素原则：网页默认字体大小是16px，Chorme默认字体大小是 12px（比如如果设置是 6px，最小字号依然是 12px），safari没有最小字号。 特点：像素的大小是固定的。 em特点：1.em的值并不是固定的。2.em会继承父级元素的字体大小。 当定义font-size属性时，1em等于元素的父元素的字体大小。 如果没有设置文字大">
+<meta name="description" content="CookieCookie是什么？注意：前端永远不要读写 Cookie，交给后端。 Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie的特点1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。 2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。 3. 服务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 常用单位">
-<meta property="og:url" content="http://yoursite.com/2018/02/09/CSS 常用单位/index.html">
+<meta property="og:title" content="Cookie、Session">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/Cookie、Session/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="字体大小px像素px是相对于显示器屏幕分辨率而言的。 12像素原则：网页默认字体大小是16px，Chorme默认字体大小是 12px（比如如果设置是 6px，最小字号依然是 12px），safari没有最小字号。 特点：像素的大小是固定的。 em特点：1.em的值并不是固定的。2.em会继承父级元素的字体大小。 当定义font-size属性时，1em等于元素的父元素的字体大小。 如果没有设置文字大">
-<meta property="og:updated_time" content="2018-03-01T12:45:49.000Z">
+<meta property="og:description" content="CookieCookie是什么？注意：前端永远不要读写 Cookie，交给后端。 Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie的特点1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。 2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。 3. 服务">
+<meta property="og:updated_time" content="2018-03-03T11:53:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 常用单位">
-<meta name="twitter:description" content="字体大小px像素px是相对于显示器屏幕分辨率而言的。 12像素原则：网页默认字体大小是16px，Chorme默认字体大小是 12px（比如如果设置是 6px，最小字号依然是 12px），safari没有最小字号。 特点：像素的大小是固定的。 em特点：1.em的值并不是固定的。2.em会继承父级元素的字体大小。 当定义font-size属性时，1em等于元素的父元素的字体大小。 如果没有设置文字大">
+<meta name="twitter:title" content="Cookie、Session">
+<meta name="twitter:description" content="CookieCookie是什么？注意：前端永远不要读写 Cookie，交给后端。 Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie的特点1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。 2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。 3. 服务">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/09/CSS 常用单位/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/05/Cookie、Session/"/>
 
 
 
 
 
-  <title>CSS 常用单位 | Zhao Zhiying</title>
+  <title>Cookie、Session | Zhao Zhiying</title>
   
 
 
@@ -241,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/CSS 常用单位/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/Cookie、Session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -258,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS 常用单位</h1>
+          <h1 class="post-title" itemprop="name headline">Cookie、Session</h1>
         
 
         <div class="post-meta">
@@ -270,8 +270,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
-                2018-02-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
+                2018-02-05
               </time>
             
 
@@ -293,8 +293,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
                   </a>
                 </span>
 
@@ -330,27 +330,29 @@
       
 
       
-        <h3 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h3><h3 id="px"><a href="#px" class="headerlink" title="px"></a><code>px</code></h3><p>像素<code>px</code>是相对于显示器屏幕分辨率而言的。</p>
-<p><strong>12像素原则：</strong>网页默认字体大小是<code>16px</code>，<code>Chorme</code>默认字体大小是 <code>12px</code>（比如如果设置是 <code>6px</code>，最小字号依然是 12px），<code>safari</code>没有最小字号。</p>
-<p><strong>特点：</strong>像素的大小是固定的。</p>
-<h3 id="em"><a href="#em" class="headerlink" title="em"></a><code>em</code></h3><p><strong>特点：</strong>1.<code>em</code>的值并不是固定的。2.<code>em</code>会继承父级元素的字体大小。</p>
-<p>当定义<code>font-size</code>属性时，<code>1em</code>等于元素的父元素的字体大小。</p>
-<p>如果没有设置文字大小，那它将等于浏览器默认文字大小<code>16px</code>。所以通<code>1em = 16px</code>，<code>2em = 32px</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;p1&quot;&gt;</div><div class="line">	&lt;div class=&quot;p2&quot;&gt;1&lt;/div&gt;</div><div class="line">  	&lt;div class=&quot;p3&quot;&gt;1&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.p1 &#123;font-size: 16px; line-height: 32px;&#125;</div><div class="line">.P2 &#123;font-size: 1em;&#125;</div><div class="line">.P3 &#123;font-size: 2em; line-height: 2em;&#125;</div><div class="line"></div><div class="line">//P2&#123;font-size: 16px; line-height: 32px&#125; </div><div class="line">//P3&#123;font-size: 32px; line-height: 64px&#125;</div></pre></td></tr></table></figure>
-<p><code>em</code>相比<code>px</code>更加灵活，可用下面公式计算像素大小的等价 <code>em</code> 大小：</p>
-<pre><code>em = 希望得到的像素大小 / 父元素字体像素大小
-</code></pre><blockquote>
-<p><code>em</code> 可用于 <code>line-height</code> <code>font-size</code> <code>margin-bottom</code> <code>margin-top</code></p>
-</blockquote>
-<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a><code>rem</code></h3><p><code>rem</code>代表根元素（<code>html</code>元素）的 <code>font-size</code> 大小。当用在根元素的 <code>font-size</code> 上面时，它代表了它的初始值。</p>
-<pre><code>html{font-size: 2rem} //32px
-</code></pre><p>当用在非根元素的 <code>font-size</code> 上面时，相对于根元素字体大小。</p>
-<pre><code>html{font-size: 1rem} // 此时 1rem = 1em = 16px
-p{font-size: 2rem} //32px
+        <h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a><code>Cookie</code></h4><h5 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a><code>Cookie</code>是什么？</h5><p><strong>注意：</strong>前端永远不要读写 <code>Cookie</code>，交给后端。</p>
+<p><code>Cookie</code> 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。</p>
+<h5 id="Cookie的特点"><a href="#Cookie的特点" class="headerlink" title="Cookie的特点"></a><code>Cookie</code>的特点</h5><pre><code>1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。
+2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。
+3. 服务器读取 Cookie 就知道登录用户的信息。客户端要在一段时间内保存这个 Cookie 。
+4. Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。
+</code></pre><p>举例<code>server.js</code></p>
+<pre><code>response.setHeader(&apos;Set-Cookie&apos;,`sign_in_email=${email}`)
+</code></pre><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><pre><code>* Cookie 同源策略跟 AJAX 的同源策略稍微有些不同。
+* 浏览器的同源政策规定，两个网址只要域名相同和端口相同，就可以共享  Cookie 。
+* 注意，这里不要求协议相同。也就是说， http://example.com 设置的 Cookie ，可以被 https://example.com 读取。
+</code></pre><h5 id="Cookie的缺点"><a href="#Cookie的缺点" class="headerlink" title="Cookie的缺点"></a><code>Cookie</code>的缺点</h5><pre><code>1. Cookie 会被附加在每个 HTTP 请求中，所以无形中增加了流量。
+2. 由于在 HTTP 请求中的 Cookie 是明文传递的，所以安全性成问题，用户能够篡改密码，除非用 HTTPS 。
+3. Cookie 的大小限制在 4KB 左右，对于复杂的存储需求来说是不够用的。
 </code></pre><hr>
-<h3 id="视口大小"><a href="#视口大小" class="headerlink" title="视口大小"></a>视口大小</h3><h3 id="vh"><a href="#vh" class="headerlink" title="vh"></a><code>vh</code></h3><p>视口高度，1vh=视口高度的1%</p>
-<h3 id="vw"><a href="#vw" class="headerlink" title="vw"></a><code>vw</code></h3><p>视口宽度，1vw=视口宽度的1%</p>
+<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a><code>Session</code></h4><h5 id="Session是什么？"><a href="#Session是什么？" class="headerlink" title="Session是什么？"></a><code>Session</code>是什么？</h5><ul>
+<li><code>Session</code>解决了<code>Cookie</code>的安全性问题。</li>
+<li><code>Session</code>是服务器上的<code>hash表</code>。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 服务器通过 cookie 给用户一个 sessionId (随机数)。</div><div class="line">2. 服务器有一块内存（哈希表）保存了所有的 session 。 </div><div class="line">3. 每次用户访问服务器的时候，服务器通过 sessionId 去读取对应的 session ，得到用户的隐私信息，比如 id email 。</div></pre></td></tr></table></figure>
+<p>举例<code>server.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Session</div><div class="line">let sessionId = Math.random() * 100000 </div><div class="line">sessions[sessionId] = &#123;sign_in_email: email&#125;</div><div class="line"></div><div class="line">//Set-Cookie</div><div class="line">response.setHeader(&apos;Set-Cookie&apos;,`sessionId = $&#123;sessionId&#125;`)</div></pre></td></tr></table></figure>
+<h4 id="不基于-Cookie-的-Session"><a href="#不基于-Cookie-的-Session" class="headerlink" title="不基于 Cookie 的 Session"></a>不基于 <code>Cookie</code> 的 <code>Session</code></h4><p><code>Session</code> 还可以通过查询参数和 <code>LocalStorage</code>来存储 <code>sessionId</code>。</p>
 <hr>
 
       
@@ -376,8 +378,8 @@ p{font-size: 2rem} //32px
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/05/Cookie、Session/" rel="next" title="Cookie、Session">
-                <i class="fa fa-chevron-left"></i> Cookie、Session
+              <a href="/2018/02/03/target 与 currentTarget/" rel="next" title="target 与 currentTarget">
+                <i class="fa fa-chevron-left"></i> target 与 currentTarget
               </a>
             
           </div>
@@ -386,8 +388,8 @@ p{font-size: 2rem} //32px
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/11/canvas/" rel="prev" title="canvas">
-                canvas <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/09/CSS 常用单位/" rel="prev" title="CSS 常用单位">
+                CSS 常用单位 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,7 +513,7 @@ p{font-size: 2rem} //32px
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字体大小"><span class="nav-number">1.</span> <span class="nav-text">字体大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#px"><span class="nav-number">2.</span> <span class="nav-text">px</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#em"><span class="nav-number">3.</span> <span class="nav-text">em</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem"><span class="nav-number">4.</span> <span class="nav-text">rem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视口大小"><span class="nav-number">5.</span> <span class="nav-text">视口大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vh"><span class="nav-number">6.</span> <span class="nav-text">vh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vw"><span class="nav-number">7.</span> <span class="nav-text">vw</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的特点"><span class="nav-number">1.2.</span> <span class="nav-text">Cookie的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">1.3.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的缺点"><span class="nav-number">1.4.</span> <span class="nav-text">Cookie的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Session是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">Session是什么？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不基于-Cookie-的-Session"><span class="nav-number">3.</span> <span class="nav-text">不基于 Cookie 的 Session</span></a></li></ol></div>
             
 
           </div>

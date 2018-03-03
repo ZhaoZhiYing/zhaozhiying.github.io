@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
+<meta name="description" content="历史背景如何发请求？* form 可以发 get post 请求，但是会刷新页面或新开页面 * a 标签可以发 get 请求，但是会刷新页面或新开页面 * img 可以发 get 请求，但是只能以图片的形式展示 * link 可以发 get 请求，但是只能以 CSS favicon 的形式展示 * script 可以发 get 请求，但是只能以脚本的形式运行 那么问题来了，有没有什么方式可以实现？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="http://yoursite.com/2018/01/29/AJAX/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
+<meta property="og:description" content="历史背景如何发请求？* form 可以发 get post 请求，但是会刷新页面或新开页面 * a 标签可以发 get 请求，但是会刷新页面或新开页面 * img 可以发 get 请求，但是只能以图片的形式展示 * link 可以发 get 请求，但是只能以 CSS favicon 的形式展示 * script 可以发 get 请求，但是只能以脚本的形式运行 那么问题来了，有没有什么方式可以实现？">
 <meta property="og:image" content="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
 ">
-<meta property="og:updated_time" content="2018-03-01T12:44:30.000Z">
+<meta property="og:updated_time" content="2018-03-02T13:51:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX">
-<meta name="twitter:description" content="历史背景如何发请求？ form可以发get post请求，但是会刷新页面或新开页面 a标签可以发get请求，但是会刷新页面或新开页面 img 可以发get请求，但是只能以图片的形式展示 link可以发get请求，但是只能以 CSS favicon 的形式展示 script可以发get请求，但是只能以脚本的形式运行  那么问题来了，有没有什么方式可以实现？  get post put delete">
+<meta name="twitter:description" content="历史背景如何发请求？* form 可以发 get post 请求，但是会刷新页面或新开页面 * a 标签可以发 get 请求，但是会刷新页面或新开页面 * img 可以发 get 请求，但是只能以图片的形式展示 * link 可以发 get 请求，但是只能以 CSS favicon 的形式展示 * script 可以发 get 请求，但是只能以脚本的形式运行 那么问题来了，有没有什么方式可以实现？">
 <meta name="twitter:image" content="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
 ">
 
@@ -334,26 +334,20 @@
       
 
       
-        <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><ul>
-<li><code>form</code>可以发<code>get</code> <code>post</code>请求，但是会刷新页面或新开页面</li>
-<li><code>a</code>标签可以发<code>get</code>请求，但是会刷新页面或新开页面</li>
-<li><code>img</code> 可以发<code>get</code>请求，但是只能以图片的形式展示</li>
-<li><code>link</code>可以发<code>get</code>请求，但是只能以 <code>CSS</code> <code>favicon</code> 的形式展示</li>
-<li><code>script</code>可以发<code>get</code>请求，但是只能以脚本的形式运行</li>
-</ul>
-<p>那么问题来了，有没有什么方式可以实现？</p>
-<ul>
-<li><code>get</code> <code>post</code> <code>put</code> <code>delete</code> 请求都行</li>
-<li>想以什么形式展示就以什么形式展示</li>
-</ul>
-<h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
+        <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><pre><code>* form 可以发 get post 请求，但是会刷新页面或新开页面
+* a 标签可以发 get 请求，但是会刷新页面或新开页面
+* img 可以发 get 请求，但是只能以图片的形式展示
+* link 可以发 get 请求，但是只能以 CSS favicon 的形式展示
+* script 可以发 get 请求，但是只能以脚本的形式运行
+</code></pre><p>那么问题来了，有没有什么方式可以实现？</p>
+<pre><code>get post put delete 请求都行
+想以什么形式展示就以什么形式展示
+</code></pre><h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
 <h5 id="AJAX诞生"><a href="#AJAX诞生" class="headerlink" title="AJAX诞生"></a><code>AJAX</code>诞生</h5><p>2005年，Jesse James Garrett 发表了一篇在线文章，在这篇文章里介绍了一种技术，叫 <code>AJAX</code>，是对 <code>Asynchronous JavaScript + XML</code> 的简写，译为异步的<code>JavaScript</code>和<code>XML</code>。</p>
-<ol>
-<li>使用 <code>XMLHttpRequest</code> 发请求</li>
-<li>服务器返回 <code>XML</code> 格式的字符串 (<code>XML</code>后来被<code>JSON</code>取代)</li>
-<li><code>JS</code> 解析 <code>XML</code>，并更新局部页面</li>
-</ol>
-<hr>
+<pre><code>1. 使用 XMLHttpRequest 发请求
+2. 服务器返回 XML 格式的字符串 (XML 后来被 JSON 取代)
+3. JS 解析 XML ，并更新局部页面
+</code></pre><hr>
 <h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><code>XMLHttpRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHttpRequest</code>）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//前端代码</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -510,7 +504,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

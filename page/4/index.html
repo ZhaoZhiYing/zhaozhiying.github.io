@@ -238,6 +238,517 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM 常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/30/DOM 常用API/" itemprop="url">DOM 常用API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
+                2017-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="DOM-理解"><a href="#DOM-理解" class="headerlink" title="DOM 理解"></a><code>DOM</code> 理解</h5><pre><code>DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。
+Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
+
+* Document：XML(HTML 是 XML 的衍生品)
+* Element：节点对象代表文档树中的一个节点。
+* Text：模型
+</code></pre><hr>
+<h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a><code>DOM</code> 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
+</code></pre><hr>
+<h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
+<pre><code>* Document：整个文档（DOM树的根节点），nodeType = 9
+* DocumentType：文档类型节点（比如&lt;!DOCTYPE html&gt;），nodeType = 10
+* Element：网页的各种HTML标签（比如&lt;body&gt;、&lt;a&gt;等），nodeType = 1
+* Attribute：网页元素的属性（比如class=&quot;right&quot;），nodeType = 2
+* Text：标签之间或标签包含的文本，nodeType = 3
+* Comment：注释，nodeType = 8
+* DocumentFragment：文档的片段，nodeType = 11
+</code></pre><p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</p>
+<hr>
+<h4 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a><code>Node</code> 接口</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* childNodes 获取子节点（可以是文本、注释、属性） 
+* children 获取子标签节点 
+* firstChild 返回第一个子节点
+* lastChild 返回最后一个子节点     
+* nextSibling 返回给定节点的下一个子节点 
+* previousSibling 返回给定节点的上一个子节点 
+* parentNode （w3c标准）返回给定节点的父节点
+* parentElement （只ie支持）返回给定节点的父标签
+* ownerDocument 返回元素的根节点文档对象（即 document 对象）
+* innerText 里面的文本
+* textContent 
+
+* nodeName 节点的名称
+    标签节点的 nodeName 是标签名称
+    属性节点的 nodeName 是属性名称
+    文本节点的 nodeName 永远是 #text
+    文档节点的 nodeName 永远是 #document
+* nodeType 节点的类型     
+* nodeValue 节点的值
+    文本节点的 nodeValue 属性包含文本。
+    属性节点的 nodeValue 属性包含属性值。
+    nodeValue 属性对于文档节点和标签节点是不可用的。
+
+注意：
+* nodeName 只有 svg 是小写，其他是大写
+* nextSibling 可能获取到文本
+* innerText 和 textContent 区别     
+</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性</p>
+<pre><code>* appendChild() 将指定的节点添加到调用该方法的节点的子元素的末尾
+* removeChild() 删除指定的子节点并返回
+* replaceChild() 交换儿子（将另一个替换这一个，另一个去了内存）
+* cloneNode() 复制一个节点
+* insertBefore 添加一个节点到一个参照节点之前
+
+* contains() 一个元素是否包含另一个元素
+* hasChildNodes() 一个元素是否有儿子
+
+* isEqualNode() 是否相等（看起来一样）  
+* isSameNode() 是否相同（真的一样，等价于 ===）
+
+* normalize() 常规化，把不正常的变成正常的
+
+注意：
+1.cloneNode() 分为深拷贝和浅拷贝
+2.isEqualNode() 和 isSameNode() 区别
+</code></pre><hr>
+<h4 id="Document-接口（查询接口，因为一般从-document-开始查）"><a href="#Document-接口（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document 接口（查询接口，因为一般从 document 开始查）"></a><code>Document</code> 接口（查询接口，因为一般从 document 开始查）</h4><h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>* characterSet 字符编码，比如‘UTF-8’
+* childElementCount 子元素的数量 
+* domain 域名
+* links 所有 a 标签
+* location 文档的 URL 相关的信息
+* onxxxxxxxxx 事件监听，比如 onclick 
+* origin 源
+* plugins 是否安装插件 
+* referrer 引荐
+</code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>* open() document步骤1.打开
+* close() document步骤3.关闭文档
+* write() document步骤2.（尽量不用write，用的话避免有延时性）
+* writeln() 写一行
+
+* createDocumentFragment() 创建一个 DocumentFragment，主要是用于添加大量节点到文档中时会使用到 
+* createElement() 创建元素
+* createTextNode() 创建文本节点
+
+* getElementById() 通过 id 获取元素
+* getElementsByClassName() 通过 className 获取元素
+* getElementsByName() 通过 name 获取元素，它返回一个即时的NodeList 对象。
+* getElementsByTagName() 通过 TagName 获取元素，比如 p button
+* getSelection() 获取用户选中的文本
+* querySelector() 通过选择器，返回一个元素
+* querySelectorAll() 通过选择器，返回多个元素组成的数组（一个元素也返回数组） 
+
+注意：
+1.获取元素主要使用 querySelector()、querySelectorAll() 
+</code></pre><hr>
+<h4 id="Element-的接口"><a href="#Element-的接口" class="headerlink" title="Element 的接口"></a><code>Element</code> 的接口</h4><p><code>DOM API</code>获取的<code>Elements</code>都是伪数组</p>
+<h5 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h5><pre><code>* children 子元素列表
+* childElementCount 子元素数量
+* firstElementChild 第一个子元素
+* lastElementChild 最后一个子元素
+
+* classList 类名列表（对象）
+* className 类名（字符串）
+* id 元素id
+
+* attributes 所有显性属性
+* innerHTML 获取从对象的起始位置到终止位置的全部内容,不包括 Html 标签。
+
+* clientWidth 内容区 + padding 的宽度
+* clientHeight 内容区 + padding 的高度
+* scrollHeight 元素中可以滚动的高度
+* scrollWidth 元素中可以滚动的宽度
+* scrollTop 元素中的内容已经向上滚出去多少
+* scrollLeft 元素中的内容已经向左滚出去多少
+</code></pre><h5 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h5><pre><code>* setAttribute() 设置或者改变指定属性并指定值
+* getAttribute() 返回指定元素的属性值
+* removeAttribute() 从元素中删除指定的属性
+* getElementsByClassName() 根据元素的 class 属性获取所有元素
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/JS 函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/29/JS 函数/" itemprop="url">JS 函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
+<hr>
+<h4 id="函数的几种声明"><a href="#函数的几种声明" class="headerlink" title="函数的几种声明"></a>函数的几种声明</h4><h5 id="1-函数声明（function命令）"><a href="#1-函数声明（function命令）" class="headerlink" title="1.函数声明（function命令）"></a>1.函数声明（<code>function</code>命令）</h5><pre><code>function print(s){ //print是函数名，也叫标识符
+    console.log(s) //这是函数体
+} //函数的声明在结尾的大括号后面不用加分号    
+</code></pre><h5 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2.函数表达式"></a>2.函数表达式</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
+var print = function (s){ 
+    console.log(s)
+}
+
+//如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+var print = function f(){
+  console.log(typeof f)
+}
+f// ReferenceError: f is not defined
+print()// function    
+</code></pre><h5 id="3-Function-构造函数"><a href="#3-Function-构造函数" class="headerlink" title="3.Function 构造函数"></a>3.<code>Function</code> 构造函数</h5><pre><code>var add = new Function(
+  &apos;x&apos;,
+  &apos;y&apos;,
+  &apos;return x + y&apos;
+)
+// 等同于
+function add(x, y) {
+  return x + y
+} 
+</code></pre><h5 id="4-箭头函数-匿名-x-y-gt-return-x-y"><a href="#4-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="4.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>4.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
+<pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
+(参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
+//相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
+
+// 当只有一个参数时，圆括号是可选的：
+(单一参数) =&gt; {函数声明}
+单一参数 =&gt; {函数声明}
+
+// 没有参数的函数应该写成一对圆括号。
+() =&gt; {函数声明}
+</code></pre><hr>
+<h4 id="函数的属性"><a href="#函数的属性" class="headerlink" title="函数的属性"></a>函数的属性</h4><h5 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a><code>name</code>属性</h5><p><code>name</code>属性返回紧跟在<code>function</code>关键字之后的那个函数名。</p>
+<pre><code>function f1() {}; f1.name // &apos;f1&apos;
+var f2 = function () {}; f2.name // ‘f2’
+var f3 = function f4() {}; f3.name // ‘f4’
+f5 = new Function(&apos;x&apos;, &apos;y&apos;,&apos;return x + y’){}  
+f5.name//‘anonymous’ (匿名) 
+</code></pre><h5 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a><code>length</code>属性</h5><p><code>length</code>属性返回函数预先定义的参数个数。</p>
+<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>作用域<code>scope</code>指的是变量存在的范围。<code>Javascript</code> 只有两种作用域：</p>
+<pre><code>(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；在函数外部声明的变量就是全局变量。
+
+(2)函数作用域：在函数内部定义的变量，外部无法读取。
+
+//函数内部定义的变量，会在该作用域内覆盖同名全局变量。
+//对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一律都是全局变量。
+</code></pre><hr>
+<h4 id="函数内部的变量提升"><a href="#函数内部的变量提升" class="headerlink" title="函数内部的变量提升"></a>函数内部的变量提升</h4><p><code>var</code>命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p>
+<pre><code>function foo(x){
+  if (x &gt; 100){
+    var tmp = x - 100 //会升到函数体头部
+  }
+}
+</code></pre><hr>
+<h4 id="return"><a href="#return" class="headerlink" title="return"></a><code>return</code></h4><ul>
+<li>每个函数都有<code>return</code>。</li>
+<li>如果你不写<code>return</code>，就相当于写了<code>return undefined</code>。</li>
+</ul>
+<p>作用：返回一个值给函数，并且结束函数执行。</p>
+<pre><code>function foo(a,b){      
+    return a + b;
+} 
+foo(2,3) //5
+
+
+function foo(){
+    console.log(1);       
+    return;
+    console.log(2);
+} 
+foo() //1
+</code></pre><hr>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>递归函数是一个直接或间接调用函数自身的嵌套型函数。</p>
+<pre><code>function fn(num){
+  if (num === 0) return 0
+  if (num === 1) return 1
+  return fn(num - 2) + fn(num - 1)
+}
+fn(6) // 8
+</code></pre><hr>
+<h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><h5 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h5><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
+<h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h5><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
+<pre><code>function add(a,b){
+    return a+b
+}
+add.call(add, 5, 3) //8
+add.apply(add, [5, 3]) //8
+</code></pre><h5 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h5><p><code>bind</code> 接受的参数跟 <code>call</code> 一致，只是 <code>bind</code> 不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
+<pre><code>function add(a, b){
+    return a+b;
+}
+var foo1 = add.bind(add, 5,3)
+foo1() //8
+var foo1 = add.bind(add, 5,3) 
+foo1() //8
+</code></pre><hr>
+<h5 id="eval"><a href="#eval" class="headerlink" title="eval()"></a><code>eval()</code></h5><ul>
+<li><code>eval()</code>函数会将传入的字符串当做<code>JavaScript</code>代码进行执行。</li>
+<li>语法：<code>eval(string)</code></li>
+<li>如果字符串表示的是表达式，<code>eval()</code>会对表达式进行求值。</li>
+<li>如果参数表示一个或多个<code>JavaScript语句</code>， 那么<code>eval()</code>就会执行这些语句。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&apos;var a = 1;&apos;)</div><div class="line">a // 1</div></pre></td></tr></table></figure>
+<hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/JS 的数据类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1815,506 +2326,11 @@ td(table data)元素定义表格单元(数据)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/19/一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？/" itemprop="url">一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
-                2017-10-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.<code>DNS</code>解析</h3><ul>
-<li><code>DNS</code>全称：域名解析系统<code>Domain Name System</code>。</li>
-<li><code>DNS</code>解析是指根据域名查找<code>IP</code>地址。 </li>
-</ul>
-<h5 id="概念解释："><a href="#概念解释：" class="headerlink" title="概念解释："></a>概念解释：</h5><ul>
-<li><code>IP</code>地址：是<code>IP</code>协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址。</li>
-<li>域名：相当于<code>IP</code>地址的面具，域名的作用的便于人类使用。例如，<code>www.wikipedia.org</code>是一个域名，对应的<code>IP</code>地址是<code>208.80.152.2</code>。</li>
-</ul>
-<h5 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h5><p>以<code>www.google.com</code>为例</p>
-<ol>
-<li>本地域名服务器首先检查自身缓存，如果存在记录则直接返回结果。</li>
-<li>如果记录老化或不存在<ul>
-<li>本地域名服务器会向根域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果根域名服务器也不存在该域名，本地域名服务器会向<code>.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果<code>.com</code>顶级域名服务器也不存在该域名，本地域名服务器会向<code>.google.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。得到主机<code>www</code>的记录，存入自身缓存并返回给客户端。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h4 id="知识展开"><a href="#知识展开" class="headerlink" title="知识展开"></a>知识展开</h4><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a><code>URL</code></h4><p>统一资源定位符，通俗地称为<code>Web</code>地址。<code>URL</code>通常由以下几部分组成：</p>
-<pre><code>* 协议：由一串不区分大小写的字母组成，以 : 作为结束符。常用的有http、https等。
-* 身份验证：可选，一般的协议(`http\https`等)都会使用默认的匿名形式进行数据获取（格式：`username:password@hostname`）。
-* 域名：服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
-* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，`http`的默认端口为`80`。
-* 路径：由零或多个“/”符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
-* 查询参数：可选，可有多个参数，用“&amp;”符号隔开，每个参数的名和值用“=”符号隔开。
-* 锚点：例如一个网页中有多个名词解释，可使用锚点直接定位到某一名词解释。
-</code></pre><p>如图</p>
-<p><img src="https://i.loli.net/2018/02/05/5a7836443733e.png
-"></p>
-<h5 id="域名级别"><a href="#域名级别" class="headerlink" title="域名级别"></a>域名级别</h5><pre><code>www.google.com 是三级域名
-google.com 是二级域名（正常经常忽略.com，baidu.com 称为一级域名）
-.com 是一级域名（顶级域名）
-www.baidu.com 和 baidu.com 不是同一个域名，只是共有一个二级域名。
-</code></pre><hr>
-<h4 id="2-TCP连接"><a href="#2-TCP连接" class="headerlink" title="2.TCP连接"></a>2.<code>TCP</code>连接</h4><p>浏览器根据 <code>IP</code> 地址向服务器发起 <code>TCP</code> 连接，与浏览器建立 <code>TCP</code> 三次握手：</p>
-<pre><code>1. 主机向服务器发送一个建立连接的请求（我要连接你了，可以吗）。
-2. 服务器接到请求后发送同意连接的信号（嗯我准备好了，连接我吧）。
-3. 主机接到同意连接的信号后，再次向服务器发送了确认信号（那我连接你咯），自此，主机与服务器两者建立了连接。
-</code></pre><hr>
-<h4 id="知识展开-1"><a href="#知识展开-1" class="headerlink" title="知识展开"></a>知识展开</h4><ul>
-<li>通常使用的网络是在<code>TCP/IP</code>协议族的基础上运作的。而<code>HTTP</code>属于它内部的一个子集。</li>
-<li><code>TCP/IP</code>协议族一共分为4层：应用层、传输层、网络层和数据链路层。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">应用层：决定了向用户提供应用服务时通信的活动。包括 FTP(文件传输协议)、DNS(域名解析系统)、HTTP协议。</div><div class="line"></div><div class="line">传输层：传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。包括 TCP(传输控制协议)、UDP(用户数据报协议)。</div><div class="line"></div><div class="line">网络层：处理在网络上流动的数据包（数据包是网络传输的最小数据单位）。该层规定了通过怎样的路径到大对方计算机，并把数据包传送给对方。</div><div class="line"></div><div class="line">数据链路层：处理连接网络的硬件部分。比如硬件的设备驱动、光纤等物理可见部分。</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="3-发送HTTP请求"><a href="#3-发送HTTP请求" class="headerlink" title="3.发送HTTP请求"></a>3.发送<code>HTTP</code>请求</h4><p><code>HTTP</code>请求报文是由三部分组成：请求行, 请求报头和请求正文。</p>
-<hr>
-<h4 id="4-服务器处理请求并返回HTTP报文"><a href="#4-服务器处理请求并返回HTTP报文" class="headerlink" title="4.服务器处理请求并返回HTTP报文"></a>4.服务器处理请求并返回<code>HTTP</code>报文</h4><p><code>HTTP</code>响应报文也是由三部分组成：状态码, 响应报头和响应报文。</p>
-<hr>
-<h4 id="知识展开-2"><a href="#知识展开-2" class="headerlink" title="知识展开"></a>知识展开</h4><h5 id="HTTP协议的作用指导服务器和浏览器如何沟通。"><a href="#HTTP协议的作用指导服务器和浏览器如何沟通。" class="headerlink" title="HTTP协议的作用指导服务器和浏览器如何沟通。"></a><code>HTTP</code>协议的作用指导服务器和浏览器如何沟通。</h5><pre><code>* 浏览器负责发起请求
-* 服务器在 80 端口接收请求
-* 服务器负责返回内容（响应）
-* 浏览器负责下载响应内容
-</code></pre><h5 id="Https和Http的区别"><a href="#Https和Http的区别" class="headerlink" title="Https和Http的区别"></a><code>Https</code>和<code>Http</code>的区别</h5><pre><code>Https 加密  
-Http 有安全隐患，造成密码被盗
-</code></pre><h5 id="用curl发请求"><a href="#用curl发请求" class="headerlink" title="用curl发请求"></a>用<code>curl</code>发请求</h5><pre><code>curl -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;
-
-curl -X POST -d &quot;username=ff&amp;password=123&quot; -s -v  -- &quot;http://localhost:8080/path&quot;
-
--X curl 默认的 HTTP 动词是 GET，使用 -X 参数可以支持其他动词。
--s 不显示进度条
--v 显示请求和响应
--H 添加响应头
--d 要下载的内容
-</code></pre><h5 id="请求格式"><a href="#请求格式" class="headerlink" title="请求格式"></a>请求格式</h5><pre><code>1 动词 路径 协议/版本
-(POST / HTTP/1.1 或 GET / HTTP/1.1)
-2 Key1: value1
-2 Key2: value2
-2 Key3: value3
-2 Content-Type: application/x-www-form-urlencoded //上传格式，默认为text/html
-2 Host: www.baidu.com //根域名
-2 User-Agent: curl/7.54.0  //代理
-3 永远是回车（为了区分第二部分和第四部分）
-4 要上传的数据（可以是空的）
-</code></pre><p>动词</p>
-<pre><code>Get 获取信息
-post 上传信息
-put 更新
-patch 局部更新
-delete 删除
-</code></pre><p>注意事项</p>
-<pre><code>1. 请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）
-2. 第三部分永远都是一个回车（\n）
-3. 动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等
-4. 这里的路径包括「查询参数」，但不包括「锚点」
-5. 如果你没有写路径，那么路径默认为 /
-6. 第 2 部分中的 Content-Type 标注了第 4 部分的格式
-</code></pre><h5 id="响应格式"><a href="#响应格式" class="headerlink" title="响应格式"></a>响应格式</h5><pre><code>1 协议/版本号 状态码 状态解释
-2 Key1: value1
-2 Key2: value2
-2 Content-Length: 17931
-2 Content-Type: text/html
-3
-4 要下载的内容
-</code></pre><h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><pre><code>1xx 不常用
-2xx 表示成功   200响应成功   204创建成功
-3xx 表示滚吧（重定向）301永久搬走   302临时外出 
-4xx 表示你丫错了（客户端错误）
-5xx 表示好吧，我错了（服务器错误）
-</code></pre><h5 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a><code>Content-Type</code></h5><p>下面是几个常见的<code>Content-Type</code></p>
-<pre><code>* text/html
-* text/plain
-* text/css
-* text/javascript
-* application/x-www-form-urlencoded
-* multipart/form-data
-* application/json
-* application/xml 
-</code></pre><h5 id="GET"><a href="#GET" class="headerlink" title="GET"></a><code>GET</code></h5><pre><code>//GET 请求
-1 GET / HTTP/1.1
-2 Host: baidu.com
-2 Accpet: text/html
-
-//GET 响应
-1 HTTP/1.1 200 OK
-2 Content-Type: text/html; charset=utf-8
-2 Content-Length: 10000
-</code></pre><h5 id="POST"><a href="#POST" class="headerlink" title="POST"></a><code>POST</code></h5><pre><code>//POST 请求
-1 POST /path HTTP/1.1
-2 Host: localhost:8080
-2 User-Agent: curl/7.54.0
-2 Accept: */*
-2 Content-Length: 24
-2 Content-Type: application/x-www-form-urlencoded
-3 
-4 username=ff&amp;password=123
-
-//POST 响应
-1 HTTP/1.1 200 OK
-2 Content-Type: application/json
-2 Content-Length: 20
-3 
-4 
-</code></pre><hr>
-<h4 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h4><p>浏览器是一个边解析边渲染的过程。首先浏览器解析<code>HTML</code>文件构建<code>DOM</code>树，然后解析<code>CSS</code>文件构建渲染树，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。</p>
-<hr>
-<h4 id="6-关闭TCP连接或继续保持连接"><a href="#6-关闭TCP连接或继续保持连接" class="headerlink" title="6.关闭TCP连接或继续保持连接"></a>6.关闭<code>TCP</code>连接或继续保持连接</h4><p>通过四次挥手关闭连接。一端断开连接需要两次挥手（请求和回应），两端断开连接就需要四次挥手。</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/如何使用 Hexo+Github 搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/09/如何使用 Hexo+Github 搭建博客/" itemprop="url">如何使用 Hexo+Github 搭建博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-09T22:25:20+08:00">
-                2017-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
-<li><p><code>Node.js</code> 的安装和准备</p>
-</li>
-<li><p><code>git</code> 的安装和准备</p>
-</li>
-<li><p><code>gitHub</code> 账户的配置</p>
-</li>
-<li><p>了解基本的 <code>markdown</code> 语法</p>
-</li>
-<li><p>了解基本的命令行</p>
-</li>
-</ul>
-<p>接下来就可以进行后面的步骤，这里先检测下 <code>node</code> 和 <code>git</code> ，操作如下：</p>
-<p>打开 <code>iTerm</code>（操作系统为<code>Mac</code>），执行以下命令，检测 <code>node</code> ，显示版本号则无误</p>
-<pre><code>node -v
-</code></pre><p>执行以下命令检测 <code>git</code> ，显示版本号则无误</p>
-<pre><code>git version
-</code></pre><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>在自己认为合适的地方创建一个文件夹，打开 <code>iTerm</code> ，进入到该目录执行以下命令：</p>
-<pre><code>npm install -g hexo-cli
-</code></pre><p>这里也可以再验证是否安装成功，执行以下命令检测 <code>hexo</code> ，显示版本号则无误</p>
-<pre><code>hexo -v
-</code></pre><h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>1.执行以下命令：</p>
-<pre><code>hexo init blog
-</code></pre><p>&nbsp;&nbsp;&nbsp;(<code>blog</code>是存放博客目录的文件夹，可自定义)</p>
-<p>2.执行以下命令，进入 <code>blog</code>：</p>
-<pre><code>cd blog
-</code></pre><p>3.最后执行以下命令：</p>
-<pre><code>npm i
-</code></pre><h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h3><p>1.执行以下命令,会看到一个 <code>md</code> 文件的路径：</p>
-<pre><code>hexo new 开博大吉
-</code></pre><p>2.执行以下命令，会打开编辑器，编辑这个 md 文件，内容随意：</p>
-<pre><code>start xxx.md
-</code></pre><p><code>macOS</code> 上对应的命令是 <code>open xxx.md</code></p>
-<p>3.执行以下命令：</p>
-<pre><code>start _config.yml
-</code></pre><p><code>macOS</code> 上对应的命令是 <code>open _config.yml</code></p>
-<h5 id="这时会打开编辑器，按照下面顺序操作，编辑网站配置："><a href="#这时会打开编辑器，按照下面顺序操作，编辑网站配置：" class="headerlink" title="这时会打开编辑器，按照下面顺序操作，编辑网站配置："></a>这时会打开编辑器，按照下面顺序操作，编辑网站配置：</h5><pre><code>1.把第 6 行的 title 改成你想要的名字
-2.把第 9 行的 author 改成你的大名
-3.把最后一行的 type 改成 type: git
-4.在最后一行，与type平齐，加上一行 repo: 仓库地址（请将仓库地址改为「你的用户名.github.io」对应的仓库地址）
-</code></pre><h5 id="仓库地址以-git-github-com-开头，获取步骤如下："><a href="#仓库地址以-git-github-com-开头，获取步骤如下：" class="headerlink" title="仓库地址以 git@github.com: 开头，获取步骤如下："></a>仓库地址以 <code>git@github.com:</code> 开头，获取步骤如下：</h5><pre><code>1.在 GitHub 上新建一个空 repo ，repo 名称是「你的用户名.github.io 」（请将你的用户名替换成真正的用户名）
-2.创建后进入到一个页面，会看到仓库地址 SSH Keys（ git@github.com: 开头）
-3.回到 iTerm ，执行以下命令，安装 git 部署插件：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>4.执行以下命令，部署 <code>Hexo</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-<h3 id="进入博客"><a href="#进入博客" class="headerlink" title="进入博客"></a>进入博客</h3><pre><code>1.进入「你的用户名.github.io」对应的 repo
-2.进入Settings
-3.点击GitHub Pages的预览链接，就进入你的博客了！
-</code></pre><h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p>1.进入 <a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Themes版块</a>，以 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a> 为例，点击进入主题 <code>GitHub</code> 首页。</p>
-<p>2.依次执行以下命令行：</p>
-<pre><code>cd ~/Desktop/myBlog
-
-cd themes
-
-git clone git@github.com:litten/hexo-theme-yilia.git
-
-cd ..
-</code></pre><p>3.编辑 <code>_config.yml</code> ，将第 75 行改为：</p>
-<pre><code>theme: hexo-theme-yilia    
-</code></pre><p>4.依次执行完以下命令，刷新博客页面，会看到新的主题页面：</p>
-<pre><code>hexo generate
-
-hexo deploy
-</code></pre><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><pre><code>node_modules：是依赖包
-public：存放的是生成的页面
-scaffolds：命令生成文章等的模板
-source：用命令创建的各种文章
-themes：主题
-_config.yml：整个博客的配置
-db.json：source解析所得到的
-package.json：项目所需模块项目的配置信息
-</code></pre><hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2360,7 +2376,7 @@ package.json：项目所需模块项目的配置信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

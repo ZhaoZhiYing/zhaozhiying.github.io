@@ -238,6 +238,326 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/HTTP缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/03/HTTP缓存/" itemprop="url">HTTP缓存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
+                2018-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/03/LocalStorage、SessionStorage/" itemprop="url">LocalStorage、SessionStorage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
+                2018-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a><code>LocalStorage</code></h4><ul>
+<li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
+<li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
+</ul>
+<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
+<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
+<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
+<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
+<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
+<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
+<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
+</ol>
+<p>举例1</p>
+<pre><code>&lt;script&gt;
+    //读取
+    let a = localStorage.getItem(&apos;a&apos;)
+    if(!a){
+        a = 0
+    }else{
+        a = parseInt(a, 10) + 1
+    }
+    //存到本地
+    localStorage.setItem(&apos;a&apos;, a)
+&lt;/script&gt;
+</code></pre><p>举例2</p>
+<pre><code>&lt;script&gt;
+    //读取
+    let already = localStorage.getItem(&apos;已经提示了&apos;)
+    if(!already){
+        alert(&apos;你好，我们的网站改版了&apos;)
+        localStorage.setItem(&apos;已经提示了&apos;, true)
+    }
+&lt;/script&gt;
+</code></pre><hr>
+<h4 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a><code>SessionStorage</code></h4><h5 id="SessionStorage-和-LocalStorage-比较？"><a href="#SessionStorage-和-LocalStorage-比较？" class="headerlink" title="SessionStorage 和 LocalStorage 比较？"></a><code>SessionStorage</code> 和 <code>LocalStorage</code> 比较？</h5><p>相同点</p>
+<pre><code>* 都是用于客户端存储数据。
+* 存储数据的格式都是字符串形式。
+* 具有相同的 API 。
+</code></pre><p>不同点</p>
+<pre><code>* LocalStorage 永久有效，除非用户清理缓存。
+* SessionStorage 不是永久有效，当用户关闭浏览器窗口后，数据会被删除。
+* 相同浏览器的不同页面间可以共享相同的 LocalStorage （页面属于相同域名和端口），但不能共享 SessionStorage 的信息。
+
+//页面及标签页指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么可以共享 SessionStorage 。
+</code></pre><hr>
+<h4 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h4><h5 id="1-Cookie-和-Session-的关系？"><a href="#1-Cookie-和-Session-的关系？" class="headerlink" title="1.Cookie 和 Session 的关系？"></a>1.<code>Cookie</code> 和 <code>Session</code> 的关系？</h5><pre><code>Session 是基于 Cookie 实现的。
+</code></pre><h5 id="2-Cookie-和-LocalStorage的区别？"><a href="#2-Cookie-和-LocalStorage的区别？" class="headerlink" title="2.Cookie 和 LocalStorage的区别？"></a>2.<code>Cookie</code> 和 <code>LocalStorage</code>的区别？</h5><pre><code>LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。而  Cookie 属于 HTTP 的一部分，会被附加在每个 HTTP 请求中。
+* 一般来说， LocalStorage 最大存储量为 5MB ，Cookie 最大存储量为 4MB 。 
+* Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。LocalStorage 是永久有效，除非用户清理缓存。
+</code></pre><h5 id="3-SessionStorage-和-LocalStorage-比较？"><a href="#3-SessionStorage-和-LocalStorage-比较？" class="headerlink" title="3.SessionStorage 和 LocalStorage 比较？"></a>3.<code>SessionStorage</code> 和 <code>LocalStorage</code> 比较？</h5><p>相同点</p>
+<pre><code>* 都是用于客户端存储数据。
+* 存储数据的格式都是字符串形式。
+* 具有相同的 API 。
+</code></pre><p>不同点</p>
+<pre><code>* LocalStorage 永久有效，除非用户清理缓存。
+* SessionStorage 不是永久有效，当用户关闭浏览器窗口后，数据会被删除。
+* 相同浏览器的不同页面间可以共享相同的 LocalStorage （页面属于相同域名和端口），但不能共享 SessionStorage 的信息。
+
+//页面及标签页指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么可以共享 SessionStorage 。
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/02/Git 使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1590,502 +1910,11 @@ a
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/JS 立即执行函数和闭包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/19/JS 立即执行函数和闭包/" itemprop="url">JS 立即执行函数和闭包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
-                2018-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><ul>
-<li>「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
-<li>每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。</li>
-</ul>
-<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><ul>
-<li>当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。</li>
-<li><p>「作用域链」的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
-</li>
-<li><p>「作用域」分为<strong>全局作用域</strong>和<strong>局部作用域(也叫函数作用域)</strong><br>「全局变量」，「函数作用域」中声明的变量是「局部变量」。</p>
-</li>
-<li>外部无法读取「局部变量」，但函数内部可以读取「全局变量」。同名的「局部变量」会在函数内部覆盖「全局变量」。  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zhao&apos;</div><div class="line">function foo()&#123;</div><div class="line">	var name = &apos;tang&apos;</div><div class="line">	console.log(name)</div><div class="line">&#125;</div><div class="line">foo()//tang</div><div class="line"></div><div class="line">//函数 foo 内部的变量 name 覆盖了全局变量 name</div></pre></td></tr></table></figure>
-<h5 id="堆栈Call-Stack先入后出"><a href="#堆栈Call-Stack先入后出" class="headerlink" title="堆栈Call Stack先入后出"></a>堆栈<code>Call Stack</code>先入后出</h5><ul>
-<li>每个函数都有自己的「执行环境」。「执行环境」是用环境栈来管理的。</li>
-<li>最底层的是「全局执行环境」（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的「执行环境」就会被推入到「环境栈」中。如果在函数中继续执行函数，那么内部函数的「执行环境」就继续被推入「环境栈」。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="「立即执行函数」"><a href="#「立即执行函数」" class="headerlink" title="「立即执行函数」"></a>「立即执行函数」</h4><ul>
-<li>全局变量会造成同名覆盖的问题。</li>
-<li>解决办法：声明局部变量。</li>
-<li><code>ES6</code> 之前，只有函数才有局部变量。</li>
-<li><code>立即执行函数</code>是指声明一个函数，然后立即调用它。为了用局部变量。</li>
-<li>于是我们声明一个 <code>function foo()</code>，然后 <code>foo.call()</code>，但是这个时候 <code>foo</code> 是全局变量（全局函数）。</li>
-<li>所以我们不能给这个函数名字，使用匿名函数 <code>function(){}.call()</code> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function ()&#123;&#125;.call()</div><div class="line">//Uncaught SyntaxError: Unexpected token (</div></pre></td></tr></table></figure>
-<ul>
-<li><p>使用 <code>function(){}.call()</code> 时候会报错（语法错误），这是因为 <code>JS</code> 引擎规定，如果 <code>function</code> 关键字出现在行首，一律解释成语句。因此，<code>JS</code> 引擎看到行首是 <code>function</code> 关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p>
-</li>
-<li><p>解决办法：不让 <code>function</code> 出现在行首，让 <code>JS</code> 引擎将其理解成一个表达式。如下：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//1.将整个函数用圆括号括起来</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">//2.函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//2.function 前面加符：+ - ! ~ </div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//! ~ + - 等运算符还会和函数的返回值进行运算，有时会造成不必要的麻烦。</div></pre></td></tr></table></figure>
-<p><strong>问题：</strong>「立即执行函数」使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</p>
-<p><strong>解决办法：</strong>使用「闭包」。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//函数1</div><div class="line">(function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">   &#125;</div><div class="line">	window.frankGrowUp = function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line">//或者</div><div class="line">window.frankGrowUp = (function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">         &#125;</div><div class="line">	return function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line"></div><div class="line">//函数2</div><div class="line">(function()&#123;</div><div class="line">	var newAge = window.frankGrowUp()</div><div class="line">	console.log(newAge)</div><div class="line">&#125;).call() </div><div class="line"></div><div class="line">// 19</div></pre></td></tr></table></figure>
-<p>「闭包」使得「匿名函数」可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
-<hr>
-<h4 id="「闭包」"><a href="#「闭包」" class="headerlink" title="「闭包」"></a>「闭包」</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
-<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
-<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
-<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
-<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
-<pre><code>function f1(){
-  var n = 9
-  function f2(){
-    console.log(n)
-  }
-  f2()
-} 
-f1() // 9
-//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
-</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
-</code></pre><p>3.封装对象的私有属性和私有方法。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-var a2 = f1(5)
-a2() // 5
-a2() // 6
-a2() // 7
-//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。 
-</code></pre><hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/14/JS 数据类型转换/" itemprop="url">JS 数据类型转换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
-                2018-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="转成-String"><a href="#转成-String" class="headerlink" title="转成 String"></a>转成 <code>String</code></h4><p>1.<code>string()</code>可以用于任何数据类型。该方法底层使用的也是 <code>toString()</code> 方法。转换规则如下：</p>
-<pre><code>Number：转为相应的字符串。
-    String(123) // &quot;123&quot;
-
-String：转换后还是原来的值。
-    String(&apos;abc&apos;) // &quot;abc&quot;
-
-Boolean：true 转为字符串 &quot;true&quot;，false转为字符串&quot;false&quot;。
-    String(true) // &quot;true&quot;
-
-undefined：转为字符串 &quot;undefined&quot;。
-    String(undefined) // &quot;undefined&quot;
-
-null：转为字符串 &quot;null&quot;。
-    String(null) // &quot;null&quot;
-
-String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
-    String({a: 1}) // &quot;[object Object]&quot;
-    String([1, 2, 3]) // &quot;1,2,3&quot;
-//这里先后隐式调用了 toString 和 valueOf 方法。    
-</code></pre><h5 id="string-与-toString-的区别"><a href="#string-与-toString-的区别" class="headerlink" title="string() 与 toString() 的区别"></a><code>string()</code> 与 <code>toString()</code> 的区别</h5><pre><code>* toString() 可以将所有的的数据都转换为字符串，但是要排除 null 和 undefined。
-* string() 可以将 null 和 undefined 转换为字符串，但是没法转进制字符串。
-</code></pre><h5 id="toString-与-valueOf-的区别"><a href="#toString-与-valueOf-的区别" class="headerlink" title="toString 与 valueOf 的区别"></a><code>toString</code> 与 <code>valueOf</code> 的区别</h5><p><code>toString()</code> 方法返回一个表示该对象的字符串。</p>
-<pre><code>语法：object.toString()
-</code></pre><p><code>valueOf()</code> 方法返回指定对象的原始值。</p>
-<pre><code>语法：object.valueOf()
-
-Array 返回数组对象本身。
-Boolean 布尔值。
-Date    存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
-Function 函数本身。
-Number 数字值。
-Object 对象本身。这是默认情况。
-String 字符串值。
-
-Math 和 Error 对象没有 valueOf 方法。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//1.调用情况</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div></pre></td></tr></table></figure>
-<p>2.+ 空字符串</p>
-<pre><code>123 + &apos;&apos; // &quot;123&quot;
-true + &apos;&apos; // &quot;true&quot;
-undefined + &apos;&apos; // &quot;undefined&quot;
-null + &apos;&apos; // &quot;null&quot;
-
-var obj = {}
-obj + &apos;&apos; // &quot;[object Object]&quot;
-</code></pre><hr>
-<h4 id="转成-Boolean"><a href="#转成-Boolean" class="headerlink" title="转成 Boolean"></a>转成 <code>Boolean</code></h4><p>1.<code>Boolean()</code> 可以用于任何数据类型。除了以下五个<code>falsy</code>值，其他的值全部为<code>true</code>。</p>
-<pre><code>//falsy 是在 boolean 上下文中认定可转换为 false 的值
-
-Boolean(undefined) // false
-Boolean(null) // false
-Boolean(0) // false
-Boolean(NaN) // false
-Boolean(&apos;&apos;) // false 
-</code></pre><p>2.任何数据取反两次都可以得到一个布尔值。</p>
-<pre><code>//五个 falsy 值
-!!undefined // false
-!!null // false
-!!0 // false
-!!NaN // false
-!!&apos;&apos; // false
-
-//其他
-!![] // true
-!!{} // true
-!!123 // true
-</code></pre><hr>
-<h4 id="转成-Number"><a href="#转成-Number" class="headerlink" title="转成 Number"></a>转成 <code>Number</code></h4><p>1.<code>number()</code>可以用于任何数据类型。转换规则如下：</p>
-<pre><code>* Boolean：true 和 false 分别转成 1 和 0
-        Number(true) // 1
-
-* Number：简单传入和返回
-        Number(5) // 5
-
-* Null：返回 0
-* undefined：返回 NaN
-
-* String
-    如果可以被解析为数值，则转换为相应的数值
-        Number(&apos;032&apos;) // 32
-    如果不可以被解析为数值，返回 NaN（非数字）
-        Number(&apos;abc&apos;) // NaN
-    空字符串转为0    
-        Number(&apos;&apos;) // 0
-
-* Object：返回 NaN，除非是包含单个数值的数组。
-        Number({name: &apos;zhao&apos;}) // NaN
-        Number([1, 2, 3]) // NaN
-        Number([1]) // 1
-//这里先后隐式调用了 valueOf 和 toString 方法。
-</code></pre><p>2.<code>parsetInt()</code>函数解析一个字符串参数，并返回一个指定基数的整数。</p>
-<pre><code>语法：parseInt(string, radix)
-
-parseInt(&quot;3.14&quot;) //3
-parseInt(&quot;3ff&quot;) //3
-parseInt(&quot;oo3&quot;) //3
-parseInt(&quot;&quot;) //十六进制
-parseInt(&quot;&quot;) //十进制
-parseInt(&quot;&quot;) //八进制
-parseInt(&quot;&quot;) //二进制
-</code></pre><p>3.<code>parsetFloat()</code>解析一个字符串参数并返回一个浮点数。只解析十进制，因此无第二个参数。</p>
-<pre><code>parseFloat(&quot;3.14&quot;) //3.14
-parseFloat(&quot;3.14.12&quot;) //3.14
-parseFloat(&quot;314e-2&quot;) //3.14
-parseFloat(&quot;0.0314E+2&quot;) //3.14
-parseFloat(&quot;3.14more&quot;) //3.14
-parseFloat(&quot;oo3.14&quot;) //NaN
-</code></pre><p>4.自动转换</p>
-<pre><code>&apos;5&apos; - &apos;2&apos; // 3
-&apos;5&apos; * &apos;2&apos; // 10
-true - 1  // 0
-false - 1 // -1
-&apos;1&apos; - 1   // 0
-&apos;5&apos; * []    // 0
-false / &apos;5&apos; // 0
-&apos;abc&apos; - 1   // NaN
-null + 1 // 1
-undefined + 1 // NaN
-
-+&apos;abc&apos; // NaN
--&apos;abc&apos; // NaN
-+true // 1
--false // 0
-</code></pre><hr>
-<p>参考：<a href="http://javascript.ruanyifeng.com/grammar/conversion.html#toc2" target="_blank" rel="external">阮一峰-数据类型转换</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2131,7 +1960,7 @@ undefined + 1 // NaN
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
