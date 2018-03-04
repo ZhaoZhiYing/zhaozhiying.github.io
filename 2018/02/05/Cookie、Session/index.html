@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/05/Cookie、Session/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="CookieCookie是什么？注意：前端永远不要读写 Cookie，交给后端。 Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie的特点1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。 2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。 3. 服务">
-<meta property="og:updated_time" content="2018-03-03T11:53:25.000Z">
+<meta property="og:updated_time" content="2018-03-04T08:01:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie、Session">
 <meta name="twitter:description" content="CookieCookie是什么？注意：前端永远不要读写 Cookie，交给后端。 Cookie 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。 Cookie的特点1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。 2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。 3. 服务">
@@ -345,15 +345,29 @@
 2. 由于在 HTTP 请求中的 Cookie 是明文传递的，所以安全性成问题，用户能够篡改密码，除非用 HTTPS 。
 3. Cookie 的大小限制在 4KB 左右，对于复杂的存储需求来说是不够用的。
 </code></pre><hr>
-<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a><code>Session</code></h4><h5 id="Session是什么？"><a href="#Session是什么？" class="headerlink" title="Session是什么？"></a><code>Session</code>是什么？</h5><ul>
+<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a><code>Session</code></h4><h5 id="Session是什么？"><a href="#Session是什么？" class="headerlink" title="Session是什么？"></a><code>Session</code>是什么？</h5><p><code>Session</code> 是在无状态的 <code>HTTP</code> 协议下，服务端记录用户状态时用于标识具体用户的机制。</p>
+<ul>
 <li><code>Session</code>解决了<code>Cookie</code>的安全性问题。</li>
 <li><code>Session</code>是服务器上的<code>hash表</code>。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 服务器通过 cookie 给用户一个 sessionId (随机数)。</div><div class="line">2. 服务器有一块内存（哈希表）保存了所有的 session 。 </div><div class="line">3. 每次用户访问服务器的时候，服务器通过 sessionId 去读取对应的 session ，得到用户的隐私信息，比如 id email 。</div></pre></td></tr></table></figure>
+<h5 id="Session的用法"><a href="#Session的用法" class="headerlink" title="Session的用法"></a><code>Session</code>的用法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 服务器通过 cookie 给用户一个 sessionId (随机数)。</div><div class="line">2. 服务器有一块内存（哈希表）保存了所有的 session 。 </div><div class="line">3. 每次用户访问服务器的时候，服务器通过 sessionId 去读取对应的 session，得到用户的隐私信息，比如 id email 。</div></pre></td></tr></table></figure>
 <p>举例<code>server.js</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Session</div><div class="line">let sessionId = Math.random() * 100000 </div><div class="line">sessions[sessionId] = &#123;sign_in_email: email&#125;</div><div class="line"></div><div class="line">//Set-Cookie</div><div class="line">response.setHeader(&apos;Set-Cookie&apos;,`sessionId = $&#123;sessionId&#125;`)</div></pre></td></tr></table></figure>
-<h4 id="不基于-Cookie-的-Session"><a href="#不基于-Cookie-的-Session" class="headerlink" title="不基于 Cookie 的 Session"></a>不基于 <code>Cookie</code> 的 <code>Session</code></h4><p><code>Session</code> 还可以通过查询参数和 <code>LocalStorage</code>来存储 <code>sessionId</code>。</p>
+<h4 id="不基于-Cookie-的-Session"><a href="#不基于-Cookie-的-Session" class="headerlink" title="不基于 Cookie 的 Session"></a>不基于 <code>Cookie</code> 的 <code>Session</code></h4><p><code>Session</code> 还可以通过 <code>LocalStorage</code> + 查询参数 来存储 <code>sessionId</code>。</p>
 <hr>
+<h4 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h4><h5 id="1-Cookie如何设置过期时间？"><a href="#1-Cookie如何设置过期时间？" class="headerlink" title="1.Cookie如何设置过期时间？"></a>1.<code>Cookie</code>如何设置过期时间？</h5><pre><code>cookie.setMaxAge(0);//不记录cookie
+
+cookie.setMaxAge(-1);//会话级cookie，关闭浏览器失效
+
+cookie.setMaxAge(60*60);//过期时间为1小时
+</code></pre><h5 id="2-如何删除-Cookie？"><a href="#2-如何删除-Cookie？" class="headerlink" title="2.如何删除 Cookie？"></a>2.如何删除 <code>Cookie</code>？</h5><p>设置 <code>Expires</code> 参数为以前的时间即可。</p>
+<pre><code>document.cookie = &quot;username=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;;
+</code></pre><h5 id="3-Cookie-和-Session-的关系以及区别？"><a href="#3-Cookie-和-Session-的关系以及区别？" class="headerlink" title="3.Cookie 和 Session 的关系以及区别？"></a>3.<code>Cookie</code> 和 <code>Session</code> 的关系以及区别？</h5><p>关系</p>
+<pre><code>Session 通常是基于 Cookie 实现，其 SessionId 是通过 Cookie 发送给客户端的。
+</code></pre><p>区别</p>
+<pre><code>1. Cookie 数据保存在客户端。Session 数据保存在服务器端。
+2. 由于在 HTTP 请求中的 Cookie 是明文传递的，所以安全性成问题，用户能够篡改密码。所以一般情况，登录信息等重要信息存储在 Session 中，其他信息存储在 Cookie 中。 
+</code></pre><hr>
 
       
     </div>
@@ -513,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的特点"><span class="nav-number">1.2.</span> <span class="nav-text">Cookie的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">1.3.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的缺点"><span class="nav-number">1.4.</span> <span class="nav-text">Cookie的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Session是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">Session是什么？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不基于-Cookie-的-Session"><span class="nav-number">3.</span> <span class="nav-text">不基于 Cookie 的 Session</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的特点"><span class="nav-number">1.2.</span> <span class="nav-text">Cookie的特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#同源策略"><span class="nav-number">1.3.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie的缺点"><span class="nav-number">1.4.</span> <span class="nav-text">Cookie的缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Session是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">Session是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Session的用法"><span class="nav-number">2.2.</span> <span class="nav-text">Session的用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不基于-Cookie-的-Session"><span class="nav-number">3.</span> <span class="nav-text">不基于 Cookie 的 Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题归纳"><span class="nav-number">4.</span> <span class="nav-text">问题归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Cookie如何设置过期时间？"><span class="nav-number">4.1.</span> <span class="nav-text">1.Cookie如何设置过期时间？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-如何删除-Cookie？"><span class="nav-number">4.2.</span> <span class="nav-text">2.如何删除 Cookie？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Cookie-和-Session-的关系以及区别？"><span class="nav-number">4.3.</span> <span class="nav-text">3.Cookie 和 Session 的关系以及区别？</span></a></li></ol></li></ol></div>
             
 
           </div>

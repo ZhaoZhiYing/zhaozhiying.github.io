@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
+<meta name="description" content="Cache-ControlCache-Control通用消息头被用于在 HTTP 请求和响应中通过指定指令来实现缓存机制。 注意：    首页不要设置缓存 如何使css js 加载速度加快？举例 node.js response.setHeader(&amp;apos;Cache-Control&amp;apos;, &amp;apos;max-age=30&amp;apos;)  // 表示当访问此网页后的 30s 内再次访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LocalStorage、SessionStorage">
-<meta property="og:url" content="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/index.html">
+<meta property="og:title" content="HTTP 缓存">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/HTTP 缓存/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
-<meta property="og:updated_time" content="2018-03-04T07:50:15.000Z">
+<meta property="og:description" content="Cache-ControlCache-Control通用消息头被用于在 HTTP 请求和响应中通过指定指令来实现缓存机制。 注意：    首页不要设置缓存 如何使css js 加载速度加快？举例 node.js response.setHeader(&amp;apos;Cache-Control&amp;apos;, &amp;apos;max-age=30&amp;apos;)  // 表示当访问此网页后的 30s 内再次访问">
+<meta property="og:image" content="https://i.loli.net/2018/03/03/5a9ac12bcba07.png
+">
+<meta property="og:updated_time" content="2018-03-04T08:01:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LocalStorage、SessionStorage">
-<meta name="twitter:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
+<meta name="twitter:title" content="HTTP 缓存">
+<meta name="twitter:description" content="Cache-ControlCache-Control通用消息头被用于在 HTTP 请求和响应中通过指定指令来实现缓存机制。 注意：    首页不要设置缓存 如何使css js 加载速度加快？举例 node.js response.setHeader(&amp;apos;Cache-Control&amp;apos;, &amp;apos;max-age=30&amp;apos;)  // 表示当访问此网页后的 30s 内再次访问">
+<meta name="twitter:image" content="https://i.loli.net/2018/03/03/5a9ac12bcba07.png
+">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/03/HTTP 缓存/"/>
 
 
 
 
 
-  <title>LocalStorage、SessionStorage | Zhao Zhiying</title>
+  <title>HTTP 缓存 | Zhao Zhiying</title>
   
 
 
@@ -241,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/HTTP 缓存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -258,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LocalStorage、SessionStorage</h1>
+          <h1 class="post-title" itemprop="name headline">HTTP 缓存</h1>
         
 
         <div class="post-meta">
@@ -270,7 +274,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
               </time>
             
@@ -330,54 +334,37 @@
       
 
       
-        <h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a><code>LocalStorage</code></h4><ul>
-<li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
-<li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
-</ul>
-<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
-<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
-<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
-<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
-<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
-<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
-<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
+        <h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a><code>Cache-Control</code></h4><p><code>Cache-Control</code>通用消息头被用于在 <code>HTTP</code> 请求和响应中通过指定指令来实现缓存机制。</p>
+<p><strong>注意：</strong>    首页不要设置缓存</p>
+<h5 id="如何使css-js-加载速度加快？"><a href="#如何使css-js-加载速度加快？" class="headerlink" title="如何使css js 加载速度加快？"></a>如何使<code>css</code> <code>js</code> 加载速度加快？</h5><p>举例 <code>node.js</code></p>
+<pre><code>response.setHeader(&apos;Cache-Control&apos;, &apos;max-age=30&apos;) 
+// 表示当访问此网页后的 30s 内再次访问不会向服务器发起请求
+</code></pre><h5 id="如何更新缓存？"><a href="#如何更新缓存？" class="headerlink" title="如何更新缓存？"></a>如何更新缓存？</h5><ol>
+<li>加版本号</li>
+<li>更改 <code>HTML</code> 的 <code>URL</code>，跟之前不一样即可，比如加个随机数。</li>
 </ol>
-<p>举例1</p>
-<pre><code>&lt;script&gt;
-    //读取
-    let a = localStorage.getItem(&apos;a&apos;)
-    if(!a){
-        a = 0
-    }else{
-        a = parseInt(a, 10) + 1
-    }
-    //存到本地
-    localStorage.setItem(&apos;a&apos;, a)
-&lt;/script&gt;
-</code></pre><p>举例2</p>
-<pre><code>&lt;script&gt;
-    //读取
-    let already = localStorage.getItem(&apos;已经提示了&apos;)
-    if(!already){
-        alert(&apos;你好，我们的网站改版了&apos;)
-        localStorage.setItem(&apos;已经提示了&apos;, true)
-    }
-&lt;/script&gt;
-</code></pre><h5 id="Cookie-和-LocalStorage的区别？"><a href="#Cookie-和-LocalStorage的区别？" class="headerlink" title="Cookie 和 LocalStorage的区别？"></a><code>Cookie</code> 和 <code>LocalStorage</code>的区别？</h5><pre><code>1. LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。而 Cookie 属于 HTTP 的一部分，会被附加在每个 HTTP 请求中。
-2. 一般来说，LocalStorage 最大存储量为 5MB ，Cookie 最大存储量为 4MB 。 
-3. Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。LocalStorage 是永久有效，除非用户清理缓存。
-</code></pre><hr>
-<h4 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a><code>SessionStorage</code></h4><h5 id="SessionStorage-和-LocalStorage-比较？"><a href="#SessionStorage-和-LocalStorage-比较？" class="headerlink" title="SessionStorage 和 LocalStorage 比较？"></a><code>SessionStorage</code> 和 <code>LocalStorage</code> 比较？</h5><p>相同点</p>
-<pre><code>* 都是用于客户端存储数据。
-* 存储数据的格式都是字符串形式。
-* 具有相同的 API 。
-</code></pre><p>不同点</p>
-<pre><code>* LocalStorage 永久有效，除非用户清理缓存。
-* SessionStorage 不是永久有效，当用户关闭浏览器窗口后，数据会被删除。
-* 相同浏览器的不同页面间可以共享相同的 LocalStorage （页面属于相同域名和端口），但不能共享 SessionStorage 的信息。
-
-//页面及标签页指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么可以共享 SessionStorage 。
-</code></pre><hr>
+<hr>
+<h4 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a><code>Expire</code></h4><h5 id="Expire-和-Cache-Control-区别"><a href="#Expire-和-Cache-Control-区别" class="headerlink" title="Expire 和 Cache-Control 区别?"></a><code>Expire</code> 和 <code>Cache-Control</code> 区别?</h5><pre><code>* Expire 是指定了一个时间，在这个时间之后，HTTP 响应就过期。
+* Cache-Control 是指定一个时间范围，超过这个时间范围，HTTP 响应就过期。
+* Expire 是旧版缓存设置方法，Cache-Control 是新版缓存机制设置方法。
+</code></pre><blockquote>
+<p>如果还有一个设置了 “max-age” 或者 “s-max-age” 指令的 Cache-Control 响应头，那么 Expires 头就会被忽略。    </p>
+</blockquote>
+<h5 id="为什么优先使用-Cache-Control"><a href="#为什么优先使用-Cache-Control" class="headerlink" title="为什么优先使用 Cache-Control?"></a>为什么优先使用 <code>Cache-Control</code>?</h5><p>因为 <code>Expire</code> 指定的时间（日期/时间）指本地时间，如果用户的时间错乱，就会出问题。</p>
+<hr>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a><code>ETag</code></h4><h5 id="先了解下MD5"><a href="#先了解下MD5" class="headerlink" title="先了解下MD5"></a>先了解下<code>MD5</code></h5><pre><code>* MD5 是一个摘要算法。将一个字符串，或文件，或压缩包，执行 MD5 后，就可以生成一个固定长度为128bit的串。如果有人修改过压缩包后，就会生成新的串。
+* MD5 的长度默认为 128bit，也就是128个0和1的二进制串。将二进制转成16进制，每4个bit表示一个16进制，所以128/4 = 32 换成16进制表示后，为32位。
+* MD5 最大的特点：如果内容的差异越小，算出的结果差异越大。
+</code></pre><p>如下图</p>
+<p><img src="https://i.loli.net/2018/03/03/5a9ac12bcba07.png
+"></p>
+<h5 id="ETag-1"><a href="#ETag-1" class="headerlink" title="ETag"></a><code>ETag</code></h5><pre><code>* 客户端发起请求一个文件时，这个文件的 MD5 被保存在 ETag 里。
+* 服务器处理请求，返回文件内容和头域（Header）(包括 Etag，例如&quot;2e681a-6-5d044840&quot;)。
+* 客户端再次发起请求的时候，在头域（Header）中加入“If-match:Etag值”指令。
+* 服务器接受到请求后，通过发送过来的 If-Match 这个条件判断请求来验证资源是否修改。
+* 如果 If-Match === Etag值，则使用本地缓存。
+</code></pre><h5 id="ETag-和-Cache-Control区别"><a href="#ETag-和-Cache-Control区别" class="headerlink" title="ETag 和 Cache-Control区别"></a><code>ETag</code> 和 <code>Cache-Control</code>区别</h5><p><code>Cache-Control</code>是直接不请求。<code>ETag</code>是请求但响应体是空的。</p>
+<hr>
 
       
     </div>
@@ -402,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/02/Git 使用/" rel="next" title="Git 使用">
-                <i class="fa fa-chevron-left"></i> Git 使用
+              <a href="/2018/03/03/LocalStorage、SessionStorage/" rel="next" title="LocalStorage、SessionStorage">
+                <i class="fa fa-chevron-left"></i> LocalStorage、SessionStorage
               </a>
             
           </div>
@@ -411,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/03/HTTP 缓存/" rel="prev" title="HTTP 缓存">
-                HTTP 缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#LocalStorage"><span class="nav-number">1.</span> <span class="nav-text">LocalStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用API（LocalStorage和SessionStorage）"><span class="nav-number">1.1.</span> <span class="nav-text">常用API（LocalStorage和SessionStorage）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LocalStorage特点"><span class="nav-number">1.2.</span> <span class="nav-text">LocalStorage特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cookie-和-LocalStorage的区别？"><span class="nav-number">1.3.</span> <span class="nav-text">Cookie 和 LocalStorage的区别？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SessionStorage"><span class="nav-number">2.</span> <span class="nav-text">SessionStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SessionStorage-和-LocalStorage-比较？"><span class="nav-number">2.1.</span> <span class="nav-text">SessionStorage 和 LocalStorage 比较？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使css-js-加载速度加快？"><span class="nav-number">1.1.</span> <span class="nav-text">如何使css js 加载速度加快？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何更新缓存？"><span class="nav-number">1.2.</span> <span class="nav-text">如何更新缓存？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expire"><span class="nav-number">2.</span> <span class="nav-text">Expire</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expire-和-Cache-Control-区别"><span class="nav-number">2.1.</span> <span class="nav-text">Expire 和 Cache-Control 区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么优先使用-Cache-Control"><span class="nav-number">2.2.</span> <span class="nav-text">为什么优先使用 Cache-Control?</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ETag"><span class="nav-number">3.</span> <span class="nav-text">ETag</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#先了解下MD5"><span class="nav-number">3.1.</span> <span class="nav-text">先了解下MD5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag-1"><span class="nav-number">3.2.</span> <span class="nav-text">ETag</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag-和-Cache-Control区别"><span class="nav-number">3.3.</span> <span class="nav-text">ETag 和 Cache-Control区别</span></a></li></ol></li></ol></div>
             
 
           </div>
