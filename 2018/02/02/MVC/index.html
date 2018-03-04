@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  视图View：提供给用户操作的界面。 模型Model：也就是程序需要操作的数据或信息。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然">
+<meta name="description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  模型Model：也就是程序需要操作的数据或信息。MVC核心。 视图View：提供给用户操作的界面。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从 MVC 到 MVVM">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/MVC/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  视图View：提供给用户操作的界面。 模型Model：也就是程序需要操作的数据或信息。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然">
-<meta property="og:updated_time" content="2018-03-01T15:29:33.000Z">
+<meta property="og:description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  模型Model：也就是程序需要操作的数据或信息。MVC核心。 视图View：提供给用户操作的界面。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”">
+<meta property="og:updated_time" content="2018-03-04T08:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从 MVC 到 MVVM">
-<meta name="twitter:description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  视图View：提供给用户操作的界面。 模型Model：也就是程序需要操作的数据或信息。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然">
+<meta name="twitter:description" content="模块化不同功能的代码放在各自的块里，模块间各自独立，互不影响。 参考：阮一峰-模块的写法  MVC 是什么？MVC（Model View Controller 模型-视图-控制）指一种代码组织形式。它将代码分成三层：  模型Model：也就是程序需要操作的数据或信息。MVC核心。 视图View：提供给用户操作的界面。 控制层Controller：它负责根据用户从”视图层”输入的指令，选取”数据层”">
 
 
 
@@ -335,9 +335,14 @@
 <hr>
 <h4 id="MVC-是什么？"><a href="#MVC-是什么？" class="headerlink" title="MVC 是什么？"></a><code>MVC</code> 是什么？</h4><p><code>MVC</code>（<code>Model View Controller</code> 模型-视图-控制）指一种代码组织形式。它将代码分成三层：</p>
 <ol>
+<li>模型<code>Model</code>：也就是程序需要操作的数据或信息。<code>MVC</code>核心。</li>
 <li>视图<code>View</code>：提供给用户操作的界面。</li>
-<li>模型<code>Model</code>：也就是程序需要操作的数据或信息。</li>
 <li>控制层<code>Controller</code>：它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
+</ol>
+<h4 id="MVC控制流程"><a href="#MVC控制流程" class="headerlink" title="MVC控制流程"></a><code>MVC</code>控制流程</h4><ol>
+<li>用户请求时触发<code>View</code>，<code>View</code>会通知<code>Controller</code>。</li>
+<li>于是<code>Controller</code>调用<code>Model</code>，<code>Model</code>向<code>server</code>发送请求。</li>
+<li><code>server</code>响应后返回数据给<code>Model</code>，<code>Model</code>再将数据返回给<code>Controller</code>，<code>Controller</code>拿到数据后更新<code>View</code>。</li>
 </ol>
 <h4 id="MVC-三个对象分别有哪些重要属性和方法"><a href="#MVC-三个对象分别有哪些重要属性和方法" class="headerlink" title="MVC 三个对象分别有哪些重要属性和方法?"></a><code>MVC</code> 三个对象分别有哪些重要属性和方法?</h4><h5 id="View"><a href="#View" class="headerlink" title="View"></a><code>View</code></h5><pre><code>document.querySelector (获取对应的 html)
 </code></pre><h5 id="Model"><a href="#Model" class="headerlink" title="Model"></a><code>Model</code></h5><pre><code>init (初始化)
@@ -347,13 +352,8 @@ save (保存)
 loadMessages (加载数据)
 bindEvents (绑定事件)
 saveMessage (存储数据)
-</code></pre><h4 id="MVC控制流程"><a href="#MVC控制流程" class="headerlink" title="MVC控制流程"></a><code>MVC</code>控制流程</h4><ol>
-<li>用户请求时触发<code>View</code>，<code>View</code>会通知<code>Controller</code>。</li>
-<li>于是<code>Controller</code>调用<code>Model</code>，<code>Model</code>向<code>server</code>发送请求。</li>
-<li><code>server</code>响应后返回数据给<code>Model</code>，<code>Model</code>再将数据返回给<code>Controller</code>，<code>Controller</code>拿到数据后更新<code>View</code>。</li>
-</ol>
-<hr>
-<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h4>
+</code></pre><hr>
+
       
     </div>
     
@@ -512,7 +512,7 @@ saveMessage (存储数据)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">1.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-是什么？"><span class="nav-number">2.</span> <span class="nav-text">MVC 是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-三个对象分别有哪些重要属性和方法"><span class="nav-number">3.</span> <span class="nav-text">MVC 三个对象分别有哪些重要属性和方法?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#View"><span class="nav-number">3.1.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model"><span class="nav-number">3.2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Controller"><span class="nav-number">3.3.</span> <span class="nav-text">Controller</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC控制流程"><span class="nav-number">4.</span> <span class="nav-text">MVC控制流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVVM"><span class="nav-number">5.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">1.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-是什么？"><span class="nav-number">2.</span> <span class="nav-text">MVC 是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC控制流程"><span class="nav-number">3.</span> <span class="nav-text">MVC控制流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-三个对象分别有哪些重要属性和方法"><span class="nav-number">4.</span> <span class="nav-text">MVC 三个对象分别有哪些重要属性和方法?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#View"><span class="nav-number">4.1.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model"><span class="nav-number">4.2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Controller"><span class="nav-number">4.3.</span> <span class="nav-text">Controller</span></a></li></ol></li></ol></div>
             
 
           </div>
