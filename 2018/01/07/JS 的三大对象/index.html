@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="本地对象 ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array  Date RegExp   和三个基本包装类型 String Boolean Number    内置对象 ECMA-">
+<meta name="description" content="本地对象* ECMA-262 把本地对象定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。 * 简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。 * 这些引用类型在运行过程中需要通过 new 来创建所需的实例对象。 * 包含：Object Function Array Date RegExp 和三个基本包装类型 String Boolean Number  内置对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 的三大对象">
 <meta property="og:url" content="http://yoursite.com/2018/01/07/JS 的三大对象/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="本地对象 ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array  Date RegExp   和三个基本包装类型 String Boolean Number    内置对象 ECMA-">
-<meta property="og:updated_time" content="2018-03-01T12:49:21.000Z">
+<meta property="og:description" content="本地对象* ECMA-262 把本地对象定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。 * 简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。 * 这些引用类型在运行过程中需要通过 new 来创建所需的实例对象。 * 包含：Object Function Array Date RegExp 和三个基本包装类型 String Boolean Number  内置对象">
+<meta property="og:updated_time" content="2018-03-05T04:13:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 的三大对象">
-<meta name="twitter:description" content="本地对象 ECMA-262把本地对象定义为“独立于宿主环境的ECMAScript实现提供的对象”。  简单来说，本地对象就是ECMA-262定义的类（引用类型）。  这些引用类型在运行过程中需要通过new来创建所需的实例对象。  包含：Object Function Array  Date RegExp   和三个基本包装类型 String Boolean Number    内置对象 ECMA-">
+<meta name="twitter:description" content="本地对象* ECMA-262 把本地对象定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。 * 简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。 * 这些引用类型在运行过程中需要通过 new 来创建所需的实例对象。 * 包含：Object Function Array Date RegExp 和三个基本包装类型 String Boolean Number  内置对象">
 
 
 
@@ -330,38 +330,20 @@
       
 
       
-        <h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><ul>
-<li><p><code>ECMA-262</code>把本地对象定义为“独立于宿主环境的<code>ECMAScript</code>实现提供的对象”。</p>
-</li>
-<li><p>简单来说，本地对象就是<code>ECMA-262</code>定义的类（引用类型）。</p>
-</li>
-<li><p>这些引用类型在运行过程中需要通过<code>new</code>来创建所需的实例对象。</p>
-</li>
-<li><p>包含：<code>Object</code> <code>Function</code> <code>Array</code>  <code>Date</code> <code>RegExp</code></p>
-<p>  和三个基本包装类型 <code>String</code> <code>Boolean</code> <code>Number</code></p>
-</li>
-</ul>
-<hr>
-<h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><ul>
-<li><p><code>ECMA-262</code>把内置对象定义为“由<code>ECMAScript</code>实现提供的、独立于宿主环境的所有对象，在<code>ECMAScript</code>程序开始执行时出现”。这意味着开发者不必明确实例化内置对象，它已被实例化了。</p>
-</li>
-<li><p><code>ECMA-262</code>只定义了两个内置对象，即<code>Global</code>和<code>Math</code>。</p>
-</li>
-<li><p><strong>根据定义，内置对象是本地对象的一种。</strong></p>
-</li>
-</ul>
-<hr>
-<h4 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h4><ul>
-<li><p><code>ECMAScript</code>中的“宿主”是指网页的运行环境，即“操作系统”和“浏览器”。</p>
-</li>
-<li><p><code>ECMAScript</code>官方未定义的对象都属于宿主对象。包含两大类，一个是宿主提供，一个是自定义类对象</p>
-</li>
-<li><p>所有非本地对象都是宿主对象，即由<code>ECMAScript</code>实现的宿主环境提供的对象。</p>
-</li>
-<li><p>所有的<code>BOM</code>和<code>DOM</code>都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
-</li>
-</ul>
-<hr>
+        <h4 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h4><pre><code>* ECMA-262 把本地对象定义为“独立于宿主环境的 ECMAScript 实现提供的对象”。
+* 简单来说，本地对象就是 ECMA-262 定义的类（引用类型）。
+* 这些引用类型在运行过程中需要通过 new 来创建所需的实例对象。
+* 包含：Object Function Array Date RegExp 和三个基本包装类型 String Boolean Number
+</code></pre><hr>
+<h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><pre><code>* ECMA-262 把内置对象定义为“由 ECMAScript 实现提供的、独立于宿主环境的所有对象，在 ECMAScript 程序开始执行时出现”。这意味着开发者不必明确实例化内置对象，它已被实例化了。
+* ECMA-262 只定义了两个内置对象，即 Global 和 Math 。
+* 根据定义，内置对象是本地对象的一种。
+</code></pre><hr>
+<h4 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h4><pre><code>* ECMAScript 中的“宿主”是指网页的运行环境，即“操作系统”和“浏览器”。
+* ECMAScript 官方未定义的对象都属于宿主对象。包含两大类，一个是宿主提供，一个是自定义类对象。
+* 所有非本地对象都是宿主对象，即由 ECMAScript 实现的宿主环境提供的对象。
+* 所有的 BOM 和 DOM 都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。
+</code></pre><hr>
 
       
     </div>

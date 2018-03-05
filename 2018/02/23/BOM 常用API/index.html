@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="BOM（Browser Object Model浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。  BOM对象包括 * Window对象 //表示浏览器中打开的窗口   * Navigator对象 //包含有关浏览器的信息   * Screen对象 //包含有关客户端显示屏幕的信息 * History对象 //包含用户（在浏览器窗口中）访问过的 URL   * Locat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BOM 常用API">
 <meta property="og:url" content="http://yoursite.com/2018/02/23/BOM 常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:updated_time" content="2018-03-02T11:15:16.000Z">
+<meta property="og:description" content="BOM（Browser Object Model浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。  BOM对象包括 * Window对象 //表示浏览器中打开的窗口   * Navigator对象 //包含有关浏览器的信息   * Screen对象 //包含有关客户端显示屏幕的信息 * History对象 //包含用户（在浏览器窗口中）访问过的 URL   * Locat">
+<meta property="og:updated_time" content="2018-03-04T15:26:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOM 常用API">
+<meta name="twitter:description" content="BOM（Browser Object Model浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。  BOM对象包括 * Window对象 //表示浏览器中打开的窗口   * Navigator对象 //包含有关浏览器的信息   * Screen对象 //包含有关客户端显示屏幕的信息 * History对象 //包含用户（在浏览器窗口中）访问过的 URL   * Locat">
 
 
 
@@ -305,7 +308,81 @@
       
 
       
-        
+        <blockquote>
+<p><code>BOM</code>（<code>Browser Object Model</code>浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</p>
+</blockquote>
+<p><code>BOM</code>对象包括</p>
+<pre><code>* Window对象 //表示浏览器中打开的窗口  
+* Navigator对象 //包含有关浏览器的信息  
+* Screen对象 //包含有关客户端显示屏幕的信息
+* History对象 //包含用户（在浏览器窗口中）访问过的 URL  
+* Location对象 //包含有关当前 URL 的信息
+</code></pre><hr>
+<h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><p>属性</p>
+<pre><code>* Window.history //对 History 对象的只读引用。请参数 History 对象。
+* Window.innerHeight //返回窗口的文档显示区的高度。
+* Window.innerWidth //返回窗口的文档显示区的宽度。
+* Window.self //返回对当前窗口的引用。等价于 Window 属性。
+* Window.top //返回最顶层的父窗口。
+* Window.parent //返回父窗口。
+</code></pre><p>方法</p>
+<pre><code>* alert(字符串) //显示带有一段消息和一个确认按钮的警告框。
+* prompt() //显示可提示用户输入的对话框。
+* confirm() //显示带有一段消息以及确认按钮和取消按钮的对话框。
+* open() //打开一个新的浏览器窗口或查找一个已命名的窗口。
+* close() //关闭浏览器窗口。
+* print() //打印当前窗口的内容。
+* focus() //把键盘焦点给予一个窗口。
+* blur() //把键盘焦点从顶层窗口移开。
+* moveBy() //可相对窗口的当前坐标把它移动指定的像素。
+* moveTo() //把窗口的左上角移动到一个指定的坐标。
+* resizeBy() //按照指定的像素调整窗口的大小。
+* resizeTo() //把窗口的大小调整到指定的宽度和高度。
+* scrollBy() //按照指定的像素值来滚动内容。
+* scrollTo() //把内容滚动到指定的坐标。
+* setInterval() //按照指定的周期（以毫秒计）来调用函数或计算表达式。
+* setTimeout() //在指定的毫秒数后调用函数或计算表达式。
+* clearInterval() //取消由 setInterval() 设置的 timeout。
+* clearTimeout() //取消由 setTimeout() 方法设置的 timeout。
+</code></pre><hr>
+<h5 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a><code>Navigator</code>对象</h5><p>属性</p>
+<pre><code>* appCodeName //返回浏览器的代码名
+* appName //返回浏览器的名称
+* appVersion //返回浏览器的平台和版本信息
+* cookieEnabled //返回指明浏览器中是否启用 cookie 的布尔值
+* platform //返回运行浏览器的操作系统平台
+* userAgent //返回由客户机发送服务器的 user-agent 头部的值
+</code></pre><hr>
+<h5 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a><code>Screen</code>对象</h5><p>属性</p>
+<pre><code>* availHeight //返回屏幕的高度（不包括Windows任务栏）
+* availWidth //返回屏幕的宽度（不包括Windows任务栏）
+* colorDepth //返回目标设备或缓冲器上的调色板的比特深度
+* height //返回屏幕的总高度
+* pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
+* width //返回屏幕的总宽度    
+</code></pre><hr>
+<h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><p>属性</p>
+<pre><code>* length //返回历史列表中的网址数
+</code></pre><p>方法</p>
+<pre><code>* back() //加载 history 列表中的前一个 URL
+* forward() //加载 history 列表中的下一个 URL
+* go() //加载 history 列表中的某个具体页面
+</code></pre><hr>
+<h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><p>属性</p>
+<pre><code>* hash //返回一个URL的锚部分
+* host //返回一个URL的主机名和端口
+* hostname //返回URL的主机名
+* href //返回完整的URL
+* pathname //返回的URL路径名。
+* port //返回一个URL服务器使用的端口号
+* protocol //返回一个URL协议
+* search //返回一个URL的查询部分
+</code></pre><p>方法</p>
+<pre><code>* assign() //载入一个新的文档
+* reload() //重新载入当前文档
+* replace() //用新的文档替换当前文档    
+</code></pre><hr>
+
       
     </div>
     
@@ -339,8 +416,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/24/ECMAScript/" rel="prev" title="ECMAScript">
-                ECMAScript <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/24/ECMAScript 对象常用API/" rel="prev" title="ECMAScript 对象常用API">
+                ECMAScript 对象常用API <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -393,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -445,6 +531,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Window对象"><span class="nav-number">1.</span> <span class="nav-text">Window对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Navigator对象"><span class="nav-number">2.</span> <span class="nav-text">Navigator对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Screen对象"><span class="nav-number">3.</span> <span class="nav-text">Screen对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#History对象"><span class="nav-number">4.</span> <span class="nav-text">History对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Location对象"><span class="nav-number">5.</span> <span class="nav-text">Location对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
