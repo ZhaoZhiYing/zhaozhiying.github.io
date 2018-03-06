@@ -1534,77 +1534,94 @@ p{color:green;}
 * block 元素从上往下另起一行。
 
 1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
-2.如果 div 里面有多行 inline 元素，div高度是这多行加起来的行高。
-3.如果一个 div 里面有div，那么这个div的高度由里面的div高度加 padding 加 margin（加margin分情况）
+2.如果 div 里面有多行 inline 元素，div 高度是这多行加起来的行高。
+3.如果一个 div 里面有 div，那么这个 div 的高度由里面的 div 高度加 padding 加 margin（加 margin 分情况）
 </code></pre><hr>
-<h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><ul>
-<li>不到万不得已，不要写固定<code>width</code>和<code>height</code></li>
-<li>尽量用高级语法，如 <code>calc</code> <code>flex</code></li>
-<li>如果是<code>IE</code>，就全部写固定</li>
-</ul>
-<hr>
+<h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><pre><code>* 尽量不要写固定 width 和 height 
+* 尽量用高级语法，如 calc flex 
+* 如果是 IE ，就全部写固定
+</code></pre><hr>
 <h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
 * 父元素加 .clearfix{content:&apos;&apos;; display: block; clear: both;}
 .clearfix{zoom: 1;} //支持IE6
-</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex
-* 父元素加 justify-content: space-between;
+</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex; justify-content: space-between;
 </code></pre><hr>
-<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p><code>child</code>为不定宽<code>block</code>元素</p>
-<pre><code>//方法一：转为 inline 元素
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><h5 id="child为不定宽block元素（parent定宽-不定宽）。"><a href="#child为不定宽block元素（parent定宽-不定宽）。" class="headerlink" title="child为不定宽block元素（parent定宽/不定宽）。"></a><code>child</code>为不定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）。</h5><pre><code>//方法一：转为 inline 元素
 child{display: inline;}
 parent{text-align: center;}
-
-//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14649f84f.png
+"></p>
+<pre><code>//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
 child{display: table; margin-left/right: auto;}
-
-//方法三：margin 左右设同等值
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e149d8d3cd.png
+"></p>
+<pre><code>//方法三：margin 左右设同等值
 child{margin-left/right: 20px;}
-
-//方法四：translateX -50%
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14a9cc850.png
+"></p>
+<pre><code>//方法四：translateX -50%
 child{position: absolute; left: 50%; transform: translateX(-50%);}
 parent{position: relative;}
-</code></pre><p><code>child</code>为定宽<code>block</code>元素</p>
-<pre><code>child{width: 100px; margin-left/right: auto;}
-</code></pre><p><code>inline</code> <code>inline-block</code>元素以及图片</p>
-<pre><code>parent{text-align: center;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; justify-content: center;}    
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14b574741.png
+"></p>
+<h5 id="child为定宽block元素（parent定宽-不定宽）"><a href="#child为定宽block元素（parent定宽-不定宽）" class="headerlink" title="child为定宽block元素（parent定宽/不定宽）"></a><code>child</code>为定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）</h5><pre><code>child{width: 100px; margin-left/right: auto;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e15dcedb08.png
+"></p>
+<h5 id="inline-inline-block元素以及图片（parent定宽-不定宽）"><a href="#inline-inline-block元素以及图片（parent定宽-不定宽）" class="headerlink" title="inline inline-block元素以及图片（parent定宽/不定宽）"></a><code>inline</code> <code>inline-block</code>元素以及图片（<code>parent</code>定宽/不定宽）</h5><pre><code>parent{text-align: center;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e17442bbb0.png
+"></p>
+<h5 id="通用方法（flex布局）"><a href="#通用方法（flex布局）" class="headerlink" title="通用方法（flex布局）"></a>通用方法（<code>flex</code>布局）</h5><pre><code>parent{display: flex; justify-content: center;}    
 </code></pre><hr>
-<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>高不确定）</p>
-<pre><code>//方法一：translateY -50%
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><h5 id="child为定高-不定高block元素（parent定高）"><a href="#child为定高-不定高block元素（parent定高）" class="headerlink" title="child为定高/不定高block元素（parent定高）"></a><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>定高）</h5><pre><code>//方法一：translateY -50%
 child{position: absolute; top: 50%; transform: translateY(-50%);}
 parent{position: relative;}
-
-//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
-parent{vertical-align：middle;}
-
-//方法三：padding 上下设同等值
-child{padding-top/bottom: 20px;}
-</code></pre><p><code>child</code>为单行<code>inline</code>文本</p>
-<pre><code>//方法一：height 和 line-height 设同等值
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2fa910efa.png
+"></p>
+<pre><code>//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
+parent{vertical-align: middle;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3071251c7.png
+"></p>
+<pre><code>//方法三：absolute + margin-top/bottom: auto;
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2f5537c2a.png
+">    </p>
+<pre><code>//方法四
+child{ top: 50%; margin-top: 50%;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2febcafc7.png
+">    </p>
+<h5 id="child为inline单行文本以及图片（parent定高）"><a href="#child为inline单行文本以及图片（parent定高）" class="headerlink" title="child为inline单行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>单行文本以及图片（<code>parent</code>定高）</h5><pre><code>//容器 height 和 line-height 设同等值
 parent{height: 40px; line-height: 40px;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p><code>child</code>为多行<code>inline</code>文本以及图片</p>
-<pre><code>//方法一：
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3936c4314.png
+">    </p>
+<h5 id="child为inline多行文本以及图片（parent定高）"><a href="#child为inline多行文本以及图片（parent定高）" class="headerlink" title="child为inline多行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>多行文本以及图片（<code>parent</code>定高）</h5><pre><code>//方法一：利用 table (包括tbody、tr、td)标签。兼容IE。
+parent{vertical-align：middle;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e394b3e99d.png
+"></p>
+<pre><code>//方法二：display: table-cell;
 parent{display: table-cell; vertical-align: middle;}
-
-//方法二：padding 上下设同等值
-parent{height: 40px; line-height: 20px; padding: 10px 0;}
-</code></pre><p>通用方法（<code>flex</code>布局）</p>
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3962ba2c6.png
+"></p>
+<p>通用方法（<code>flex</code>布局）</p>
 <pre><code>parent{display: flex; align-items: center;}
 </code></pre><hr>
-<h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><pre><code>//float + -margin（兼容 IE）
-父元素加.clearfix{content:’’; display: block; clear: both;}
-子元素分别加 float: left; 和 float: right; 
-
-//flex + -margin (可实现上下图片数量不一时的平均布局)  
-parent{display: flex; justify-content: space-between;}
-</code></pre><hr>
-<h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1ddb9e90f.png
+<h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><p>￼<code>float</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1b861d6bd.png
 "></p>
-<p>￼<code>flex</code>实现<br><img src="https://i.loli.net/2018/01/04/5a4e1e4c26e7e.png
+<p>￼<code>flex</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1b7606c05.png
+"></p>
+<hr>
+<h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1a0475fa7.png
+"></p>
+<p>￼<code>flex</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1a15e92b7.png
+"></p>
+<hr>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="单行文本超出部分变成省略号"><a href="#单行文本超出部分变成省略号" class="headerlink" title="单行文本超出部分变成省略号"></a>单行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2006ebd58.png
+"></p>
+<h5 id="多行文本超出部分变成省略号"><a href="#多行文本超出部分变成省略号" class="headerlink" title="多行文本超出部分变成省略号"></a>多行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2023eee7d.png
+"></p>
+<h5 id="姓名-与-联系方式-两端对齐"><a href="#姓名-与-联系方式-两端对齐" class="headerlink" title="姓名 与 联系方式 两端对齐"></a>姓名 与 联系方式 两端对齐</h5><p><img src="https://i.loli.net/2018/03/06/5a9e1c7c9a4d8.png
 "></p>
 <hr>
 <p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
