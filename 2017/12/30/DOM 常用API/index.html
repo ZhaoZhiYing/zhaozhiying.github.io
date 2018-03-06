@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/30/DOM 常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
-<meta property="og:updated_time" content="2018-03-04T10:17:28.000Z">
+<meta property="og:updated_time" content="2018-03-06T06:56:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM 常用API">
 <meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
@@ -374,7 +374,11 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 </code></pre><h5 id="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h5><pre><code>* Node.appendChild(node) //向节点末尾添加一个子节点
 * Node.removeChild(node) //删除子节点，在要删除节点的父节点上操作
 * Node.replaceChild(newChild,oldChild) //替换节点
-* Node.cloneNode(node) //复制节点，默认为false(克隆节点), true(克隆节点及其属性，以及后代)
+* Node.cloneNode() //复制节点
+    语法：var dupNode = 被克隆节点.cloneNode(deep);
+    //deep 是否深拷贝，默认为 false ，浅拷贝只克隆节点。
+   //如果为 true ，深拷贝克隆节点和属性，以及后代。
+
 * Node.insertBefore(newNode,oldNode) //在指定子节点之前插入新的子节点
 * Node.contains(node) //返回一个布尔值，表示参数节点是否为当前节点的后代节点。
 * Node.hasChildNodes() //返回布尔值，表示当前节点是否有子节点
