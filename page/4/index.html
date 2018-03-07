@@ -238,6 +238,476 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/实现一个 jQuery 的 API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">实现一个 jQuery 的 API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
+  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
+  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
+  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
+  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
+  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
+<pre><code>var allChildren = item3.parentNode.children 
+var array = { 
+    length:0
+}
+for(let i = 0; i&lt;allChildren.length; i++){
+    if (allChildren[i] !== item3){
+        array[array.length] = allChildren[i]
+        array.length += 1
+    }
+}
+</code></pre><p>封装成函数</p>
+<pre><code>function getSiblings(node){
+    var allChildren = node.parentNode.children 
+    var array = { 
+        length:0
+    }
+    for(let i = 0; i&lt;allChildren.length; i++){
+        if (allChildren[i] !== node){
+            array[array.length] = allChildren[i]
+            array.length += 1
+        }
+    }
+    return array
+}
+getSiblings(item3)//调用
+</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
+item3.classList.add(&apos;b&apos;)
+item3.classList.add(&apos;c&apos;)
+</code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
+<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
+classes.forEach((value) =&gt; item3.classList.add(value))
+</code></pre><p>加上<code>remove</code></p>
+<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
+for(let key in classes){
+    var value = classes[key]
+    if(value){
+        item3.classList.add(key)
+    }else{
+        item3.classList.remove(key)
+    }
+}
+</code></pre><p>封装成函数</p>
+<pre><code>function addClass(node,classes){
+    for(let key in classes){
+        var value = classes[key]
+        if(value){
+            node.classList.add(key)
+        }else{
+            node.classList.remove(key)
+        }
+    }    
+}    
+addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
+</code></pre><p>优化代码（这里用到了三元运算符）</p>
+<pre><code>function addClass(node,classes){
+  for(let key in classes){
+      var value = classes[key]
+      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
+      node.classList[methodName](key)
+    }    
+}    
+addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
+</code></pre><p>上面代码等于下面</p>
+<pre><code>function addClass(node,classes){
+    classes.forEach((value) =&gt; node.classList.add(value))
+}    
+addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
+</code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
+<pre><code>window.zzdom = {} //声明变量名 zzdom
+zzdom.getSiblings = getSiblings 
+zzdom.addClass = addClass
+//调用
+zzdom.getSiblings.call(item3)  
+zzdom.addClass.call(items, {a:true, b:false, c:true})    
+</code></pre><p>代码更新如下</p>
+<pre><code>window.zzdom = {}        
+zzdom.getSiblings = function (node){ 
+var allChildren = node.parentNode.children 
+var array = { 
+    length:0
+}
+for(let i = 0; i&lt;allChildren.length; i++){
+    if (allChildren[i] !== node){
+        array[array.length] = allChildren[i]
+        array.length += 1
+    }
+}
+return array
+}
+zzdom.addClass = function (node,classes){
+  classes.forEach((value) =&gt; node.classList.add(value))
+}
+//调用
+zzdom.getSiblings(item3)
+zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>但是相比下，下面这种调用方法更好</p>
+<pre><code>//调用
+item3.getSiblings(item3)
+item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>解决办法：更改<code>Node</code>原型</p>
+<pre><code>Node.prototype.getSiblings = function (){ 
+    var allChildren = this.parentNode.children 
+    var array = { 
+        length:0
+    }
+    for(let i = 0; i&lt;allChildren.length; i++){
+        if (allChildren[i] !== this){
+            array[array.length] = allChildren[i]
+            array.length += 1
+        }
+    }
+    return array
+    }
+    Node.prototype.addClass = function (classes){
+        classes.forEach((value) =&gt; this.classList.add(value))
+}
+//调用
+item3.getSiblings.call(item3)
+item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><blockquote>
+<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
+</blockquote>
+<p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
+<pre><code>window.jQuery = function (node){
+    return{
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
+                array[array.length] = allChildren[i]
+                array.length += 1
+            }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
+}
+//调用
+var node2 = jQuery(item3)
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let node
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        node = document.querySelector(nodeOrSelector)
+    }else{
+        node = nodeOrSelector
+    }
+
+    return{
+      getSiblings: function (){ 
+          var allChildren = node.parentNode.children 
+          var array = { length: 0 }
+          for(let i = 0; i&lt;allChildren.length; i++){
+            if (allChildren[i] !== node){
+                array[array.length] = allChildren[i]
+                array.length += 1
+            }
+          }
+          return array
+      },
+      addClass: function (classes){
+        classes.forEach((value) =&gt; node.classList.add(value))
+      }
+   }
+}
+//调用
+var node2 = jQuery(&apos;#item3&apos;)
+node2.getSiblings()
+node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
+</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+       //伪数组
+       nodes = document.querySelectorAll(nodeOrSelector)
+    }else if(nodeOrSelector instanceof Node){
+        //伪数组，保持返回结果一致
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:NodeList
+</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }            
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+console.log(node2)//__proto__:Object 
+</code></pre><p>添加<code>addClass</code>后代码如下</p>
+<pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    return nodes
+}    
+//调用
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    //`getText`获取文本
+    nodes.getText = function(){
+        var texts = []
+        for(let i=0; i&lt;nodes.length; i++){
+            texts.push(nodes[i].textContent)
+        }
+        return texts
+    }    
+    //`setText`设置文本
+    nodes.setText = function(text){
+        for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+    }    
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
+<pre><code>    window.jQuery = function (nodeOrSelector){
+    let nodes = {}
+    if(typeof nodeOrSelector === &apos;string&apos;){
+        let temp=document.querySelectorAll(nodeOrSelector)
+        for(let i = 0; i&lt;temp.length; i++){
+            nodes[i] = temp[i]
+        }
+        nodes.length = temp.length
+    }else if(nodeOrSelector instanceof Node){
+        nodes = {
+            0: nodeOrSelector,
+            length: 1
+        }
+    }    
+    nodes.addClass = function(classes){
+        classes.forEach((value)=&gt;{
+            for(let i=0; i&lt;nodes.length; i++){
+                nodes[i].classList.add(value)
+            }
+        })
+    }    
+    nodes.text = function (text){
+        if(text === undefined){
+            var texts = []
+            for(let i=0; i&lt;nodes.length; i++){
+             texts.push(nodes[i].textContent)
+          }
+           return texts
+       }else{
+            for(let i=0;i&lt;nodes.length; i++){
+            nodes[i].textContent = text
+        }
+      }    
+    }
+    return nodes
+}    
+var node2 = jQuery(&apos;ul &gt; li&apos;)
+node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
+node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+</code></pre><hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM 常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2004,7 +2474,7 @@ space-around：每个项目两侧的间隔相等。所以，项目之间的间�
 flex-end：交叉轴的终点对齐。
 center：交叉轴的中点对齐。
 baseline: 项目的第一行文字的基线对齐。
-stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+stretch（默认值）：如果项目未设置高度或设为 auto，将占满整个容器的高度。
 </code></pre><h5 id="6-align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"><a href="#6-align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。" class="headerlink" title="6.align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"></a>6.<code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h5><pre><code>flex-start：与交叉轴的起点对齐。
 flex-end：与交叉轴的终点对齐。
 center：与交叉轴的中点对齐。
@@ -2012,15 +2482,14 @@ space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
 space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
 stretch（默认值）：轴线占满整个交叉轴。
 </code></pre><h4 id="item项目属性："><a href="#item项目属性：" class="headerlink" title="item项目属性："></a><code>item</code>项目属性：</h4><h5 id="1-order属性定义项目的排列顺序"><a href="#1-order属性定义项目的排列顺序" class="headerlink" title="1.order属性定义项目的排列顺序"></a>1.<code>order</code>属性定义项目的排列顺序</h5><pre><code>数值越小，排列越靠前，默认为0。
-</code></pre><h5 id="2-flex-grow属性定义项目的放大比例"><a href="#2-flex-grow属性定义项目的放大比例" class="headerlink" title="2.flex-grow属性定义项目的放大比例"></a>2.<code>flex-grow</code>属性定义项目的放大比例</h5><pre><code>默认为0，即如果存在剩余空间，也不放大。
-
-如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+</code></pre><h5 id="2-flex-grow属性定义项目的放大比例"><a href="#2-flex-grow属性定义项目的放大比例" class="headerlink" title="2.flex-grow属性定义项目的放大比例"></a>2.<code>flex-grow</code>属性定义项目的放大比例</h5><pre><code>* 默认为0，即如果存在剩余空间，也不放大。
+* 如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 </code></pre><h5 id="3-flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><a href="#3-flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。" class="headerlink" title="3.flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"></a>3.<code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h5><pre><code>(1)如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
 (2)负值对该属性无效。
-</code></pre><h5 id="4-flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main-size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><a href="#4-flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main-size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。" class="headerlink" title="4.flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"></a>4.<code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间<code>main size</code>。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</h5><pre><code>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+</code></pre><h5 id="4-flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main-size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><a href="#4-flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main-size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。" class="headerlink" title="4.flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间main size。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"></a>4.<code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间<code>main size</code>。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</h5><pre><code>它可以设为跟 width 或 height 属性一样的值（比如 350px），则项目将占据固定空间。
 </code></pre><h5 id="5-flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><a href="#5-flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。" class="headerlink" title="5.flex属性是flex-grow``flex-shrink和flex-basis的简写，默认值为0 1 auto。后两个属性可选。"></a>5.<code>flex</code>属性是<code>flex-grow``flex-shrink</code>和<code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</h5><pre><code>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
-</code></pre><h5 id="6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="6.align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a>6.<code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于stretch。</h5><pre><code>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
+</code></pre><h5 id="6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于-stretch。"><a href="#6-align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于-stretch。" class="headerlink" title="6.align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于 stretch。"></a>6.<code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于 <code>stretch</code>。</h5><pre><code>该属性可能取6个值，除了 auto，其他都与 align-items 属性完全一致。
 </code></pre><hr>
 <p>参考：</p>
 <p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
@@ -2166,239 +2635,29 @@ stretch（默认值）：轴线占满整个交叉轴。
       
         
           
-            <h4 id="层叠顺序（由下往上）"><a href="#层叠顺序（由下往上）" class="headerlink" title="层叠顺序（由下往上）"></a>层叠顺序（由下往上）</h4><pre><code>1.负z-index（position）
+            <h4 id="层叠顺序（由下往上）"><a href="#层叠顺序（由下往上）" class="headerlink" title="层叠顺序（由下往上）"></a>层叠顺序（由下往上）</h4><pre><code>1.负 z-index（position）
 2.background
 3.border
 4.block
-5.float（float/inline在float上）
+5.float（ float/inline 在 float 上）
 6.inline/inline-block
-7.正z-index（position元素由z-index大小决定层叠）
-</code></pre><p><code>z-index</code>某些情况下可以影响层叠水平，但是只限于定位元素以及flex盒子的孩子元素；而层叠水平所有的元素都存在。    </p>
+7.正 z-index（ position 元素由 z-index 大小决定层叠）
+</code></pre><p><code>z-index</code> 某些情况下可以影响层叠水平，但是只限于定位元素以及 <code>flex</code> 盒子的孩子元素；而层叠水平所有的元素都存在。    </p>
 <hr>
-<h4 id="务必牢记的层叠准则"><a href="#务必牢记的层叠准则" class="headerlink" title="务必牢记的层叠准则"></a>务必牢记的层叠准则</h4><p>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面2个准则：</p>
-<pre><code>1. 谁大谁上：当具有明显的层叠水平标示的时候，如识别的z-indx值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。
-2. 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在DOM流中处于后面的元素会覆盖前面的元素。
+<h4 id="务必牢记的层叠准则"><a href="#务必牢记的层叠准则" class="headerlink" title="务必牢记的层叠准则"></a>务必牢记的层叠准则</h4><p>下面这两个是层叠领域的黄金准则。当元素发生层叠的时候，其覆盖关系遵循下面两个准则：</p>
+<pre><code>1. 谁大谁上：当具有明显的层叠水平标示的时候，如识别的 z-indx 值，在同一个层叠上下文领域，层叠水平值大的那一个覆盖小的那一个。通俗讲就是官大的压死官小的。
+2. 后来居上：当元素的层叠水平一致、层叠顺序相同的时候，在 DOM 流中处于后面的元素会覆盖前面的元素。
 </code></pre><p>备注：</p>
-<pre><code>1.z-index:auto所在的&lt;div&gt;元素是一个普通的元素，这时候div里的元素不受父级元素影响；
-2.当z-index一旦变成数值，哪怕是0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。
+<pre><code>1.z-index:auto 所在的 &lt;div&gt; 元素是一个普通的元素，这时候 div 里的元素不受父级元素影响；
+2.当 z-index 一旦变成数值，哪怕是 0，都会创建一个层叠上下文，这时候父级元素决定子元素层级。&apos;
 </code></pre><hr>
-<h4 id="满足两个条件才能形成层叠上下文"><a href="#满足两个条件才能形成层叠上下文" class="headerlink" title="满足两个条件才能形成层叠上下文"></a>满足两个条件才能形成层叠上下文</h4><pre><code>条件1：父级需要是display:flex或者display:inline-flex水平
-条件2：子元素的z-index不是auto，必须是数值。
-</code></pre><p>此时，这个子元素为层叠上下文元素，不是flex父级元素。</p>
+<h4 id="满足两个条件才能形成层叠上下文"><a href="#满足两个条件才能形成层叠上下文" class="headerlink" title="满足两个条件才能形成层叠上下文"></a>满足两个条件才能形成层叠上下文</h4><pre><code>条件1：父级需要是 display:flex;或者 display:inline-flex;
+条件2：子元素的 z-index 不是 auto，必须是数值。
+</code></pre><p>此时，这个子元素为层叠上下文元素，不是 <code>flex</code> 父级元素。</p>
 <hr>
 <p>参考：</p>
-<p>写代码啦 <a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>   </p>
-<p>张鑫旭 <a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/HTML 标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/24/HTML 标签/" itemprop="url">HTML 标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
-                2017-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形）</p>
-<p>注意：除了<code>div</code>和<code>span</code>，其他标签都有默认样式</p>
-</blockquote>
-<h3 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a><code>iframe</code>标签</h3><p>在当前页面嵌套一个页面（可替换标签）(支持相对路径)</p>
-<pre><code>1.默认宽100px高50px
-2.默认有难看的border，所以默认写frameborder=0
-3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页打开窗口)       
-4.src指定路径（可以是相对路径）
-</code></pre><h3 id="lt-a-gt-标签"><a href="#lt-a-gt-标签" class="headerlink" title="&lt;a&gt;标签"></a><code>&lt;a&gt;</code>标签</h3><h5 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a><code>target</code>属性</h5><p>该属性指定在何处显示链接的资源。</p>
-<pre><code>* _self    默认属性。当前页面加载。
-* _blank   新窗口打开
-* _parent  父级页面打开。如果没有，同_self。
-* _top     顶级页面加载。如果没有，同_self。 
-</code></pre><h5 id="lt-href-gt-属性"><a href="#lt-href-gt-属性" class="headerlink" title="&lt;href&gt;属性"></a><code>&lt;href&gt;</code>属性</h5><p>必需属性。该属性规定链接的目标地址。</p>
-<pre><code>* href=&quot;//qq.com&quot; 无协议地址
-* href=&quot;#xxx&quot; 锚点#，不发起请求
-* href=&quot;?name=qq&quot; 发起请求
-* href=&quot;./xxx.html&quot; 相对路径 
-* href=&quot;javascript:;&quot; 让a标签不跳转
-* href=&quot;javascript:alert(1)&quot; 执行一段代码
-* href=&quot;http://write.blog.csdn.net&quot; 绝对 URL ，指向另一个站点
-* a href=&quot;&quot;；刷新页面
-* href=&quot;#top&quot; 返回到页面顶部
-* href=&quot;#&quot; 返回到页面顶部
-</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
-<pre><code>1. a 标签里加 download
-   &lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
-
-2. Content-type: application/octet-stream
-</code></pre><h3 id="lt-form-gt-标签"><a href="#lt-form-gt-标签" class="headerlink" title="&lt;form&gt;标签"></a><code>&lt;form&gt;</code>标签</h3><p>跳转页面（主要使用 <code>POST</code> 请求，参数放到第四部分<code>from datas</code>）（使用 <code>GET</code> 请求时，参数默认放到查询参数）</p>
-<pre><code>1.如果 form 表单里没有提交按钮，就无法提交
-2.form 标签主要用来发起 post 请求
-3.name 属性值显示在第四部分
-4.target 属性同 a 标签
-</code></pre><h5 id="注意：a-标签和-form-标签都是用来发请求，a-标签是-get，form-标签是-post"><a href="#注意：a-标签和-form-标签都是用来发请求，a-标签是-get，form-标签是-post" class="headerlink" title="注意：a 标签和 form 标签都是用来发请求，a 标签是 get，form 标签是 post"></a>注意：<code>a</code> 标签和 <code>form</code> 标签都是用来发请求，<code>a</code> 标签是 <code>get</code>，<code>form</code> 标签是 <code>post</code></h5><h3 id="lt-input-gt-标签"><a href="#lt-input-gt-标签" class="headerlink" title="&lt;input&gt;标签"></a><code>&lt;input&gt;</code>标签</h3><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
-<pre><code>type 属性 
-1.如果一个 form 只有一个按钮 button，没写 type，自动升级为 sunmit 可提交。
-  submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
-2.checkbox: 单选框
-3.radio: 复选框
-</code></pre><h3 id="lt-label-gt-标签"><a href="#lt-label-gt-标签" class="headerlink" title="&lt;label&gt;标签"></a><code>&lt;label&gt;</code>标签</h3><p>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
-<h3 id="lt-select-gt-标签"><a href="#lt-select-gt-标签" class="headerlink" title="&lt;select&gt;标签"></a><code>&lt;select&gt;</code>标签</h3><p>下拉列表</p>
-<h3 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h3><p>输入多行文本</p>
-<p>通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
-<h3 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h3><p>表格</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
-</code></pre><h3 id="lt-colgroup-gt-标签"><a href="#lt-colgroup-gt-标签" class="headerlink" title="&lt;colgroup&gt;标签"></a><code>&lt;colgroup&gt;</code>标签</h3><p>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
-<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
-<hr>
-<h3 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h3><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
-<p>在<code>HTML</code>中，通常在一个空元素上使用一个闭标签是无效的。</p>
-<pre><code>例如，&lt;input type=&quot;text&quot;&gt; &lt;/input&gt; 的闭标签是无效的 HTML。
-</code></pre><p>常见的空元素有：</p>
-<pre><code>&lt;br&gt; 换行
-&lt;hr&gt; 添加水平横线
-&lt;img&gt; 为网页插入图片，此元素有两个必需的属性：src 和 alt。通过在 &lt;a&gt; 
-      标签中嵌套 &lt;img&gt; 标签，给图像添加到另一个文档的链接。
-&lt;input&gt; 用于为基于Web的表单创建交互式控件，以便接受来自用户的数据。
-        此元素在 &lt;form&gt; 元素中使用，用来声明允许用户输入数据的 input 
-        控件。输入字段可通过多种方式改变，取决于 type 属性。
-&lt;link&gt; 指定了外部资源与当前文档的关系，最常见的用途是链接css文件。
-       此元素只能存在于 &lt;head&gt; 元素内部，不过它可出现任何次数。
-&lt;meta&gt; 描述 HTML 文档的元数据（元数据是数据的数据信息），&lt;meta&gt; 标签
-       通常位于 &lt;head&gt; 元素内部。
-</code></pre><hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a>  </p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="external">张鑫旭</a></p>
 
           
         
@@ -2484,7 +2743,7 @@ td(table data)元素定义表格单元(数据)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
