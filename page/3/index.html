@@ -238,6 +238,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/Promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/30/Promise/" itemprop="url">Promise</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="「同步」和「异步」"><a href="#「同步」和「异步」" class="headerlink" title="「同步」和「异步」"></a>「同步」和「异步」</h4><p><code>JavaScript</code> 语言本身并不慢，慢的是读写外部数据，比如等待 <code>AJAX</code> 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，<code>Javascript</code> 语言将任务的执行模式分成两种：「同步」（<code>Synchronous</code>）和「异步」（<code>Asynchronous</code>）。</p>
+<ul>
+<li><p>一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文件。任务的第二段是处理文件。</p>
+</li>
+<li><p>「同步」是指后一个任务等待前一个任务执行结束，然后再执行。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">!function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;.call()</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A B C</div></pre></td></tr></table></figure>
+<ul>
+<li>「异步」是指前一个任务先发送一个请求，不等待返回（就是第二段的处理文件），直接进行下一个任务。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">setTimeout(function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;,1000)</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A C B</div><div class="line">// console.log(&apos;C&apos;) 就是异步执行的</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><ul>
+<li>一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。</li>
+<li><p>换言之，回调函数，就是把任务的第二段单独写在一个函数里面，在特定的事件或条件发生时，调用这个函数。</p>
+</li>
+<li><p>同步回调。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function add(a, b, callback) &#123;</div><div class="line">    callback(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1,2,function(result) &#123;</div><div class="line">    console.log(&quot;result:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">add(1,2,function(result)&#123;</div><div class="line">    console.log(&quot;结果是:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//result:3 结果是:3</div></pre></td></tr></table></figure>
+<ul>
+<li>异步回调。经常使用以下方法：<ul>
+<li>对于异步执行（例如读取文件和发出<code>HTTP</code>请求）</li>
+<li>在事件监听器/处理程序中</li>
+<li>在<code>setTimeout</code>和<code>setInterval</code>方法中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
+<p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
+<pre><code>setTimeout(function(){
+  left(function(){
+    setTimeout(function(){
+       left(function(){
+         setTimeout(function(){
+           left();
+         },2000);
+       });
+    }, 2000);
+  });
+}, 2000);
+</code></pre><hr>
+<h4 id="Promise（全局-window-的属性）"><a href="#Promise（全局-window-的属性）" class="headerlink" title="Promise（全局 window 的属性）"></a><code>Promise</code>（全局 <code>window</code> 的属性）</h4><h5 id="Promise-对象有以下两个特点"><a href="#Promise-对象有以下两个特点" class="headerlink" title="Promise 对象有以下两个特点:"></a><code>Promise</code> 对象有以下两个特点:</h5><p>1.对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：</p>
+<pre><code>pending: 初始状态，既不是成功，也不是失败状态。
+fulfilled: 意味着操作成功完成。
+rejected: 意味着操作失败。
+
+//只有异步操作的结果，可以决定当前是哪一种状态。
+//任何其他操作都无法改变这个状态。
+</code></pre><p>2.一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
+<p><code>Promise</code> 的状态的变化途径只有两种：</p>
+<pre><code>1.异步操作从 pending 到 fulfilled ，表示异步操作成功，Promise 对象传回一个值，状态变为 resolved。
+2.异步操作从 pending 到 rejected ，表示异步操作失败，Promise 对象抛出一个错误，状态变为 rejected。
+
+//只要这两种情况发生，状态就凝固不会再变了，会一直保持这个结果。
+//就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。
+//这与事件完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
+</code></pre><h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
+<pre><code>new Promise(function(resolve, reject) /* executor */ )
+
+// executor 是 resolve 和 reject 两个函数。
+// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
+// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+</code></pre><h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><pre><code>// then 方法可以接受两个回调函数作为参数。
+//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。
+//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
+</code></pre><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a><code>catch</code></h5><pre><code>// catch 是用于指定发生错误时的回调函数。
+//建议总是使用 catch，catch() 使回调报错时不会卡死 JS 而是会继续往下执行。
+// Promise 对象的错误具有&quot;冒泡&quot;性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。
+</code></pre><hr>
+<p>参考：</p>
+<p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
+<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2359,343 +2574,6 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM 常用API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/30/DOM 常用API/" itemprop="url">DOM 常用API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
-                2017-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="DOM-理解"><a href="#DOM-理解" class="headerlink" title="DOM 理解"></a><code>DOM</code> 理解</h5><pre><code>DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。
-Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
-
-* Document：XML(HTML 是 XML 的衍生品)
-* Element：节点对象代表文档树中的一个节点。
-* Text：模型
-</code></pre><h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a><code>DOM</code> 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
-</code></pre><h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
-<pre><code>* Document //整个文档（DOM树的根节点），nodeType = 9
-* DocumentType //文档类型节点（比如&lt;!DOCTYPE html&gt;），nodeType = 10
-* Element //网页的各种HTML标签（比如&lt;body&gt;、&lt;a&gt;等），nodeType = 1
-* Attribute //网页元素的属性（比如class=&quot;right&quot;），nodeType = 2
-* Text //标签之间或标签包含的文本，nodeType = 3
-* Comment //注释，nodeType = 8
-* DocumentFragment //文档的片段，nodeType = 11
-</code></pre><p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</p>
-<hr>
-<h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a><code>Node</code></h4><h5 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h5><pre><code>* Node.nodeName //节点的名称
-* Node.nodeType //节点的类型     
-* Node.nodeValue //节点的值
-* Node.textContent //返回当前节点和它的所有后代节点的文本内容，可读写
-* Node.baseURI //返回当前网页的绝对路径
-
-* Node.ownerDocument //返回元素的根节点文档对象（即document对象）  
-* Node.nextSibling //返回给定节点的下一个子节点 
-* Node.previousSibling //返回给定节点的上一个子节点 
-* Node.parentNode //（w3c标准）返回给定节点的父节点
-* Node.parentElement //（只ie支持）返回给定节点的父标签
-* Node.childNodes //获取子节点（可以是文本、注释、属性）  
-* Node.firstChild //返回第一个子节点
-* Node.lastChild //返回最后一个子节点    
-
-//parentNode接口    
-* parentNode.children //获取子标签节点
-* parentNode.firstElementChild //返回当前节点的第一个Element子节点
-* parentNode.lastElementChild //返回当前节点的最后一个Element子节点
-* parentNode.childElementCount //返回当前节点所有Element子节点的数目
-
-注意：
-* nodeName 只有 svg 是小写，其他是大写
-* nextSibling 可能获取到文本    
-</code></pre><h5 id="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h5><pre><code>* Node.appendChild(node) //向节点末尾添加一个子节点
-* Node.removeChild(node) //删除子节点，在要删除节点的父节点上操作
-* Node.replaceChild(newChild,oldChild) //替换节点
-* Node.cloneNode() //复制节点
-    语法：var dupNode = 被克隆节点.cloneNode(deep);
-    //deep 是否深拷贝，默认为 false ，浅拷贝只克隆节点。
-   //如果为 true ，深拷贝克隆节点和属性，以及后代。
-
-* Node.insertBefore(newNode,oldNode) //在指定子节点之前插入新的子节点
-* Node.contains(node) //返回一个布尔值，表示参数节点是否为当前节点的后代节点。
-* Node.hasChildNodes() //返回布尔值，表示当前节点是否有子节点
-* Node.isEqualNode() //返回布尔值，用于检查两个节点是否相等。
-* Node.isSameNode() //返回布尔值，用于检查两个节点是否相同（等价于 ===）
-* Node.normalize() //用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。
-
-//ChildNode接口
-* ChildNode.remove() //用于删除当前节点
-* ChildNode.before() //在这个节点的前面插入节点（同父节点）
-* ChildNode.after() //在这个节点的末尾插入节点（同父节点）
-* ChildNode.replaceWith() //替换当前节点父节点下的子节点 
-
-注意：
-1.cloneNode() 分为深拷贝和浅拷贝
-</code></pre><hr>
-<h4 id="Document（查询接口，因为一般从-document-开始查）"><a href="#Document（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document（查询接口，因为一般从 document 开始查）"></a><code>Document</code>（查询接口，因为一般从 document 开始查）</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* document.documentElement //返回当前文档的根节点
-* document.defaultView //返回document对象所在的window对象
-* document.body //返回当前文档的&lt;body&gt;节点
-* document.head //返回当前文档的&lt;head&gt;节点
-* document.activeElement //返回当前文档中获得焦点的那个元素。
-
-//节点集合属性
-* document.links //返回当前文档的所有a元素
-* document.forms //返回页面中所有表单元素
-* document.images //返回页面中所有图片元素
-* document.embeds //返回网页中所有嵌入对象
-* document.scripts //返回当前文档的所有脚本
-* document.styleSheets //返回当前网页的所有样式表
-
-//文档信息属性
-* document.documentURI //表示当前文档的网址
-* document.URL //返回当前文档的网址
-* document.domain //返回当前文档的域名
-* document.lastModified //返回当前文档最后修改的时间戳
-* document.location //返回location对象，提供当前文档的URL信息
-* document.referrer //返回当前文档的访问来源
-* document.title //返回当前文档的标题
-* document.characterSet //属性返回渲染当前文档的字符集，比如UTF-8、ISO-8859-1。
-* document.readyState //返回当前文档的状态
-* document.designMode //控制当前文档是否可编辑，可读写
-* document.compatMode //返回浏览器处理文档的模式
-* document.cookie //用来操作Cookie
-</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><pre><code>//读写
-* document.open() //用于新建并打开一个文档
-* document.close() //关闭open方法所新建的文档
-* document.write() //用于向当前文档写入内容（尽量不用write，用的话避免有延时性）
-* document.writeln() //用于向当前文档写入内容，尾部添加换行符。
-
-//生成节点
-* document.createElement(tagName) //创建一个元素节点。
-* document.createTextNode(text) //创建一个文本节点
-* document.createAttribute(name) //创建一个属性对象节点，并返回它。
-* document.createDocumentFragment() //创建一个DocumentFragment 对象
-
-//查找节点
-* document.querySelector(selectors) //接受一个CSS选择器作为参数，返回第一个匹配该选择器的元素节点。
-* document.querySelectorAll(selectors) //接受一个CSS选择器作为参数，返回所有匹配该选择器的元素节点。
-* document.getElementsByTagName(tagName) //返回所有指定HTML标签的元素
-* document.getElementsByClassName(className) //返回包括了所有class名字符合指定条件的元素
-* document.getElementsByName(name) //用于选择拥有name属性的HTML元素（比如&lt;form&gt;、&lt;radio&gt;、&lt;img&gt;、&lt;frame&gt;、&lt;embed&gt;和&lt;object&gt;等）
-* document.getElementById(id) //返回匹配指定id属性的元素节点。
-* document.elementFromPoint(x,y) //返回位于页面指定位置最上层的Element子节点。 
-
-//其他
-* document.hasFocus() //返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。
-* document.adoptNode(externalNode) //将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。
-* document.importNode(externalNode, deep) //从外部文档拷贝指定节点，插入当前文档。
-
-注意：
-1.获取元素主要使用 querySelector()、querySelectorAll() 
-</code></pre><hr>
-<h4 id="Element"><a href="#Element" class="headerlink" title="Element"></a><code>Element</code></h4><p><code>DOM API</code>获取的<code>Elements</code>都是伪数组</p>
-<h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>//特性属性
-* Element.attributes //返回当前元素节点的所有属性节点
-* Element.id //返回指定元素的id属性，可读写
-* Element.tagName //返回指定元素的大写标签名
-* Element.innerHTML //返回该元素包含的HTML代码，可读写
-* Element.outerHTML //返回指定元素节点的所有HTML代码，包括它自身和包含的的所有子元素，可读写
-* Element.className //返回当前元素的class属性，可读写
-* Element.classList //返回当前元素节点的所有class集合
-* Element.dataset //返回元素节点中所有的data-*属性。
-
-//尺寸属性
-* Element.clientHeight //返回元素节点可见部分的高度
-* Element.clientWidth //返回元素节点可见部分的宽度
-* Element.clientLeft //返回元素节点左边框的宽度
-* Element.clientTop //返回元素节点顶部边框的宽度
-* Element.scrollHeight //返回元素节点的总高度
-* Element.scrollWidth //返回元素节点的总宽度
-* Element.scrollLeft //返回元素节点的水平滚动条向右滚动的像素数值,通过设置这个属性可以改变元素的滚动位置
-* Element.scrollTop //返回元素节点的垂直滚动向下滚动的像素数值
-* Element.offsetHeight //返回元素的垂直高度(包含border,padding)
-* Element.offsetWidth //返回元素的水平宽度(包含border,padding)
-* Element.offsetLeft //返回当前元素左上角相对于    * Element.offsetParent //节点的垂直偏移
-* Element.offsetTop //返回水平位移
-* Element.style //返回元素节点的行内样式
-
-//节点相关属性
-* Element.children //包括当前元素节点的所有子元素
-* Element.childElementCount //返回当前元素节点包含的子HTML元素节点的个数
-* Element.firstElementChild //返回当前节点的第一个Element子节点  
-* Element.lastElementChild //返回当前节点的最后一个Element子节点  
-* Element.nextElementSibling //返回当前元素节点的下一个兄弟HTML元素节点
-* Element.previousElementSibling //返回当前元素节点的前一个兄弟HTML节点
-* Element.offsetParent //返回当前元素节点的最靠近的、并且CSS的position属性不等于static的父元素。
-</code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>//位置方法
-* getBoundingClientRect() //返回一个对象，包含top,left,right,bottom,width,height（width、height 为元素自身宽高）
-    top 元素上外边界距窗口最上面的距离
-    right 元素右外边界距窗口最上面的距离
-    bottom 元素下外边界距窗口最上面的距离
-    left 元素左外边界距窗口最上面的距离
-    width 元素自身宽(包含border,padding) 
-    height 元素自身高(包含border,padding) 
-* getClientRects() //返回当前元素在页面上形参的所有矩形。
-* Element.scrollIntoView() //滚动当前元素，进入浏览器的可见区域
-
-//属性方法
-* Element.getAttribute() //读取指定属性  
-* Element.setAttribute() //设置指定属性  
-* Element.hasAttribute() //返回一个布尔值，表示当前元素节点是否有指定的属性  
-* Element.removeAttribute() //移除指定属性
-
-//查找方法
-* Element.querySelector()  
-* Element.querySelectorAll()  
-* Element.getElementsByTagName()  
-* Element.getElementsByClassName()
-
-//事件方法
-* Element.addEventListener() //添加事件的回调函数  
-* Element.removeEventListener() //移除事件监听函数  
-* Element.dispatchEvent() //触发事件
-//IE8
-* Element.attachEvent(oneventName,listener)
-* Element.detachEvent(oneventName,listener)
-
-//解析HTML字符串，然后将生成的节点插入DOM树的指定位置。
-* Element.insertAdjacentHTML(where, htmlString); 
-* Element.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入  
-* Element.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString) // 在该元素第一个子元素前插入 
-* Element.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString) // 在该元素最后一个子元素后面插入 
-* Element.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString) // 在该元素后插入
-
-* Element.remove() //用于将当前元素节点从DOM中移除
-* Element.focus() //用于将当前页面的焦点，转移到指定元素上
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2746,7 +2624,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

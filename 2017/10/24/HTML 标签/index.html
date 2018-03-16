@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
+<meta name="description" content="除了div和span，其他标签都有默认样式。  更多标签 &amp;lt;iframe&amp;gt;在当前页面嵌套一个页面。 * 默认宽 100px 高 50px * 默认有难看的 border，可在 CSS 中设置。 属性 * height //规定 &amp;lt;iframe&amp;gt; 的高度。 * width //规定 &amp;lt;iframe&amp;gt; 的宽度。 * name //规定 &amp;lt;iframe&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML 标签">
 <meta property="og:url" content="http://yoursite.com/2017/10/24/HTML 标签/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
-<meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
-<meta property="og:updated_time" content="2018-03-01T12:45:31.000Z">
+<meta property="og:description" content="除了div和span，其他标签都有默认样式。  更多标签 &amp;lt;iframe&amp;gt;在当前页面嵌套一个页面。 * 默认宽 100px 高 50px * 默认有难看的 border，可在 CSS 中设置。 属性 * height //规定 &amp;lt;iframe&amp;gt; 的高度。 * width //规定 &amp;lt;iframe&amp;gt; 的宽度。 * name //规定 &amp;lt;iframe&amp;gt;">
+<meta property="og:image" content="https://i.loli.net/2018/03/16/5aab6bff06e60.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/03/16/5aab6b621ca04.png
+">
+<meta property="og:image" content="https://i.loli.net/2018/03/16/5aab6bdd59442.png
+">
+<meta property="og:updated_time" content="2018-03-16T14:34:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML 标签">
-<meta name="twitter:description" content="常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形） 注意：除了div和span，其他标签都有默认样式  iframe标签在当前页面嵌套一个页面（可替换标签）(支持相对路径) 1.默认宽100px高50px 2.默认">
-<meta name="twitter:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
+<meta name="twitter:description" content="除了div和span，其他标签都有默认样式。  更多标签 &amp;lt;iframe&amp;gt;在当前页面嵌套一个页面。 * 默认宽 100px 高 50px * 默认有难看的 border，可在 CSS 中设置。 属性 * height //规定 &amp;lt;iframe&amp;gt; 的高度。 * width //规定 &amp;lt;iframe&amp;gt; 的宽度。 * name //规定 &amp;lt;iframe&amp;gt;">
+<meta name="twitter:image" content="https://i.loli.net/2018/03/16/5aab6bff06e60.png
+">
 
 
 
@@ -333,58 +339,74 @@
 
       
         <blockquote>
-<p>常见标签：a、form（表格）、input（表单，包含输入框和提交按钮）、button、h1、p、ul、ol、small、strong、div、span、kbd(键盘按键)、video（视频）、audio（音频）、svg（不规则图形）</p>
-<p>注意：除了<code>div</code>和<code>span</code>，其他标签都有默认样式</p>
+<p>除了<code>div</code>和<code>span</code>，其他标签都有默认样式。</p>
 </blockquote>
-<h3 id="iframe标签"><a href="#iframe标签" class="headerlink" title="iframe标签"></a><code>iframe</code>标签</h3><p>在当前页面嵌套一个页面（可替换标签）(支持相对路径)</p>
-<pre><code>1.默认宽100px高50px
-2.默认有难看的border，所以默认写frameborder=0
-3.name属性需结合a标签使用，否则无意义(name可结合a标签的target指定嵌套网页打开窗口)       
-4.src指定路径（可以是相对路径）
-</code></pre><h3 id="lt-a-gt-标签"><a href="#lt-a-gt-标签" class="headerlink" title="&lt;a&gt;标签"></a><code>&lt;a&gt;</code>标签</h3><h5 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a><code>target</code>属性</h5><p>该属性指定在何处显示链接的资源。</p>
-<pre><code>* _self    默认属性。当前页面加载。
-* _blank   新窗口打开
-* _parent  父级页面打开。如果没有，同_self。
-* _top     顶级页面加载。如果没有，同_self。 
-</code></pre><h5 id="lt-href-gt-属性"><a href="#lt-href-gt-属性" class="headerlink" title="&lt;href&gt;属性"></a><code>&lt;href&gt;</code>属性</h5><p>必需属性。该属性规定链接的目标地址。</p>
-<pre><code>* href=&quot;//qq.com&quot; 无协议地址
-* href=&quot;#xxx&quot; 锚点#，不发起请求
-* href=&quot;?name=qq&quot; 发起请求
-* href=&quot;./xxx.html&quot; 相对路径 
-* href=&quot;javascript:;&quot; 让a标签不跳转
-* href=&quot;javascript:alert(1)&quot; 执行一段代码
-* href=&quot;http://write.blog.csdn.net&quot; 绝对 URL ，指向另一个站点
-* a href=&quot;&quot;；刷新页面
-* href=&quot;#top&quot; 返回到页面顶部
-* href=&quot;#&quot; 返回到页面顶部
-</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
-<pre><code>1. a 标签里加 download
-   &lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
+<p><a href="http://www.runoob.com/tags/html-reference.html" target="_blank" rel="external">更多标签</a></p>
+<h4 id="lt-iframe-gt"><a href="#lt-iframe-gt" class="headerlink" title="&lt;iframe&gt;"></a><code>&lt;iframe&gt;</code></h4><p>在当前页面嵌套一个页面。</p>
+<pre><code>* 默认宽 100px 高 50px
+* 默认有难看的 border，可在 CSS 中设置。
+</code></pre><p>属性</p>
+<pre><code>* height //规定 &lt;iframe&gt; 的高度。
+* width //规定 &lt;iframe&gt; 的宽度。
+* name //规定 &lt;iframe&gt; 的名称。
+    //需结合 a 标签使用，否则无意义
+* src 指定路径
+    绝对 URL - 指向另一个网站（比如 src=&quot;http://www.example.com/default.htm&quot;）
+    相对 URL - 指向网站中的一个文件（比如 src=&quot;default.htm&quot;）
 
-2. Content-type: application/octet-stream
-</code></pre><h3 id="lt-form-gt-标签"><a href="#lt-form-gt-标签" class="headerlink" title="&lt;form&gt;标签"></a><code>&lt;form&gt;</code>标签</h3><p>跳转页面（主要使用 <code>POST</code> 请求，参数放到第四部分<code>from datas</code>）（使用 <code>GET</code> 请求时，参数默认放到查询参数）</p>
-<pre><code>1.如果 form 表单里没有提交按钮，就无法提交
-2.form 标签主要用来发起 post 请求
-3.name 属性值显示在第四部分
-4.target 属性同 a 标签
-</code></pre><h5 id="注意：a-标签和-form-标签都是用来发请求，a-标签是-get，form-标签是-post"><a href="#注意：a-标签和-form-标签都是用来发请求，a-标签是-get，form-标签是-post" class="headerlink" title="注意：a 标签和 form 标签都是用来发请求，a 标签是 get，form 标签是 post"></a>注意：<code>a</code> 标签和 <code>form</code> 标签都是用来发请求，<code>a</code> 标签是 <code>get</code>，<code>form</code> 标签是 <code>post</code></h5><h3 id="lt-input-gt-标签"><a href="#lt-input-gt-标签" class="headerlink" title="&lt;input&gt;标签"></a><code>&lt;input&gt;</code>标签</h3><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
-<pre><code>type 属性 
-1.如果一个 form 只有一个按钮 button，没写 type，自动升级为 sunmit 可提交。
-  submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
-2.checkbox: 单选框
-3.radio: 复选框
-</code></pre><h3 id="lt-label-gt-标签"><a href="#lt-label-gt-标签" class="headerlink" title="&lt;label&gt;标签"></a><code>&lt;label&gt;</code>标签</h3><p>关联input（label的for值和input的name值一样，用于选项）（更聪明的写法是：用label标签包裹input标签，不需要for和name）</p>
-<h3 id="lt-select-gt-标签"><a href="#lt-select-gt-标签" class="headerlink" title="&lt;select&gt;标签"></a><code>&lt;select&gt;</code>标签</h3><p>下拉列表</p>
-<h3 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h3><p>输入多行文本</p>
-<p>通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
-<h3 id="lt-table-gt-标签"><a href="#lt-table-gt-标签" class="headerlink" title="&lt;table&gt;标签"></a><code>&lt;table&gt;</code>标签</h3><p>表格</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
-</code></pre><h3 id="lt-colgroup-gt-标签"><a href="#lt-colgroup-gt-标签" class="headerlink" title="&lt;colgroup&gt;标签"></a><code>&lt;colgroup&gt;</code>标签</h3><p>表格，可单独设置每列的宽，同col一起使用（col表示列）</p>
-<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
+// HTML5 中的新属性
+* srcdoc //规定页面中的 HTML 内容显示在 &lt;iframe&gt; 中。
+* seamless //规定 &lt;iframe&gt; 看起来像是父文档中的一部分。
+* sandbox //对 &lt;iframe&gt; 的内容定义一系列额外的限制。
+    &quot;&quot; //启用所有限制条件
+    allow-same-origin //允许将内容作为普通来源对待。如果未使用该关键字，嵌入的内容将被视为一个独立的源。
+    allow-top-navigation //嵌入的页面的上下文可以导航（加载）内容到顶级的浏览上下文环境。如果未使用该关键字，这个操作将不可用。
+    allow-forms //允许表单提交。
+    allow-scripts //允许脚本执行。
+</code></pre><p>示例一：<code>name</code></p>
+<p>因为 <code>a</code> 链接的 <code>target</code> 属性匹配了 <code>ifrme</code> 的 <code>name</code> 属性，所以链接点击后将显示在 <code>iframe</code> 中。</p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bff06e60.png
+"></p>
+<p>示例三：<code>src</code> <code>width</code> <code>height</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6b621ca04.png
+"></p>
+<p>示例二：<code>srcdoc</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bdd59442.png
+"></p>
 <hr>
-<h3 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h3><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
+<h4 id="lt-a-gt"><a href="#lt-a-gt" class="headerlink" title="&lt;a&gt;"></a><code>&lt;a&gt;</code></h4><p>属性</p>
+<pre><code>* target //该属性指定在何处显示链接的资源。
+    _self //默认属性。当前页面加载。
+    _blank //新窗口打开
+    _parent //父级页面打开。如果没有，同_self。
+    _top //顶级页面加载。如果没有，同_self。 
+* href //规定链接的目标地址。
+    href=&quot;//qq.com&quot; //无协议地址
+    href=&quot;#xxx&quot; //锚点#，不发起请求
+    href=&quot;?name=qq&quot; //发起请求
+    href=&quot;./xxx.html&quot; //相对路径 
+    href=&quot;javascript:;&quot; //让 a 标签不跳转
+    href=&quot;javascript:alert(1)&quot; //执行一段代码
+    href=&quot;http://write.blog.csdn.net&quot; //绝对 URL，指向另一个站点
+    a href=&quot;&quot; //刷新页面
+    href=&quot;#top&quot; //返回到页面顶部
+    href=&quot;#&quot; //返回到页面顶部
+
+// HTML5 中的新属性
+* download //指示浏览器下载 URL 而不是导航到 URL
+* type //规定目标 URL 的 MIME 类型。仅在 href 属性存在时使用。
+    注：MIME 是指示文件的类型（描述的内容格式，例如声音文件可能会被标记  audio/ogg，或图像文件 image/png）
+* media //规定目标 URL 的媒介类型。默认值：all。仅在 href 属性存在时使用。
+...
+</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
+<pre><code>// a 标签里加 download
+&lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
+
+// HTTP 请求
+Content-type: application/octet-stream
+</code></pre><p><a href="http://www.runoob.com/tags/tag-a.html" target="_blank" rel="external">更多属性</a></p>
+<hr>
+<h4 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h4><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
 <p>在<code>HTML</code>中，通常在一个空元素上使用一个闭标签是无效的。</p>
 <pre><code>例如，&lt;input type=&quot;text&quot;&gt; &lt;/input&gt; 的闭标签是无效的 HTML。
 </code></pre><p>常见的空元素有：</p>
@@ -514,7 +536,7 @@ td(table data)元素定义表格单元(数据)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -560,7 +582,7 @@ td(table data)元素定义表格单元(数据)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe标签"><span class="nav-number">1.</span> <span class="nav-text">iframe标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-a-gt-标签"><span class="nav-number">2.</span> <span class="nav-text"><a>标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#target属性"><span class="nav-number">2.0.1.</span> <span class="nav-text">target属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-href-gt-属性"><span class="nav-number">2.0.2.</span> <span class="nav-text"><href>属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-form-gt-标签"><span class="nav-number">3.</span> <span class="nav-text"><form>标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：a-标签和-form-标签都是用来发请求，a-标签是-get，form-标签是-post"><span class="nav-number">3.0.1.</span> <span class="nav-text">注意：a 标签和 form 标签都是用来发请求，a 标签是 get，form 标签是 post</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-input-gt-标签"><span class="nav-number">4.</span> <span class="nav-text"><input>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-label-gt-标签"><span class="nav-number">5.</span> <span class="nav-text"><label>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-select-gt-标签"><span class="nav-number">6.</span> <span class="nav-text"><select>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-textarea-gt-标签"><span class="nav-number">7.</span> <span class="nav-text"><textarea>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-table-gt-标签"><span class="nav-number">8.</span> <span class="nav-text"><table>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-colgroup-gt-标签"><span class="nav-number">9.</span> <span class="nav-text"><colgroup>标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见空元素"><span class="nav-number">10.</span> <span class="nav-text">常见空元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-iframe-gt"><span class="nav-number">1.</span> <span class="nav-text"><iframe></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-a-gt"><span class="nav-number">2.</span> <span class="nav-text"><a></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见空元素"><span class="nav-number">3.</span> <span class="nav-text">常见空元素</span></a></li></ol></div>
             
 
           </div>
