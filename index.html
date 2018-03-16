@@ -238,6 +238,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/jQuery常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/16/jQuery常用API/" itemprop="url">jQuery常用API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/HTML 表单:表格标签/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1791,27 +1910,31 @@ inline-grid ???
 * Location对象 //包含有关当前 URL 的信息
 </code></pre><hr>
 <h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><p>属性</p>
-<pre><code>* Window.history //对 History 对象的只读引用。请参数 History 对象。
-* Window.innerHeight //返回窗口的文档显示区的高度。
-* Window.innerWidth //返回窗口的文档显示区的宽度。
-* Window.self //返回对当前窗口的引用。等价于 Window 属性。
+<pre><code>* Window.innerHeight //浏览器窗口的内部高度(包括滚动条)
+* Window.innerWidth // 浏览器窗口的内部宽度(包括滚动条)
 * Window.top //返回最顶层的父窗口。
 * Window.parent //返回父窗口。
 </code></pre><p>方法</p>
-<pre><code>* alert(字符串) //显示带有一段消息和一个确认按钮的警告框。
-* prompt() //显示可提示用户输入的对话框。
-* confirm() //显示带有一段消息以及确认按钮和取消按钮的对话框。
-* open() //打开一个新的浏览器窗口或查找一个已命名的窗口。
-* close() //关闭浏览器窗口。
-* print() //打印当前窗口的内容。
-* focus() //把键盘焦点给予一个窗口。
-* blur() //把键盘焦点从顶层窗口移开。
-* moveBy() //可相对窗口的当前坐标把它移动指定的像素。
-* moveTo() //把窗口的左上角移动到一个指定的坐标。
-* resizeBy() //按照指定的像素调整窗口的大小。
-* resizeTo() //把窗口的大小调整到指定的宽度和高度。
-* scrollBy() //按照指定的像素值来滚动内容。
-* scrollTo() //把内容滚动到指定的坐标。
+<pre><code>//弹窗
+* alert(字符串) //显示带有一段消息和一个确认按钮的警告框。
+* prompt() //显示可提示用户输入的提示框。
+* confirm() //显示带有一段消息以及确认按钮和取消按钮的确认框。
+
+* window.print() //打印当前窗口的内容。
+* window.focus() //把键盘焦点给予一个窗口。
+* window.blur() //把键盘焦点从顶层窗口移开。 
+
+* window.open() //打开一个新的浏览器窗口或查找一个已命名的窗口。
+* window.close() //关闭浏览器窗口。
+* window.moveBy(x,y) //可相对窗口的当前坐标把它移动指定的像素。
+* window.moveTo(x,y) //把窗口的左上角移动到一个指定的坐标。
+* window.resizeBy(width,height) //按照指定的像素调整窗口的大小。
+* window.resizeTo(width,height) //把窗口的大小调整到指定的宽度和高度。
+
+* window.scrollBy(xnum,ynum) //按照指定的像素值来滚动内容。
+* window.scrollTo(xpos,ypos) //把内容滚动到指定的坐标。
+
+//计时事件
 * setInterval() //按照指定的周期（以毫秒计）来调用函数或计算表达式。
 * setTimeout() //在指定的毫秒数后调用函数或计算表达式。
 * clearInterval() //取消由 setInterval() 设置的 timeout。
@@ -1824,31 +1947,58 @@ inline-grid ???
 * cookieEnabled //返回指明浏览器中是否启用 cookie 的布尔值
 * platform //返回运行浏览器的操作系统平台
 * userAgent //返回由客户机发送服务器的 user-agent 头部的值
-</code></pre><hr>
+</code></pre><p>举例</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+txt = &quot;&lt;p&gt;浏览器代号: &quot; + navigator.appCodeName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器名称: &quot; + navigator.appName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器版本: &quot; + navigator.appVersion + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;启用Cookies: &quot; + navigator.cookieEnabled + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;硬件平台: &quot; + navigator.platform + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理: &quot; + navigator.userAgent + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理语言: &quot; + navigator.systemLanguage + &quot;&lt;/p&gt;&quot;;
+document.getElementById(&quot;example&quot;).innerHTML=txt;
+&lt;/script&gt; 
+</code></pre><blockquote>
+<p><div id="example"></div></p>
+<script>
+    txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+    txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+    txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+    txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+    txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+    txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+    txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+    document.getElementById("example").innerHTML=txt;
+</script> 
+
+</blockquote>
+<hr>
 <h5 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a><code>Screen</code>对象</h5><p>属性</p>
-<pre><code>* availHeight //返回屏幕的高度（不包括Windows任务栏）
-* availWidth //返回屏幕的宽度（不包括Windows任务栏）
-* colorDepth //返回目标设备或缓冲器上的调色板的比特深度
-* height //返回屏幕的总高度
-* pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
-* width //返回屏幕的总宽度    
+<pre><code>* screen.availHeight //可用的屏幕宽度（不包括 Windows 任务栏）
+* screen.availWidth //可用的屏幕高度（不包括 Windows 任务栏）
+* screen.height //返回屏幕的总高度
+* screen.width //返回屏幕的总宽度
+* screen.colorDepth //返回目标设备或缓冲器上的调色板的比特深度
+* screen.pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
 </code></pre><hr>
 <h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><p>属性</p>
-<pre><code>* length //返回历史列表中的网址数
+<pre><code>* history.length //返回历史列表中的网址数
 </code></pre><p>方法</p>
-<pre><code>* back() //加载 history 列表中的前一个 URL
-* forward() //加载 history 列表中的下一个 URL
-* go() //加载 history 列表中的某个具体页面
+<pre><code>* history.back() //加载 history 列表中的前一个 URL
+* history.forward() //加载 history 列表中的下一个 URL
+* history.go() //加载 history 列表中的某个具体页面
 </code></pre><hr>
 <h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><p>属性</p>
-<pre><code>* hash //返回一个URL的锚部分
-* host //返回一个URL的主机名和端口
-* hostname //返回URL的主机名
-* href //返回完整的URL
-* pathname //返回的URL路径名。
-* port //返回一个URL服务器使用的端口号
-* protocol //返回一个URL协议
-* search //返回一个URL的查询部分
+<pre><code>* location.hostname //返回 web 主机的域名
+* location.port //返回 web 主机的端口 （80 或 443）
+* location.protocol //返回所使用的 web 协议（http:// 或 https://）
+* location.pathname //返回当前页面的路径和文件名。
+
+* location.href //返回完整的 URL
+* location.hash //返回一个 URL 的锚部分
+* location.host //返回一个 URL 的主机名和端口
+* location.search //返回一个 URL 的查询部分
 </code></pre><p>方法</p>
 <pre><code>* assign() //载入一个新的文档
 * reload() //重新载入当前文档
@@ -2040,369 +2190,6 @@ inline-grid ???
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS 数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/20/JS 数组/" itemprop="url">JS 数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T17:13:10+08:00">
-                2018-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="什么是数组"><a href="#什么是数组" class="headerlink" title="什么是数组"></a>什么是数组</h4><p>人类理解：数组就是数据的有序集合（每个值的位置都有索引（从0开始））<br>JS理解：数据就是原型链中有 <code>Array.prototype</code> 的对象。</p>
-<hr>
-<h4 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h4><p>1.使用 <code>Array</code> 构造函数。</p>
-<pre><code>var arr = new Array(8) //创建 length 为 8 的数组。
-var arr = new Array(&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;) //创建了包含3个字符串的数组
-
-//new 操作符可省略，上面代码同等于下：
-var arr = Array(8) 
-var arr = Array(&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;) 
-</code></pre><p>2.数组字面量    </p>
-<pre><code>//创建了包含3个字符串的数组
-var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
-
-//除了在定义时赋值，数组也可以先定义后赋值。
-var arr = []
-arr[0] = &apos;a&apos;
-
-//数组可以保存任何类型的数据。
-var arr = [
-  {a: 1},
-  [1, 2, 3],
-  function() {return true;}
-]
-arr[0] // Object {a: 1}
-
-//如果数组的元素还是数组，就形成了多维数组。
-var a = [[1, 2], [3, 4]]
-a[0][1] // 2 
-a[1][1] // 4
-</code></pre><hr>
-<h4 id="length-属性"><a href="#length-属性" class="headerlink" title="length 属性"></a><code>length</code> 属性</h4><p>数组的<code>length</code>属性是可写的，如下：</p>
-<pre><code>var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
-arr.length = 4 
-arr[3] // undefined 
-
-var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
-arr.length = 2 // 这里删除了 arr[2]
-arr[2] // undefined 
-
-var arr = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;]
-arr[3] = &apos;gray&apos; //这里增加了一项
-arr.length // 4
-</code></pre><hr>
-<h4 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h4><h5 id="instanceof-和-isArray"><a href="#instanceof-和-isArray" class="headerlink" title="instanceof 和 isArray"></a><code>instanceof</code> 和 <code>isArray</code></h5><p><code>instanceof</code>语法</p>
-<pre><code>object instanceof constructor
-//object 要检测的对象
-//constructor 某个构造函数
-
-//如下    
-var obj = []
-obj instanceof Array //true
-</code></pre><p><code>isArray</code>语法</p>
-<pre><code>Array.isArray(obj) //obj 需要检测的值
-
-//如下
-var obj = Array(1,2,3)
-Array.isArray(obj) //true
-
-Array.isArray([1,2,3]) //true
-</code></pre><blockquote>
-<p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。</p>
-</blockquote>
-<p>这时当检测<code>Array</code>实例时，<code>Array.isArray</code> 优于 <code>instanceof</code>,因为<code>Array.isArray</code>能检测<code>iframes</code>。</p>
-<p>举例</p>
-<pre><code>var iframe = document.createElement(&apos;iframe&apos;)
-document.body.appendChild(iframe)
-
-arr1 = window.frames[window.frames.length-1].Array
-var arr2 = new arr1(1,2,3) // [1,2,3]
-
-
-Array.isArray(arr) // true
-arr instanceof Array // false
-</code></pre><hr>
-<h4 id="伪数组（类数组）"><a href="#伪数组（类数组）" class="headerlink" title="伪数组（类数组）"></a>伪数组（类数组）</h4><ul>
-<li>有 0,1,2,3,4,5…n,length 这些 key 的对象</li>
-<li>原型链中没有 <code>Array.prototype</code>。或者说没有 <code>push</code> 方法。</li>
-</ul>
-<p>比如函数的<code>argument</code>参数，还有像调用<code>getElementsByTagName</code> <code>document.childNodes</code>之类的，它们都返回<code>NodeList</code>对象都属于伪数组。</p>
-<p>伪数组转成真数组方法 </p>
-<pre><code>var arr = Array.prototype.slice.call(fakeArray)
-//fakeArray 表示一个伪数组
-</code></pre><p>举例</p>
-<pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2} //伪数组
-var arr1 = Array.prototype.slice.call(fakeArray)
-arr1[0] //&quot;a&quot;    
-//或者
-var arr2 = [].slice.call(fakeArray) 
-arr2[0] //&quot;a&quot;
-</code></pre><hr>
-<h4 id="数组的-API"><a href="#数组的-API" class="headerlink" title="数组的 API"></a>数组的 <code>API</code></h4><h5 id="1-join"><a href="#1-join" class="headerlink" title="1.join()"></a>1.<code>join()</code></h5><p>一个参数：以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。<code>undefined</code>或<code>null</code>或空位，会被转成空字符串。</p>
-<pre><code>[1, 2, 3].join(&apos;#&apos;)
-//&quot;1#2#3&quot;
-
-[1, 2, 3].join()
-//&quot;1,2,3&quot;
-
-[undefined, null].join(&apos;-&apos;)
-//&quot;-&quot;
-</code></pre><h5 id="2-concat"><a href="#2-concat" class="headerlink" title="2.concat()"></a>2.<code>concat()</code></h5><p>用于合并两个或多个数组。它将新数组的成员，添加到原数组成员的后部，返回一个新数组，原数组不变。</p>
-<p>参数：除了接受数组作为参数，<code>concat</code>也可以接受其他类型的值作为参数。</p>
-<pre><code>//合并多个数组
-var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
-var b = [1, 2, 3]
-a.concat(b);
-//[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, 1, 2, 3]
-
-//复制一个数组，浅拷贝。
-var a = [1, 2, 3]
-var b = a.concat([]) 
-b // [1, 2, 3]
-</code></pre><h5 id="3-slice"><a href="#3-slice" class="headerlink" title="3.slice()"></a>3.<code>slice()</code></h5><p>用于提取原数组的一部分，返回一个新数组，原数组不变。</p>
-<p>两个参数：第一个参数为起始位置（从0开始）。第二个参数为终止位置（但该位置的元素本身不包括在内）。</p>
-<pre><code>var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
-a.slice(1, 2) // [&quot;b&quot;]
-</code></pre><h5 id="4-map"><a href="#4-map" class="headerlink" title="4.map()"></a>4.<code>map()</code></h5><p>创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。同<code>forEach()</code>一样，但有返回值。</p>
-<p>一个参数：参数是一个函数。该函数有三个参数：当前位置的值<code>element</code>、当前位置的编号<code>index</code>、整个数组<code>array</code></p>
-<pre><code>var a = [1, 2, 3]
-a.map(function(n){
-   return n + 1
-})
-//[2, 3, 4]
-
-[1, 2, 3].map(function(ele, i, arr) {
-    return ele * i
-})
-//[0, 2, 6]
-</code></pre><h5 id="5-forEach"><a href="#5-forEach" class="headerlink" title="5.forEach()"></a>5.<code>forEach()</code></h5><p>同<code>map()</code>一样，但没有返回值。<code>forEach()</code>可以接受第二个参数，绑定参数函数的<code>this</code>变量。</p>
-<pre><code>var foo = [];
-
-[1, 2, 3].forEach(function(ele,i){
-    this.push(ele * i)
-}, foo)
-
-foo // [0, 2, 6] 
-</code></pre><h5 id="6-filter"><a href="#6-filter" class="headerlink" title="6.filter()"></a>6.<code>filter()</code></h5><p>用于过滤数组成员，满足条件的成员组成一个新数组返回。</p>
-<p>一个参数：是一个函数，所有数组成员依次执行该函数，返回结果为<code>true</code>的成员组成一个新数组返回。</p>
-<pre><code>[1, 2, 3, 4, 5].filter(function (elem){
-      return (elem &gt; 3)
-})
-//[4, 5]
-</code></pre><h5 id="7-reduce-reduceRight"><a href="#7-reduce-reduceRight" class="headerlink" title="7.reduce() reduceRight()"></a>7.<code>reduce()</code> <code>reduceRight()</code></h5><p>依次处理数组的每个成员，最终累计为一个值。</p>
-<p>两个参数：第一个参数是一个函数，该函数必须接受两个参数: 之前的结果、当前变量；第二个参数是当前的初值。</p>
-<pre><code>[1, 2, 3, 4, 5].reduce(function(x, y){
-    return x + y
-})
-//15
-
-//计算所有基数的和
-var a = [1,2,3,4,5,6,7,8,9]
-a.reduce((sum,n) =&gt; { 
-    return n%2 === 1 ? sum+n:sum 
-},0)
-//25
-</code></pre><p>难点1.<code>map</code> 可以用 <code>reduce</code> 表示</p>
-<pre><code>a = [1, 2, 3] 
-a.reduce(function(arr, n){
-        arr.push(n*2)
-        return arr
-},[])
-// [2, 4, 6]
-</code></pre><p>难点2.<code>filter</code> 可以用 <code>reduce</code> 表示</p>
-<pre><code>a = [1, 2, 3, 4, 5, 6]
-a.reduce(function(arr, n){
-    if(n % 2 === 0){
-        arr.push(n)     }
-    return arr    
-},[]) 
-// [2, 4, 6]
-</code></pre><h5 id="8-sort"><a href="#8-sort" class="headerlink" title="8.sort()"></a>8.<code>sort()</code></h5><p>对数组成员进行排序。排序后，原数组将被改变。</p>
-<p>两个参数：表示进行比较的两个元素。</p>
-<pre><code>[10, 12, 9].sort(function (a, b) {
-  return a - b;
-})
-// [0, 10, 12]
-//如果返回值大于0，表示第一个元素排在第二个元素后面；小于0，表示第一个元素排在第二个元素前面。其他情况 ，位置不变。
-</code></pre><h5 id="9-push"><a href="#9-push" class="headerlink" title="9.push()"></a>9.<code>push()</code></h5><p>在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。</p>
-<pre><code>var a = [];
-    a.push(1) 
-//[1]                 
-</code></pre><p>还可以用于向对象添加元素</p>
-<h5 id="10-pop"><a href="#10-pop" class="headerlink" title="10.pop()"></a>10.<code>pop()</code></h5><p>用于删除数组的最后一个元素，并返回该元素。该方法会改变原数组。</p>
-<pre><code>var a = [&apos;a&apos;, &apos;b&apos;, ‘c’];
-a.pop() // &apos;c&apos;
-</code></pre><p><code>push()</code>和<code>pop()</code>结合使用，就构成了“后进先出”的栈结构（stack）</p>
-<h5 id="11-unshift"><a href="#11-unshift" class="headerlink" title="11.unshift()"></a>11.<code>unshift()</code></h5><p>用于在数组的第一个位置添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。</p>
-<pre><code>var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
-a.unshift(&apos;x&apos;); 
-a //[&apos;x&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
-</code></pre><h5 id="12-reverse"><a href="#12-reverse" class="headerlink" title="12.reverse()"></a>12.<code>reverse()</code></h5><p>用于颠倒数组中元素的顺序，返回改变后的数组。该方法会改变原数组。</p>
-<pre><code>var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
-a.reverse() // [&quot;c&quot;, &quot;b&quot;, &quot;a&quot;]
-</code></pre><h5 id="13-splice"><a href="#13-splice" class="headerlink" title="13.splice()"></a>13.<code>splice()</code></h5><p>用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。该方法会改变原数组。</p>
-<p>两个参数：第一个参数是删除的起始位置；第二个参数是被删除的元素个数。如果后面还有参数，则表示这些就是要被插入数组的新元素。</p>
-<pre><code>var a = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;];
-a.splice(4, 2, 1, 1) 
-a 
-// [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, 1, 1]
-</code></pre><h5 id="14-some-every"><a href="#14-some-every" class="headerlink" title="14.some() every()"></a>14.<code>some()</code> <code>every()</code></h5><p>用来判断数组成员是否符合某种条件。</p>
-<p>一个参数：接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数：当前位置的值<code>element</code>、当前位置的编号<code>index</code>、整个数组<code>array</code></p>
-<p>两者区别如下：</p>
-<pre><code>[1,2,3,4,5,6,7].some(function(ele){
-    return ele &gt; 3
-})
-//true
-
-[1,2,3,4,5,6,7].every(function(ele){
-    return ele &gt; 3
-})
-//false
-</code></pre><h5 id="15-indexOf-lastIndexOf"><a href="#15-indexOf-lastIndexOf" class="headerlink" title="15.indexOf() lastIndexOf()"></a>15.<code>indexOf()</code> <code>lastIndexOf()</code></h5><p>按原始顺序搜索数组中的元素，并返回它所在的位置。</p>
-<p>两个参数：第一个参数表示要搜索的元素；第二个参数表示搜索的开始位置。</p>
-<p>两者区别如下：</p>
-<pre><code>[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].indexOf(&apos;a&apos;, 1) 
-//-1 
-
-[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;].lastIndexOf(&apos;a&apos;, 1) 
-//0
-</code></pre><p>无法确定数组成员是否包含<code>NaN</code>。因为这两个方法内部，使用严格相等运算符<code>===</code>进行比较，而<code>NaN</code>是唯一一个不等于自身的值。</p>
-<pre><code>[1,2,NaN].indexOf(NaN) // -1
-[1,2,NaN].lastIndexOf(NaN) // -1
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2453,7 +2240,7 @@ a
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
