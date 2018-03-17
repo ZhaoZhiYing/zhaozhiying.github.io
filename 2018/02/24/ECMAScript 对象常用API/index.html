@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Function属性 * Infinity //代表正的无穷大的数值。 * NaN //指示某个值是不是数字值。 * undefined //指示未定义的值。 方法 * decodeURI(URI) //解码某个编码的 URI。 * decodeURIComponent(URI) //解码一个编码的 URI 组件。 * encodeURI(string) //把字符串编码为 URI。 * enco">
-<meta property="og:updated_time" content="2018-03-09T11:18:33.000Z">
+<meta property="og:updated_time" content="2018-03-17T07:48:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
 <meta name="twitter:description" content="Function属性 * Infinity //代表正的无穷大的数值。 * NaN //指示某个值是不是数字值。 * undefined //指示未定义的值。 方法 * decodeURI(URI) //解码某个编码的 URI。 * decodeURIComponent(URI) //解码一个编码的 URI 组件。 * encodeURI(string) //把字符串编码为 URI。 * enco">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T20:45:02+08:00">
                 2018-02-24
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -371,7 +371,10 @@
 * Array.some(方法函数) //用来判断数组成员是否符合某种条件。一项满足则整个返回 true 
 * Array.every(方法函数) //用来判断数组成员是否符合某种条件。所有项满足则整个返回 true
 * Array.indexOf(item,start) //按原始顺序依次搜索数组中的元素，并返回它所在的位置。
-</code></pre><hr>
+* Array.valueOf() //返回数组对象的原始值。
+* Array.toString() //把数组转换为字符串，并返回结果。
+</code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-array.html" target="_blank" rel="external">更多方法</a></p>
+<hr>
 <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><p>定义一个事件对象</p>
 <pre><code>var Udate = new Date()
 //初始值：当前时间(当前电脑系统时间)。
@@ -432,14 +435,17 @@
 * valueOf() //返回一个 Number 对象的基本数字值。
 </code></pre><hr>
 <h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a><code>Math</code></h4><p>方法</p>
-<pre><code>* abs(x) //返回 x 的绝对值。
-* ceil(x) //对 x 向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。
-* floor(x) //和 ceil(x) 相反
-* max(x,y,z,...,n) //返回 x,y,z,...,n 中的最高值。
-* min(x,y,z,...,n) //返回 x,y,z,...,n中的最低值。
-* random() //返回 0 ~ 1 之间的随机数。
-* round(x) //把数四舍五入为最接近的整数。
-</code></pre><hr>
+<pre><code>* Math.abs(x) //返回 x 的绝对值。
+* Math.ceil(x) //对 x 向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。
+* Math.floor(x) //和 ceil(x) 相反
+* Math.max(x,y,z,...,n) //返回 x,y,z,...,n 中的最高值。
+* Math.min(x,y,z,...,n) //返回 x,y,z,...,n中的最低值。
+* Math.random() //返回 0 ~ 1 之间的随机数。
+* Math.round(x) //把数四舍五入为最接近的整数。
+* Math.sqrt(x) //返回数的平方根。
+* Math.pow(x,y) //返回 x 的 y 次幂。
+</code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-math.html" target="_blank" rel="external">更多方法</a></p>
+<hr>
 
       
     </div>
@@ -464,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/23/BOM 常用API/" rel="next" title="BOM 常用API">
-                <i class="fa fa-chevron-left"></i> BOM 常用API
+              <a href="/2018/02/23/BOM 对象常用API/" rel="next" title="BOM 对象常用API">
+                <i class="fa fa-chevron-left"></i> BOM 对象常用API
               </a>
             
           </div>
@@ -530,10 +536,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -554,7 +560,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -564,8 +570,8 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -629,7 +635,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

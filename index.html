@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/jQuery常用API/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/jQuery 常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -257,7 +257,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/16/jQuery常用API/" itemprop="url">jQuery常用API</a></h1>
+                <a class="post-title-link" href="/2018/03/16/jQuery 常用API/" itemprop="url">jQuery 常用API</a></h1>
         
 
         <div class="post-meta">
@@ -267,7 +267,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
                 2018-03-16
@@ -279,6 +279,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,7 +331,85 @@
       
         
           
-            
+            <h4 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a><code>jQuery</code> 选择器</h4><pre><code>* $(this) //当前的 HTML 元素。
+* $(&quot;p&quot;) //所有 &lt;p&gt; 元素。
+* $(&quot;.test&quot;) //所有 class=&quot;test&quot; 的元素。
+* $(&quot;#test&quot;) // id=&quot;test&quot; 的元素。
+* $(&quot;:button&quot;) //所有 button 元素和类型为 button 的元素。
+    //等价于$(&quot;button, input[type=&apos;button&apos;]&quot;)
+</code></pre><hr>
+<h4 id="jQuery-事件"><a href="#jQuery-事件" class="headerlink" title="jQuery 事件"></a><code>jQuery</code> 事件</h4><pre><code>* click(function) //单击元素事件。为 &quot;click&quot; 事件绑定一个函数，每次事件触发时会执行。
+* click() //触发元素上的 &quot;click&quot; 事件。
+* dbclick(function); dbclick()  //双击元素事件。
+    //click 事件只能监听鼠标左键。
+
+* mouseenter(function); mouseenter(); //鼠标进入元素事件。
+* mouseleave(function); mouseleave() //鼠标离开元素事件。
+
+* mousedown(function); mousedown() //鼠标进入元素并按下鼠标左键时（按下不松开的过程）触发事件。
+* mouseup(function); mouseup() //当鼠标松开鼠标左键时触发事件。
+
+* hover() //hover()是一个复合方法，相当于 mouseenter + mouseleave 一起使用的情况。
+
+* focus(function); focus() //当元素获得焦点时触发事件。
+* blur(function); blur() //当元素失去焦点时触发事件。
+</code></pre><hr>
+<h4 id="jQuery-隐藏-显示"><a href="#jQuery-隐藏-显示" class="headerlink" title="jQuery 隐藏/显示"></a><code>jQuery</code> 隐藏/显示</h4><pre><code>* hide() //隐藏匹配的元素。
+* show() //显示匹配的元素。
+    //show() 适用于通过 jQuery 方法和 CSS 中 display:none 隐藏的元素（不适用于通过 visibility:hidden 隐藏的元素）。
+
+* toggle() //添加两个或多个函数，以响应被选元素的 click 事件之间的切换。
+
+注意：.hide() 和 .show() 的执行速度会比直接改变 css 慢。
+</code></pre><hr>
+<h4 id="jQuery-淡入淡出"><a href="#jQuery-淡入淡出" class="headerlink" title="jQuery 淡入淡出"></a><code>jQuery</code> 淡入淡出</h4><pre><code>* fadeIn()
+* fadeOut()
+* fadeToggle()
+* fadeTo()
+</code></pre><hr>
+<h4 id="jQuery-滑动"><a href="#jQuery-滑动" class="headerlink" title="jQuery 滑动"></a><code>jQuery</code> 滑动</h4><pre><code>* slideDown()
+* slideUp()
+* slideToggle()
+</code></pre><hr>
+<h4 id="jQuery-动画"><a href="#jQuery-动画" class="headerlink" title="jQuery 动画"></a><code>jQuery</code> 动画</h4><pre><code>* animate()
+* animate()设置多个 css 属性
+* animate()使用相关值
+* animate()使用预定义值
+</code></pre><hr>
+<h4 id="jQuery-停止动画"><a href="#jQuery-停止动画" class="headerlink" title="jQuery 停止动画"></a><code>jQuery</code> 停止动画</h4><pre><code>* stop() //停止滑动
+* stop() //停止动画 (带参数)
+</code></pre><hr>
+<h4 id="jQuery-HTML-获取-和-属性"><a href="#jQuery-HTML-获取-和-属性" class="headerlink" title="jQuery HTML 获取 和 属性"></a><code>jQuery</code> HTML 获取 和 属性</h4><pre><code>* text() 和 html() //获取文本和内容
+* val() //获取值
+* attr() //获取属性值
+</code></pre><hr>
+<h4 id="jQuery-HTML-设置内容和属性"><a href="#jQuery-HTML-设置内容和属性" class="headerlink" title="jQuery HTML 设置内容和属性"></a><code>jQuery HTML</code> 设置内容和属性</h4><pre><code>* text(), html(), val() //设置内容
+* text() 和 html() //设置内容并使用回调函数
+* attr()设置属性值
+* attr()设置多个属性值
+* attr()设置属性值并使用回调函数
+</code></pre><hr>
+<h4 id="jQuery-HTML-添加元素-内容"><a href="#jQuery-HTML-添加元素-内容" class="headerlink" title="jQuery HTML 添加元素/内容"></a><code>jQuery HTML</code> 添加元素/内容</h4><pre><code>* append() //在选取元素的末尾添加内容。
+* prepend() //在选取元素的开头添加内容。
+* after() 和 before() //在选取元素的前后添加 HTML 元素。
+</code></pre><hr>
+<h4 id="jQuery-HTML-移除元素-内容"><a href="#jQuery-HTML-移除元素-内容" class="headerlink" title="jQuery HTML 移除元素/内容"></a><code>jQuery</code> HTML 移除元素/内容</h4><pre><code>* remove() //移除选取的元素
+* remove() 使用参数 //过滤元素并移除
+* empty() //移除选取元素的所有子元素
+</code></pre><hr>
+<h4 id="jQuery-Get-Set-CSS类"><a href="#jQuery-Get-Set-CSS类" class="headerlink" title="jQuery Get Set CSS类"></a><code>jQuery Get Set CSS</code>类</h4><pre><code>* addClass() //不同元素添加 class 属性。
+* addClass() 多个类 //使用 addClass() 方法添加多个类。
+* removeClass() //移除指定元素的类。
+* toggleClass() //在选取的元素切换（添加/删除）类。
+</code></pre><hr>
+<h4 id="jQuery-css-方法"><a href="#jQuery-css-方法" class="headerlink" title="jQuery css() 方法"></a><code>jQuery css()</code> 方法</h4><pre><code>* css() 返回 CSS 属性 //返回第一个匹配元素的css属性值
+* css() 设置 CSS 属性 //设置所有配置元素指定的 CSS 属性
+</code></pre><hr>
+<h4 id="jQuery-尺寸"><a href="#jQuery-尺寸" class="headerlink" title="jQuery 尺寸"></a><code>jQuery</code> 尺寸</h4><hr>
+<h4 id="jQuery-遍历"><a href="#jQuery-遍历" class="headerlink" title="jQuery 遍历"></a><code>jQuery</code> 遍历</h4><hr>
+<h4 id="jQuery-AJAX-load-方法"><a href="#jQuery-AJAX-load-方法" class="headerlink" title="jQuery AJAX load() 方法"></a><code>jQuery AJAX load()</code> 方法</h4><hr>
+<h4 id="jQuery-AJAX-get-post-方法"><a href="#jQuery-AJAX-get-post-方法" class="headerlink" title="jQuery AJAX get() post() 方法"></a><code>jQuery AJAX get() post()</code> 方法</h4><hr>
+
           
         
       
@@ -386,7 +486,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T00:16:14+08:00">
                 2018-03-12
@@ -407,7 +507,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -728,7 +828,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
@@ -749,7 +849,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -900,7 +1000,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
                 2018-03-03
@@ -921,7 +1021,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1089,7 +1189,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:14:42+08:00">
                 2018-03-02
@@ -1110,7 +1210,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1265,7 +1365,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:03:39+08:00">
                 2018-02-28
@@ -1286,7 +1386,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1419,7 +1519,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T11:47:49+08:00">
                 2018-02-26
@@ -1440,7 +1540,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1584,7 +1684,7 @@ inline-grid ???
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T20:45:02+08:00">
                 2018-02-24
@@ -1605,7 +1705,7 @@ inline-grid ???
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1689,7 +1789,10 @@ inline-grid ???
 * Array.some(方法函数) //用来判断数组成员是否符合某种条件。一项满足则整个返回 true 
 * Array.every(方法函数) //用来判断数组成员是否符合某种条件。所有项满足则整个返回 true
 * Array.indexOf(item,start) //按原始顺序依次搜索数组中的元素，并返回它所在的位置。
-</code></pre><hr>
+* Array.valueOf() //返回数组对象的原始值。
+* Array.toString() //把数组转换为字符串，并返回结果。
+</code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-array.html" target="_blank" rel="external">更多方法</a></p>
+<hr>
 <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><p>定义一个事件对象</p>
 <pre><code>var Udate = new Date()
 //初始值：当前时间(当前电脑系统时间)。
@@ -1750,14 +1853,17 @@ inline-grid ???
 * valueOf() //返回一个 Number 对象的基本数字值。
 </code></pre><hr>
 <h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a><code>Math</code></h4><p>方法</p>
-<pre><code>* abs(x) //返回 x 的绝对值。
-* ceil(x) //对 x 向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。
-* floor(x) //和 ceil(x) 相反
-* max(x,y,z,...,n) //返回 x,y,z,...,n 中的最高值。
-* min(x,y,z,...,n) //返回 x,y,z,...,n中的最低值。
-* random() //返回 0 ~ 1 之间的随机数。
-* round(x) //把数四舍五入为最接近的整数。
-</code></pre><hr>
+<pre><code>* Math.abs(x) //返回 x 的绝对值。
+* Math.ceil(x) //对 x 向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。
+* Math.floor(x) //和 ceil(x) 相反
+* Math.max(x,y,z,...,n) //返回 x,y,z,...,n 中的最高值。
+* Math.min(x,y,z,...,n) //返回 x,y,z,...,n中的最低值。
+* Math.random() //返回 0 ~ 1 之间的随机数。
+* Math.round(x) //把数四舍五入为最接近的整数。
+* Math.sqrt(x) //返回数的平方根。
+* Math.pow(x,y) //返回 x 的 y 次幂。
+</code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-math.html" target="_blank" rel="external">更多方法</a></p>
+<hr>
 
           
         
@@ -1806,7 +1912,7 @@ inline-grid ???
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/BOM 常用API/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/BOM 对象常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -1825,7 +1931,7 @@ inline-grid ???
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/23/BOM 常用API/" itemprop="url">BOM 常用API</a></h1>
+                <a class="post-title-link" href="/2018/02/23/BOM 对象常用API/" itemprop="url">BOM 对象常用API</a></h1>
         
 
         <div class="post-meta">
@@ -1835,7 +1941,7 @@ inline-grid ???
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T21:54:46+08:00">
                 2018-02-23
@@ -1856,7 +1962,7 @@ inline-grid ???
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1903,13 +2009,14 @@ inline-grid ???
 <p><code>BOM</code>（<code>Browser Object Model</code>浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</p>
 </blockquote>
 <p><code>BOM</code>对象包括</p>
-<pre><code>* Window对象 //表示浏览器中打开的窗口  
-* Navigator对象 //包含有关浏览器的信息  
-* Screen对象 //包含有关客户端显示屏幕的信息
-* History对象 //包含用户（在浏览器窗口中）访问过的 URL  
-* Location对象 //包含有关当前 URL 的信息
+<pre><code>* Window 对象 //表示浏览器中打开的窗口  
+* Navigator 对象 //包含有关浏览器的信息  
+* Screen 对象 //包含有关客户端显示屏幕的信息
+* History 对象 //包含用户（在浏览器窗口中）访问过的 URL  
+* Location 对象 //包含有关当前 URL 的信息
 </code></pre><hr>
-<h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><p>属性</p>
+<h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><pre><code>* 如果文档包含框架（&lt;frame&gt; 或 &lt;iframe&gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。
+</code></pre><p>属性</p>
 <pre><code>* Window.innerHeight //浏览器窗口的内部高度(包括滚动条)
 * Window.innerWidth // 浏览器窗口的内部宽度(包括滚动条)
 * Window.top //返回最顶层的父窗口。
@@ -1982,14 +2089,16 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
 * screen.colorDepth //返回目标设备或缓冲器上的调色板的比特深度
 * screen.pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
 </code></pre><hr>
-<h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><p>属性</p>
+<h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><pre><code>* History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。
+</code></pre><p>属性</p>
 <pre><code>* history.length //返回历史列表中的网址数
 </code></pre><p>方法</p>
 <pre><code>* history.back() //加载 history 列表中的前一个 URL
 * history.forward() //加载 history 列表中的下一个 URL
 * history.go() //加载 history 列表中的某个具体页面
 </code></pre><hr>
-<h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><p>属性</p>
+<h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><pre><code>* Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。
+</code></pre><p>属性</p>
 <pre><code>* location.hostname //返回 web 主机的域名
 * location.port //返回 web 主机的端口 （80 或 443）
 * location.protocol //返回所使用的 web 协议（http:// 或 https://）
@@ -2000,9 +2109,9 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
 * location.host //返回一个 URL 的主机名和端口
 * location.search //返回一个 URL 的查询部分
 </code></pre><p>方法</p>
-<pre><code>* assign() //载入一个新的文档
-* reload() //重新载入当前文档
-* replace() //用新的文档替换当前文档    
+<pre><code>* window.location.assign(URL) //载入一个新的文档
+* window.location.reload() //重新载入当前文档
+* window.location.replace(newURL) //用新的文档替换当前文档    
 </code></pre><hr>
 
           
@@ -2081,7 +2190,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
                 2018-02-21
@@ -2102,7 +2211,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2241,7 +2350,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <a href="/archives/">
               
                   <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2251,8 +2360,8 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2300,7 +2409,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
