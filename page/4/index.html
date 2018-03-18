@@ -238,6 +238,277 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/JS 的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/JS 的数据类型/" itemprop="url">JS 的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>JavaScript</code>语言的每一个值，都属于某一种数据类型。<code>JavaScript</code>的数据类型，共有七种。</p>
+<hr>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
+string 字符串
+boolean 布尔值
+undefined 
+null
+symbol 符号
+</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
+
+下面两种也属于对象：
+* 数组（array）
+* 函数（function）
+</code></pre><hr>
+<h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number(数值)"></a>1.<code>number</code>(数值)</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
+           科学计数法：12e2 // 1200
+                        12e-2 // 0.12
+(2) 二进制：0b开头
+(3) 八进制：0开头
+(4) 十六进制：0x开头
+</code></pre><hr>
+<h4 id="2-string-字符串）"><a href="#2-string-字符串）" class="headerlink" title="2.string(字符串）"></a>2.<code>string</code>(字符串）</h4><pre><code>(1) 用 &apos;&apos; 或 &quot;&quot; 引起来
+(2)转义符：\（同命令行回车：\ ）
+(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
+(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
+</code></pre><hr>
+<h4 id="3-boolean-布尔值）"><a href="#3-boolean-布尔值）" class="headerlink" title="3.boolean(布尔值）"></a>3.<code>boolean</code>(布尔值）</h4><pre><code>true（真）和 false（假）两个特定值
+</code></pre><hr>
+<h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.<code>undefined</code></h4><p>在使用<code>var</code>声明变量但未对其初始化时，这个变量的值就是<code>undefined</code></p>
+<pre><code>var message;
+message === undefined; // true
+</code></pre><p>对为初始化和未声明的变量执行<code>typeof</code>操作符都返回<code>undefined</code>值</p>
+<pre><code>var message; //message 声明后默认取得了 undefined 值
+//var age  // age 未声明
+
+typeof message //undefined    
+typeof age //undefined        
+</code></pre><hr>
+<h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.<code>null</code></h4><p><code>null</code>表示一个空对象指针</p>
+<pre><code>typrof null //&quot;object&quot;
+</code></pre><p>如果定义的变量准备将来用来保存对象，那么最好将该变量初始化为<code>null</code>。</p>
+<pre><code>var message = null    
+</code></pre><p><code>undefined</code>派生自<code>null</code>，<code>ECMA-262</code>规定它们的相等性测试(==)返回<code>true</code></p>
+<pre><code>undefined == null //true
+</code></pre><h4 id="6-symbol-符号）"><a href="#6-symbol-符号）" class="headerlink" title="6.symbol(符号）"></a>6.<code>symbol</code>(符号）</h4><p><code>symbol</code>可以创建一个独一无二的值（但并不是字符串）。</p>
+<pre><code>var x = Symbol(&apos;a&apos;)
+var y = Symbol(&apos;a&apos;)
+x !== y // true
+</code></pre><hr>
+<h4 id="7-object-对象）"><a href="#7-object-对象）" class="headerlink" title="7.object(对象）"></a>7.<code>object</code>(对象）</h4><p>对象就是一组“键值对”<code>key-value</code>的集合，是一种无序的复合数据集合。</p>
+<pre><code>var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
+    &apos;Age&apos;: 18，//键值是数值，
+    &apos;married&apos;: true,  //键值是布尔值
+    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
+    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
+    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
+ } 
+ person[&apos;name&apos;]//zhaozhao
+</code></pre><h5 id="键名和键值"><a href="#键名和键值" class="headerlink" title="键名和键值"></a>键名和键值</h5><pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
+* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
+* 对象的每一个“键名”又称为“属性”。
+* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
+</code></pre><h5 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h5><pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
+* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
+* 数值只能用方括号运算符：obj[0xFF]
+* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
+</code></pre><h5 id="检查变量是否声明-in运算符）"><a href="#检查变量是否声明-in运算符）" class="headerlink" title="检查变量是否声明(in运算符）"></a>检查变量是否声明(<code>in</code>运算符）</h5><pre><code>var o = { p: 1 };
+&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
+</code></pre><h5 id="查看所有属性Object-keys"><a href="#查看所有属性Object-keys" class="headerlink" title="查看所有属性Object.keys"></a>查看所有属性<code>Object.keys</code></h5><pre><code>var o = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(o);
+// [&apos;key1&apos;, &apos;key2&apos;]
+</code></pre><h5 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a><code>delete</code>命令</h5><pre><code>//无 value 无 key
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ delete person[&apos;name&apos;]
+ person.name //undefined
+ &apos;name&apos; in person //false
+
+ //无 value 有 key
+ var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ person.name = undefined
+ &apos;name&apos; in person //true
+</code></pre><h5 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a><code>for…in</code>循环</h5><pre><code>//遍历键值
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;,
+    &apos;age&apos;: 18,
+ }     
+ for(var key in person){
+     console.log(person[key])
+ }
+ //zhaozhao
+//18
+
+//遍历键名
+for(var key in person){
+     console.log(key)
+ }
+//name
+//age
+</code></pre><hr>
+<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><h5 id="检测基本类型typeof"><a href="#检测基本类型typeof" class="headerlink" title="检测基本类型typeof"></a>检测基本类型<code>typeof</code></h5><ul>
+<li>要检测一个变量是字符串、数值、布尔值还是<code>undefined</code>，用<code>typeof</code>操作符。</li>
+<li><code>typeof</code>操作符返回一个字符串，指示未经计算的操作数的类型。</li>
+<li>语法：<code>typeof operand</code>，<code>operand</code>是一个表达式，表示对象或原始值，其类型将被返回。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var s = &apos;message&apos;</div><div class="line">typeof s //&quot;string&quot;</div></pre></td></tr></table></figure>
+<h5 id="检测对象instanceof"><a href="#检测对象instanceof" class="headerlink" title="检测对象instanceof"></a>检测对象<code>instanceof</code></h5><ul>
+<li>如果变量的值是一个对象或<code>null</code>，则用<code>instanceof</code>操作符</li>
+<li>语法：<code>object instanceof constructor</code>，返回一个布尔值。</li>
+<li><code>instanceof</code>运算符用来检测<code>constructor.prototype</code>是否存在于参数 <code>object</code>的原型链上。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">obj instanceof Object //true</div><div class="line">obj instanceof Array //false</div></pre></td></tr></table></figure>
+<h5 id="检测对象-toString"><a href="#检测对象-toString" class="headerlink" title="检测对象 toString()"></a>检测对象 <code>toString()</code></h5><p>为了每个对象都能通过 <code>Object.prototype.toString()</code> 来检测，需要以 <code>Function.prototype.call()</code> 或者 <code>Function.prototype.apply()</code> 的形式来调用，传递要检查的对象作为第一个参数。</p>
+<pre><code>var toString = Object.prototype.toString
+
+toString.call(new Date(1995, 11, 17)) // &quot;[object Date]&quot;
+toString.call(&apos;1&apos;) // &quot;[object String]&quot;
+toString.call(1) // &quot;[object Number]&quot;
+toString.call(Math) // &quot;[object Math]&quot;
+</code></pre><hr>
+<p>参考：</p>
+<p>[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/JS 的构成 /">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2127,7 +2398,7 @@ package.json：项目所需模块项目的配置信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
