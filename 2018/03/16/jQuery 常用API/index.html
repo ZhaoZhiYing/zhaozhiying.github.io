@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/16/jQuery 常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="jQuery 选择器* $(this) //当前的 HTML 元素。 * $(&amp;quot;p&amp;quot;) //所有 &amp;lt;p&amp;gt; 元素。 * $(&amp;quot;.test&amp;quot;) //所有 class=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;#test&amp;quot;) // id=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;:button&amp;qu">
-<meta property="og:updated_time" content="2018-03-18T10:18:46.000Z">
+<meta property="og:updated_time" content="2018-03-18T15:54:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 常用API">
 <meta name="twitter:description" content="jQuery 选择器* $(this) //当前的 HTML 元素。 * $(&amp;quot;p&amp;quot;) //所有 &amp;lt;p&amp;gt; 元素。 * $(&amp;quot;.test&amp;quot;) //所有 class=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;#test&amp;quot;) // id=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;:button&amp;qu">
@@ -374,17 +374,13 @@
 </code></pre><hr>
 <h4 id="jQuery-动画"><a href="#jQuery-动画" class="headerlink" title="jQuery 动画"></a><code>jQuery</code> 动画</h4><pre><code>* animate() //通过 CSS 样式将元素从一个状态改变为另一个状态。
 
+//举例
 &lt;script&gt; 
-    $(document).ready(function(){
-      $(&quot;button&quot;).click(function(){
-        $(&quot;div&quot;).animate({
-          left:&apos;250px&apos;,
-          height:&apos;+=150px&apos;,
-          width:&apos;+=150px&apos;
-        });
-      });
+    $(&quot;button&quot;).click(function(){
+        $(&quot;#box&quot;).animate({height:&quot;300px&quot;});
     });
 &lt;/script&gt; 
+//通过改变元素的高度，对元素应用动画。
 </code></pre><hr>
 <h4 id="jQuery-停止动画"><a href="#jQuery-停止动画" class="headerlink" title="jQuery 停止动画"></a><code>jQuery</code> 停止动画</h4><pre><code>* stop() //停止动画
 
@@ -399,23 +395,43 @@
     });
 &lt;/script&gt;
 </code></pre><hr>
-<h4 id="jQuery-HTML-获取-和-属性"><a href="#jQuery-HTML-获取-和-属性" class="headerlink" title="jQuery HTML 获取 和 属性"></a><code>jQuery</code> HTML 获取 和 属性</h4><pre><code>* text() 和 html() //获取文本和内容
-* val() //获取值
-* attr() //获取属性值
+<h4 id="jQuery-HTML-获取-设置内容和属性"><a href="#jQuery-HTML-获取-设置内容和属性" class="headerlink" title="jQuery HTML 获取/设置内容和属性"></a><code>jQuery HTML</code> 获取/设置内容和属性</h4><pre><code>* text() //设置或返回被选元素的文本内容。
+* html() //设置或返回被选元素的内容（innerHTML）。
+* val() //返回 value 属性的值。
+* val(value) //设置 value 属性的值。
+* val(function(index,currentvalue)) //设置或返回被选元素的 value 属性。
+* attr() //设置或返回被选元素的属性和值。
+
+//举例 val()
+&lt;script&gt;
+    $(document).ready(function(){
+        $(&quot;button&quot;).click(function(){
+            $(&quot;input:text&quot;).val(function(n,c){
+                return c + &quot; Griffin&quot;;
+            });
+        });
+    });
+&lt;/script&gt;
+
+//举例 attr()
+$(&quot;button&quot;).click(function(){
+    $(&quot;img&quot;).attr(&quot;width&quot;,&quot;500&quot;);
+});
 </code></pre><hr>
-<h4 id="jQuery-HTML-设置内容和属性"><a href="#jQuery-HTML-设置内容和属性" class="headerlink" title="jQuery HTML 设置内容和属性"></a><code>jQuery HTML</code> 设置内容和属性</h4><pre><code>* text(), html(), val() //设置内容
-* attr() //设置属性值
+<h4 id="jQuery-HTML-添加元素-内容"><a href="#jQuery-HTML-添加元素-内容" class="headerlink" title="jQuery HTML 添加元素/内容"></a><code>jQuery HTML</code> 添加元素/内容</h4><pre><code>* append() //在被选元素的末尾(添加到元素内部)添加内容。
+* prepend() //在被选元素的开头添加内容。
+
+* after() //在被选元素之后(添加到元素外部)添加内容。
+* before() //在被选元素之前添加内容。
 </code></pre><hr>
-<h4 id="jQuery-HTML-添加元素-内容"><a href="#jQuery-HTML-添加元素-内容" class="headerlink" title="jQuery HTML 添加元素/内容"></a><code>jQuery HTML</code> 添加元素/内容</h4><pre><code>* append() //在选取元素的末尾添加内容。
-* prepend() //在选取元素的开头添加内容。
-* after() 和 before() //在选取元素的前后添加 HTML 元素。
+<h4 id="jQuery-HTML-移除元素-内容"><a href="#jQuery-HTML-移除元素-内容" class="headerlink" title="jQuery HTML 移除元素/内容"></a><code>jQuery</code> HTML 移除元素/内容</h4><pre><code>* remove() //移除被选元素，包括所有的文本和子节点。
+* empty() //移除被选元素所有子节点和内容。不会移除元素本身，或它的属性。
 </code></pre><hr>
-<h4 id="jQuery-HTML-移除元素-内容"><a href="#jQuery-HTML-移除元素-内容" class="headerlink" title="jQuery HTML 移除元素/内容"></a><code>jQuery</code> HTML 移除元素/内容</h4><pre><code>* remove() //移除选取的元素
-* empty() //移除选取元素的所有子元素
-</code></pre><hr>
-<h4 id="jQuery-Get-Set-CSS类"><a href="#jQuery-Get-Set-CSS类" class="headerlink" title="jQuery Get Set CSS类"></a><code>jQuery Get Set CSS</code>类</h4><pre><code>* addClass() //添加 class 类。
-* removeClass() //移除指定元素的类。
-* toggleClass() //在选取的元素切换（添加/删除）类。
+<h4 id="jQuery-Get-Set-CSS类"><a href="#jQuery-Get-Set-CSS类" class="headerlink" title="jQuery Get Set CSS类"></a><code>jQuery Get Set CSS</code>类</h4><pre><code>* addClass() //向被选元素添加一个或多个类名。
+    //添加多个类，用空格分隔。
+* removeClass() //从被选元素移除一个或多个类。
+    //如果该参数为空，将移除所有类名称。
+* toggleClass() //检查每个元素中指定的类。如果不存在则添加类，如果已设置则删除之。
 </code></pre><hr>
 <h4 id="jQuery-css-方法"><a href="#jQuery-css-方法" class="headerlink" title="jQuery css() 方法"></a><code>jQuery css()</code> 方法</h4><pre><code>* css() //为被选元素设置或返回一个或多个样式属性。
 
@@ -431,8 +447,8 @@
     });
 &lt;/script&gt;
 </code></pre><hr>
-<h4 id="jQuery-尺寸"><a href="#jQuery-尺寸" class="headerlink" title="jQuery 尺寸"></a><code>jQuery</code> 尺寸</h4><pre><code>* width(); width(value) //设置或返回被选元素的宽度。
-* height(); height(value) //设置或返回被选元素的高度。
+<h4 id="jQuery-尺寸"><a href="#jQuery-尺寸" class="headerlink" title="jQuery 尺寸"></a><code>jQuery</code> 尺寸</h4><pre><code>* width() //设置或返回被选元素的宽度。
+* height() //设置或返回被选元素的高度。
     //返回宽度时， 则返回第一个匹配元素的宽度。
     //设置宽度时，则设置所有匹配元素的宽度。
 
@@ -637,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-选择器"><span class="nav-number">1.</span> <span class="nav-text">jQuery 选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-事件"><span class="nav-number">2.</span> <span class="nav-text">jQuery 事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-隐藏-显示"><span class="nav-number">3.</span> <span class="nav-text">jQuery 隐藏/显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-淡入淡出"><span class="nav-number">4.</span> <span class="nav-text">jQuery 淡入淡出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-滑动"><span class="nav-number">5.</span> <span class="nav-text">jQuery 滑动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-动画"><span class="nav-number">6.</span> <span class="nav-text">jQuery 动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-停止动画"><span class="nav-number">7.</span> <span class="nav-text">jQuery 停止动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-获取-和-属性"><span class="nav-number">8.</span> <span class="nav-text">jQuery HTML 获取 和 属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-设置内容和属性"><span class="nav-number">9.</span> <span class="nav-text">jQuery HTML 设置内容和属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-添加元素-内容"><span class="nav-number">10.</span> <span class="nav-text">jQuery HTML 添加元素/内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-移除元素-内容"><span class="nav-number">11.</span> <span class="nav-text">jQuery HTML 移除元素/内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-Get-Set-CSS类"><span class="nav-number">12.</span> <span class="nav-text">jQuery Get Set CSS类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-css-方法"><span class="nav-number">13.</span> <span class="nav-text">jQuery css() 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-尺寸"><span class="nav-number">14.</span> <span class="nav-text">jQuery 尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-遍历"><span class="nav-number">15.</span> <span class="nav-text">jQuery 遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-AJAX-load-方法"><span class="nav-number">16.</span> <span class="nav-text">jQuery AJAX load() 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-AJAX-get-post-方法"><span class="nav-number">17.</span> <span class="nav-text">jQuery AJAX get() post() 方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-选择器"><span class="nav-number">1.</span> <span class="nav-text">jQuery 选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-事件"><span class="nav-number">2.</span> <span class="nav-text">jQuery 事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-隐藏-显示"><span class="nav-number">3.</span> <span class="nav-text">jQuery 隐藏/显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-淡入淡出"><span class="nav-number">4.</span> <span class="nav-text">jQuery 淡入淡出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-滑动"><span class="nav-number">5.</span> <span class="nav-text">jQuery 滑动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-动画"><span class="nav-number">6.</span> <span class="nav-text">jQuery 动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-停止动画"><span class="nav-number">7.</span> <span class="nav-text">jQuery 停止动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-获取-设置内容和属性"><span class="nav-number">8.</span> <span class="nav-text">jQuery HTML 获取/设置内容和属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-添加元素-内容"><span class="nav-number">9.</span> <span class="nav-text">jQuery HTML 添加元素/内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-HTML-移除元素-内容"><span class="nav-number">10.</span> <span class="nav-text">jQuery HTML 移除元素/内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-Get-Set-CSS类"><span class="nav-number">11.</span> <span class="nav-text">jQuery Get Set CSS类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-css-方法"><span class="nav-number">12.</span> <span class="nav-text">jQuery css() 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-尺寸"><span class="nav-number">13.</span> <span class="nav-text">jQuery 尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-遍历"><span class="nav-number">14.</span> <span class="nav-text">jQuery 遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-AJAX-load-方法"><span class="nav-number">15.</span> <span class="nav-text">jQuery AJAX load() 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-AJAX-get-post-方法"><span class="nav-number">16.</span> <span class="nav-text">jQuery AJAX get() post() 方法</span></a></li></ol></div>
             
 
           </div>
