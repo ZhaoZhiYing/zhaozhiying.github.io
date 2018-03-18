@@ -238,6 +238,272 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/14/JS 数据类型转换/" itemprop="url">JS 数据类型转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
+                2018-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="转成-String"><a href="#转成-String" class="headerlink" title="转成 String"></a>转成 <code>String</code></h4><p>1.<code>string()</code>可以用于任何数据类型。该方法底层使用的也是 <code>toString()</code> 方法。转换规则如下：</p>
+<pre><code>Number：转为相应的字符串。
+    String(123) // &quot;123&quot;
+
+String：转换后还是原来的值。
+    String(&apos;abc&apos;) // &quot;abc&quot;
+
+Boolean：true 转为字符串 &quot;true&quot;，false转为字符串&quot;false&quot;。
+    String(true) // &quot;true&quot;
+
+undefined：转为字符串 &quot;undefined&quot;。
+    String(undefined) // &quot;undefined&quot;
+
+null：转为字符串 &quot;null&quot;。
+    String(null) // &quot;null&quot;
+
+String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
+    String({a: 1}) // &quot;[object Object]&quot;
+    String([1, 2, 3]) // &quot;1,2,3&quot;
+//这里先后隐式调用了 toString 和 valueOf 方法。    
+</code></pre><h5 id="string-与-toString-的区别"><a href="#string-与-toString-的区别" class="headerlink" title="string() 与 toString() 的区别"></a><code>string()</code> 与 <code>toString()</code> 的区别</h5><pre><code>* toString() 可以将所有的的数据都转换为字符串，但是要排除 null 和 undefined。
+* string() 可以将 null 和 undefined 转换为字符串，但是没法转进制字符串。
+</code></pre><h5 id="toString-与-valueOf-的区别"><a href="#toString-与-valueOf-的区别" class="headerlink" title="toString 与 valueOf 的区别"></a><code>toString</code> 与 <code>valueOf</code> 的区别</h5><p><code>toString()</code> 方法返回一个表示该对象的字符串。</p>
+<pre><code>语法：object.toString()
+</code></pre><p><code>valueOf()</code> 方法返回指定对象的原始值。</p>
+<pre><code>语法：object.valueOf()
+
+Array 返回数组对象本身。
+Boolean 布尔值。
+Date    存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
+Function 函数本身。
+Number 数字值。
+Object 对象本身。这是默认情况。
+String 字符串值。
+
+Math 和 Error 对象没有 valueOf 方法。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//1.调用情况</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div></pre></td></tr></table></figure>
+<p>2.+ 空字符串</p>
+<pre><code>123 + &apos;&apos; // &quot;123&quot;
+true + &apos;&apos; // &quot;true&quot;
+undefined + &apos;&apos; // &quot;undefined&quot;
+null + &apos;&apos; // &quot;null&quot;
+
+var obj = {}
+obj + &apos;&apos; // &quot;[object Object]&quot;
+</code></pre><hr>
+<h4 id="转成-Boolean"><a href="#转成-Boolean" class="headerlink" title="转成 Boolean"></a>转成 <code>Boolean</code></h4><p>1.<code>Boolean()</code> 可以用于任何数据类型。除了以下五个<code>falsy</code>值，其他的值全部为<code>true</code>。</p>
+<pre><code>//falsy 是在 boolean 上下文中认定可转换为 false 的值
+
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean(NaN) // false
+Boolean(&apos;&apos;) // false 
+</code></pre><p>2.任何数据取反两次都可以得到一个布尔值。</p>
+<pre><code>//五个 falsy 值
+!!undefined // false
+!!null // false
+!!0 // false
+!!NaN // false
+!!&apos;&apos; // false
+
+//其他
+!![] // true
+!!{} // true
+!!123 // true
+</code></pre><hr>
+<h4 id="转成-Number"><a href="#转成-Number" class="headerlink" title="转成 Number"></a>转成 <code>Number</code></h4><p>1.<code>number()</code>可以用于任何数据类型。转换规则如下：</p>
+<pre><code>* Boolean：true 和 false 分别转成 1 和 0
+        Number(true) // 1
+
+* Number：简单传入和返回
+        Number(5) // 5
+
+* Null：返回 0
+* undefined：返回 NaN
+
+* String
+    如果可以被解析为数值，则转换为相应的数值
+        Number(&apos;032&apos;) // 32
+    如果不可以被解析为数值，返回 NaN（非数字）
+        Number(&apos;abc&apos;) // NaN
+    空字符串转为0    
+        Number(&apos;&apos;) // 0
+
+* Object：返回 NaN，除非是包含单个数值的数组。
+        Number({name: &apos;zhao&apos;}) // NaN
+        Number([1, 2, 3]) // NaN
+        Number([1]) // 1
+//这里先后隐式调用了 valueOf 和 toString 方法。
+</code></pre><p>2.<code>parsetInt()</code>函数解析一个字符串参数，并返回一个指定基数的整数。</p>
+<pre><code>语法：parseInt(string, radix)
+
+parseInt(&quot;3.14&quot;) //3
+parseInt(&quot;3ff&quot;) //3
+parseInt(&quot;oo3&quot;) //3
+parseInt(&quot;&quot;) //十六进制
+parseInt(&quot;&quot;) //十进制
+parseInt(&quot;&quot;) //八进制
+parseInt(&quot;&quot;) //二进制
+</code></pre><p>3.<code>parsetFloat()</code>解析一个字符串参数并返回一个浮点数。只解析十进制，因此无第二个参数。</p>
+<pre><code>parseFloat(&quot;3.14&quot;) //3.14
+parseFloat(&quot;3.14.12&quot;) //3.14
+parseFloat(&quot;314e-2&quot;) //3.14
+parseFloat(&quot;0.0314E+2&quot;) //3.14
+parseFloat(&quot;3.14more&quot;) //3.14
+parseFloat(&quot;oo3.14&quot;) //NaN
+</code></pre><p>4.自动转换</p>
+<pre><code>&apos;5&apos; - &apos;2&apos; // 3
+&apos;5&apos; * &apos;2&apos; // 10
+true - 1  // 0
+false - 1 // -1
+&apos;1&apos; - 1   // 0
+&apos;5&apos; * []    // 0
+false / &apos;5&apos; // 0
+&apos;abc&apos; - 1   // NaN
+null + 1 // 1
+undefined + 1 // NaN
+
++&apos;abc&apos; // NaN
+-&apos;abc&apos; // NaN
++true // 1
+-false // 0
+</code></pre><hr>
+<p>参考：<a href="http://javascript.ruanyifeng.com/grammar/conversion.html#toc2" target="_blank" rel="external">阮一峰-数据类型转换</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1836,209 +2102,11 @@ rejected: 意味着操作失败。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/AJAX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/29/AJAX/" itemprop="url">AJAX</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
-                2018-01-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><pre><code>* form 可以发 get post 请求，但是会刷新页面或新开页面
-* a 标签可以发 get 请求，但是会刷新页面或新开页面
-* img 可以发 get 请求，但是只能以图片的形式展示
-* link 可以发 get 请求，但是只能以 CSS favicon 的形式展示
-* script 可以发 get 请求，但是只能以脚本的形式运行
-</code></pre><p>那么问题来了，有没有什么方式可以实现？</p>
-<pre><code>get post put delete 请求都行
-想以什么形式展示就以什么形式展示
-</code></pre><h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
-<h5 id="AJAX诞生"><a href="#AJAX诞生" class="headerlink" title="AJAX诞生"></a><code>AJAX</code>诞生</h5><p>2005年，Jesse James Garrett 发表了一篇在线文章，在这篇文章里介绍了一种技术，叫 <code>AJAX</code>，是对 <code>Asynchronous JavaScript + XML</code> 的简写，译为异步的<code>JavaScript</code>和<code>XML</code>。</p>
-<pre><code>1. 使用 XMLHttpRequest 发请求
-2. 服务器返回 XML 格式的字符串 (XML 后来被 JSON 取代)
-3. JS 解析 XML ，并更新局部页面
-</code></pre><hr>
-<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><code>XMLHttpRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHttpRequest</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//前端代码</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>readyState</code>的五种状态，重点记住<code>4</code></p>
-<p><img src="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
-"></p>
-<h5 id="XML"><a href="#XML" class="headerlink" title="XML"></a><code>XML</code></h5><ul>
-<li><p>曾有一段时间，<code>XML</code>是互联网上传输结构化数据的事实标准。</p>
-</li>
-<li><p>但是<code>XML</code>过于烦琐、冗长。为解决这个问题，涌现了一些方案。直到 2006年，<code>Douglas Crockford</code> 提出了 <code>JSON</code> 语言。</p>
-</li>
-</ul>
-<hr>
-<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a><code>JSON</code></h4><p><code>JSON</code>是<code>JavaScript Object Notation</code>的简称，它是一种表示结构化数据的格式。相比<code>XML</code>，<code>JSON</code>是在<code>JavaScript</code>中读写结构化数据的更好的方式。主要是因为<code>JSON</code>更加简洁。</p>
-<h5 id="JSON-与-JavaScript-的关系"><a href="#JSON-与-JavaScript-的关系" class="headerlink" title="JSON 与 JavaScript 的关系"></a><code>JSON</code> 与 <code>JavaScript</code> 的关系</h5><p><code>JSON</code> 和<code>JavaScript</code>是两种不同的语法，<code>JSON</code>参考了<code>JavaScript</code>。</p>
-<h5 id="JSON-与-JavaScript-的区别"><a href="#JSON-与-JavaScript-的区别" class="headerlink" title="JSON 与 JavaScript 的区别"></a><code>JSON</code> 与 <code>JavaScript</code> 的区别</h5><p>1.<code>JSON</code>没有<code>function</code>和<code>undefined</code>。<br><br>2.<code>JSON</code>字符串首尾必须使用双引号。<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Hello world&quot;</div></pre></td></tr></table></figure>
-<p>3.与<code>JavaScript</code>的对象字面量相比，<code>JSON</code>对象有两处不同：<br></p>
-<ul>
-<li><code>JSON</code>没有变量的概念，一个对象以<code>{</code>开始并以<code>}</code>结束。并且没有末尾的分号。</li>
-<li><code>JSON</code>中对象的属性名必须加双引号。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&quot;name&quot;: &quot;zhao&quot;, &quot;age&quot;: 18&#125;</div></pre></td></tr></table></figure>
-<p>4.<code>JSON</code>的数组也没有变量和分号，一个数组以<code>[</code>开始并以<code>]</code>结束。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&quot;name&quot;, 18, true]</div></pre></td></tr></table></figure>
-<p>5.<code>JSON</code>中没有原型链。</p>
-<hr>
-<h4 id="同源策略与CORS跨域"><a href="#同源策略与CORS跨域" class="headerlink" title="同源策略与CORS跨域"></a>同源策略与<code>CORS</code>跨域</h4><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://baidu.com 可以向 http://www.baidu.com 发 AJAX 请求吗 //no</div><div class="line">http://baidu.com:80 可以向 http://baidu.com:81 发 AJAX 请求吗 //no</div></pre></td></tr></table></figure>
-<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><p><code>CORS</code>是跨源资源分享（<code>Cross-Origin Resource Sharing</code>）的缩写，译为跨源资源共享。它是<code>W3C</code>标准，是跨源<code>AJAX</code>请求的根本解决方法。相比<code>JSONP</code>只能发<code>GET</code>请求，<code>CORS</code>允许任何类型的请求。</p>
-<ul>
-<li>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求</li>
-<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)//CORS</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h5 id="JS获取请求与响应"><a href="#JS获取请求与响应" class="headerlink" title="JS获取请求与响应"></a><code>JS</code>获取请求与响应</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">   let request = new XMLHttpRequest()</div><div class="line">   request.open(&apos;POST&apos;, &apos;/xxx&apos;) //设置请求第一部分</div><div class="line">   request.setRequestHeader(&apos;zz&apos;, &apos;18&apos;) //设置请求第二部分</div><div class="line">   request.setRequestHeader(&apos;Content-Type&apos;, &apos;x-www-form-urlencoded&apos;)</div><div class="line">   request.send(&apos;我是第四部分&apos;) //设置请求第四部分</div><div class="line">   request.onreadystatechange = () =&gt;&#123; </div><div class="line">        if(request.readyState === 4)&#123;</div><div class="line">            console.log(&apos;请求响应完毕&apos;)</div><div class="line">            console.log(request.status) //获取响应第一部分 </div><div class="line">            console.log(request.statusText) //获取响应第一部分 </div><div class="line">            if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">                console.log(&apos;请求成功&apos;)</div><div class="line">                console.log(request.getAllResponseHeaders())//获取响应第二部分</div><div class="line">                console.log(request.getResponseHeader(&apos;Content-Type&apos;))//获取响应第二部分</div><div class="line">                console.log(request.responseText)//获取响应第四部分</div><div class="line">            &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">                console.log(&apos;请求失败&apos;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<hr>
-<h5 id="window-jQuery-ajax"><a href="#window-jQuery-ajax" class="headerlink" title="window.jQuery.ajax"></a><code>window.jQuery.ajax</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">   let nodes = &#123;&#125;</div><div class="line">   nodes.addClass = function()&#123;&#125;</div><div class="line">   nodes.html = function()&#123;&#125;</div><div class="line">   return nodes</div><div class="line">&#125;</div><div class="line">   </div><div class="line">window.$ = window.jQuery</div><div class="line"> </div><div class="line">window.jQuery.ajax = function(options)&#123;</div><div class="line">     // arguments 接受两种参数</div><div class="line">      let url</div><div class="line">      if(arguments.length === 1)&#123;</div><div class="line">          url = options.url</div><div class="line">      &#125;else if(arguments.length === 2)&#123;</div><div class="line">          url = arguments[0]//这时候是 options</div><div class="line">          options = arguments[1] //纠正</div><div class="line">      &#125;</div><div class="line">      let method = options.method</div><div class="line">     let body = options.body</div><div class="line">     let successFn = options.successFn</div><div class="line">     let failFn = options.failFn</div><div class="line">     let headers = options.headers </div><div class="line">     let request = new XMLHttpRequest()</div><div class="line">     request.open(method, url) // 配置 request</div><div class="line">     for(let key in headers)&#123;</div><div class="line">         let value = headers[key]</div><div class="line">         request.setRequestHeader(key, value)</div><div class="line">     &#125;</div><div class="line">     request.onreadystatechange = ()=&gt;&#123; </div><div class="line">       if(request.readyState === 4)&#123;     </div><div class="line">             if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">               successFn.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">             &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">               failFn.call(undefined, request)</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">   request.send(body) </div><div class="line">&#125;</div><div class="line">	   </div><div class="line">function f1(responseText)&#123;&#125;</div><div class="line">function f2(responseText)&#123;&#125;</div><div class="line"> 	   </div><div class="line">window.jQuery.ajax(&#123;</div><div class="line">    url: &apos;/xxx&apos;, </div><div class="line">    method: &apos;post&apos;, </div><div class="line">    headers: &#123;</div><div class="line">        &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">        &apos;frank&apos;: &apos;18&apos;</div><div class="line">    &#125;,</div><div class="line">    successFn: (x)=&gt;&#123;</div><div class="line">        f1.call(undefined,x)</div><div class="line">        f2.call(undefined,x)</div><div class="line">    &#125;, </div><div class="line">    failFn: (x)=&gt;&#123;</div><div class="line">        console.log(x)</div><div class="line">    &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h5 id="promise"><a href="#promise" class="headerlink" title="promise"></a><code>promise</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">    let nodes = &#123;&#125;</div><div class="line">    nodes.addClass = function()&#123;&#125;</div><div class="line">    nodes.html = function()&#123;&#125;</div><div class="line">    return nodes</div><div class="line"> &#125;</div><div class="line">    </div><div class="line"> window.$ = window.jQuery</div><div class="line">  </div><div class="line"> // ES6 析构赋值</div><div class="line"> window.jQuery.ajax = function(&#123;url, method, body, headers&#125;)&#123;</div><div class="line">      // promise</div><div class="line">      return new Promise(function(resolve, reject)&#123;</div><div class="line">          let request = new XMLHttpRequest()</div><div class="line">          request.open(method, url) // 配置 request</div><div class="line">          for(let key in headers)&#123;</div><div class="line">              let value = headers[key]</div><div class="line">              request.setRequestHeader(key, value)</div><div class="line">          &#125;</div><div class="line">          request.onreadystatechange = ()=&gt;&#123; </div><div class="line">              if(request.readyState === 4)&#123;     </div><div class="line">                  if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">                      resolve.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">                  &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">                      reject.call(undefined, request)</div><div class="line">                  &#125;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          request.send(body) </div><div class="line">      &#125;) </div><div class="line"> &#125;</div><div class="line">         </div><div class="line"> window.jQuery.ajax(&#123;</div><div class="line">     url: &apos;/xxx&apos;, </div><div class="line">     method: &apos;post&apos;, </div><div class="line">     headers: &#123;</div><div class="line">         &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">         &apos;frank&apos;: &apos;18&apos;</div><div class="line">     &#125;</div><div class="line"> &#125;).then(</div><div class="line">    (text)=&gt;&#123;console.log(text)&#125;,</div><div class="line">    (request)=&gt;&#123;console.log(request)&#125;</div><div class="line"> )</div></pre></td></tr></table></figure>
-<hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2084,7 +2152,7 @@ rejected: 意味着操作失败。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

@@ -1436,6 +1436,255 @@ inline-grid ???
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/BOM 对象常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/23/BOM 对象常用API/" itemprop="url">BOM 对象常用API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T21:54:46+08:00">
+                2018-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><code>BOM</code>（<code>Browser Object Model</code>浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</p>
+</blockquote>
+<p><code>BOM</code>对象包括</p>
+<pre><code>* Window 对象 //表示浏览器中打开的窗口  
+* Navigator 对象 //包含有关浏览器的信息  
+* Screen 对象 //包含有关客户端显示屏幕的信息
+* History 对象 //包含用户（在浏览器窗口中）访问过的 URL  
+* Location 对象 //包含有关当前 URL 的信息
+</code></pre><hr>
+<h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><pre><code>* 如果文档包含框架（&lt;frame&gt; 或 &lt;iframe&gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。
+</code></pre><p>属性</p>
+<pre><code>* Window.innerHeight //浏览器窗口的内部高度(包括滚动条)
+* Window.innerWidth // 浏览器窗口的内部宽度(包括滚动条)
+* Window.top //返回最顶层的父窗口。
+* Window.parent //返回父窗口。
+</code></pre><p>方法</p>
+<pre><code>//弹窗
+* alert(字符串) //显示带有一段消息和一个确认按钮的警告框。
+* prompt() //显示可提示用户输入的提示框。
+* confirm() //显示带有一段消息以及确认按钮和取消按钮的确认框。
+
+* window.print() //打印当前窗口的内容。
+* window.focus() //把键盘焦点给予一个窗口。
+* window.blur() //把键盘焦点从顶层窗口移开。 
+
+* window.open() //打开一个新的浏览器窗口或查找一个已命名的窗口。
+* window.close() //关闭浏览器窗口。
+* window.moveBy(x,y) //可相对窗口的当前坐标把它移动指定的像素。
+* window.moveTo(x,y) //把窗口的左上角移动到一个指定的坐标。
+* window.resizeBy(width,height) //按照指定的像素调整窗口的大小。
+* window.resizeTo(width,height) //把窗口的大小调整到指定的宽度和高度。
+
+* window.scrollBy(xnum,ynum) //按照指定的像素值来滚动内容。
+* window.scrollTo(xpos,ypos) //把内容滚动到指定的坐标。
+
+//计时事件
+* setInterval() //按照指定的周期（以毫秒计）来调用函数或计算表达式。
+* setTimeout() //在指定的毫秒数后调用函数或计算表达式。
+* clearInterval() //取消由 setInterval() 设置的 timeout。
+* clearTimeout() //取消由 setTimeout() 方法设置的 timeout。
+</code></pre><hr>
+<h5 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a><code>Navigator</code>对象</h5><p>属性</p>
+<pre><code>* appCodeName //返回浏览器的代码名
+* appName //返回浏览器的名称
+* appVersion //返回浏览器的平台和版本信息
+* cookieEnabled //返回指明浏览器中是否启用 cookie 的布尔值
+* platform //返回运行浏览器的操作系统平台
+* userAgent //返回由客户机发送服务器的 user-agent 头部的值
+</code></pre><p>举例</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+txt = &quot;&lt;p&gt;浏览器代号: &quot; + navigator.appCodeName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器名称: &quot; + navigator.appName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器版本: &quot; + navigator.appVersion + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;启用Cookies: &quot; + navigator.cookieEnabled + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;硬件平台: &quot; + navigator.platform + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理: &quot; + navigator.userAgent + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理语言: &quot; + navigator.systemLanguage + &quot;&lt;/p&gt;&quot;;
+document.getElementById(&quot;example&quot;).innerHTML=txt;
+&lt;/script&gt; 
+</code></pre><blockquote>
+<p><div id="example"></div></p>
+<script>
+    txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+    txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+    txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+    txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+    txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+    txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+    txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+    document.getElementById("example").innerHTML=txt;
+</script> 
+
+</blockquote>
+<hr>
+<h5 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a><code>Screen</code>对象</h5><p>属性</p>
+<pre><code>* screen.availHeight //可用的屏幕宽度（不包括 Windows 任务栏）
+* screen.availWidth //可用的屏幕高度（不包括 Windows 任务栏）
+* screen.height //返回屏幕的总高度
+* screen.width //返回屏幕的总宽度
+* screen.colorDepth //返回目标设备或缓冲器上的调色板的比特深度
+* screen.pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
+</code></pre><hr>
+<h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><pre><code>* History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。
+</code></pre><p>属性</p>
+<pre><code>* history.length //返回历史列表中的网址数
+</code></pre><p>方法</p>
+<pre><code>* history.back() //加载 history 列表中的前一个 URL
+* history.forward() //加载 history 列表中的下一个 URL
+* history.go() //加载 history 列表中的某个具体页面
+</code></pre><hr>
+<h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><pre><code>* Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。
+</code></pre><p>属性</p>
+<pre><code>* location.hostname //返回 web 主机的域名
+* location.port //返回 web 主机的端口 （80 或 443）
+* location.protocol //返回所使用的 web 协议（http:// 或 https://）
+* location.pathname //返回当前页面的路径和文件名。
+
+* location.href //返回完整的 URL
+* location.hash //返回一个 URL 的锚部分
+* location.host //返回一个 URL 的主机名和端口
+* location.search //返回一个 URL 的查询部分
+</code></pre><p>方法</p>
+<pre><code>* window.location.assign(URL) //载入一个新的文档
+* window.location.reload() //重新载入当前文档
+* window.location.replace(newURL) //用新的文档替换当前文档    
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2162,277 +2411,11 @@ a2() // 7
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/14/JS 数据类型转换/" itemprop="url">JS 数据类型转换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
-                2018-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="转成-String"><a href="#转成-String" class="headerlink" title="转成 String"></a>转成 <code>String</code></h4><p>1.<code>string()</code>可以用于任何数据类型。该方法底层使用的也是 <code>toString()</code> 方法。转换规则如下：</p>
-<pre><code>Number：转为相应的字符串。
-    String(123) // &quot;123&quot;
-
-String：转换后还是原来的值。
-    String(&apos;abc&apos;) // &quot;abc&quot;
-
-Boolean：true 转为字符串 &quot;true&quot;，false转为字符串&quot;false&quot;。
-    String(true) // &quot;true&quot;
-
-undefined：转为字符串 &quot;undefined&quot;。
-    String(undefined) // &quot;undefined&quot;
-
-null：转为字符串 &quot;null&quot;。
-    String(null) // &quot;null&quot;
-
-String方法的参数如果是对象，返回一个类型字符串；如果是数组，返回该数组的字符串形式。
-    String({a: 1}) // &quot;[object Object]&quot;
-    String([1, 2, 3]) // &quot;1,2,3&quot;
-//这里先后隐式调用了 toString 和 valueOf 方法。    
-</code></pre><h5 id="string-与-toString-的区别"><a href="#string-与-toString-的区别" class="headerlink" title="string() 与 toString() 的区别"></a><code>string()</code> 与 <code>toString()</code> 的区别</h5><pre><code>* toString() 可以将所有的的数据都转换为字符串，但是要排除 null 和 undefined。
-* string() 可以将 null 和 undefined 转换为字符串，但是没法转进制字符串。
-</code></pre><h5 id="toString-与-valueOf-的区别"><a href="#toString-与-valueOf-的区别" class="headerlink" title="toString 与 valueOf 的区别"></a><code>toString</code> 与 <code>valueOf</code> 的区别</h5><p><code>toString()</code> 方法返回一个表示该对象的字符串。</p>
-<pre><code>语法：object.toString()
-</code></pre><p><code>valueOf()</code> 方法返回指定对象的原始值。</p>
-<pre><code>语法：object.valueOf()
-
-Array 返回数组对象本身。
-Boolean 布尔值。
-Date    存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
-Function 函数本身。
-Number 数字值。
-Object 对象本身。这是默认情况。
-String 字符串值。
-
-Math 和 Error 对象没有 valueOf 方法。
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//1.调用情况</div><div class="line">在数值运算里，会优先调用 valueOf()，如 a + b</div><div class="line">在字符串运算里，会优先调用 toString()，如 alert(c)</div><div class="line">	</div><div class="line">//2.返回值类型</div><div class="line">toString 一定将所有内容转为字符串。</div><div class="line">valueOf 取出对象内部的值，不进行类型转换。</div><div class="line"></div><div class="line">//3.用途</div><div class="line">valueOf 专用于算数计算和关系运算。</div><div class="line">toString 专用于输出字符串。</div></pre></td></tr></table></figure>
-<p>2.+ 空字符串</p>
-<pre><code>123 + &apos;&apos; // &quot;123&quot;
-true + &apos;&apos; // &quot;true&quot;
-undefined + &apos;&apos; // &quot;undefined&quot;
-null + &apos;&apos; // &quot;null&quot;
-
-var obj = {}
-obj + &apos;&apos; // &quot;[object Object]&quot;
-</code></pre><hr>
-<h4 id="转成-Boolean"><a href="#转成-Boolean" class="headerlink" title="转成 Boolean"></a>转成 <code>Boolean</code></h4><p>1.<code>Boolean()</code> 可以用于任何数据类型。除了以下五个<code>falsy</code>值，其他的值全部为<code>true</code>。</p>
-<pre><code>//falsy 是在 boolean 上下文中认定可转换为 false 的值
-
-Boolean(undefined) // false
-Boolean(null) // false
-Boolean(0) // false
-Boolean(NaN) // false
-Boolean(&apos;&apos;) // false 
-</code></pre><p>2.任何数据取反两次都可以得到一个布尔值。</p>
-<pre><code>//五个 falsy 值
-!!undefined // false
-!!null // false
-!!0 // false
-!!NaN // false
-!!&apos;&apos; // false
-
-//其他
-!![] // true
-!!{} // true
-!!123 // true
-</code></pre><hr>
-<h4 id="转成-Number"><a href="#转成-Number" class="headerlink" title="转成 Number"></a>转成 <code>Number</code></h4><p>1.<code>number()</code>可以用于任何数据类型。转换规则如下：</p>
-<pre><code>* Boolean：true 和 false 分别转成 1 和 0
-        Number(true) // 1
-
-* Number：简单传入和返回
-        Number(5) // 5
-
-* Null：返回 0
-* undefined：返回 NaN
-
-* String
-    如果可以被解析为数值，则转换为相应的数值
-        Number(&apos;032&apos;) // 32
-    如果不可以被解析为数值，返回 NaN（非数字）
-        Number(&apos;abc&apos;) // NaN
-    空字符串转为0    
-        Number(&apos;&apos;) // 0
-
-* Object：返回 NaN，除非是包含单个数值的数组。
-        Number({name: &apos;zhao&apos;}) // NaN
-        Number([1, 2, 3]) // NaN
-        Number([1]) // 1
-//这里先后隐式调用了 valueOf 和 toString 方法。
-</code></pre><p>2.<code>parsetInt()</code>函数解析一个字符串参数，并返回一个指定基数的整数。</p>
-<pre><code>语法：parseInt(string, radix)
-
-parseInt(&quot;3.14&quot;) //3
-parseInt(&quot;3ff&quot;) //3
-parseInt(&quot;oo3&quot;) //3
-parseInt(&quot;&quot;) //十六进制
-parseInt(&quot;&quot;) //十进制
-parseInt(&quot;&quot;) //八进制
-parseInt(&quot;&quot;) //二进制
-</code></pre><p>3.<code>parsetFloat()</code>解析一个字符串参数并返回一个浮点数。只解析十进制，因此无第二个参数。</p>
-<pre><code>parseFloat(&quot;3.14&quot;) //3.14
-parseFloat(&quot;3.14.12&quot;) //3.14
-parseFloat(&quot;314e-2&quot;) //3.14
-parseFloat(&quot;0.0314E+2&quot;) //3.14
-parseFloat(&quot;3.14more&quot;) //3.14
-parseFloat(&quot;oo3.14&quot;) //NaN
-</code></pre><p>4.自动转换</p>
-<pre><code>&apos;5&apos; - &apos;2&apos; // 3
-&apos;5&apos; * &apos;2&apos; // 10
-true - 1  // 0
-false - 1 // -1
-&apos;1&apos; - 1   // 0
-&apos;5&apos; * []    // 0
-false / &apos;5&apos; // 0
-&apos;abc&apos; - 1   // NaN
-null + 1 // 1
-undefined + 1 // NaN
-
-+&apos;abc&apos; // NaN
--&apos;abc&apos; // NaN
-+true // 1
--false // 0
-</code></pre><hr>
-<p>参考：<a href="http://javascript.ruanyifeng.com/grammar/conversion.html#toc2" target="_blank" rel="external">阮一峰-数据类型转换</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2478,7 +2461,7 @@ undefined + 1 // NaN
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
