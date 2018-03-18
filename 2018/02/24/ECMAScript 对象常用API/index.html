@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Function属性 * Infinity //代表正的无穷大的数值。 * NaN //指示某个值是不是数字值。 * undefined //指示未定义的值。 方法 * decodeURI(URI) //解码某个编码的 URI。 * decodeURIComponent(URI) //解码一个编码的 URI 组件。 * encodeURI(string) //把字符串编码为 URI。 * enco">
-<meta property="og:updated_time" content="2018-03-17T07:48:23.000Z">
+<meta property="og:updated_time" content="2018-03-17T09:41:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
 <meta name="twitter:description" content="Function属性 * Infinity //代表正的无穷大的数值。 * NaN //指示某个值是不是数字值。 * undefined //指示未定义的值。 方法 * decodeURI(URI) //解码某个编码的 URI。 * decodeURIComponent(URI) //解码一个编码的 URI 组件。 * encodeURI(string) //把字符串编码为 URI。 * enco">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T20:45:02+08:00">
                 2018-02-24
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -356,21 +356,29 @@
 </code></pre><p>方法</p>
 <pre><code>* Array.join(分隔符) //以参数作为分隔符，将所有数组成员组成一个字符串返回。
 * Array.concat(arr1,arr2...) //用于合并两个或多个数组。它将新数组的成员，添加到原数组成员的后部，返回一个新数组，原数组不变。
-* Array.slice(start,end) //用于提取原数组的一部分，返回一个新数组，原数组不变。
+
 * Array.map(方法函数) //创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。
 * Array.forEach(方法函数) //同 map() 一样，但没有返回值。
+
 * Array.filter(方法函数) //用于过滤数组成员，满足条件的成员组成一个新数组返回。
 * Array.reduce(方法函数) //按原始顺序依次处理数组的每个成员，最终累计为一个值。
+
 * Array.sort(方法函数) //对数组成员进行排序。排序后，原数组将被改变。
+* Array.reverse() //用于颠倒数组中元素的顺序，返回改变后的数组。该方法会改变原数组。
+
 * Array.push(item1,item2...) //在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。
 * Array.unshift(item1,item2...) //用于在数组的第一个位置添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。
+
+* Array.slice(start,end) //用于提取原数组的一部分，返回一个新数组，原数组不变。
 * Array.pop() //用于删除数组的最后一个元素，并返回该元素。该方法会改变原数组。
 * Array.shift() //用于删除数组的第一个元素，并返回该元素。该方法会改变原数组。
-* Array.reverse() //用于颠倒数组中元素的顺序，返回改变后的数组。该方法会改变原数组。
 * Array.splice(start, length, item1,item2...) //用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。该方法会改变原数组。
+
 * Array.some(方法函数) //用来判断数组成员是否符合某种条件。一项满足则整个返回 true 
 * Array.every(方法函数) //用来判断数组成员是否符合某种条件。所有项满足则整个返回 true
+
 * Array.indexOf(item,start) //按原始顺序依次搜索数组中的元素，并返回它所在的位置。
+
 * Array.valueOf() //返回数组对象的原始值。
 * Array.toString() //把数组转换为字符串，并返回结果。
 </code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-array.html" target="_blank" rel="external">更多方法</a></p>
@@ -536,10 +544,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -560,7 +568,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">43</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -571,7 +579,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -635,7 +643,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
