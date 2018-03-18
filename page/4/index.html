@@ -238,476 +238,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/实现一个 jQuery 的 API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">实现一个 jQuery 的 API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
-  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
-  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
-  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
-  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
-  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
-<pre><code>var allChildren = item3.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== item3){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function getSiblings(node){
-    var allChildren = node.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== node){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-}
-getSiblings(item3)//调用
-</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
-item3.classList.add(&apos;b&apos;)
-item3.classList.add(&apos;c&apos;)
-</code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-classes.forEach((value) =&gt; item3.classList.add(value))
-</code></pre><p>加上<code>remove</code></p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-for(let key in classes){
-    var value = classes[key]
-    if(value){
-        item3.classList.add(key)
-    }else{
-        item3.classList.remove(key)
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function addClass(node,classes){
-    for(let key in classes){
-        var value = classes[key]
-        if(value){
-            node.classList.add(key)
-        }else{
-            node.classList.remove(key)
-        }
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
-</code></pre><p>优化代码（这里用到了三元运算符）</p>
-<pre><code>function addClass(node,classes){
-  for(let key in classes){
-      var value = classes[key]
-      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
-      node.classList[methodName](key)
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
-</code></pre><p>上面代码等于下面</p>
-<pre><code>function addClass(node,classes){
-    classes.forEach((value) =&gt; node.classList.add(value))
-}    
-addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
-</code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
-<pre><code>window.zzdom = {} //声明变量名 zzdom
-zzdom.getSiblings = getSiblings 
-zzdom.addClass = addClass
-//调用
-zzdom.getSiblings.call(item3)  
-zzdom.addClass.call(items, {a:true, b:false, c:true})    
-</code></pre><p>代码更新如下</p>
-<pre><code>window.zzdom = {}        
-zzdom.getSiblings = function (node){ 
-var allChildren = node.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== node){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-return array
-}
-zzdom.addClass = function (node,classes){
-  classes.forEach((value) =&gt; node.classList.add(value))
-}
-//调用
-zzdom.getSiblings(item3)
-zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>但是相比下，下面这种调用方法更好</p>
-<pre><code>//调用
-item3.getSiblings(item3)
-item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>解决办法：更改<code>Node</code>原型</p>
-<pre><code>Node.prototype.getSiblings = function (){ 
-    var allChildren = this.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== this){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-    }
-    Node.prototype.addClass = function (classes){
-        classes.forEach((value) =&gt; this.classList.add(value))
-}
-//调用
-item3.getSiblings.call(item3)
-item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><blockquote>
-<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
-</blockquote>
-<p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
-<pre><code>window.jQuery = function (node){
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(item3)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let node
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        node = document.querySelector(nodeOrSelector)
-    }else{
-        node = nodeOrSelector
-    }
-
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(&apos;#item3&apos;)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-       //伪数组
-       nodes = document.querySelectorAll(nodeOrSelector)
-    }else if(nodeOrSelector instanceof Node){
-        //伪数组，保持返回结果一致
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:NodeList
-</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }            
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:Object 
-</code></pre><p>添加<code>addClass</code>后代码如下</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    //`getText`获取文本
-    nodes.getText = function(){
-        var texts = []
-        for(let i=0; i&lt;nodes.length; i++){
-            texts.push(nodes[i].textContent)
-        }
-        return texts
-    }    
-    //`setText`设置文本
-    nodes.setText = function(text){
-        for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-    }    
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
-</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
-<pre><code>    window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    nodes.text = function (text){
-        if(text === undefined){
-            var texts = []
-            for(let i=0; i&lt;nodes.length; i++){
-             texts.push(nodes[i].textContent)
-          }
-           return texts
-       }else{
-            for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-      }    
-    }
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
-</code></pre><hr>
-<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM 对象常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2693,6 +2223,232 @@ stretch（默认值）：轴线占满整个交叉轴。
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/HTML 标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/HTML 标签/" itemprop="url">HTML 标签</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>除了<code>div</code>和<code>span</code>，其他标签都有默认样式。</p>
+</blockquote>
+<p><a href="http://www.runoob.com/tags/html-reference.html" target="_blank" rel="external">更多标签</a></p>
+<h4 id="lt-iframe-gt"><a href="#lt-iframe-gt" class="headerlink" title="&lt;iframe&gt;"></a><code>&lt;iframe&gt;</code></h4><p>在当前页面嵌套一个页面。</p>
+<pre><code>* 默认宽 100px 高 50px
+* 默认有难看的 border，可在 CSS 中设置。
+</code></pre><p>属性</p>
+<pre><code>* height //规定 &lt;iframe&gt; 的高度。
+* width //规定 &lt;iframe&gt; 的宽度。
+* name //规定 &lt;iframe&gt; 的名称。
+    //需结合 a 标签使用，否则无意义
+* src 指定路径
+    绝对 URL - 指向另一个网站（比如 src=&quot;http://www.example.com/default.htm&quot;）
+    相对 URL - 指向网站中的一个文件（比如 src=&quot;default.htm&quot;）
+
+// HTML5 中的新属性
+* srcdoc //规定页面中的 HTML 内容显示在 &lt;iframe&gt; 中。
+* seamless //规定 &lt;iframe&gt; 看起来像是父文档中的一部分。
+* sandbox //对 &lt;iframe&gt; 的内容定义一系列额外的限制。
+    &quot;&quot; //启用所有限制条件
+    allow-same-origin //允许将内容作为普通来源对待。如果未使用该关键字，嵌入的内容将被视为一个独立的源。
+    allow-top-navigation //嵌入的页面的上下文可以导航（加载）内容到顶级的浏览上下文环境。如果未使用该关键字，这个操作将不可用。
+    allow-forms //允许表单提交。
+    allow-scripts //允许脚本执行。
+</code></pre><p>示例一：<code>name</code></p>
+<p>因为 <code>a</code> 链接的 <code>target</code> 属性匹配了 <code>ifrme</code> 的 <code>name</code> 属性，所以链接点击后将显示在 <code>iframe</code> 中。</p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bff06e60.png
+"></p>
+<p>示例三：<code>src</code> <code>width</code> <code>height</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6b621ca04.png
+"></p>
+<p>示例二：<code>srcdoc</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bdd59442.png
+"></p>
+<hr>
+<h4 id="lt-a-gt"><a href="#lt-a-gt" class="headerlink" title="&lt;a&gt;"></a><code>&lt;a&gt;</code></h4><p>属性</p>
+<pre><code>* target //该属性指定在何处显示链接的资源。
+    _self //默认属性。当前页面加载。
+    _blank //新窗口打开
+    _parent //父级页面打开。如果没有，同_self。
+    _top //顶级页面加载。如果没有，同_self。 
+* href //规定链接的目标地址。
+    href=&quot;//qq.com&quot; //无协议地址
+    href=&quot;#xxx&quot; //锚点#，不发起请求
+    href=&quot;?name=qq&quot; //发起请求
+    href=&quot;./xxx.html&quot; //相对路径 
+    href=&quot;javascript:;&quot; //让 a 标签不跳转
+    href=&quot;javascript:alert(1)&quot; //执行一段代码
+    href=&quot;http://write.blog.csdn.net&quot; //绝对 URL，指向另一个站点
+    a href=&quot;&quot; //刷新页面
+    href=&quot;#top&quot; //返回到页面顶部
+    href=&quot;#&quot; //返回到页面顶部
+
+// HTML5 中的新属性
+* download //指示浏览器下载 URL 而不是导航到 URL
+* type //规定目标 URL 的 MIME 类型。仅在 href 属性存在时使用。
+    注：MIME 是指示文件的类型（描述的内容格式，例如声音文件可能会被标记  audio/ogg，或图像文件 image/png）
+* media //规定目标 URL 的媒介类型。默认值：all。仅在 href 属性存在时使用。
+...
+</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
+<pre><code>// a 标签里加 download
+&lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
+
+// HTTP 请求
+Content-type: application/octet-stream
+</code></pre><p><a href="http://www.runoob.com/tags/tag-a.html" target="_blank" rel="external">更多属性</a></p>
+<hr>
+<h4 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h4><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
+<p>在<code>HTML</code>中，通常在一个空元素上使用一个闭标签是无效的。</p>
+<pre><code>例如，&lt;input type=&quot;text&quot;&gt; &lt;/input&gt; 的闭标签是无效的 HTML。
+</code></pre><p>常见的空元素有：</p>
+<pre><code>&lt;br&gt; 换行
+&lt;hr&gt; 添加水平横线
+&lt;img&gt; 为网页插入图片，此元素有两个必需的属性：src 和 alt。通过在 &lt;a&gt; 
+      标签中嵌套 &lt;img&gt; 标签，给图像添加到另一个文档的链接。
+&lt;input&gt; 用于为基于Web的表单创建交互式控件，以便接受来自用户的数据。
+        此元素在 &lt;form&gt; 元素中使用，用来声明允许用户输入数据的 input 
+        控件。输入字段可通过多种方式改变，取决于 type 属性。
+&lt;link&gt; 指定了外部资源与当前文档的关系，最常见的用途是链接css文件。
+       此元素只能存在于 &lt;head&gt; 元素内部，不过它可出现任何次数。
+&lt;meta&gt; 描述 HTML 文档的元数据（元数据是数据的数据信息），&lt;meta&gt; 标签
+       通常位于 &lt;head&gt; 元素内部。
+</code></pre><hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2743,7 +2499,7 @@ stretch（默认值）：轴线占满整个交叉轴。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -2754,7 +2510,7 @@ stretch（默认值）：轴线占满整个交叉轴。
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
