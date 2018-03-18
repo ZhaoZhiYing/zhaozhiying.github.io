@@ -238,419 +238,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/Promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/30/Promise/" itemprop="url">Promise</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="「同步」和「异步」"><a href="#「同步」和「异步」" class="headerlink" title="「同步」和「异步」"></a>「同步」和「异步」</h4><p><code>JavaScript</code> 语言本身并不慢，慢的是读写外部数据，比如等待 <code>AJAX</code> 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，<code>Javascript</code> 语言将任务的执行模式分成两种：「同步」（<code>Synchronous</code>）和「异步」（<code>Asynchronous</code>）。</p>
-<ul>
-<li><p>一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文件。任务的第二段是处理文件。</p>
-</li>
-<li><p>「同步」是指后一个任务等待前一个任务执行结束，然后再执行。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">!function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;.call()</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A B C</div></pre></td></tr></table></figure>
-<ul>
-<li>「异步」是指前一个任务先发送一个请求，不等待返回（就是第二段的处理文件），直接进行下一个任务。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">setTimeout(function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;,1000)</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A C B</div><div class="line">// console.log(&apos;C&apos;) 就是异步执行的</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><ul>
-<li>一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。</li>
-<li><p>换言之，回调函数，就是把任务的第二段单独写在一个函数里面，在特定的事件或条件发生时，调用这个函数。</p>
-</li>
-<li><p>同步回调。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function add(a, b, callback) &#123;</div><div class="line">    callback(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1,2,function(result) &#123;</div><div class="line">    console.log(&quot;result:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">add(1,2,function(result)&#123;</div><div class="line">    console.log(&quot;结果是:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//result:3 结果是:3</div></pre></td></tr></table></figure>
-<ul>
-<li>异步回调。经常使用以下方法：<ul>
-<li>对于异步执行（例如读取文件和发出<code>HTTP</code>请求）</li>
-<li>在事件监听器/处理程序中</li>
-<li>在<code>setTimeout</code>和<code>setInterval</code>方法中</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
-<p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
-<pre><code>setTimeout(function(){
-  left(function(){
-    setTimeout(function(){
-       left(function(){
-         setTimeout(function(){
-           left();
-         },2000);
-       });
-    }, 2000);
-  });
-}, 2000);
-</code></pre><hr>
-<h4 id="Promise（全局-window-的属性）"><a href="#Promise（全局-window-的属性）" class="headerlink" title="Promise（全局 window 的属性）"></a><code>Promise</code>（全局 <code>window</code> 的属性）</h4><h5 id="Promise-对象有以下两个特点"><a href="#Promise-对象有以下两个特点" class="headerlink" title="Promise 对象有以下两个特点:"></a><code>Promise</code> 对象有以下两个特点:</h5><p>1.对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：</p>
-<pre><code>pending: 初始状态，既不是成功，也不是失败状态。
-fulfilled: 意味着操作成功完成。
-rejected: 意味着操作失败。
-
-//只有异步操作的结果，可以决定当前是哪一种状态。
-//任何其他操作都无法改变这个状态。
-</code></pre><p>2.一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
-<p><code>Promise</code> 的状态的变化途径只有两种：</p>
-<pre><code>1.异步操作从 pending 到 fulfilled ，表示异步操作成功，Promise 对象传回一个值，状态变为 resolved。
-2.异步操作从 pending 到 rejected ，表示异步操作失败，Promise 对象抛出一个错误，状态变为 rejected。
-
-//只要这两种情况发生，状态就凝固不会再变了，会一直保持这个结果。
-//就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。
-//这与事件完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
-</code></pre><h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
-<pre><code>new Promise(function(resolve, reject) /* executor */ )
-
-// executor 是 resolve 和 reject 两个函数。
-// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
-// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-</code></pre><h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><pre><code>// then 方法可以接受两个回调函数作为参数。
-//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。
-//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
-</code></pre><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a><code>catch</code></h5><pre><code>// catch 是用于指定发生错误时的回调函数。
-//建议总是使用 catch，catch() 使回调报错时不会卡死 JS 而是会继续往下执行。
-// Promise 对象的错误具有&quot;冒泡&quot;性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。
-</code></pre><hr>
-<p>参考：</p>
-<p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
-<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/AJAX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/29/AJAX/" itemprop="url">AJAX</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
-                2018-01-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h4><h5 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h5><pre><code>* form 可以发 get post 请求，但是会刷新页面或新开页面
-* a 标签可以发 get 请求，但是会刷新页面或新开页面
-* img 可以发 get 请求，但是只能以图片的形式展示
-* link 可以发 get 请求，但是只能以 CSS favicon 的形式展示
-* script 可以发 get 请求，但是只能以脚本的形式运行
-</code></pre><p>那么问题来了，有没有什么方式可以实现？</p>
-<pre><code>get post put delete 请求都行
-想以什么形式展示就以什么形式展示
-</code></pre><h5 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h5><p><code>IE 5</code> 率先在 <code>JS</code> 中引入 <code>ActiveX</code> 对象（API），使得 <code>JS</code> 可以直接发起 HTTP 请求。<br>随后 <code>Mozilla</code> <code>Safari</code> <code>Opera</code> 也跟进（抄袭）了，取名 <code>XMLHttpRequest</code>，并被纳入 <code>W3C 规范</code></p>
-<h5 id="AJAX诞生"><a href="#AJAX诞生" class="headerlink" title="AJAX诞生"></a><code>AJAX</code>诞生</h5><p>2005年，Jesse James Garrett 发表了一篇在线文章，在这篇文章里介绍了一种技术，叫 <code>AJAX</code>，是对 <code>Asynchronous JavaScript + XML</code> 的简写，译为异步的<code>JavaScript</code>和<code>XML</code>。</p>
-<pre><code>1. 使用 XMLHttpRequest 发请求
-2. 服务器返回 XML 格式的字符串 (XML 后来被 JSON 取代)
-3. JS 解析 XML ，并更新局部页面
-</code></pre><hr>
-<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a><code>XMLHttpRequest</code></h4><p>如何使用原生<code>JS</code>来发送<code>AJAX</code>请求？（<code>XMLHttpRequest</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//前端代码</div><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line"> let request = new XMLHttpRequest()</div><div class="line"> request.onreadystatechange = () =&gt;&#123; </div><div class="line">     if(request.readyState === 4)&#123;</div><div class="line">         console.log(&apos;请求响应完毕&apos;)</div><div class="line">         if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">             console.log(&apos;请求成功&apos;)</div><div class="line">         &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">             console.log(&apos;请求失败&apos;)</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div><div class="line"> request.open(&apos;GET&apos;, &apos;/xxx&apos;) // 配置request</div><div class="line"> request.send()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 后端代码（XML）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">&lt;note&gt;</div><div class="line">  &lt;to&gt;糖糖&lt;/to&gt;</div><div class="line">  &lt;from&gt;照照&lt;/from&gt;</div><div class="line">   &lt;heading&gt;hellow你好吗&lt;/heading&gt;</div><div class="line">   &lt;body&gt;hellow你好吗衷心感谢珍重再见期待再相逢&lt;/body&gt;</div><div class="line"> &lt;/note&gt;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>readyState</code>的五种状态，重点记住<code>4</code></p>
-<p><img src="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
-"></p>
-<h5 id="XML"><a href="#XML" class="headerlink" title="XML"></a><code>XML</code></h5><ul>
-<li><p>曾有一段时间，<code>XML</code>是互联网上传输结构化数据的事实标准。</p>
-</li>
-<li><p>但是<code>XML</code>过于烦琐、冗长。为解决这个问题，涌现了一些方案。直到 2006年，<code>Douglas Crockford</code> 提出了 <code>JSON</code> 语言。</p>
-</li>
-</ul>
-<hr>
-<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a><code>JSON</code></h4><p><code>JSON</code>是<code>JavaScript Object Notation</code>的简称，它是一种表示结构化数据的格式。相比<code>XML</code>，<code>JSON</code>是在<code>JavaScript</code>中读写结构化数据的更好的方式。主要是因为<code>JSON</code>更加简洁。</p>
-<h5 id="JSON-与-JavaScript-的关系"><a href="#JSON-与-JavaScript-的关系" class="headerlink" title="JSON 与 JavaScript 的关系"></a><code>JSON</code> 与 <code>JavaScript</code> 的关系</h5><p><code>JSON</code> 和<code>JavaScript</code>是两种不同的语法，<code>JSON</code>参考了<code>JavaScript</code>。</p>
-<h5 id="JSON-与-JavaScript-的区别"><a href="#JSON-与-JavaScript-的区别" class="headerlink" title="JSON 与 JavaScript 的区别"></a><code>JSON</code> 与 <code>JavaScript</code> 的区别</h5><p>1.<code>JSON</code>没有<code>function</code>和<code>undefined</code>。<br><br>2.<code>JSON</code>字符串首尾必须使用双引号。<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Hello world&quot;</div></pre></td></tr></table></figure>
-<p>3.与<code>JavaScript</code>的对象字面量相比，<code>JSON</code>对象有两处不同：<br></p>
-<ul>
-<li><code>JSON</code>没有变量的概念，一个对象以<code>{</code>开始并以<code>}</code>结束。并且没有末尾的分号。</li>
-<li><code>JSON</code>中对象的属性名必须加双引号。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&quot;name&quot;: &quot;zhao&quot;, &quot;age&quot;: 18&#125;</div></pre></td></tr></table></figure>
-<p>4.<code>JSON</code>的数组也没有变量和分号，一个数组以<code>[</code>开始并以<code>]</code>结束。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&quot;name&quot;, 18, true]</div></pre></td></tr></table></figure>
-<p>5.<code>JSON</code>中没有原型链。</p>
-<hr>
-<h4 id="同源策略与CORS跨域"><a href="#同源策略与CORS跨域" class="headerlink" title="同源策略与CORS跨域"></a>同源策略与<code>CORS</code>跨域</h4><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><p>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://baidu.com 可以向 http://www.baidu.com 发 AJAX 请求吗 //no</div><div class="line">http://baidu.com:80 可以向 http://baidu.com:81 发 AJAX 请求吗 //no</div></pre></td></tr></table></figure>
-<h5 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a><code>CORS</code></h5><p><code>CORS</code>是跨源资源分享（<code>Cross-Origin Resource Sharing</code>）的缩写，译为跨源资源共享。它是<code>W3C</code>标准，是跨源<code>AJAX</code>请求的根本解决方法。相比<code>JSONP</code>只能发<code>GET</code>请求，<code>CORS</code>允许任何类型的请求。</p>
-<ul>
-<li>只有 协议+端口+域名 一模一样才允许发 <code>AJAX</code> 请求</li>
-<li><code>CORS</code> 可以告诉浏览器，我俩一家的，别阻止他。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 后端代码（JSON）</div><div class="line">&#125;else if(path === &apos;/xxx&apos;)&#123;</div><div class="line"> response.statusCode = 200</div><div class="line"> response.setHeader(&apos;Content-Type&apos;, &apos;text/XML&apos;)</div><div class="line"> response.setHeader(&apos;Access-Control-Allow-Origin&apos;, &apos;http://frank.com:8001&apos;)//CORS</div><div class="line"> response.write(`</div><div class="line">  &#123;</div><div class="line">     &quot;note&quot;:&#123;</div><div class="line">        &quot;to&quot;: &quot;糖糖&quot;,</div><div class="line">        &quot;from&quot;: &quot;照照&quot;,</div><div class="line">        &quot;heading&quot;: &quot;哈喽&quot;,</div><div class="line">        &quot;content&quot;: &quot;你好吗&quot;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"> `)</div><div class="line"> response.end()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h5 id="JS获取请求与响应"><a href="#JS获取请求与响应" class="headerlink" title="JS获取请求与响应"></a><code>JS</code>获取请求与响应</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">myButton.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">   let request = new XMLHttpRequest()</div><div class="line">   request.open(&apos;POST&apos;, &apos;/xxx&apos;) //设置请求第一部分</div><div class="line">   request.setRequestHeader(&apos;zz&apos;, &apos;18&apos;) //设置请求第二部分</div><div class="line">   request.setRequestHeader(&apos;Content-Type&apos;, &apos;x-www-form-urlencoded&apos;)</div><div class="line">   request.send(&apos;我是第四部分&apos;) //设置请求第四部分</div><div class="line">   request.onreadystatechange = () =&gt;&#123; </div><div class="line">        if(request.readyState === 4)&#123;</div><div class="line">            console.log(&apos;请求响应完毕&apos;)</div><div class="line">            console.log(request.status) //获取响应第一部分 </div><div class="line">            console.log(request.statusText) //获取响应第一部分 </div><div class="line">            if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">                console.log(&apos;请求成功&apos;)</div><div class="line">                console.log(request.getAllResponseHeaders())//获取响应第二部分</div><div class="line">                console.log(request.getResponseHeader(&apos;Content-Type&apos;))//获取响应第二部分</div><div class="line">                console.log(request.responseText)//获取响应第四部分</div><div class="line">            &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">                console.log(&apos;请求失败&apos;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<hr>
-<h5 id="window-jQuery-ajax"><a href="#window-jQuery-ajax" class="headerlink" title="window.jQuery.ajax"></a><code>window.jQuery.ajax</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">   let nodes = &#123;&#125;</div><div class="line">   nodes.addClass = function()&#123;&#125;</div><div class="line">   nodes.html = function()&#123;&#125;</div><div class="line">   return nodes</div><div class="line">&#125;</div><div class="line">   </div><div class="line">window.$ = window.jQuery</div><div class="line"> </div><div class="line">window.jQuery.ajax = function(options)&#123;</div><div class="line">     // arguments 接受两种参数</div><div class="line">      let url</div><div class="line">      if(arguments.length === 1)&#123;</div><div class="line">          url = options.url</div><div class="line">      &#125;else if(arguments.length === 2)&#123;</div><div class="line">          url = arguments[0]//这时候是 options</div><div class="line">          options = arguments[1] //纠正</div><div class="line">      &#125;</div><div class="line">      let method = options.method</div><div class="line">     let body = options.body</div><div class="line">     let successFn = options.successFn</div><div class="line">     let failFn = options.failFn</div><div class="line">     let headers = options.headers </div><div class="line">     let request = new XMLHttpRequest()</div><div class="line">     request.open(method, url) // 配置 request</div><div class="line">     for(let key in headers)&#123;</div><div class="line">         let value = headers[key]</div><div class="line">         request.setRequestHeader(key, value)</div><div class="line">     &#125;</div><div class="line">     request.onreadystatechange = ()=&gt;&#123; </div><div class="line">       if(request.readyState === 4)&#123;     </div><div class="line">             if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">               successFn.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">             &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">               failFn.call(undefined, request)</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">   request.send(body) </div><div class="line">&#125;</div><div class="line">	   </div><div class="line">function f1(responseText)&#123;&#125;</div><div class="line">function f2(responseText)&#123;&#125;</div><div class="line"> 	   </div><div class="line">window.jQuery.ajax(&#123;</div><div class="line">    url: &apos;/xxx&apos;, </div><div class="line">    method: &apos;post&apos;, </div><div class="line">    headers: &#123;</div><div class="line">        &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">        &apos;frank&apos;: &apos;18&apos;</div><div class="line">    &#125;,</div><div class="line">    successFn: (x)=&gt;&#123;</div><div class="line">        f1.call(undefined,x)</div><div class="line">        f2.call(undefined,x)</div><div class="line">    &#125;, </div><div class="line">    failFn: (x)=&gt;&#123;</div><div class="line">        console.log(x)</div><div class="line">    &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h5 id="promise"><a href="#promise" class="headerlink" title="promise"></a><code>promise</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">    let nodes = &#123;&#125;</div><div class="line">    nodes.addClass = function()&#123;&#125;</div><div class="line">    nodes.html = function()&#123;&#125;</div><div class="line">    return nodes</div><div class="line"> &#125;</div><div class="line">    </div><div class="line"> window.$ = window.jQuery</div><div class="line">  </div><div class="line"> // ES6 析构赋值</div><div class="line"> window.jQuery.ajax = function(&#123;url, method, body, headers&#125;)&#123;</div><div class="line">      // promise</div><div class="line">      return new Promise(function(resolve, reject)&#123;</div><div class="line">          let request = new XMLHttpRequest()</div><div class="line">          request.open(method, url) // 配置 request</div><div class="line">          for(let key in headers)&#123;</div><div class="line">              let value = headers[key]</div><div class="line">              request.setRequestHeader(key, value)</div><div class="line">          &#125;</div><div class="line">          request.onreadystatechange = ()=&gt;&#123; </div><div class="line">              if(request.readyState === 4)&#123;     </div><div class="line">                  if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">                      resolve.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">                  &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">                      reject.call(undefined, request)</div><div class="line">                  &#125;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          request.send(body) </div><div class="line">      &#125;) </div><div class="line"> &#125;</div><div class="line">         </div><div class="line"> window.jQuery.ajax(&#123;</div><div class="line">     url: &apos;/xxx&apos;, </div><div class="line">     method: &apos;post&apos;, </div><div class="line">     headers: &#123;</div><div class="line">         &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">         &apos;frank&apos;: &apos;18&apos;</div><div class="line">     &#125;</div><div class="line"> &#125;).then(</div><div class="line">    (text)=&gt;&#123;console.log(text)&#125;,</div><div class="line">    (request)=&gt;&#123;console.log(request)&#125;</div><div class="line"> )</div></pre></td></tr></table></figure>
-<hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2574,11 +2161,541 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/JS 函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/29/JS 函数/" itemprop="url">JS 函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h4><p>函数就是一段可以反复调用的代码块。</p>
+<hr>
+<h4 id="函数的几种声明"><a href="#函数的几种声明" class="headerlink" title="函数的几种声明"></a>函数的几种声明</h4><h5 id="1-函数声明（function命令）"><a href="#1-函数声明（function命令）" class="headerlink" title="1.函数声明（function命令）"></a>1.函数声明（<code>function</code>命令）</h5><pre><code>function print(s){ //print是函数名，也叫标识符
+    console.log(s) //这是函数体
+} //函数的声明在结尾的大括号后面不用加分号    
+</code></pre><h5 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2.函数表达式"></a>2.函数表达式</h5><pre><code>//采用函数表达式声明函数时， function 命令后面不带有函数名。
+var print = function (s){ 
+    console.log(s)
+}
+
+//如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+var print = function f(){
+  console.log(typeof f)
+}
+f// ReferenceError: f is not defined
+print()// function    
+</code></pre><h5 id="3-Function-构造函数"><a href="#3-Function-构造函数" class="headerlink" title="3.Function 构造函数"></a>3.<code>Function</code> 构造函数</h5><pre><code>var add = new Function(
+  &apos;x&apos;,
+  &apos;y&apos;,
+  &apos;return x + y&apos;
+)
+// 等同于
+function add(x, y) {
+  return x + y
+} 
+</code></pre><h5 id="4-箭头函数-匿名-x-y-gt-return-x-y"><a href="#4-箭头函数-匿名-x-y-gt-return-x-y" class="headerlink" title="4.箭头函数(匿名)(x , y) =&gt; { return x + y }"></a>4.箭头函数(匿名)<code>(x , y) =&gt; { return x + y }</code></h5><p>引入箭头函数有两个方面的作用：更简短的函数并且不绑定自己的<code>this</code></p>
+<pre><code>(参数1, 参数2, …, 参数N) =&gt; {函数声明}
+(参数1, 参数2, …, 参数N) =&gt; 表达式（单一）
+//相当于：(参数1, 参数2, …, 参数N) =&gt;{ return表达式}
+
+// 当只有一个参数时，圆括号是可选的：
+(单一参数) =&gt; {函数声明}
+单一参数 =&gt; {函数声明}
+
+// 没有参数的函数应该写成一对圆括号。
+() =&gt; {函数声明}
+</code></pre><hr>
+<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><p><code>ECMAScript</code> 函数中的参数在内部是用一个类似数组的<code>arguments</code>对象来表示的，在函数体内，可以通过 <code>arguments</code>对象来访问这个参数数组，从而获取传递给函数的每一个参数。</p>
+<pre><code>function add(){
+    return arguments[0] + arguments[1]
+}
+
+add(2,3,4)//5
+</code></pre><hr>
+<h4 id="函数的属性"><a href="#函数的属性" class="headerlink" title="函数的属性"></a>函数的属性</h4><h5 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a><code>name</code>属性</h5><p><code>name</code>属性返回紧跟在<code>function</code>关键字之后的那个函数名。</p>
+<pre><code>function f1() {}; f1.name // &apos;f1&apos;
+var f2 = function () {}; f2.name // ‘f2’
+var f3 = function f4() {}; f3.name // ‘f4’
+f5 = new Function(&apos;x&apos;, &apos;y&apos;,&apos;return x + y’){}  
+f5.name//‘anonymous’ (匿名) 
+</code></pre><h5 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a><code>length</code>属性</h5><p><code>length</code>属性返回函数预先定义的参数个数。</p>
+<hr>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>作用域<code>scope</code>指的是变量存在的范围。<code>Javascript</code> 只有两种作用域：</p>
+<pre><code>(1)全局作用域：变量在整个程序中一直存在，所有地方都可以读取；在函数外部声明的变量就是全局变量。
+
+(2)函数作用域：在函数内部定义的变量，外部无法读取。
+
+//函数内部定义的变量，会在该作用域内覆盖同名全局变量。
+//对于var命令来说，局部变量只能在函数内部声明，在其他区块中声明，一律都是全局变量。
+</code></pre><hr>
+<h4 id="函数内部的变量提升"><a href="#函数内部的变量提升" class="headerlink" title="函数内部的变量提升"></a>函数内部的变量提升</h4><p><code>var</code>命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p>
+<pre><code>function foo(x){
+  if (x &gt; 100){
+    var tmp = x - 100 //会升到函数体头部
+  }
+}
+</code></pre><hr>
+<h4 id="return"><a href="#return" class="headerlink" title="return"></a><code>return</code></h4><ul>
+<li>每个函数都有<code>return</code>。</li>
+<li>如果你不写<code>return</code>，就相当于写了<code>return undefined</code>。</li>
+</ul>
+<p>作用：返回一个值给函数，并且结束函数执行。</p>
+<pre><code>function foo(a,b){      
+    return a + b;
+} 
+foo(2,3) //5
+
+
+function foo(){
+    console.log(1);       
+    return;
+    console.log(2);
+} 
+foo() //1
+</code></pre><hr>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>递归函数是一个直接或间接调用函数自身的嵌套型函数。</p>
+<pre><code>function fn(num){
+  if (num === 0) return 0
+  if (num === 1) return 1
+  return fn(num - 2) + fn(num - 1)
+}
+fn(6) // 8
+</code></pre><hr>
+<h4 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h4><h5 id="call"><a href="#call" class="headerlink" title="call"></a><code>call</code></h5><p><code>call</code>是函数的正常调用方式，并指定上下文<code>this</code>。</p>
+<h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a><code>apply</code></h5><p><code>apply</code>的作用和<code>call</code>一样，只是在调用的时候，传参数的方式不同。<br><code>apply</code>接受的是数组参数，<code>call</code>接受的是连续参数。如下代码：</p>
+<pre><code>function add(a,b){
+    return a+b
+}
+add.call(add, 5, 3) //8
+add.apply(add, [5, 3]) //8
+</code></pre><h5 id="bind"><a href="#bind" class="headerlink" title="bind"></a><code>bind</code></h5><p><code>bind</code> 接受的参数跟 <code>call</code> 一致，只是 <code>bind</code> 不会立即调用，它会生成一个新的函数，你想什么时候调就什么时候调。如下代码：</p>
+<pre><code>function add(a, b){
+    return a+b;
+}
+var foo1 = add.bind(add, 5,3)
+foo1() //8
+var foo1 = add.bind(add, 5,3) 
+foo1() //8
+</code></pre><hr>
+<h5 id="eval"><a href="#eval" class="headerlink" title="eval()"></a><code>eval()</code></h5><ul>
+<li><code>eval()</code>函数会将传入的字符串当做<code>JavaScript</code>代码进行执行。</li>
+<li>语法：<code>eval(string)</code></li>
+<li>如果字符串表示的是表达式，<code>eval()</code>会对表达式进行求值。</li>
+<li>如果参数表示一个或多个<code>JavaScript语句</code>， 那么<code>eval()</code>就会执行这些语句。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">eval(&apos;var a = 1;&apos;)</div><div class="line">a // 1</div></pre></td></tr></table></figure>
+<hr>
+<p>参考：[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/JS 的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/JS 的数据类型/" itemprop="url">JS 的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>JavaScript</code>语言的每一个值，都属于某一种数据类型。<code>JavaScript</code>的数据类型，共有七种。</p>
+<hr>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h5 id="六种基本类型"><a href="#六种基本类型" class="headerlink" title="六种基本类型"></a>六种基本类型</h5><pre><code>number 数值
+string 字符串
+boolean 布尔值
+undefined 
+null
+symbol 符号
+</code></pre><h5 id="一种复杂类型"><a href="#一种复杂类型" class="headerlink" title="一种复杂类型"></a>一种复杂类型</h5><pre><code>object 对象
+
+下面两种也属于对象：
+* 数组（array）
+* 函数（function）
+</code></pre><hr>
+<h4 id="1-number-数值"><a href="#1-number-数值" class="headerlink" title="1.number(数值)"></a>1.<code>number</code>(数值)</h4><pre><code>(1) 十进制: 整数小数(1, 1.1, .1)
+           科学计数法：12e2 // 1200
+                        12e-2 // 0.12
+(2) 二进制：0b开头
+(3) 八进制：0开头
+(4) 十六进制：0x开头
+</code></pre><hr>
+<h4 id="2-string-字符串）"><a href="#2-string-字符串）" class="headerlink" title="2.string(字符串）"></a>2.<code>string</code>(字符串）</h4><pre><code>(1) 用 &apos;&apos; 或 &quot;&quot; 引起来
+(2)转义符：\（同命令行回车：\ ）
+(3)连接符：+（+ 写在每行结尾，适用于多行字符串）
+(4)反引号：`（`写在开头结尾，适用于多行字符串，每行含有一个回车）
+</code></pre><hr>
+<h4 id="3-boolean-布尔值）"><a href="#3-boolean-布尔值）" class="headerlink" title="3.boolean(布尔值）"></a>3.<code>boolean</code>(布尔值）</h4><pre><code>true（真）和 false（假）两个特定值
+</code></pre><hr>
+<h4 id="4-undefined"><a href="#4-undefined" class="headerlink" title="4.undefined"></a>4.<code>undefined</code></h4><p>在使用<code>var</code>声明变量但未对其初始化时，这个变量的值就是<code>undefined</code></p>
+<pre><code>var message;
+message === undefined; // true
+</code></pre><p>对为初始化和未声明的变量执行<code>typeof</code>操作符都返回<code>undefined</code>值</p>
+<pre><code>var message; //message 声明后默认取得了 undefined 值
+//var age  // age 未声明
+
+typeof message //undefined    
+typeof age //undefined        
+</code></pre><hr>
+<h4 id="5-null"><a href="#5-null" class="headerlink" title="5.null"></a>5.<code>null</code></h4><p><code>null</code>表示一个空对象指针</p>
+<pre><code>typrof null //&quot;object&quot;
+</code></pre><p>如果定义的变量准备将来用来保存对象，那么最好将该变量初始化为<code>null</code>。</p>
+<pre><code>var message = null    
+</code></pre><p><code>undefined</code>派生自<code>null</code>，<code>ECMA-262</code>规定它们的相等性测试(==)返回<code>true</code></p>
+<pre><code>undefined == null //true
+</code></pre><h4 id="6-symbol-符号）"><a href="#6-symbol-符号）" class="headerlink" title="6.symbol(符号）"></a>6.<code>symbol</code>(符号）</h4><p><code>symbol</code>可以创建一个独一无二的值（但并不是字符串）。</p>
+<pre><code>var x = Symbol(&apos;a&apos;)
+var y = Symbol(&apos;a&apos;)
+x !== y // true
+</code></pre><hr>
+<h4 id="7-object-对象）"><a href="#7-object-对象）" class="headerlink" title="7.object(对象）"></a>7.<code>object</code>(对象）</h4><p>对象就是一组“键值对”<code>key-value</code>的集合，是一种无序的复合数据集合。</p>
+<pre><code>var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;, //键值是字符串
+    &apos;Age&apos;: 18，//键值是数值，
+    &apos;married&apos;: true,  //键值是布尔值
+    &apos;children&apos;: { name: &apos;xxx&apos;, age: 1,} //键值是对象
+    &apos;&apos;：&apos;hh&apos;, //键名是空字符串，person[&apos;&apos;] = hh
+    &apos;p&apos;: function (x) {return 2 * x;}//键值是函数，也叫做方法
+ } 
+ person[&apos;name&apos;]//zhaozhao
+</code></pre><h5 id="键名和键值"><a href="#键名和键值" class="headerlink" title="键名和键值"></a>键名和键值</h5><pre><code>* 对象的所有键名都是字符串，所以加不加引号都可以。
+* 如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），也不是数字，则必须加上引号，否则会报错。   
+* 对象的每一个“键名”又称为“属性”。
+* 如果一个属性的“键值”为函数，通常把这个属性称为“方法”，它可以像函数那样调用。 
+</code></pre><h5 id="读取属性"><a href="#读取属性" class="headerlink" title="读取属性"></a>读取属性</h5><pre><code>* 一种是使用点运算符：person.name（键名符合标识名条件）
+* 一种是使用方括号运算符：person[&apos;name&apos;]//zhaozhao
+* 数值只能用方括号运算符：obj[0xFF]
+* 数字键可以不加引号，因为会被当作字符串处理：o[0.7]
+</code></pre><h5 id="检查变量是否声明-in运算符）"><a href="#检查变量是否声明-in运算符）" class="headerlink" title="检查变量是否声明(in运算符）"></a>检查变量是否声明(<code>in</code>运算符）</h5><pre><code>var o = { p: 1 };
+&apos;p&apos; in o // true (注意，检查的是键名，不是键值)
+</code></pre><h5 id="查看所有属性Object-keys"><a href="#查看所有属性Object-keys" class="headerlink" title="查看所有属性Object.keys"></a>查看所有属性<code>Object.keys</code></h5><pre><code>var o = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(o);
+// [&apos;key1&apos;, &apos;key2&apos;]
+</code></pre><h5 id="delete命令"><a href="#delete命令" class="headerlink" title="delete命令"></a><code>delete</code>命令</h5><pre><code>//无 value 无 key
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ delete person[&apos;name&apos;]
+ person.name //undefined
+ &apos;name&apos; in person //false
+
+ //无 value 有 key
+ var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;
+ } 
+ person.name = undefined
+ &apos;name&apos; in person //true
+</code></pre><h5 id="for…in循环"><a href="#for…in循环" class="headerlink" title="for…in循环"></a><code>for…in</code>循环</h5><pre><code>//遍历键值
+var person = {
+    &apos;name&apos;: &apos;zhaozhao&apos;,
+    &apos;age&apos;: 18,
+ }     
+ for(var key in person){
+     console.log(person[key])
+ }
+ //zhaozhao
+//18
+
+//遍历键名
+for(var key in person){
+     console.log(key)
+ }
+//name
+//age
+</code></pre><hr>
+<h3 id="检测数据类型"><a href="#检测数据类型" class="headerlink" title="检测数据类型"></a>检测数据类型</h3><h5 id="检测基本类型typeof"><a href="#检测基本类型typeof" class="headerlink" title="检测基本类型typeof"></a>检测基本类型<code>typeof</code></h5><ul>
+<li>要检测一个变量是字符串、数值、布尔值还是<code>undefined</code>，用<code>typeof</code>操作符。</li>
+<li><code>typeof</code>操作符返回一个字符串，指示未经计算的操作数的类型。</li>
+<li>语法：<code>typeof operand</code>，<code>operand</code>是一个表达式，表示对象或原始值，其类型将被返回。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var s = &apos;message&apos;</div><div class="line">typeof s //&quot;string&quot;</div></pre></td></tr></table></figure>
+<h5 id="检测对象instanceof"><a href="#检测对象instanceof" class="headerlink" title="检测对象instanceof"></a>检测对象<code>instanceof</code></h5><ul>
+<li>如果变量的值是一个对象或<code>null</code>，则用<code>instanceof</code>操作符</li>
+<li>语法：<code>object instanceof constructor</code>，返回一个布尔值。</li>
+<li><code>instanceof</code>运算符用来检测<code>constructor.prototype</code>是否存在于参数 <code>object</code>的原型链上。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">obj instanceof Object //true</div><div class="line">obj instanceof Array //false</div></pre></td></tr></table></figure>
+<h5 id="检测对象-toString"><a href="#检测对象-toString" class="headerlink" title="检测对象 toString()"></a>检测对象 <code>toString()</code></h5><p>为了每个对象都能通过 <code>Object.prototype.toString()</code> 来检测，需要以 <code>Function.prototype.call()</code> 或者 <code>Function.prototype.apply()</code> 的形式来调用，传递要检查的对象作为第一个参数。</p>
+<pre><code>var toString = Object.prototype.toString
+
+toString.call(new Date(1995, 11, 17)) // &quot;[object Date]&quot;
+toString.call(&apos;1&apos;) // &quot;[object String]&quot;
+toString.call(1) // &quot;[object Number]&quot;
+toString.call(Math) // &quot;[object Math]&quot;
+</code></pre><hr>
+<p>参考：</p>
+<p>[写代码啦] (<a href="https://xiedaimala.com/" target="_blank" rel="external">https://xiedaimala.com/</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2624,7 +2741,7 @@ node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
