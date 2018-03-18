@@ -238,6 +238,231 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/JS 立即执行函数和闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/19/JS 立即执行函数和闭包/" itemprop="url">JS 立即执行函数和闭包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
+                2018-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><ul>
+<li>「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
+<li>每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。</li>
+</ul>
+<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><ul>
+<li>当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。</li>
+<li><p>「作用域链」的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
+</li>
+<li><p>「作用域」分为<strong>全局作用域</strong>和<strong>局部作用域(也叫函数作用域)</strong><br>「全局变量」，「函数作用域」中声明的变量是「局部变量」。</p>
+</li>
+<li>外部无法读取「局部变量」，但函数内部可以读取「全局变量」。同名的「局部变量」会在函数内部覆盖「全局变量」。  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zhao&apos;</div><div class="line">function foo()&#123;</div><div class="line">	var name = &apos;tang&apos;</div><div class="line">	console.log(name)</div><div class="line">&#125;</div><div class="line">foo()//tang</div><div class="line"></div><div class="line">//函数 foo 内部的变量 name 覆盖了全局变量 name</div></pre></td></tr></table></figure>
+<h5 id="堆栈Call-Stack先入后出"><a href="#堆栈Call-Stack先入后出" class="headerlink" title="堆栈Call Stack先入后出"></a>堆栈<code>Call Stack</code>先入后出</h5><ul>
+<li>每个函数都有自己的「执行环境」。「执行环境」是用环境栈来管理的。</li>
+<li>最底层的是「全局执行环境」（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的「执行环境」就会被推入到「环境栈」中。如果在函数中继续执行函数，那么内部函数的「执行环境」就继续被推入「环境栈」。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="「立即执行函数」"><a href="#「立即执行函数」" class="headerlink" title="「立即执行函数」"></a>「立即执行函数」</h4><ul>
+<li>全局变量会造成同名覆盖的问题。</li>
+<li>解决办法：声明局部变量。</li>
+<li><code>ES6</code> 之前，只有函数才有局部变量。</li>
+<li><code>立即执行函数</code>是指声明一个函数，然后立即调用它。为了用局部变量。</li>
+<li>于是我们声明一个 <code>function foo()</code>，然后 <code>foo.call()</code>，但是这个时候 <code>foo</code> 是全局变量（全局函数）。</li>
+<li>所以我们不能给这个函数名字，使用匿名函数 <code>function(){}.call()</code> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function ()&#123;&#125;.call()</div><div class="line">//Uncaught SyntaxError: Unexpected token (</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用 <code>function(){}.call()</code> 时候会报错（语法错误），这是因为 <code>JS</code> 引擎规定，如果 <code>function</code> 关键字出现在行首，一律解释成语句。因此，<code>JS</code> 引擎看到行首是 <code>function</code> 关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p>
+</li>
+<li><p>解决办法：不让 <code>function</code> 出现在行首，让 <code>JS</code> 引擎将其理解成一个表达式。如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//1.将整个函数用圆括号括起来</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">//2.函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//2.function 前面加符：+ - ! ~ </div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//! ~ + - 等运算符还会和函数的返回值进行运算，有时会造成不必要的麻烦。</div></pre></td></tr></table></figure>
+<p><strong>问题：</strong>「立即执行函数」使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</p>
+<p><strong>解决办法：</strong>使用「闭包」。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//函数1</div><div class="line">(function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">   &#125;</div><div class="line">	window.frankGrowUp = function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line">//或者</div><div class="line">window.frankGrowUp = (function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">         &#125;</div><div class="line">	return function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line"></div><div class="line">//函数2</div><div class="line">(function()&#123;</div><div class="line">	var newAge = window.frankGrowUp()</div><div class="line">	console.log(newAge)</div><div class="line">&#125;).call() </div><div class="line"></div><div class="line">// 19</div></pre></td></tr></table></figure>
+<p>「闭包」使得「匿名函数」可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
+<hr>
+<h4 id="「闭包」"><a href="#「闭包」" class="headerlink" title="「闭包」"></a>「闭包」</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
+<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
+<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
+<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
+<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
+<pre><code>function f1(){
+  var n = 9
+  function f2(){
+    console.log(n)
+  }
+  f2()
+} 
+f1() // 9
+//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
+</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
+</code></pre><p>3.封装对象的私有属性和私有方法。</p>
+<pre><code>function f1(n) {
+  return function () {
+    return n++
+  }
+}
+var a1 = f1(1)
+a1() // 1
+a1() // 2
+a1() // 3
+var a2 = f1(5)
+a2() // 5
+a2() // 6
+a2() // 7
+//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。 
+</code></pre><hr>
+<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/JS 数据类型转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1887,221 +2112,6 @@ saveMessage (存储数据)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/Promise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/30/Promise/" itemprop="url">Promise</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="「同步」和「异步」"><a href="#「同步」和「异步」" class="headerlink" title="「同步」和「异步」"></a>「同步」和「异步」</h4><p><code>JavaScript</code> 语言本身并不慢，慢的是读写外部数据，比如等待 <code>AJAX</code> 请求返回结果。这个时候，如果对方服务器迟迟没有响应，或者网络不通畅，就会导致脚本的长时间停滞。为了解决这个问题，<code>Javascript</code> 语言将任务的执行模式分成两种：「同步」（<code>Synchronous</code>）和「异步」（<code>Asynchronous</code>）。</p>
-<ul>
-<li><p>一个任务分成两段，任务的第一段是向操作系统发出请求，要求读取文件。任务的第二段是处理文件。</p>
-</li>
-<li><p>「同步」是指后一个任务等待前一个任务执行结束，然后再执行。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">!function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;.call()</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A B C</div></pre></td></tr></table></figure>
-<ul>
-<li>「异步」是指前一个任务先发送一个请求，不等待返回（就是第二段的处理文件），直接进行下一个任务。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">console.log(&apos;A&apos;)</div><div class="line">setTimeout(function()&#123;</div><div class="line">  console.log(&apos;B&apos;)</div><div class="line">&#125;,1000)</div><div class="line">console.log(&apos;C&apos;)</div><div class="line"></div><div class="line">//A C B</div><div class="line">// console.log(&apos;C&apos;) 就是异步执行的</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><ul>
-<li>一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。</li>
-<li><p>换言之，回调函数，就是把任务的第二段单独写在一个函数里面，在特定的事件或条件发生时，调用这个函数。</p>
-</li>
-<li><p>同步回调。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function add(a, b, callback) &#123;</div><div class="line">    callback(a+b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(1,2,function(result) &#123;</div><div class="line">    console.log(&quot;result:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">add(1,2,function(result)&#123;</div><div class="line">    console.log(&quot;结果是:&quot; + result)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//result:3 结果是:3</div></pre></td></tr></table></figure>
-<ul>
-<li>异步回调。经常使用以下方法：<ul>
-<li>对于异步执行（例如读取文件和发出<code>HTTP</code>请求）</li>
-<li>在事件监听器/处理程序中</li>
-<li>在<code>setTimeout</code>和<code>setInterval</code>方法中</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function f2()&#123;</div><div class="line">    console.log(&apos;bar第二&apos;) </div><div class="line">&#125;</div><div class="line">function f1(callback)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(&apos;foo第一&apos;)</div><div class="line">        callback()</div><div class="line">    &#125;,1000)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f1(f2) </div><div class="line">//foo第一 bar第二</div></pre></td></tr></table></figure>
-<p>但是，一旦嵌套层级多了，就会形成回调地狱，代码结构就容易变得很不直观。如下：</p>
-<pre><code>setTimeout(function(){
-  left(function(){
-    setTimeout(function(){
-       left(function(){
-         setTimeout(function(){
-           left();
-         },2000);
-       });
-    }, 2000);
-  });
-}, 2000);
-</code></pre><hr>
-<h4 id="Promise（全局-window-的属性）"><a href="#Promise（全局-window-的属性）" class="headerlink" title="Promise（全局 window 的属性）"></a><code>Promise</code>（全局 <code>window</code> 的属性）</h4><h5 id="Promise-对象有以下两个特点"><a href="#Promise-对象有以下两个特点" class="headerlink" title="Promise 对象有以下两个特点:"></a><code>Promise</code> 对象有以下两个特点:</h5><p>1.对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：</p>
-<pre><code>pending: 初始状态，既不是成功，也不是失败状态。
-fulfilled: 意味着操作成功完成。
-rejected: 意味着操作失败。
-
-//只有异步操作的结果，可以决定当前是哪一种状态。
-//任何其他操作都无法改变这个状态。
-</code></pre><p>2.一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
-<p><code>Promise</code> 的状态的变化途径只有两种：</p>
-<pre><code>1.异步操作从 pending 到 fulfilled ，表示异步操作成功，Promise 对象传回一个值，状态变为 resolved。
-2.异步操作从 pending 到 rejected ，表示异步操作失败，Promise 对象抛出一个错误，状态变为 rejected。
-
-//只要这两种情况发生，状态就凝固不会再变了，会一直保持这个结果。
-//就算改变已经发生了，你再对 Promise 对象添加回调函数，也会立即得到这个结果。
-//这与事件完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
-</code></pre><h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><p>语法</p>
-<pre><code>new Promise(function(resolve, reject) /* executor */ )
-
-// executor 是 resolve 和 reject 两个函数。
-// resolve 函数，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。
-// reject 函数，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-</code></pre><h5 id="then"><a href="#then" class="headerlink" title="then"></a><code>then</code></h5><pre><code>// then 方法可以接受两个回调函数作为参数。
-//第一个回调函数是 Promise 对象的状态变为 resolved 时调用。
-//第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
-</code></pre><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a><code>catch</code></h5><pre><code>// catch 是用于指定发生错误时的回调函数。
-//建议总是使用 catch，catch() 使回调报错时不会卡死 JS 而是会继续往下执行。
-// Promise 对象的错误具有&quot;冒泡&quot;性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。
-</code></pre><hr>
-<p>参考：</p>
-<p><a href="http://javascript.ruanyifeng.com/advanced/promise.html#toc0" target="_blank" rel="external">阮一峰-Promise对象</a>  </p>
-<p><a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2152,7 +2162,7 @@ rejected: 意味着操作失败。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
