@@ -238,6 +238,408 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/BOM 对象常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/23/BOM 对象常用API/" itemprop="url">BOM 对象常用API</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T21:54:46+08:00">
+                2018-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><code>BOM</code>（<code>Browser Object Model</code>浏览器对象模型）提供与浏览器交互的方法和接口，可以访问和操作浏览器窗口。</p>
+</blockquote>
+<p><code>BOM</code>对象包括</p>
+<pre><code>* Window 对象 //表示浏览器中打开的窗口  
+* Navigator 对象 //包含有关浏览器的信息  
+* Screen 对象 //包含有关客户端显示屏幕的信息
+* History 对象 //包含用户（在浏览器窗口中）访问过的 URL  
+* Location 对象 //包含有关当前 URL 的信息
+</code></pre><hr>
+<h5 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a><code>Window</code>对象</h5><pre><code>* 如果文档包含框架（&lt;frame&gt; 或 &lt;iframe&gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。
+</code></pre><p>属性</p>
+<pre><code>* Window.innerHeight //浏览器窗口的内部高度(包括滚动条)
+    //IE 中 body 元素的 clientHeight 属性与该属性相同。
+* Window.innerWidth // 浏览器窗口的内部宽度(包括滚动条)
+    ////IE 中 body 元素的 clientWidth 属性与该属性相同。
+* Window.top //返回最顶层的父窗口。
+* Window.parent //返回父窗口。
+</code></pre><p>方法</p>
+<pre><code>//弹窗
+* alert(字符串) //显示带有一段消息和一个确认按钮的警告框。
+* prompt() //显示可提示用户输入的提示框。
+* confirm() //显示带有一段消息以及确认按钮和取消按钮的确认框。
+
+* window.print() //打印当前窗口的内容。
+* window.focus() //把键盘焦点给予一个窗口。
+* window.blur() //把键盘焦点从顶层窗口移开。 
+
+* window.open() //打开一个新的浏览器窗口或查找一个已命名的窗口。
+* window.close() //关闭浏览器窗口。
+* window.moveBy(x,y) //可相对窗口的当前坐标把它移动指定的像素。
+* window.moveTo(x,y) //把窗口的左上角移动到一个指定的坐标。
+* window.resizeBy(width,height) //按照指定的像素调整窗口的大小。
+* window.resizeTo(width,height) //把窗口的大小调整到指定的宽度和高度。
+
+* window.scrollBy(xnum,ynum) //按照指定的像素值来滚动内容。
+* window.scrollTo(xpos,ypos) //把内容滚动到指定的坐标。
+
+//计时事件
+* setInterval() //按照指定的周期（以毫秒计）来调用函数或计算表达式。
+* setTimeout() //在指定的毫秒数后调用函数或计算表达式。
+* clearInterval() //取消由 setInterval() 设置的 timeout。
+* clearTimeout() //取消由 setTimeout() 方法设置的 timeout。
+</code></pre><hr>
+<h5 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a><code>Navigator</code>对象</h5><p>属性</p>
+<pre><code>* appCodeName //返回浏览器的代码名
+* appName //返回浏览器的名称
+* appVersion //返回浏览器的平台和版本信息
+* cookieEnabled //返回指明浏览器中是否启用 cookie 的布尔值
+* platform //返回运行浏览器的操作系统平台
+* userAgent //返回由客户机发送服务器的 user-agent 头部的值
+</code></pre><p>举例</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+txt = &quot;&lt;p&gt;浏览器代号: &quot; + navigator.appCodeName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器名称: &quot; + navigator.appName + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;浏览器版本: &quot; + navigator.appVersion + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;启用Cookies: &quot; + navigator.cookieEnabled + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;硬件平台: &quot; + navigator.platform + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理: &quot; + navigator.userAgent + &quot;&lt;/p&gt;&quot;;
+txt+= &quot;&lt;p&gt;用户代理语言: &quot; + navigator.systemLanguage + &quot;&lt;/p&gt;&quot;;
+document.getElementById(&quot;example&quot;).innerHTML=txt;
+&lt;/script&gt; 
+</code></pre><blockquote>
+<p><div id="example"></div></p>
+<script>
+    txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+    txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+    txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+    txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+    txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+    txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+    txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+    document.getElementById("example").innerHTML=txt;
+</script> 
+
+</blockquote>
+<hr>
+<h5 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a><code>Screen</code>对象</h5><p>属性</p>
+<pre><code>* screen.availHeight //可用的屏幕宽度（不包括 Windows 任务栏）
+* screen.availWidth //可用的屏幕高度（不包括 Windows 任务栏）
+* screen.height //返回屏幕的总高度
+* screen.width //返回屏幕的总宽度
+* screen.colorDepth //返回目标设备或缓冲器上的调色板的比特深度
+* screen.pixelDepth //返回屏幕的颜色分辨率（每象素的位数）
+</code></pre><hr>
+<h5 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a><code>History</code>对象</h5><pre><code>* History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。
+</code></pre><p>属性</p>
+<pre><code>* history.length //返回历史列表中的网址数
+</code></pre><p>方法</p>
+<pre><code>* history.back() //加载 history 列表中的前一个 URL
+* history.forward() //加载 history 列表中的下一个 URL
+* history.go() //加载 history 列表中的某个具体页面
+</code></pre><hr>
+<h5 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a><code>Location</code>对象</h5><pre><code>* Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。
+</code></pre><p>属性</p>
+<pre><code>* location.hostname //返回 web 主机的域名
+* location.port //返回 web 主机的端口 （80 或 443）
+* location.protocol //返回所使用的 web 协议（http:// 或 https://）
+* location.pathname //返回当前页面的路径和文件名。
+
+* location.href //返回完整的 URL
+* location.hash //返回一个 URL 的锚部分
+* location.host //返回一个 URL 的主机名和端口
+* location.search //返回一个 URL 的查询部分
+</code></pre><p>方法</p>
+<pre><code>* window.location.assign(URL) //载入一个新的文档
+* window.location.reload() //重新载入当前文档
+* window.location.replace(newURL) //用新的文档替换当前文档    
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/21/stopPropagation()和preventDefault()/" itemprop="url">stopPropagation() 和 preventDefault()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
+                2018-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的<code>stopPropagation()</code>方法停止事件的传播过程。    </p>
+<p>举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
+<h4 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a><code>preventDefault()</code></h4><p>阻止元素的默认事件。例如：</p>
+<ul>
+<li>当点击提交按钮时阻止对表单的提交</li>
+<li>当点击 <code>a</code> 链接时页面不会跳转</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.google.com.hk/?hl=zh-cn&quot;&gt;谷歌&lt;/a&gt;  </div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	$(&quot;a&quot;).click(function(event)&#123;             </div><div class="line">		event.preventDefault() //页面不会跳转  </div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/20/JS 数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1979,335 +2381,6 @@ p{font-size: 2rem} //32px
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/Cookie、Session/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/05/Cookie、Session/" itemprop="url">Cookie、Session</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
-                2018-02-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a><code>Cookie</code></h4><h5 id="Cookie是什么？"><a href="#Cookie是什么？" class="headerlink" title="Cookie是什么？"></a><code>Cookie</code>是什么？</h5><p><strong>注意：</strong>前端永远不要读写 <code>Cookie</code>，交给后端。</p>
-<p><code>Cookie</code> 是浏览器在你访问网页时，存储在你电脑上的一小段文本。后面再访问网页时，都必须带上这段文本。</p>
-<h5 id="Cookie的特点"><a href="#Cookie的特点" class="headerlink" title="Cookie的特点"></a><code>Cookie</code>的特点</h5><pre><code>1. 服务器通过 Set-Cookie 响应头设置 Cookie ，给客户端一串字符串。
-2. 客户端得到 Cookie 之后， 每次访问相同域名的网页时，都要带上 Cookie 。
-3. 服务器读取 Cookie 就知道登录用户的信息。客户端要在一段时间内保存这个 Cookie 。
-4. Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。
-</code></pre><p>举例<code>server.js</code></p>
-<pre><code>response.setHeader(&apos;Set-Cookie&apos;,`sign_in_email=${email}`)
-</code></pre><h5 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h5><pre><code>* Cookie 同源策略跟 AJAX 的同源策略稍微有些不同。
-* 浏览器的同源政策规定，两个网址只要域名相同和端口相同，就可以共享  Cookie 。
-* 注意，这里不要求协议相同。也就是说， http://example.com 设置的 Cookie ，可以被 https://example.com 读取。
-</code></pre><h5 id="Cookie的缺点"><a href="#Cookie的缺点" class="headerlink" title="Cookie的缺点"></a><code>Cookie</code>的缺点</h5><pre><code>1. Cookie 会被附加在每个 HTTP 请求中，所以无形中增加了流量。
-2. 由于在 HTTP 请求中的 Cookie 是明文传递的，所以安全性成问题，用户能够篡改密码，除非用 HTTPS 。
-3. Cookie 的大小限制在 4KB 左右，对于复杂的存储需求来说是不够用的。
-</code></pre><hr>
-<h4 id="Session"><a href="#Session" class="headerlink" title="Session"></a><code>Session</code></h4><h5 id="Session是什么？"><a href="#Session是什么？" class="headerlink" title="Session是什么？"></a><code>Session</code>是什么？</h5><p><code>Session</code> 是在无状态的 <code>HTTP</code> 协议下，服务端记录用户状态时用于标识具体用户的机制。</p>
-<ul>
-<li><code>Session</code>解决了<code>Cookie</code>的安全性问题。</li>
-<li><code>Session</code>是服务器上的<code>hash表</code>。</li>
-</ul>
-<h5 id="Session的用法"><a href="#Session的用法" class="headerlink" title="Session的用法"></a><code>Session</code>的用法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 服务器通过 cookie 给用户一个 sessionId (随机数)。</div><div class="line">2. 服务器有一块内存（哈希表）保存了所有的 session 。 </div><div class="line">3. 每次用户访问服务器的时候，服务器通过 sessionId 去读取对应的 session，得到用户的隐私信息，比如 id email 。</div></pre></td></tr></table></figure>
-<p>举例<code>server.js</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//Session</div><div class="line">let sessionId = Math.random() * 100000 </div><div class="line">sessions[sessionId] = &#123;sign_in_email: email&#125;</div><div class="line"></div><div class="line">//Set-Cookie</div><div class="line">response.setHeader(&apos;Set-Cookie&apos;,`sessionId = $&#123;sessionId&#125;`)</div></pre></td></tr></table></figure>
-<h4 id="不基于-Cookie-的-Session"><a href="#不基于-Cookie-的-Session" class="headerlink" title="不基于 Cookie 的 Session"></a>不基于 <code>Cookie</code> 的 <code>Session</code></h4><p><code>Session</code> 还可以通过 <code>LocalStorage</code> + 查询参数 来存储 <code>sessionId</code>。</p>
-<hr>
-<h4 id="问题归纳"><a href="#问题归纳" class="headerlink" title="问题归纳"></a>问题归纳</h4><h5 id="1-Cookie如何设置过期时间？"><a href="#1-Cookie如何设置过期时间？" class="headerlink" title="1.Cookie如何设置过期时间？"></a>1.<code>Cookie</code>如何设置过期时间？</h5><pre><code>cookie.setMaxAge(0);//不记录cookie
-
-cookie.setMaxAge(-1);//会话级cookie，关闭浏览器失效
-
-cookie.setMaxAge(60*60);//过期时间为1小时
-</code></pre><h5 id="2-如何删除-Cookie？"><a href="#2-如何删除-Cookie？" class="headerlink" title="2.如何删除 Cookie？"></a>2.如何删除 <code>Cookie</code>？</h5><p>设置 <code>Expires</code> 参数为以前的时间即可。</p>
-<pre><code>document.cookie = &quot;username=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;;
-</code></pre><h5 id="3-Cookie-和-Session-的关系以及区别？"><a href="#3-Cookie-和-Session-的关系以及区别？" class="headerlink" title="3.Cookie 和 Session 的关系以及区别？"></a>3.<code>Cookie</code> 和 <code>Session</code> 的关系以及区别？</h5><p>关系</p>
-<pre><code>Session 通常是基于 Cookie 实现，其 SessionId 是通过 Cookie 发送给客户端的。
-</code></pre><p>区别</p>
-<pre><code>1. Cookie 数据保存在客户端。Session 数据保存在服务器端。
-2. 由于在 HTTP 请求中的 Cookie 是明文传递的，所以安全性成问题，用户能够篡改密码。所以一般情况，登录信息等重要信息存储在 Session 中，其他信息存储在 Cookie 中。 
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/03/target 与 currentTarget/" itemprop="url">target 与 currentTarget</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
-                2018-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><code>currentTarget</code>：指绑定事件的对象。恒等于<code>this</code>。</li>
-<li><code>targt</code>：指触发事件的某个具体对象。</li>
-</ul>
-<p>举例1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">grand.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  grand </div><div class="line">//这时的 this 指向 grand</div></pre></td></tr></table></figure>
-<p>举例2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">child.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  child</div><div class="line">//这时的 this 指向 child</div></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2358,7 +2431,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -2369,7 +2442,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
