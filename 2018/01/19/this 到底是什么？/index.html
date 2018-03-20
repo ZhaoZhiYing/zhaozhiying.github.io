@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/this 到底是什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头">
-<meta property="og:updated_time" content="2018-03-01T12:46:50.000Z">
+<meta property="og:updated_time" content="2018-03-19T15:03:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this 到底是什么？">
 <meta name="twitter:description" content="全局作用域 无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）this都指代全局对象。 在浏览器中，全局对象是window。  123var message = 1console.log(this.message) // 1console.log(window.message) // 1  函数作用域每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
                 2018-01-19
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -398,7 +398,7 @@ grand.addEventListener(&apos;click&apos;,function(e){
 },false)
 //当点击 grand 触发事件时，this 指向 grand
 //当点击 child 触发事件时，this 依然指向 grand
-</code></pre><h5 id="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与封闭词法上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
+</code></pre><h5 id="在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与父级上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
 var foo ={
  name: &apos;zhao&apos;,
  bar:()=&gt;{
@@ -499,10 +499,10 @@ foo.bar()
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -522,8 +522,8 @@ foo.bar()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -534,7 +534,7 @@ foo.bar()
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -568,7 +568,7 @@ foo.bar()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通模式：如果this是undefined或null，浏览器会把this变成window"><span class="nav-number">2.1.</span> <span class="nav-text">普通模式：如果this是undefined或null，浏览器会把this变成window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><span class="nav-number">2.2.</span> <span class="nav-text">严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><span class="nav-number">2.3.</span> <span class="nav-text">当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><span class="nav-number">2.4.</span> <span class="nav-text">当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"><span class="nav-number">2.5.</span> <span class="nav-text">当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><span class="nav-number">2.6.</span> <span class="nav-text">在箭头函数中，this与封闭词法上下文的this保持一致。在全局代码中，它将被设置为全局对象。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.</span> <span class="nav-text">函数作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#普通模式：如果this是undefined或null，浏览器会把this变成window"><span class="nav-number">2.1.</span> <span class="nav-text">普通模式：如果this是undefined或null，浏览器会把this变成window</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><span class="nav-number">2.2.</span> <span class="nav-text">严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><span class="nav-number">2.3.</span> <span class="nav-text">当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><span class="nav-number">2.4.</span> <span class="nav-text">当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"><span class="nav-number">2.5.</span> <span class="nav-text">当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><span class="nav-number">2.6.</span> <span class="nav-text">在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -598,7 +598,7 @@ foo.bar()
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
