@@ -2029,87 +2029,57 @@ foo.bar()
       
         
           
-            <h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><ul>
-<li>创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。</li>
-<li>如果只是一个单独的对象，直接使用「对象字面量」</li>
-<li>如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」</li>
-</ul>
-<h5 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h5><ol>
-<li>构造函数的首字母必须大写，用来区分于普通函数</li>
-<li>内部使用的<code>this</code>对象，来指向即将要生成的实例对象</li>
-<li>使用<code>new</code>操作符来创建实例对象</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+            <h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><pre><code>* 创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。
+* 如果只是一个单独的对象，直接使用「对象字面量」
+* 如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」
+</code></pre><h5 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h5><pre><code>1. 构造函数的首字母必须大写，用来区分于普通函数
+2. 内部使用的 this 对象，来指向即将要生成的实例对象
+3. 使用 new 操作符来创建实例对象
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
 <h5 id="构造函数与普通函数的区别"><a href="#构造函数与普通函数的区别" class="headerlink" title="构造函数与普通函数的区别"></a>构造函数与普通函数的区别</h5><p>构造函数与普通函数的区别，在于调用它们的方式不同。</p>
-<ul>
-<li>任何函数，只要通过<code>new</code>操作符来调用，那它就可以作为构造函数。</li>
-<li>而任何函数，如果不通过<code>new</code>操作符来调用，那它就是普通函数。</li>
-</ul>
-<h5 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h5><ol>
-<li>在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。</li>
-<li>更严重的是，当对象需要定义很多方法时，那就要定义多个全局函数。</li>
-</ol>
-<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>通过使用原型链模式</p>
+<pre><code>* 任何函数，只要通过 new 操作符来调用，那它就可以作为构造函数。
+* 而任何函数，如果不通过 new 操作符来调用，那它就是普通函数。
+</code></pre><h5 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h5><pre><code>1. 在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。
+2. 更严重的是，当对象需要定义很多方法时，那就要定义多个全局函数。
+</code></pre><h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>通过使用原型链模式。</p>
 <hr>
 <h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h5 id="什么是共有属性？"><a href="#什么是共有属性？" class="headerlink" title="什么是共有属性？"></a>什么是共有属性？</h5><p>当我们在写<code>var x1 = new x2</code>的时候：<code>x1</code>的类型是对象，<code>x2</code>的类型是函数对象。</p>
 <pre><code>var n = new Number(1)
 var s = new String(&quot;1&quot;)
 var b = new Boolean(true)
 var o = new Object()
-</code></pre><p>上面代码中<code>n``s``b``o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
-<p>解决办法：将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1``n2``n3``n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
+</code></pre><p>上面代码中<code>n s b o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
+<p><strong>解决办法：</strong>将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1 n2 n3 n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
 <p><img src="https://i.loli.net/2018/01/26/5a6b32120b98d.png
 "></p>
-<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><ul>
-<li><p>每一个函数在创建后都会有一个属性<code>prototype</code>，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。</p>
-</li>
-<li><p>在默认情况下，所有「原型对象」都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。 </p>
-</li>
-<li><p><strong>注意</strong>：由于这个<code>prototype</code>属性不标准，因此一般不提倡使用。<code>ES5</code>中用<code>Object.getPrototypeOf</code>函数获得一个对象的<code>prototype</code>。<code>ES6</code>中使用<code>Object.setPrototypeOf</code>可以直接修改一个对象的<code>prototype</code>。</p>
-</li>
-</ul>
-<h4 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h4><ul>
-<li><p>在<code>ES5</code>之前没有标准的方法访问内置属性<code>prototype</code>，于是很多浏览器都给「每一个对象」提供了一个属性<code>__proto__</code>，通过<code>__proto__</code>就可以访问<code>prototype</code>。</p>
-</li>
-<li><p>这个连接存在于「实例」与「构造函数的原型对象」之间，而不是存在「实例」与「构造函数」之间</p>
-</li>
-</ul>
-<h5 id="什么叫原型链？"><a href="#什么叫原型链？" class="headerlink" title="什么叫原型链？"></a>什么叫原型链？</h5><pre><code>function Foo(){}
+<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><pre><code>* 每一个函数在创建后都会有一个属性 prototype ，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。
+* 在默认情况下，所有「原型对象」都会自动获得一个 constructor(构造函数) 属性，这个属性是一个指向 prototype 属性「所在函数」的指针。 
+* 注意：由于这个 prototype 属性不标准，因此一般不提倡使用。ES5 中用 Object.getPrototypeOf 函数获得一个对象的 prototype 。 ES6 中使用 Object.setPrototypeOf 可以直接修改一个对象的 prototype 。
+</code></pre><h4 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h4><pre><code>* 在 ES5 之前没有标准的方法访问内置属性 prototype ，于是很多浏览器都给「每一个对象」提供了一个属性 __proto__ ，通过 __proto__ 就可以访问 prototype 。
+* 这个连接存在于「实例」与「构造函数的原型对象」之间，而不是存在「实例」与「构造函数」之间
+</code></pre><h5 id="什么叫原型链？"><a href="#什么叫原型链？" class="headerlink" title="什么叫原型链？"></a>什么叫原型链？</h5><pre><code>function Foo(){}
 var obj = new Foo()
 </code></pre><p>当我们输入<code>obj.toString</code>时，JS 引擎会做下面的事情：</p>
-<ol>
-<li>看看 <code>obj</code> 对象本身有没有 <code>toString</code> 属性。没有就走到下一步。</li>
-<li>看看 <code>obj.__proto__</code> 对象有没有 <code>toString</code> 属性。</li>
-<li>如果 <code>obj.__proto__</code> 没有，那么浏览器会继续查看 <code>obj.__proto__.__proto__</code> ，直到找到 <code>toString</code> 或者 <code>__proto__</code> 为<code>null</code>。</li>
-</ol>
-<p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
+<pre><code>1. 看看 obj 对象本身有没有 toString 属性。没有就走到下一步。
+2. 看看 obj.__proto__ 对象有没有 toString 属性。
+3. 如果 obj.__proto__ 没有，那么浏览器会继续查看  obj.__proto__.__proto__ ，直到找到 toString 或者 __proto__ 为 null 。
+</code></pre><p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
 <p><img src="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
 "></p>
-<h5 id="默认原型"><a href="#默认原型" class="headerlink" title="默认原型"></a>默认原型</h5><ul>
-<li><p>所有引用类型都默认继承了<code>Object</code>，这个继承是通过原型链实现的。</p>
-</li>
-<li><p>所有函数的默认原型都是<code>Object</code>的实例，因此默认原型都会有一个指针，指向<code>Object.prototype</code>。这也是所有自定义类型都会继承<code>toString()</code> <code>valueOf()</code>等默认方法的根本原因。</p>
-</li>
-<li><p>而每个对象都有<code>__proto__</code>属性，<code>Object.prototype</code>也是对象，在<code>Object.prototype</code>中</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.__proto__ = null</div></pre></td></tr></table></figure>
-<h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><ol>
-<li>原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。</li>
-<li>由于实例对象的<code>__proto__</code>都指向了<code>Foo.prototype</code>，使得他们的属性值无法保持独立。</li>
-</ol>
-<p>如下代码中，数组<code>interest</code>存在于<code>Foo.prototype</code>中而不是<code>human1</code>中，当<code>human1.interest.push(&#39;swimming&#39;)</code>更改这个数组时，<code>human2.interest</code>也被更改了。</p>
+<h5 id="默认原型"><a href="#默认原型" class="headerlink" title="默认原型"></a>默认原型</h5><pre><code>* 所有引用类型都默认继承了 Object ，这个继承是通过原型链实现的。
+* 所有函数的默认原型都是 Object 的实例，因此默认原型都会有一个指针，指向 Object.prototype 。这也是所有自定义类型都会继承 toString()   valueOf() 等默认方法的根本原因。
+* 而每个对象都有 __proto__ 属性，Object.prototype 也是对象，在 Object.prototype 中
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.__proto__ = null</div></pre></td></tr></table></figure>
+<h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><pre><code>1. 原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。
+2. 由于实例对象的 __proto__ 都指向了 Foo.prototype ，使得他们的属性值无法保持独立。
+</code></pre><p>如下代码中，数组<code>interest</code>存在于<code>Foo.prototype</code>中而不是<code>human1</code>中，当<code>human1.interest.push(&#39;swimming&#39;)</code>更改这个数组时，<code>human2.interest</code>也被更改了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo, </div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	city: &apos;beijing&apos;,</div><div class="line">	interest: [&apos;reading&apos;, &apos;fitness&apos;],</div><div class="line">	walk: function()&#123;</div><div class="line">	 	console.log(&apos;走一步的代码&apos;);</div><div class="line">	 &#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo()</div><div class="line">var human2 = new Foo()</div><div class="line"></div><div class="line">human1.interest.push(&apos;swimming&apos;)</div><div class="line"></div><div class="line">console.log(human1.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div><div class="line">console.log(human2.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div></pre></td></tr></table></figure>
 <h5 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h5><p>组合使用「构造函数模式」和「原型模式」。</p>
 <hr>
 <h3 id="组合使用「构造函数模式」和「原型模式」"><a href="#组合使用「构造函数模式」和「原型模式」" class="headerlink" title="组合使用「构造函数模式」和「原型模式」"></a>组合使用「构造函数模式」和「原型模式」</h3><p>「构造函数」用于定义实例属性，而「原型模式」用于定义和共享的属性和方法。这样，每个实例都会有自己的一份实例属性副本，同时又共享着属性和方法，最大限度地节省了内存。</p>
-<h5 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a><code>constructor</code> 属性</h5><ul>
-<li><p><code>new</code>操作为了记录临时对象是由哪个函数创建的，在默认情况下，所有原型对象都会自动获得一个<code>constructor(构造函数)</code>属性，这个属性是一个指向<code>prototype</code>属性「所在函数」的指针。</p>
-</li>
-<li><p>如果你重新对原型对象赋值，那么这个<code>constructor</code>属性就没了，所以同时需要给 <code>constructor</code>重新赋值</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo,</div><div class="line">	walk: function()&#123;</div><div class="line">		console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<h5 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a><code>constructor</code> 属性</h5><pre><code>* new 操作为了记录临时对象是由哪个函数创建的，在默认情况下，所有原型对象都会自动获得一个 constructor(构造函数) 属性，这个属性是一个指向 prototype 属性「所在函数」的指针。
+* 如果你重新对原型对象赋值，那么这个 constructor 属性就没了，所以同时需要给 constructor 重新赋值
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo,</div><div class="line">	walk: function()&#123;</div><div class="line">		console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
 <p>对上面代码的理解如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// human1 和 human2 是构造函数 Foo() 声明的两个实例，这两个对象有属性__proto__ ，指向构造函数的原型对象。</div><div class="line">human1.__proto__ = Foo.prototype</div><div class="line">human2.__proto__ = Foo.prototype</div><div class="line"></div><div class="line">//构造函数 Foo() 是方法，也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。函数的构造函数是 Function。</div><div class="line">Foo.__proto__ = Function.prototype</div><div class="line"></div><div class="line">// 原型对象也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。</div><div class="line">Foo.prototype.__proto__ = Object.prototype</div><div class="line"></div><div class="line">// 原型对象的 constructor(构造函数) 属性，指向 prototype 属性所在函数。故得到如下：</div><div class="line">Foo.prototype.constructor === Foo</div><div class="line">human1.__proto__.constructor === Foo</div><div class="line">human2.__proto__.constructor === Foo</div></pre></td></tr></table></figure>
 <hr>
