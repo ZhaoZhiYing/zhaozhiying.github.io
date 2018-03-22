@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/23/ new 做了什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
-<meta property="og:updated_time" content="2018-03-01T12:41:09.000Z">
+<meta property="og:updated_time" content="2018-03-22T07:11:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new 做了什么？">
 <meta name="twitter:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -348,12 +348,13 @@ person.walk = function(){
 </code></pre><h5 id="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"><a href="#转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。" class="headerlink" title="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"></a>转折点：「<code>Object</code>构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。</h5><hr>
 <h4 id="「工厂模式」"><a href="#「工厂模式」" class="headerlink" title="「工厂模式」"></a>「工厂模式」</h4><p>「工厂模式」是指用函数来封装以特定接口创建对象的细节。</p>
 <pre><code>function Foo(name, city){
-    this.name = name;
-    this.city = city;
-    this.walk = function walk(){
+    var o = new Object();
+    o.name = name;
+    o.city = city;
+    o.walk = function walk(){
         console.log(&apos;走一步的代码&apos;)
     }
-    return Foo
+    return o
 }
 
 var human1 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
@@ -364,16 +365,14 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 <li>构造函数可以创建特定类型的对象。</li>
 <li>此外，也可以创建自定义的构造函数，从而自定义对象类型的属性和方法。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
 <p>上面代码中，我们看到，与「工厂模式」的不同之处：</p>
-<ol>
-<li>没有显式地创建对象</li>
-<li>直接将属性和方法赋给了<code>this</code>对象</li>
-<li>没有<code>return</code>语句</li>
-<li>函数名首字母是大写<code>F</code>。按照惯例，构造函数始终以大写字母开头，主要是为了区别其他函数。</li>
-<li>用了<code>new</code>操作符创建新实例。</li>
-</ol>
-<h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
+<pre><code>1. 没有显式地创建对象。
+2. 直接将属性和方法赋给了 this 对象。
+3. 没有 return 语句。
+4. 函数名首字母是大写 F 。按照惯例，构造函数始终以大写字母开头，主要是为了区别其他函数。
+5. 用了 new 操作符创建新实例。
+</code></pre><h4 id="重点来了，new在这里到底干了些什么？"><a href="#重点来了，new在这里到底干了些什么？" class="headerlink" title="重点来了，new在这里到底干了些什么？"></a>重点来了，<code>new</code>在这里到底干了些什么？</h4><p>要创建构造函数的新实例，必须使用 <code>new</code> 操作符。以这种方式调用构造函数会经历以下步骤：</p>
 <p>1.创建一个新对象，这个对象的类型是<code>object</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var human1 = &#123;&#125;</div></pre></td></tr></table></figure>
 <p>2.将构造函数的作用域赋给新对象（因此<code>this</code>就指向了这个新对象）</p>
@@ -472,10 +471,10 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -496,7 +495,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <a href="/archives/">
               
                   <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -507,7 +506,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -571,7 +570,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
