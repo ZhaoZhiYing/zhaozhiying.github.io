@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/23/ new 做了什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
-<meta property="og:updated_time" content="2018-03-22T07:15:14.000Z">
+<meta property="og:updated_time" content="2018-03-22T07:28:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new 做了什么？">
 <meta name="twitter:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
@@ -365,7 +365,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 <li>构造函数可以创建特定类型的对象。</li>
 <li>此外，也可以创建自定义的构造函数，从而自定义对象类型的属性和方法。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = function walk()&#123;</div><div class="line">    	console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
 <p>上面代码中，我们看到，与「工厂模式」的不同之处：</p>
 <pre><code>1. 没有显式地创建对象。
 2. 直接将属性和方法赋给了 this 对象。
