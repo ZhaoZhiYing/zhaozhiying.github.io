@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/23/ new 做了什么？/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
-<meta property="og:updated_time" content="2018-03-22T07:11:27.000Z">
+<meta property="og:updated_time" content="2018-03-22T07:15:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new 做了什么？">
 <meta name="twitter:description" content="这篇博客会先从「创建对象模式」的变化过程讲起，由此能深刻理解构造函数中的new到底做了些什么？  「Object构造函数」创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法。如下： var person = new Object() person.name = &amp;apos;zhao&amp;apos;; person.walk = function(){     conso">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T15:27:32+08:00">
                 2018-01-23
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -348,13 +348,13 @@ person.walk = function(){
 </code></pre><h5 id="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"><a href="#转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。" class="headerlink" title="转折点：「Object构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。"></a>转折点：「<code>Object</code>构造函数」和「对象字面量」都可以创建单个对象，但是这两个方法有个缺点，当使用同一个接口创建多个对象时，会产生大量的重复代码。于是，「工厂模式」应运而生。</h5><hr>
 <h4 id="「工厂模式」"><a href="#「工厂模式」" class="headerlink" title="「工厂模式」"></a>「工厂模式」</h4><p>「工厂模式」是指用函数来封装以特定接口创建对象的细节。</p>
 <pre><code>function Foo(name, city){
-    var o = new Object();
-    o.name = name;
-    o.city = city;
-    o.walk = function walk(){
+    var person = new Object();
+    person.name = name;
+    person.city = city;
+    person.walk = function walk(){
         console.log(&apos;走一步的代码&apos;)
     }
-    return o
+    return person
 }
 
 var human1 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
@@ -471,10 +471,10 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -495,7 +495,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
                 <a href="/archives/">
               
                   <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -506,7 +506,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -570,7 +570,7 @@ var human2 = Foo({name:&apos;zhao&apos;, city: &apos;beijing&apos;})
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
