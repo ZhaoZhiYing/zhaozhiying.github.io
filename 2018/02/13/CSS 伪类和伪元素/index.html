@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta name="description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类:link //向未访问的链接添加特殊的样式。 :visited //设置访问过的页面链接的样式 :active //设置当你点击链接时的样式。 :hover //当有鼠标悬停在其上的链接样式 :focus //用于选择具有焦点的元素。  //这四个伪类同时使用链接时，需遵循 LVHA 顺序。 //即 li">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 伪类和伪元素">
 <meta property="og:url" content="http://yoursite.com/2018/02/13/CSS 伪类和伪元素/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta property="og:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类:link //向未访问的链接添加特殊的样式。 :visited //设置访问过的页面链接的样式 :active //设置当你点击链接时的样式。 :hover //当有鼠标悬停在其上的链接样式 :focus //用于选择具有焦点的元素。  //这四个伪类同时使用链接时，需遵循 LVHA 顺序。 //即 li">
 <meta property="og:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/02/14/5a83157f799dd.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/02/14/5a831465d74e9.png
 ">
-<meta property="og:updated_time" content="2018-03-01T12:41:23.000Z">
+<meta property="og:updated_time" content="2018-03-22T09:07:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 伪类和伪元素">
-<meta name="twitter:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类 a:link {color: #ddd;} //未访问的链接 a:visited {color: #ddd;} //已访问的链接 a:hover {color: #ddd;} //鼠标划过链接 a:active {color: #ddd;} //已选中的链接  //这四个伪类同时使用链接时，需遵循 LVH">
+<meta name="twitter:description" content="伪类CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号: 常用伪类:link //向未访问的链接添加特殊的样式。 :visited //设置访问过的页面链接的样式 :active //设置当你点击链接时的样式。 :hover //当有鼠标悬停在其上的链接样式 :focus //用于选择具有焦点的元素。  //这四个伪类同时使用链接时，需遵循 LVHA 顺序。 //即 li">
 <meta name="twitter:image" content="https://i.loli.net/2018/02/14/5a8313d23eabf.png
 ">
 
@@ -192,7 +192,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -202,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -212,7 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -276,7 +276,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
                 2018-02-13
@@ -297,7 +297,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -339,14 +339,31 @@
 
       
         <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p><code>CSS</code>伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。前缀是一个冒号<code>:</code></p>
-<p>常用伪类</p>
-<pre><code>a:link {color: #ddd;} //未访问的链接
-a:visited {color: #ddd;} //已访问的链接
-a:hover {color: #ddd;} //鼠标划过链接
-a:active {color: #ddd;} //已选中的链接
+<h5 id="常用伪类"><a href="#常用伪类" class="headerlink" title="常用伪类"></a>常用伪类</h5><pre><code>:link //向未访问的链接添加特殊的样式。
+:visited //设置访问过的页面链接的样式
+:active //设置当你点击链接时的样式。
+:hover //当有鼠标悬停在其上的链接样式
+:focus //用于选择具有焦点的元素。
 
 //这四个伪类同时使用链接时，需遵循 LVHA 顺序。
 //即 link — :visited — :hover — :active。
+</code></pre><h5 id="CSS3-新增伪类"><a href="#CSS3-新增伪类" class="headerlink" title="CSS3 新增伪类"></a><code>CSS3</code> 新增伪类</h5><pre><code>:nth-child(n) //匹配父元素中的第 n 个子元素。
+:last-child //匹配父元素中最后一个子元素。（如果匹配的 p，最后一个子元素是 div，就无法生效。）
+:first-of-type //指定其父级的第一个元素。    :last-of-type //指定其父级的最后一个元素。
+:empty //选择所有没有子元素的元素。
+:not(selector) 选择器匹配每个元素是不是指定的元素/选择器。
+:in-range //用于标签的值在指定区间值时显示的样式。
+:out-of-range //用于标签的值在指定区间之外时显示的样式。
+:read-only //用于选取设置了 &quot;readonly&quot; 属性的元素。
+:read-write //用于匹配可读及可写的元素。
+
+input:checked //选择所有选中的表单元素（仅适用于单选按钮或复选框）。
+input:enabled //选择所有启用的的元素（主要用于表单元素）。
+input:disabled //选择所有禁用的的元素（主要用于表单元素）。
+input:valid //选择所有输入值为合法的元素。
+input:invalid //选择所有输入值为非法的元素。
+input:optional //选择所有是可选项时的表单元素（没有设置 &quot;required&quot; 属性）。
+...
 </code></pre><hr>
 <h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>CSS</code>伪元素也是添加到选择器的关键字，但它是为元素的某些部分设置样式。前缀是两个冒号<code>::</code> (<code>CSS3</code>中的标准是伪元素使用双冒号<code>::</code>，避免和伪类混淆。) </p>
 <p>常用伪元素</p>
@@ -455,10 +472,10 @@ a:active {color: #ddd;} //已选中的链接
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -479,7 +496,7 @@ a:active {color: #ddd;} //已选中的链接
                 <a href="/archives/">
               
                   <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -490,7 +507,7 @@ a:active {color: #ddd;} //已选中的链接
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -524,7 +541,7 @@ a:active {color: #ddd;} //已选中的链接
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类"><span class="nav-number">1.</span> <span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用伪类"><span class="nav-number">1.1.</span> <span class="nav-text">常用伪类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3-新增伪类"><span class="nav-number">1.2.</span> <span class="nav-text">CSS3 新增伪类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪元素"><span class="nav-number">2.</span> <span class="nav-text">伪元素</span></a></li></ol></div>
             
 
           </div>
@@ -554,7 +571,7 @@ a:active {color: #ddd;} //已选中的链接
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

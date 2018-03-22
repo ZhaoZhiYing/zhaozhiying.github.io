@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
 <meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
-<meta property="og:updated_time" content="2018-03-16T14:31:19.000Z">
+<meta property="og:updated_time" content="2018-03-22T09:06:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML 表单&#x2F;表格标签">
 <meta name="twitter:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -206,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -270,7 +270,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T00:16:14+08:00">
                 2018-03-12
@@ -291,7 +291,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -356,11 +356,7 @@
   Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
   &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre><blockquote>
-<form action="demo_form.asp"><br>      First name: <input type="text" name="fname"><br><br>      Last name: <input type="text" name="lname"><br><br>      <input type="submit" value="提交"><br></form>
-
-</blockquote>
-<p>注意事项：</p>
+</code></pre><p>注意事项：</p>
 <pre><code>1.target 属性基本同 a 标签
 2.如果 form 表单里没有提交按钮，就无法提交
 3.form 标签主要用来发起 post 请求
@@ -390,13 +386,21 @@
     //value 属性对于 &lt;input type=&quot;checkbox&quot;&gt; 和 &lt;input type=&quot;radio&quot;&gt; 是必需的。
     //value 属性不适用于 &lt;input type=&quot;file&quot;&gt;
 
+
 // HTML5 中的新属性
 * autocomplete //规定 &lt;input&gt; 元素输入字段是否应该启用自动完成功能。
 * autofocus //属性规定当页面加载时 &lt;input&gt; 元素应该自动获得焦点。
 * form //规定 &lt;input&gt; 元素所属的一个或多个表单。
+* required //规定必需在提交表单之前填写输入字段。
+* placeholder //规定可描述输入 &lt;input&gt; 字段预期值的简短的提示信息 。
+* multiple //规定允许用户输入到 &lt;input&gt; 元素的多个值。
+* min //规定 &lt;input&gt; 元素的最小值。
+* max //规定 &lt;input&gt; 元素的最大值。
+* width //width 属性规定 &lt;input&gt; 元素的宽度。 (只针对type=&quot;image&quot;)
+* height //规定 &lt;input&gt;元素的高度(只针对type=&quot;image&quot;)。
+* step //规定 &lt;input&gt; 元素的合法数字间隔。
 ...
-</code></pre><p><a href="http://www.runoob.com/tags/tag-input.html" target="_blank" rel="external">更多属性</a>    </p>
-<p><code>type</code>属性值</p>
+</code></pre><p><code>type</code>属性值</p>
 <pre><code>* button //定义可点击的按钮。
 * checkbox //定义复选框。
 * file //定义文件选择字段和 &quot;浏览...&quot; 按钮，供文件上传。 
@@ -438,11 +442,7 @@
   &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
   &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre><blockquote>
-<form action="demo_form.html"><br>      <label for="male">Male</label><br>      <input type="radio" name="sex" id="male"><br>      <label for="female">Female</label><br>      <input type="radio" name="sex" id="female"><br>      <input type="submit" value="提交"><br>    </form>
-
-</blockquote>
-<p>举例<code>form</code> </p>
+</code></pre><p>举例<code>form</code> </p>
 <pre><code>&lt;form action=&quot;demo_form.php&quot; id=&quot;form1&quot;&gt;
   &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
   &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
@@ -450,13 +450,8 @@
   &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
 
-&lt;label for=&quot;male&quot; form=&quot;form1&quot;&gt;Male&lt;/label&gt;
-</code></pre><blockquote>
-<p><form action="demo_form.php" id="form1"><br>  <input type="radio" name="sex" id="male"><br>  <label for="female">Female</label><br>  <input type="radio" name="sex" id="female"><br>  <input type="submit" value="提交"><br></form>    </p>
-<label for="male" form="form1">Male</label>    
-
-</blockquote>
-<p>更聪明的写法：用<code>&lt;label&gt;</code> 标签包裹<code>&lt;input&gt;</code>标签，不需要<code>for</code>和<code>name</code>。 </p>
+&lt;label for=&quot;male&quot; form=&quot;form1&quot;&gt;Male&lt;/label&gt;        
+</code></pre><p>更聪明的写法：用<code>&lt;label&gt;</code> 标签包裹<code>&lt;input&gt;</code>标签，不需要<code>for</code>和<code>name</code>。 </p>
 <pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
       &lt;label&gt;Male
       &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
@@ -466,12 +461,7 @@
     &lt;/label&gt;
     &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
 &lt;/form&gt;
-</code></pre><blockquote>
-<form action="demo_form.html"><br>      <label>Male<br>      <input type="radio" name="sex"><br>    </label><br>    <label>Female<br>        <input type="radio" name="sex"><br>    </label><br>    <input type="submit" value="提交"><br></form>    
-
-
-</blockquote>
-<h4 id="lt-select-gt-lt-option-gt-lt-optgroup-gt"><a href="#lt-select-gt-lt-option-gt-lt-optgroup-gt" class="headerlink" title="&lt;select&gt; &lt;option&gt; &lt;optgroup&gt;"></a><code>&lt;select&gt;</code> <code>&lt;option&gt;</code> <code>&lt;optgroup&gt;</code></h4><p>属性</p>
+</code></pre><h4 id="lt-select-gt-lt-option-gt-lt-optgroup-gt"><a href="#lt-select-gt-lt-option-gt-lt-optgroup-gt" class="headerlink" title="&lt;select&gt; &lt;option&gt; &lt;optgroup&gt;"></a><code>&lt;select&gt;</code> <code>&lt;option&gt;</code> <code>&lt;optgroup&gt;</code></h4><p>属性</p>
 <pre><code>*disabled //规定禁用该选项组。
 *label //为选项组规定描述。
 </code></pre><p>举例：实现两个带有 <code>label</code> 的选项组。 </p>
@@ -485,20 +475,11 @@
     &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
   &lt;/optgroup&gt;
 &lt;/select&gt;
-</code></pre><blockquote>
-<select><br>  <optgroup label="Swedish Cars"><br>    <option value="volvo">Volvo</option><br>    <option value="saab">Saab</option><br>  </optgroup><br>  <optgroup label="German Cars"><br>    <option value="mercedes">Mercedes</option><br>    <option value="audi">Audi</option><br>  </optgroup><br></select>    
-
-
-</blockquote>
-<h4 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h4><p>输入多行文本.通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
+</code></pre><h4 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h4><p>输入多行文本.通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
 <pre><code>&lt;textarea rows=&quot;10&quot; cols=&quot;30&quot;&gt;
 我是一个文本框。 
 &lt;/textarea&gt;
-</code></pre><blockquote>
-<textarea rows="10" cols="30"><br>我是一个文本框。<br></textarea>
-
-</blockquote>
-<hr>
+</code></pre><hr>
 <h3 id="HTML-表格标签"><a href="#HTML-表格标签" class="headerlink" title="HTML 表格标签"></a><code>HTML</code> 表格标签</h3><h4 id="lt-table-gt"><a href="#lt-table-gt" class="headerlink" title="&lt;table&gt;"></a><code>&lt;table&gt;</code></h4><p>一个简单的 HTML 表格，包含两列两行：</p>
 <pre><code>tr(table row)元素定义表格行
 th(table head)元素定义表头
@@ -516,12 +497,7 @@ td(table data)元素定义表格单元(数据)
         &lt;td&gt;$100&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
-</code></pre><blockquote>
-<table border="1"><br>    <tr><br>        <th>Month</th><br>        <th>Savings</th><br>    </tr><br>    <tr><br>        <td>January</td><br>        <td>$100</td><br>    </tr><br></table>
-
-
-</blockquote>
-<h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
+</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
 <h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
 * &lt;col&gt; 标签规定了 &lt;colgroup&gt; 元素内部的每一列的列属性。
 </code></pre><p>属性</p>
@@ -623,10 +599,10 @@ td(table data)元素定义表格单元(数据)
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -647,7 +623,7 @@ td(table data)元素定义表格单元(数据)
                 <a href="/archives/">
               
                   <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -658,7 +634,7 @@ td(table data)元素定义表格单元(数据)
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -722,7 +698,7 @@ td(table data)元素定义表格单元(数据)
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

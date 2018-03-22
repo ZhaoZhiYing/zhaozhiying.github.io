@@ -87,7 +87,7 @@
 <meta property="og:description" content="历史背景如何发请求？* form 可以发 get post 请求，但是会刷新页面或新开页面 * a 标签可以发 get 请求，但是会刷新页面或新开页面 * img 可以发 get 请求，但是只能以图片的形式展示 * link 可以发 get 请求，但是只能以 CSS favicon 的形式展示 * script 可以发 get 请求，但是只能以脚本的形式运行 那么问题来了，有没有什么方式可以实现？">
 <meta property="og:image" content="https://i.loli.net/2018/01/29/5a6eeb46a0ca4.png
 ">
-<meta property="og:updated_time" content="2018-03-19T08:39:23.000Z">
+<meta property="og:updated_time" content="2018-03-22T08:45:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX">
 <meta name="twitter:description" content="历史背景如何发请求？* form 可以发 get post 请求，但是会刷新页面或新开页面 * a 标签可以发 get 请求，但是会刷新页面或新开页面 * img 可以发 get 请求，但是只能以图片的形式展示 * link 可以发 get 请求，但是只能以 CSS favicon 的形式展示 * script 可以发 get 请求，但是只能以脚本的形式运行 那么问题来了，有没有什么方式可以实现？">
@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -208,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -272,7 +272,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -293,7 +293,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -390,7 +390,6 @@
 <h5 id="window-jQuery-ajax"><a href="#window-jQuery-ajax" class="headerlink" title="window.jQuery.ajax"></a><code>window.jQuery.ajax</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">   let nodes = &#123;&#125;</div><div class="line">   nodes.addClass = function()&#123;&#125;</div><div class="line">   nodes.html = function()&#123;&#125;</div><div class="line">   return nodes</div><div class="line">&#125;</div><div class="line">   </div><div class="line">window.$ = window.jQuery</div><div class="line"> </div><div class="line">window.jQuery.ajax = function(options)&#123;</div><div class="line">     // arguments 接受两种参数</div><div class="line">      let url</div><div class="line">      if(arguments.length === 1)&#123;</div><div class="line">          url = options.url</div><div class="line">      &#125;else if(arguments.length === 2)&#123;</div><div class="line">          url = arguments[0]//这时候是 options</div><div class="line">          options = arguments[1] //纠正</div><div class="line">      &#125;</div><div class="line">      let method = options.method</div><div class="line">     let body = options.body</div><div class="line">     let successFn = options.successFn</div><div class="line">     let failFn = options.failFn</div><div class="line">     let headers = options.headers </div><div class="line">     let request = new XMLHttpRequest()</div><div class="line">     request.open(method, url) // 配置 request</div><div class="line">     for(let key in headers)&#123;</div><div class="line">         let value = headers[key]</div><div class="line">         request.setRequestHeader(key, value)</div><div class="line">     &#125;</div><div class="line">     request.onreadystatechange = ()=&gt;&#123; </div><div class="line">       if(request.readyState === 4)&#123;     </div><div class="line">             if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">               successFn.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">             &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">               failFn.call(undefined, request)</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">   request.send(body) </div><div class="line">&#125;</div><div class="line">	   </div><div class="line">function f1(responseText)&#123;&#125;</div><div class="line">function f2(responseText)&#123;&#125;</div><div class="line"> 	   </div><div class="line">window.jQuery.ajax(&#123;</div><div class="line">    url: &apos;/xxx&apos;, </div><div class="line">    method: &apos;post&apos;, </div><div class="line">    headers: &#123;</div><div class="line">        &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">        &apos;frank&apos;: &apos;18&apos;</div><div class="line">    &#125;,</div><div class="line">    successFn: (x)=&gt;&#123;</div><div class="line">        f1.call(undefined,x)</div><div class="line">        f2.call(undefined,x)</div><div class="line">    &#125;, </div><div class="line">    failFn: (x)=&gt;&#123;</div><div class="line">        console.log(x)</div><div class="line">    &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h5 id="promise"><a href="#promise" class="headerlink" title="promise"></a><code>promise</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">window.jQuery = function(nodeOrSelector)&#123;</div><div class="line">    let nodes = &#123;&#125;</div><div class="line">    nodes.addClass = function()&#123;&#125;</div><div class="line">    nodes.html = function()&#123;&#125;</div><div class="line">    return nodes</div><div class="line"> &#125;</div><div class="line">    </div><div class="line"> window.$ = window.jQuery</div><div class="line">  </div><div class="line"> // ES6 析构赋值</div><div class="line"> window.jQuery.ajax = function(&#123;url, method, body, headers&#125;)&#123;</div><div class="line">      // promise</div><div class="line">      return new Promise(function(resolve, reject)&#123;</div><div class="line">          let request = new XMLHttpRequest()</div><div class="line">          request.open(method, url) // 配置 request</div><div class="line">          for(let key in headers)&#123;</div><div class="line">              let value = headers[key]</div><div class="line">              request.setRequestHeader(key, value)</div><div class="line">          &#125;</div><div class="line">          request.onreadystatechange = ()=&gt;&#123; </div><div class="line">              if(request.readyState === 4)&#123;     </div><div class="line">                  if(request.status &gt;= 200 &amp;&amp; request.status &lt; 300)&#123;</div><div class="line">                      resolve.call(undefined, request.responseText) // call 给使用方叫 callback （回调）</div><div class="line">                  &#125;else if(request.status &gt;= 400)&#123;</div><div class="line">                      reject.call(undefined, request)</div><div class="line">                  &#125;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">          request.send(body) </div><div class="line">      &#125;) </div><div class="line"> &#125;</div><div class="line">         </div><div class="line"> window.jQuery.ajax(&#123;</div><div class="line">     url: &apos;/xxx&apos;, </div><div class="line">     method: &apos;post&apos;, </div><div class="line">     headers: &#123;</div><div class="line">         &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,</div><div class="line">         &apos;frank&apos;: &apos;18&apos;</div><div class="line">     &#125;</div><div class="line"> &#125;).then(</div><div class="line">    (text)=&gt;&#123;console.log(text)&#125;,</div><div class="line">    (request)=&gt;&#123;console.log(request)&#125;</div><div class="line"> )</div></pre></td></tr></table></figure>
 <hr>
-<p>参考：<a href="https://xiedaimala.com/" target="_blank" rel="external">写代码啦</a></p>
 
       
     </div>
@@ -481,10 +480,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -505,7 +504,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -516,7 +515,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -580,7 +579,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
