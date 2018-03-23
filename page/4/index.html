@@ -891,7 +891,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">实现一个 jQuery 的 API</a></h1>
+                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">使用原生 JS 实现 jQuery 的 API</a></h1>
         
 
         <div class="post-meta">
@@ -965,7 +965,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
       
         
           
-            <h4 id="getSiblings获取一个节点的所有兄弟节点"><a href="#getSiblings获取一个节点的所有兄弟节点" class="headerlink" title="getSiblings获取一个节点的所有兄弟节点"></a><code>getSiblings</code>获取一个节点的所有兄弟节点</h4><pre><code>&lt;ul&gt;
+            <h4 id="siblings-获取一个节点的所有兄弟节点。"><a href="#siblings-获取一个节点的所有兄弟节点。" class="headerlink" title="siblings() 获取一个节点的所有兄弟节点。"></a><code>siblings()</code> 获取一个节点的所有兄弟节点。</h4><pre><code>&lt;ul&gt;
   &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
   &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
   &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
@@ -998,7 +998,7 @@ for(let i = 0; i&lt;allChildren.length; i++){
     return array
 }
 getSiblings(item3)//调用
-</code></pre><h4 id="addClass为元素添加指定的样式类名"><a href="#addClass为元素添加指定的样式类名" class="headerlink" title="addClass为元素添加指定的样式类名"></a><code>addClass</code>为元素添加指定的样式类名</h4><pre><code>item3.classList.add(&apos;a&apos;)
+</code></pre><h4 id="addClass-为元素添加指定的样式类名。"><a href="#addClass-为元素添加指定的样式类名。" class="headerlink" title="addClass() 为元素添加指定的样式类名。"></a><code>addClass()</code> 为元素添加指定的样式类名。</h4><pre><code>item3.classList.add(&apos;a&apos;)
 item3.classList.add(&apos;b&apos;)
 item3.classList.add(&apos;c&apos;)
 </code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
@@ -1040,7 +1040,7 @@ addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//�
     classes.forEach((value) =&gt; node.classList.add(value))
 }    
 addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
-</code></pre><p>上面两个 API 的弊端：如果有人已经定义过getSiblings ，会被这次覆盖。而且不方便调用。运用 <strong>命名空间</strong> 能解决这个问题。</p>
+</code></pre><p><strong>上面两个 <code>API</code> 的弊端：</strong>如果有人已经定义过 <code>Siblings()</code> ，会被这次覆盖。而且不方便调用。运用命名空间能解决这个问题。</p>
 <pre><code>window.zzdom = {} //声明变量名 zzdom
 zzdom.getSiblings = getSiblings 
 zzdom.addClass = addClass
@@ -1072,7 +1072,7 @@ zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 <pre><code>//调用
 item3.getSiblings(item3)
 item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>解决办法：更改<code>Node</code>原型</p>
+</code></pre><p><strong>解决办法：</strong>更改<code>Node</code>原型</p>
 <pre><code>Node.prototype.getSiblings = function (){ 
     var allChildren = this.parentNode.children 
     var array = { 
@@ -1095,7 +1095,7 @@ item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 </code></pre><blockquote>
 <p>注意：<code>this</code>是调用函数时的第一个参数。</p>
 </blockquote>
-<p>上面代码弊端：如果之前声明过<code>getSiblings</code>和<code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
+<p><strong>上面代码弊端：</strong>如果之前声明过 <code>getSiblings</code> 和 <code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
 <pre><code>window.jQuery = function (node){
     return{
       getSiblings: function (){ 
@@ -1118,7 +1118,7 @@ item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 var node2 = jQuery(item3)
 node2.getSiblings()
 node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>增加类型检测：字符串<code>string</code>或选择器<code>selector</code></p>
+</code></pre><p><strong>增加类型检测：</strong>字符串 <code>string</code> 或选择器 <code>selector</code></p>
 <pre><code>window.jQuery = function (nodeOrSelector){
     let node
     if(typeof nodeOrSelector === &apos;string&apos;){
@@ -1148,7 +1148,7 @@ node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
 var node2 = jQuery(&apos;#item3&apos;)
 node2.getSiblings()
 node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><h4 id="addClass操作多个节点"><a href="#addClass操作多个节点" class="headerlink" title="addClass操作多个节点"></a><code>addClass</code>操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
+</code></pre><h4 id="addClass-操作多个节点"><a href="#addClass-操作多个节点" class="headerlink" title="addClass() 操作多个节点"></a><code>addClass()</code> 操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
     let nodes = {}
     if(typeof nodeOrSelector === &apos;string&apos;){
        //伪数组
@@ -1211,8 +1211,8 @@ console.log(node2)//__proto__:Object
 }    
 //调用
 var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-</code></pre><h4 id="添加setText"><a href="#添加setText" class="headerlink" title="添加setText"></a>添加<code>setText</code></h4><pre><code>window.jQuery = function (nodeOrSelector){
+node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red
+</code></pre><h4 id="text-设置或返回被选元素的文本内容。"><a href="#text-设置或返回被选元素的文本内容。" class="headerlink" title="text() 设置或返回被选元素的文本内容。"></a><code>text()</code> 设置或返回被选元素的文本内容。</h4><pre><code>window.jQuery = function (nodeOrSelector){
     let nodes = {}
     if(typeof nodeOrSelector === &apos;string&apos;){
         let temp=document.querySelectorAll(nodeOrSelector)
@@ -1233,7 +1233,7 @@ node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
             }
         })
     }    
-    //`getText`获取文本
+    // getText 获取文本
     nodes.getText = function(){
         var texts = []
         for(let i=0; i&lt;nodes.length; i++){
@@ -1241,7 +1241,7 @@ node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
         }
         return texts
     }    
-    //`setText`设置文本
+    // setText 设置文本
     nodes.setText = function(text){
         for(let i=0;i&lt;nodes.length; i++){
             nodes[i].textContent = text
@@ -1250,8 +1250,8 @@ node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
     return nodes
 }    
 var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red 
+node2.setText(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi 
 </code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
 <pre><code>    window.jQuery = function (nodeOrSelector){
     let nodes = {}
@@ -1290,8 +1290,8 @@ node2.setText(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
     return nodes
 }    
 var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;])//将所有`div`的`class`添加一个`red`
-node2.text(&apos;hi&apos;)//将所有`div`的`textContent`改为`hi`
+node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red 
+node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi 
 </code></pre><hr>
 
           
