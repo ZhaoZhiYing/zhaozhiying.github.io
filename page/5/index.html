@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,242 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/16/CSS 布局套路/" itemprop="url">CSS 布局套路</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
+                2017-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="元素的高度由什么决定？"><a href="#元素的高度由什么决定？" class="headerlink" title="元素的高度由什么决定？"></a>元素的高度由什么决定？</h4><p><code>block</code>元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。</p>
+<pre><code>* inline 元素从左往右，如遇到宽度不够就另起一行。
+* block 元素从上往下另起一行。
+
+1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
+2.如果 div 里面有多行 inline 元素，div 高度是这多行加起来的行高。
+3.如果一个 div 里面有 div，那么这个 div 的高度由里面的 div 高度加 padding 加 margin（加 margin 分情况）
+</code></pre><hr>
+<h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><pre><code>* 尽量不要写固定 width 和 height 
+* 尽量用高级语法，如 calc flex 
+* 如果是 IE ，就全部写固定
+</code></pre><hr>
+<h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
+* 父元素加 .clearfix{content:&apos;&apos;; display: block; clear: both;}
+.clearfix{zoom: 1;} //支持IE6
+</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex; justify-content: space-between;
+</code></pre><hr>
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><h5 id="child为不定宽block元素（parent定宽-不定宽）。"><a href="#child为不定宽block元素（parent定宽-不定宽）。" class="headerlink" title="child为不定宽block元素（parent定宽/不定宽）。"></a><code>child</code>为不定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）。</h5><pre><code>//方法一：转为 inline 元素
+child{display: inline;}
+parent{text-align: center;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14649f84f.png
+"></p>
+<pre><code>//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
+child{display: table; margin-left/right: auto;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e149d8d3cd.png
+"></p>
+<pre><code>//方法三：margin 左右设同等值
+child{margin-left/right: 20px;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14a9cc850.png
+"></p>
+<pre><code>//方法四：translateX -50%
+child{position: absolute; left: 50%; transform: translateX(-50%);}
+parent{position: relative;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14b574741.png
+"></p>
+<h5 id="child为定宽block元素（parent定宽-不定宽）"><a href="#child为定宽block元素（parent定宽-不定宽）" class="headerlink" title="child为定宽block元素（parent定宽/不定宽）"></a><code>child</code>为定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）</h5><pre><code>child{width: 100px; margin-left/right: auto;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e15dcedb08.png
+"></p>
+<h5 id="inline-inline-block元素以及图片（parent定宽-不定宽）"><a href="#inline-inline-block元素以及图片（parent定宽-不定宽）" class="headerlink" title="inline inline-block元素以及图片（parent定宽/不定宽）"></a><code>inline</code> <code>inline-block</code>元素以及图片（<code>parent</code>定宽/不定宽）</h5><pre><code>parent{text-align: center;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e17442bbb0.png
+"></p>
+<h5 id="通用方法（flex布局）"><a href="#通用方法（flex布局）" class="headerlink" title="通用方法（flex布局）"></a>通用方法（<code>flex</code>布局）</h5><pre><code>parent{display: flex; justify-content: center;}    
+</code></pre><hr>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><h5 id="child为定高-不定高block元素（parent定高）"><a href="#child为定高-不定高block元素（parent定高）" class="headerlink" title="child为定高/不定高block元素（parent定高）"></a><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>定高）</h5><pre><code>//方法一：translateY -50%
+child{position: absolute; top: 50%; transform: translateY(-50%);}
+parent{position: relative;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2fa910efa.png
+"></p>
+<pre><code>//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
+parent{vertical-align: middle;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3071251c7.png
+"></p>
+<pre><code>//方法三：absolute + margin-top/bottom: auto;
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2f5537c2a.png
+">    </p>
+<pre><code>//方法四
+child{ top: 50%; margin-top: 50%;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2febcafc7.png
+">    </p>
+<h5 id="child为inline单行文本以及图片（parent定高）"><a href="#child为inline单行文本以及图片（parent定高）" class="headerlink" title="child为inline单行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>单行文本以及图片（<code>parent</code>定高）</h5><pre><code>//容器 height 和 line-height 设同等值
+parent{height: 40px; line-height: 40px;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3936c4314.png
+">    </p>
+<h5 id="child为inline多行文本以及图片（parent定高）"><a href="#child为inline多行文本以及图片（parent定高）" class="headerlink" title="child为inline多行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>多行文本以及图片（<code>parent</code>定高）</h5><pre><code>//方法一：利用 table (包括tbody、tr、td)标签。兼容IE。
+parent{vertical-align：middle;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e394b3e99d.png
+"></p>
+<pre><code>//方法二：display: table-cell;
+parent{display: table-cell; vertical-align: middle;}
+</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3962ba2c6.png
+"></p>
+<p>通用方法（<code>flex</code>布局）</p>
+<pre><code>parent{display: flex; align-items: center;}
+</code></pre><hr>
+<h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><p>￼<code>float</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1b861d6bd.png
+"></p>
+<p>￼<code>flex</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1b7606c05.png
+"></p>
+<hr>
+<h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1a0475fa7.png
+"></p>
+<p>￼<code>flex</code>实现</p>
+<p><img src="https://i.loli.net/2018/03/06/5a9e1a15e92b7.png
+"></p>
+<hr>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="单行文本超出部分变成省略号"><a href="#单行文本超出部分变成省略号" class="headerlink" title="单行文本超出部分变成省略号"></a>单行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2006ebd58.png
+"></p>
+<h5 id="多行文本超出部分变成省略号"><a href="#多行文本超出部分变成省略号" class="headerlink" title="多行文本超出部分变成省略号"></a>多行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2023eee7d.png
+"></p>
+<h5 id="姓名-与-联系方式-两端对齐"><a href="#姓名-与-联系方式-两端对齐" class="headerlink" title="姓名 与 联系方式 两端对齐"></a>姓名 与 联系方式 两端对齐</h5><p><img src="https://i.loli.net/2018/03/06/5a9e1c7c9a4d8.png
+"></p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +503,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -288,7 +524,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -468,7 +704,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -489,7 +725,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -658,7 +894,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -679,7 +915,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -819,7 +1055,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
                 2017-10-24
@@ -840,7 +1076,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1068,7 +1304,7 @@ Content-type: application/octet-stream
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
                 2017-10-19
@@ -1089,7 +1325,7 @@ Content-type: application/octet-stream
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1143,19 +1379,15 @@ Content-type: application/octet-stream
 <h5 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h5><p>以<code>www.google.com</code>为例</p>
 <ol>
 <li>本地域名服务器首先检查自身缓存，如果存在记录则直接返回结果。</li>
-<li>如果记录老化或不存在<ul>
-<li>本地域名服务器会向根域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果根域名服务器也不存在该域名，本地域名服务器会向<code>.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果<code>.com</code>顶级域名服务器也不存在该域名，本地域名服务器会向<code>.google.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。得到主机<code>www</code>的记录，存入自身缓存并返回给客户端。</li>
-</ul>
-</li>
+<li>如果记录老化或不存在</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 本地域名服务器会向根域名服务器发送查询报文。</div><div class="line">* 如果根域名服务器也不存在该域名，本地域名服务器会向 .com 顶级域名服务器发送查询报文。</div><div class="line">* 如果 .com 顶级域名服务器也不存在该域名，本地域名服务器会向 .google.com 顶级域名服务器发送查询报文。得到主机 www 的记录，存入自身缓存并返回给客户端。</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="知识展开"><a href="#知识展开" class="headerlink" title="知识展开"></a>知识展开</h4><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a><code>URL</code></h4><p>统一资源定位符，通俗地称为<code>Web</code>地址。<code>URL</code>通常由以下几部分组成：</p>
 <pre><code>* 协议：由一串不区分大小写的字母组成，以 : 作为结束符。常用的有http、https等。
-* 身份验证：可选，一般的协议(`http\https`等)都会使用默认的匿名形式进行数据获取（格式：`username:password@hostname`）。
+* 身份验证：可选，一般的协议(http\https 等)都会使用默认的匿名形式进行数据获取（格式：username:password@hostname）。
 * 域名：服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
-* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，`http`的默认端口为`80`。
+* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，http 的默认端口为 80 。
 * 路径：由零或多个“/”符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
 * 查询参数：可选，可有多个参数，用“&amp;”符号隔开，每个参数的名和值用“=”符号隔开。
 * 锚点：例如一个网页中有多个名词解释，可使用锚点直接定位到某一名词解释。
@@ -1348,7 +1580,7 @@ delete 删除
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-09T22:25:20+08:00">
                 2017-10-09
@@ -1369,7 +1601,7 @@ delete 删除
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1570,8 +1802,8 @@ package.json：项目所需模块项目的配置信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1582,7 +1814,7 @@ package.json：项目所需模块项目的配置信息
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -1630,7 +1862,7 @@ package.json：项目所需模块项目的配置信息
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,226 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/27/排序算法/" itemprop="url">排序算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T19:13:40+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><pre><code>* 每次比较两个相邻的元素，如果他们的顺序错误就交换位置（从小到大或从大到小）。
+* 每一轮排序将一个数归位，如果有 n 个数，只需将 n-1 个数归位。
+* 每一轮排序都需要从第 1 位开始进行相邻两个数的比较，直到最后一个尚未归位的数。
+</code></pre><p><code>JS</code>代码实现</p>
+<pre><code>//将 obj 里的数从小到大排列。
+var arr = [21, 30, 10, 56, 7, 39]
+
+function sort(){
+
+    //定义循环排序的轮数
+    for(var i=0; i&lt;arr.length; i++){
+
+        //定义当前循环轮数需要比较第几位的最大值
+        //比如第 2 轮，最多比较到第 3 位和后面的数
+        for(var j=0; j&lt;=arr.length-i; j++){
+
+            //前一位与后一位与前一位比较
+            if(arr[j] &gt; arr[j+1]){
+                var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    return arr
+}
+
+sort(arr) //[7, 10, 21, 30, 39, 56]
+</code></pre><hr>
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><pre><code>* 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。
+* 然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。
+* 每一轮排序将一个数归位，如果有 n 个数，只需将 n-1 个数归位。
+</code></pre><p><code>JS</code>代码实现</p>
+<pre><code>//将 obj 里的数从小到大排列。
+var arr = [21, 30, 10, 56, 7, 39]
+
+function sort(){
+
+    //定义循环排序的轮数
+    for(var i=0; i&lt;arr.length; i++){
+        //定义 min 变量用于存储每一轮循环最小数的下标
+        var min = i 
+        for(var j=i+1; j&lt;arr.length; j++){
+            if(arr[min] &gt; arr[j]){
+                min = j
+            }
+        }
+        //每轮比较后如果arr[i]不是最小的那个数，则进行交换。
+        if(min != i){
+            var temp = arr[i]
+            arr[i] = arr[min]
+            arr[min] = temp
+        }
+    }
+    return arr
+}
+
+sort(arr) //[7, 10, 21, 30, 39, 56]
+</code></pre><hr>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><pre><code>* 以一个数为基准，比这个数小的放前面，大的放后面。
+* 递归地把小于基准值的数列和大于基准值的数列进行排序。
+* 每次的迭代中，至少会把一个元素摆到它最后的位置去。
+</code></pre><p><code>JS</code>代码实现</p>
+<pre><code>//将 obj 里的数从小到大排列。
+var arr = [21, 30, 10, 56, 7, 39]
+
+function sort(){
+
+
+
+}
+
+sort(arr) //[7, 10, 21, 30, 39, 56]
+</code></pre><hr>
+<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><hr>
+<h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><p>比快排快</p>
+<hr>
+<h4 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h4><hr>
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +487,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:42:38+08:00">
                 2018-03-20
@@ -475,7 +695,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:33:56+08:00">
                 2018-03-19
@@ -496,7 +716,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -629,7 +849,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:22:22+08:00">
                 2018-03-19
@@ -650,7 +870,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -800,7 +1020,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
                 2018-03-16
@@ -821,7 +1041,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1128,7 +1348,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T00:16:14+08:00">
                 2018-03-12
@@ -1149,7 +1369,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1446,7 +1666,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
@@ -1467,7 +1687,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1618,7 +1838,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
                 2018-03-03
@@ -1639,7 +1859,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1807,7 +2027,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:14:42+08:00">
                 2018-03-02
@@ -1828,7 +2048,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1983,7 +2203,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:03:39+08:00">
                 2018-02-28
@@ -2004,7 +2224,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2095,172 +2315,6 @@ hexo deploy //部署
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/CSS 中 display 的属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/26/CSS 中 display 的属性/" itemprop="url">CSS 中 display 的属性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T11:47:49+08:00">
-                2018-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>基本值</p>
-<pre><code>none 元素不会被显示。
-block 该元素生成一个块元素盒。
-inline    该元素生成一个或多个行内元素盒。
-list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。
-</code></pre><p>扩展值    </p>
-<pre><code>inline-block 内联盒子内的块盒子。
-</code></pre><p>表格模型值    </p>
-<pre><code>inline-table 作用同 &lt;table&gt;，但是作为内联框，而不是块级框。表格框内是一个块级上下文。
-table 作用同 &lt;table&gt; ，它定义了一个块级盒子。
-table-caption 作用同 &lt;caption&gt;
-table-cell 作用同 &lt;td&gt;
-table-column 作用同 &lt;col&gt;
-table-column-group 作用同 &lt;colgroup&gt;
-table-footer-group 作用同 &lt;tfoot&gt; 
-table-header-group 作用同 &lt;thead&gt;
-table-row 作用同 &lt;tr&gt;
-table-row-group 作用同 &lt;tbody&gt;
-</code></pre><p><code>Flexbox</code>模型值    </p>
-<pre><code>flex 弹性布局
-inline-flex ???
-</code></pre><p>栅格盒模型值</p>
-<pre><code>grid 网格布局。CSS 中最强大的布局系统
-inline-grid ???    
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2311,8 +2365,8 @@ inline-grid ???
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2323,7 +2377,7 @@ inline-grid ???
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2371,7 +2425,7 @@ inline-grid ???
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

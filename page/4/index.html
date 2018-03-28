@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,202 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/15/「构造函数模式」和「原型模式」/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/15/「构造函数模式」和「原型模式」/" itemprop="url">「构造函数模式」和「原型模式」</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
+                2018-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><pre><code>* 创建对象有两种方式：「对象字面量」和使用「new 表达式」。后者被称为「构造函数」。
+* 如果只是一个单独的对象，直接使用「对象字面量」
+* 如果创建一个有很多实例的对象，或者涉及继承，就用「构造函数模式」
+</code></pre><h5 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h5><pre><code>1. 构造函数的首字母必须大写，用来区分于普通函数
+2. 内部使用的 this 对象，来指向即将要生成的实例对象
+3. 使用 new 操作符来创建实例对象
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">	this.walk = walk;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function walk()&#123;</div><div class="line">    console.log(&apos;走一步的代码&apos;)</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<h5 id="构造函数与普通函数的区别"><a href="#构造函数与普通函数的区别" class="headerlink" title="构造函数与普通函数的区别"></a>构造函数与普通函数的区别</h5><p>构造函数与普通函数的区别，在于调用它们的方式不同。</p>
+<pre><code>* 任何函数，只要通过 new 操作符来调用，那它就可以作为构造函数。
+* 而任何函数，如果不通过 new 操作符来调用，那它就是普通函数。
+</code></pre><h5 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h5><pre><code>1. 在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。
+2. 更严重的是，当对象需要定义很多方法时，那就要定义多个全局函数。
+</code></pre><h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>通过使用原型链模式。</p>
+<hr>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h5 id="什么是共有属性？"><a href="#什么是共有属性？" class="headerlink" title="什么是共有属性？"></a>什么是共有属性？</h5><p>当我们在写<code>var x1 = new x2</code>的时候：<code>x1</code>的类型是对象，<code>x2</code>的类型是函数对象。</p>
+<pre><code>var n = new Number(1)
+var s = new String(&quot;1&quot;)
+var b = new Boolean(true)
+var o = new Object()
+</code></pre><p>上面代码中<code>n s b o</code>这四个对象都有 <code>toString()</code> <code>valueOf()</code> 方法，如果每个对象中内存分别加上<code>toString()</code> <code>valueOf()</code>，这样就太占内存了。</p>
+<p><strong>解决办法：</strong>将<code>toString()</code> <code>valueOf()</code> 方法都放在一个对象里，<code>n1 n2 n3 n4</code>这四个对象的 <code>__proto__</code>引用它，而存放<code>toString()</code> <code>valueOf()</code>的对象就是共有属性，即 <code>Object.prototype</code>，如下图：</p>
+<p><img src="https://i.loli.net/2018/01/26/5a6b32120b98d.png
+"></p>
+<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a><code>prototype</code></h4><pre><code>* 每一个函数在创建后都会有一个属性 prototype ，这个属性指向「函数的原型对象」。这个对象的用途是包含可以「由特定类型的所有实例」共享的属性和方法(也叫共有属性)。
+* 在默认情况下，所有「原型对象」都会自动获得一个 constructor(构造函数) 属性，这个属性是一个指向 prototype 属性「所在函数」的指针。 
+* 注意：由于这个 prototype 属性不标准，因此一般不提倡使用。ES5 中用 Object.getPrototypeOf 函数获得一个对象的 prototype 。 ES6 中使用 Object.setPrototypeOf 可以直接修改一个对象的 prototype 。
+</code></pre><h4 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h4><pre><code>* 在 ES5 之前没有标准的方法访问内置属性 prototype ，于是很多浏览器都给「每一个对象」提供了一个属性 __proto__ ，通过 __proto__ 就可以访问 prototype 。
+* 这个连接存在于「实例」与「构造函数的原型对象」之间，而不是存在「实例」与「构造函数」之间
+</code></pre><h5 id="什么叫原型链？"><a href="#什么叫原型链？" class="headerlink" title="什么叫原型链？"></a>什么叫原型链？</h5><pre><code>function Foo(){}
+var obj = new Foo()
+</code></pre><p>当我们输入<code>obj.toString</code>时，JS 引擎会做下面的事情：</p>
+<pre><code>1. 看看 obj 对象本身有没有 toString 属性。没有就走到下一步。
+2. 看看 obj.__proto__ 对象有没有 toString 属性。
+3. 如果 obj.__proto__ 没有，那么浏览器会继续查看  obj.__proto__.__proto__ ，直到找到 toString 或者 __proto__ 为 null 。
+</code></pre><p>上面由<code>__proto__</code>组成直到 <code>__proto__</code> 为<code>null</code>的链子，就叫做「原型链」。「原型链」实际上就是<code>JS</code>中数据继承的「继承链」。</p>
+<p><img src="https://i.loli.net/2018/01/26/5a6b1c4a8d1d0.png
+"></p>
+<h5 id="默认原型"><a href="#默认原型" class="headerlink" title="默认原型"></a>默认原型</h5><pre><code>* 所有引用类型都默认继承了 Object ，这个继承是通过原型链实现的。
+* 所有函数的默认原型都是 Object 的实例，因此默认原型都会有一个指针，指向 Object.prototype 。这也是所有自定义类型都会继承 toString() valueOf() 等默认方法的根本原因。
+* 而每个对象都有 __proto__ 属性，Object.prototype 也是对象，在 Object.prototype 中，Object.prototype.__proto__ = null。
+</code></pre><h5 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h5><ol>
+<li>原型模式无法为构造函数传递初始化参数，结果所有实例在默认情况下都取得相同的属性值。</li>
+<li>由于实例对象的 <code>__proto__</code> 都指向了 <code>Foo.prototype</code> ，使得他们的属性值无法保持独立。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo, </div><div class="line">	name: &apos;zhao&apos;,</div><div class="line">	city: &apos;beijing&apos;,</div><div class="line">	interest: [&apos;reading&apos;, &apos;fitness&apos;],</div><div class="line">	walk: function()&#123;</div><div class="line">	 	console.log(&apos;走一步的代码&apos;);</div><div class="line">	 &#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo()</div><div class="line">var human2 = new Foo()</div><div class="line"></div><div class="line">human1.interest.push(&apos;swimming&apos;)</div><div class="line"></div><div class="line">console.log(human1.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div><div class="line">console.log(human2.interest)//[&apos;reading&apos;, &apos;fitness&apos;, &apos;swimming&apos;]</div></pre></td></tr></table></figure>
+<p>上面代码中，数组 <code>interest</code> 存在于 <code>Foo.prototype</code> 中而不是 <code>human1</code> 中，当 <code>human1.interest.push(&#39;swimming&#39;)</code> 更改这个数组时，<code>human2.interest</code> 也被更改了。</p>
+<h5 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h5><p>组合使用「构造函数模式」和「原型模式」。</p>
+<hr>
+<h3 id="组合使用「构造函数模式」和「原型模式」"><a href="#组合使用「构造函数模式」和「原型模式」" class="headerlink" title="组合使用「构造函数模式」和「原型模式」"></a>组合使用「构造函数模式」和「原型模式」</h3><p>「构造函数」用于定义实例属性，而「原型模式」用于定义和共享的属性和方法。这样，每个实例都会有自己的一份实例属性副本，同时又共享着属性和方法，最大限度地节省了内存。</p>
+<h5 id="constructor-属性"><a href="#constructor-属性" class="headerlink" title="constructor 属性"></a><code>constructor</code> 属性</h5><pre><code>* new 操作为了记录临时对象是由哪个函数创建的，在默认情况下，所有原型对象都会自动获得一个 constructor(构造函数) 属性，这个属性是一个指向 prototype 属性「所在函数」的指针。
+* 如果你重新对原型对象赋值，那么这个 constructor 属性就没了，所以同时需要给 constructor 重新赋值
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Foo(name, city)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.city = city;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype = &#123;</div><div class="line">	constructor: Foo,</div><div class="line">	walk: function()&#123;</div><div class="line">		console.log(&apos;走一步的代码&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	</div><div class="line">var human1 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div><div class="line">var human2 = new Foo(&#123;name:&apos;zhao&apos;, city: &apos;beijing&apos;&#125;)</div></pre></td></tr></table></figure>
+<p>对上面代码的理解如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// human1 和 human2 是构造函数 Foo() 声明的两个实例，这两个对象有属性 __proto__ ，指向构造函数的原型对象。</div><div class="line">human1.__proto__ = Foo.prototype</div><div class="line">human2.__proto__ = Foo.prototype</div><div class="line"></div><div class="line">//构造函数 Foo() 是方法，也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。函数的构造函数是 Function。</div><div class="line">Foo.__proto__ = Function.prototype</div><div class="line"></div><div class="line">// 原型对象也是对象，它的 __proto__ 属性也指向它的构造函数的原型对象。</div><div class="line">Foo.prototype.__proto__ = Object.prototype</div><div class="line"></div><div class="line">// 原型对象的 constructor(构造函数) 属性，指向 prototype 属性所在函数。故得到如下：</div><div class="line">Foo.prototype.constructor === Foo</div><div class="line">human1.__proto__.constructor === Foo</div><div class="line">human2.__proto__.constructor === Foo</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +463,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -288,7 +484,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -502,7 +698,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -523,7 +719,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -657,7 +853,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -678,7 +874,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -901,7 +1097,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -922,7 +1118,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1370,7 +1566,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1391,7 +1587,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1714,7 +1910,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1735,7 +1931,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1972,7 +2168,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -1993,7 +2189,7 @@ foo1() //8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2241,7 +2437,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -2262,7 +2458,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2391,7 +2587,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -2412,7 +2608,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2537,242 +2733,6 @@ p{color:green;}
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/CSS 布局套路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/16/CSS 布局套路/" itemprop="url">CSS 布局套路</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
-                2017-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="元素的高度由什么决定？"><a href="#元素的高度由什么决定？" class="headerlink" title="元素的高度由什么决定？"></a>元素的高度由什么决定？</h4><p><code>block</code>元素的高度由其内部文档流元素的高度总和决定，文档流是指文档内元素的流动方向。</p>
-<pre><code>* inline 元素从左往右，如遇到宽度不够就另起一行。
-* block 元素从上往下另起一行。
-
-1.如果 div 里面只有一行 inline 元素，那么 div 的高度就是 inline 这一行的行高（文字的居中是基线对齐，不同文字行高不同，可以设定 line-hight 规定它）
-2.如果 div 里面有多行 inline 元素，div 高度是这多行加起来的行高。
-3.如果一个 div 里面有 div，那么这个 div 的高度由里面的 div 高度加 padding 加 margin（加 margin 分情况）
-</code></pre><hr>
-<h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4><pre><code>* 尽量不要写固定 width 和 height 
-* 尽量用高级语法，如 calc flex 
-* 如果是 IE ，就全部写固定
-</code></pre><hr>
-<h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
-* 父元素加 .clearfix{content:&apos;&apos;; display: block; clear: both;}
-.clearfix{zoom: 1;} //支持IE6
-</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex; justify-content: space-between;
-</code></pre><hr>
-<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><h5 id="child为不定宽block元素（parent定宽-不定宽）。"><a href="#child为不定宽block元素（parent定宽-不定宽）。" class="headerlink" title="child为不定宽block元素（parent定宽/不定宽）。"></a><code>child</code>为不定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）。</h5><pre><code>//方法一：转为 inline 元素
-child{display: inline;}
-parent{text-align: center;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14649f84f.png
-"></p>
-<pre><code>//方法二：利用 table 长度自适应性，可将其看为定宽 block 元素
-child{display: table; margin-left/right: auto;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e149d8d3cd.png
-"></p>
-<pre><code>//方法三：margin 左右设同等值
-child{margin-left/right: 20px;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14a9cc850.png
-"></p>
-<pre><code>//方法四：translateX -50%
-child{position: absolute; left: 50%; transform: translateX(-50%);}
-parent{position: relative;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e14b574741.png
-"></p>
-<h5 id="child为定宽block元素（parent定宽-不定宽）"><a href="#child为定宽block元素（parent定宽-不定宽）" class="headerlink" title="child为定宽block元素（parent定宽/不定宽）"></a><code>child</code>为定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）</h5><pre><code>child{width: 100px; margin-left/right: auto;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e15dcedb08.png
-"></p>
-<h5 id="inline-inline-block元素以及图片（parent定宽-不定宽）"><a href="#inline-inline-block元素以及图片（parent定宽-不定宽）" class="headerlink" title="inline inline-block元素以及图片（parent定宽/不定宽）"></a><code>inline</code> <code>inline-block</code>元素以及图片（<code>parent</code>定宽/不定宽）</h5><pre><code>parent{text-align: center;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e17442bbb0.png
-"></p>
-<h5 id="通用方法（flex布局）"><a href="#通用方法（flex布局）" class="headerlink" title="通用方法（flex布局）"></a>通用方法（<code>flex</code>布局）</h5><pre><code>parent{display: flex; justify-content: center;}    
-</code></pre><hr>
-<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><h5 id="child为定高-不定高block元素（parent定高）"><a href="#child为定高-不定高block元素（parent定高）" class="headerlink" title="child为定高/不定高block元素（parent定高）"></a><code>child</code>为定高/不定高<code>block</code>元素（<code>parent</code>定高）</h5><pre><code>//方法一：translateY -50%
-child{position: absolute; top: 50%; transform: translateY(-50%);}
-parent{position: relative;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2fa910efa.png
-"></p>
-<pre><code>//方法二：利用 table (包括tbody、tr、td)标签。兼容IE。
-parent{vertical-align: middle;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3071251c7.png
-"></p>
-<pre><code>//方法三：absolute + margin-top/bottom: auto;
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2f5537c2a.png
-">    </p>
-<pre><code>//方法四
-child{ top: 50%; margin-top: 50%;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e2febcafc7.png
-">    </p>
-<h5 id="child为inline单行文本以及图片（parent定高）"><a href="#child为inline单行文本以及图片（parent定高）" class="headerlink" title="child为inline单行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>单行文本以及图片（<code>parent</code>定高）</h5><pre><code>//容器 height 和 line-height 设同等值
-parent{height: 40px; line-height: 40px;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3936c4314.png
-">    </p>
-<h5 id="child为inline多行文本以及图片（parent定高）"><a href="#child为inline多行文本以及图片（parent定高）" class="headerlink" title="child为inline多行文本以及图片（parent定高）"></a><code>child</code>为<code>inline</code>多行文本以及图片（<code>parent</code>定高）</h5><pre><code>//方法一：利用 table (包括tbody、tr、td)标签。兼容IE。
-parent{vertical-align：middle;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e394b3e99d.png
-"></p>
-<pre><code>//方法二：display: table-cell;
-parent{display: table-cell; vertical-align: middle;}
-</code></pre><p><img src="https://i.loli.net/2018/03/06/5a9e3962ba2c6.png
-"></p>
-<p>通用方法（<code>flex</code>布局）</p>
-<pre><code>parent{display: flex; align-items: center;}
-</code></pre><hr>
-<h4 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h4><p>￼<code>float</code>实现</p>
-<p><img src="https://i.loli.net/2018/03/06/5a9e1b861d6bd.png
-"></p>
-<p>￼<code>flex</code>实现</p>
-<p><img src="https://i.loli.net/2018/03/06/5a9e1b7606c05.png
-"></p>
-<hr>
-<h4 id="平均布局"><a href="#平均布局" class="headerlink" title="平均布局"></a>平均布局</h4><p>￼<code>float</code>实现</p>
-<p><img src="https://i.loli.net/2018/03/06/5a9e1a0475fa7.png
-"></p>
-<p>￼<code>flex</code>实现</p>
-<p><img src="https://i.loli.net/2018/03/06/5a9e1a15e92b7.png
-"></p>
-<hr>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="单行文本超出部分变成省略号"><a href="#单行文本超出部分变成省略号" class="headerlink" title="单行文本超出部分变成省略号"></a>单行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2006ebd58.png
-"></p>
-<h5 id="多行文本超出部分变成省略号"><a href="#多行文本超出部分变成省略号" class="headerlink" title="多行文本超出部分变成省略号"></a>多行文本超出部分变成省略号</h5><p><img src="https://i.loli.net/2018/03/06/5a9e2023eee7d.png
-"></p>
-<h5 id="姓名-与-联系方式-两端对齐"><a href="#姓名-与-联系方式-两端对齐" class="headerlink" title="姓名 与 联系方式 两端对齐"></a>姓名 与 联系方式 两端对齐</h5><p><img src="https://i.loli.net/2018/03/06/5a9e1c7c9a4d8.png
-"></p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2823,8 +2783,8 @@ parent{display: table-cell; vertical-align: middle;}
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2835,7 +2795,7 @@ parent{display: table-cell; vertical-align: middle;}
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2883,7 +2843,7 @@ parent{display: table-cell; vertical-align: middle;}
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

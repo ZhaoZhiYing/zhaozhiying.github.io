@@ -87,7 +87,7 @@
 <meta property="og:description" content="1.DNS解析 DNS全称：域名解析系统Domain Name System。 DNS解析是指根据域名查找IP地址。   概念解释： IP地址：是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址。 域名：相当于IP地址的面具，域名的作用的便于人类使用。例如，www.wikipedia.org是一个域名，对应的IP地址是208.80.152.2。  解析过程以w">
 <meta property="og:image" content="https://i.loli.net/2018/02/05/5a7836443733e.png
 ">
-<meta property="og:updated_time" content="2018-03-19T08:54:17.000Z">
+<meta property="og:updated_time" content="2018-03-28T07:30:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？">
 <meta name="twitter:description" content="1.DNS解析 DNS全称：域名解析系统Domain Name System。 DNS解析是指根据域名查找IP地址。   概念解释： IP地址：是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址。 域名：相当于IP地址的面具，域名的作用的便于人类使用。例如，www.wikipedia.org是一个域名，对应的IP地址是208.80.152.2。  解析过程以w">
@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -208,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -272,7 +272,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
                 2017-10-19
@@ -293,7 +293,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -345,19 +345,15 @@
 <h5 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h5><p>以<code>www.google.com</code>为例</p>
 <ol>
 <li>本地域名服务器首先检查自身缓存，如果存在记录则直接返回结果。</li>
-<li>如果记录老化或不存在<ul>
-<li>本地域名服务器会向根域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果根域名服务器也不存在该域名，本地域名服务器会向<code>.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。</li>
-<li>如果<code>.com</code>顶级域名服务器也不存在该域名，本地域名服务器会向<code>.google.com</code>顶级域名服务器发送查询报文<code>query www.google.com</code>。得到主机<code>www</code>的记录，存入自身缓存并返回给客户端。</li>
-</ul>
-</li>
+<li>如果记录老化或不存在</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 本地域名服务器会向根域名服务器发送查询报文。</div><div class="line">* 如果根域名服务器也不存在该域名，本地域名服务器会向 .com 顶级域名服务器发送查询报文。</div><div class="line">* 如果 .com 顶级域名服务器也不存在该域名，本地域名服务器会向 .google.com 顶级域名服务器发送查询报文。得到主机 www 的记录，存入自身缓存并返回给客户端。</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="知识展开"><a href="#知识展开" class="headerlink" title="知识展开"></a>知识展开</h4><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a><code>URL</code></h4><p>统一资源定位符，通俗地称为<code>Web</code>地址。<code>URL</code>通常由以下几部分组成：</p>
 <pre><code>* 协议：由一串不区分大小写的字母组成，以 : 作为结束符。常用的有http、https等。
-* 身份验证：可选，一般的协议(`http\https`等)都会使用默认的匿名形式进行数据获取（格式：`username:password@hostname`）。
+* 身份验证：可选，一般的协议(http\https 等)都会使用默认的匿名形式进行数据获取（格式：username:password@hostname）。
 * 域名：服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
-* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，`http`的默认端口为`80`。
+* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，http 的默认端口为 80 。
 * 路径：由零或多个“/”符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
 * 查询参数：可选，可有多个参数，用“&amp;”符号隔开，每个参数的名和值用“=”符号隔开。
 * 锚点：例如一个网页中有多个名词解释，可使用锚点直接定位到某一名词解释。
@@ -563,10 +559,10 @@ delete 删除
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -586,8 +582,8 @@ delete 删除
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -598,7 +594,7 @@ delete 删除
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -662,7 +658,7 @@ delete 删除
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
