@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,148 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/29/Bootstrap学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/29/Bootstrap学习/" itemprop="url">Bootstrap 学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T18:17:04+08:00">
+                2018-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Bootstrap-引入"><a href="#Bootstrap-引入" class="headerlink" title="Bootstrap 引入"></a><code>Bootstrap</code> 引入</h4><p><a href="https://v3.bootcss.com/getting-started/" target="_blank" rel="external">官网</a>下载</p>
+<pre><code>* 生产环境：是指正式提供对外服务的。一般会关掉错误报告，打开错误日志。
+* 开发环境：程序员自己/公司用的。为了开发调试方便，一般打开全部错误报告。
+</code></pre><hr>
+<h4 id="网格-栅栏系统"><a href="#网格-栅栏系统" class="headerlink" title="网格/栅栏系统"></a>网格/栅栏系统</h4><pre><code>* 默认内容都放在一个 .container 容器里。.container 默认水平居中。
+* row 默认左右 padding 为 15px。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div class=&quot;col-md-2&quot;&gt;.col-md-2&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;col-md-10&quot;&gt;.col-md-10&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div class=&quot;col-md-2&quot;&gt;.col-md-2&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;col-md-9 col-md-offset-1&quot;&gt;.col-md-9&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="响应式怎么用"><a href="#响应式怎么用" class="headerlink" title="响应式怎么用"></a>响应式怎么用</h4><p><code>Bootstrap</code> 有四个区间值。</p>
+<pre><code>//&lt;768px
+* @media (max-width: @screen-xs-max) { ... }
+
+//≥768px
+* @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+
+//≥992px
+* @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+
+//≥1200px
+* @media (min-width: @screen-lg-min) { ... }
+</code></pre><hr>
+<h4 id="Bootstrap-CSS-组件怎么用"><a href="#Bootstrap-CSS-组件怎么用" class="headerlink" title="Bootstrap CSS 组件怎么用"></a><code>Bootstrap CSS</code> 组件怎么用</h4><hr>
+<h4 id="Bootstrap-jQuery-组件怎么用"><a href="#Bootstrap-jQuery-组件怎么用" class="headerlink" title="Bootstrap jQuery 组件怎么用"></a><code>Bootstrap jQuery</code> 组件怎么用</h4><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +409,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T19:13:40+08:00">
                 2018-03-27
@@ -288,7 +430,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -339,18 +481,16 @@
 var arr = [21, 30, 10, 56, 7, 39]
 
 function sort(){
-
     //定义循环排序的轮数
     for(var i=0; i&lt;arr.length; i++){
-
         //定义当前循环轮数需要比较第几位的最大值
-        //比如第 2 轮，最多比较到第 3 位和后面的数
-        for(var j=0; j&lt;=arr.length-i; j++){
-
+        //比如第 2 轮，最多比较到 第2位 和 第3位
+        for(var j=0; j&lt;arr.length-i; j++){
             //前一位与后一位与前一位比较
             if(arr[j] &gt; arr[j+1]){
+                //换位置
                 var temp = arr[j]
-                arr[j] = arr[j+1]
+                arr[j] = arr[j+1] 
                 arr[j+1] = temp
             }
         }
@@ -368,7 +508,6 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
 var arr = [21, 30, 10, 56, 7, 39]
 
 function sort(){
-
     //定义循环排序的轮数
     for(var i=0; i&lt;arr.length; i++){
         //定义 min 变量用于存储每一轮循环最小数的下标
@@ -378,12 +517,10 @@ function sort(){
                 min = j
             }
         }
-        //每轮比较后如果arr[i]不是最小的那个数，则进行交换。
-        if(min != i){
-            var temp = arr[i]
-            arr[i] = arr[min]
-            arr[min] = temp
-        }
+        //交换位置
+        var temp = arr[i]
+        arr[i] = arr[min] 
+        arr[min] = temp    
     }
     return arr
 }
@@ -398,10 +535,44 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
 * 每次从待插入组中取出一个元素，与有序组的元素进行比较，并找到合适的位置，将该元素插到有序组当中。
 * 每次插入一个元素，有序组增加，待插入组减少。直到待插入组元素个数为0。
 </code></pre><hr>
-<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><pre><code>* 找出待排序的数组中最大和最小的元素
-* 统计数组中每个值为 i 的元素出现的次数，存入数组 arr 的第 i 项
-* 对所有的计数累加（从 C 中的第一个元素开始，每一项和前一项相加）
-* 反向填充目标数组：将每个元素 i 放在新数组的第 arr[i] 项，每放一个元素就将 arr[i] 减去 1 
+<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><pre><code>* 找出数组 A 中的最大值 max 。
+* 统计数组 A 中值为 i 的元素出现的次数 n ，存入数组 B 的第 i 项，次数 n 为数组 B 中 i 的值，长度为 max+1 。
+* 反向填充目标数组：将数组 B 中每个元素 i 放在新数组的第 arr[i] 项，每放一个元素就将 arr[i] 减去 1 。
+</code></pre><p><code>JS</code>代码实现</p>
+<pre><code>//将 obj 里的数从小到大排列。
+var arr = [21, 30, 10, 56, 7, 39, 10, 21, 10]
+var hash = {}
+var newArr = []
+
+function sort(){
+    //初始化最大值
+    var max = arr[0]
+    //入桶
+    for(var i=0; i&lt;arr.length; i++){
+        var n = arr[i]
+        if(hash[n] == undefined){
+            hash[n] = 1
+        }else{
+            hash[n] = hash[n] + 1
+        }
+        //找出最大值
+        if(max &lt; arr[i]){
+            max = arr[i]
+        }
+    }
+    //出桶
+    for(var j=0; j&lt;=max; j++){
+        var count = hash[j]
+        if(count != undefined){
+            for(var k=0; k&lt;count; k++){
+                newArr.push(j)
+            }
+        }            
+    }
+    return newArr
+}
+
+sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
 </code></pre><hr>
 <h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><pre><code>* 将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。
 * 然后，从最低位开始，依次进行一次排序。
@@ -489,7 +660,7 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:42:38+08:00">
                 2018-03-20
@@ -510,7 +681,7 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -719,7 +890,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:33:56+08:00">
                 2018-03-19
@@ -740,7 +911,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -873,7 +1044,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:22:22+08:00">
                 2018-03-19
@@ -894,7 +1065,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1044,7 +1215,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
                 2018-03-16
@@ -1065,7 +1236,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1372,7 +1543,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T00:16:14+08:00">
                 2018-03-12
@@ -1393,7 +1564,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1690,7 +1861,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
@@ -1711,7 +1882,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1871,7 +2042,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
                 2018-03-03
@@ -1892,7 +2063,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2060,7 +2231,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:14:42+08:00">
                 2018-03-02
@@ -2081,7 +2252,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2194,160 +2365,6 @@ hexo deploy //部署
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/setInterval() 和 setTimeout()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/28/setInterval() 和 setTimeout()/" itemprop="url">setInterval() 和 setTimeout()</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:03:39+08:00">
-                2018-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a><code>setInterval()</code></h4><p>重复调用一个函数或执行一个代码段，在每次调用之间具有固定的时间延迟。</p>
-<ul>
-<li>使用 <code>clearInterval()</code> 方法来阻止函数的执行。由 <code>setInterval()</code> 返回的 <code>ID</code> 值用作 <code>clearInterval()</code> 方法的参数。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setInterval(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&gt;=5)&#123;</div><div class="line">			window.clearInterval(id)</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a><code>setTimeout()</code></h4><p>设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码，仅执行一次。</p>
-<ul>
-<li>使用 <code>clearTimeout()</code> 方法来阻止函数的执行。由 <code>setTimeout()</code> 返回的 <code>ID</code> 值用作 <code>clearTimeout()</code> 方法的参数。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1</div></pre></td></tr></table></figure>
-<h5 id="所有的-setInterval-都可以改写成-setTimeout"><a href="#所有的-setInterval-都可以改写成-setTimeout" class="headerlink" title="所有的 setInterval()  都可以改写成 setTimeout()"></a>所有的 <code>setInterval()</code>  都可以改写成 <code>setTimeout()</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(function fn()&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&lt;5)&#123;</div><div class="line">			setTimeout(fn, 3000) //再次调用 fn</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2398,8 +2415,8 @@ hexo deploy //部署
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2410,7 +2427,7 @@ hexo deploy //部署
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2458,7 +2475,7 @@ hexo deploy //部署
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

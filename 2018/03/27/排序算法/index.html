@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/27/排序算法/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="冒泡排序* 每次比较两个相邻的元素，如果他们的顺序错误就交换位置（从小到大或从大到小）。 * 每一轮排序将一个数归位，如果有 n 个数，只需将 n-1 个数归位。 * 每一轮排序都需要从第 1 位开始进行相邻两个数的比较，直到最后一个尚未归位的数。 JS代码实现 //将 obj 里的数从小到大排列。 var arr = [21, 30, 10, 56, 7, 39]  function sort(">
-<meta property="og:updated_time" content="2018-03-28T10:12:58.000Z">
+<meta property="og:updated_time" content="2018-03-29T16:12:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
 <meta name="twitter:description" content="冒泡排序* 每次比较两个相邻的元素，如果他们的顺序错误就交换位置（从小到大或从大到小）。 * 每一轮排序将一个数归位，如果有 n 个数，只需将 n-1 个数归位。 * 每一轮排序都需要从第 1 位开始进行相邻两个数的比较，直到最后一个尚未归位的数。 JS代码实现 //将 obj 里的数从小到大排列。 var arr = [21, 30, 10, 56, 7, 39]  function sort(">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T19:13:40+08:00">
                 2018-03-27
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -338,18 +338,16 @@
 var arr = [21, 30, 10, 56, 7, 39]
 
 function sort(){
-
     //定义循环排序的轮数
     for(var i=0; i&lt;arr.length; i++){
-
         //定义当前循环轮数需要比较第几位的最大值
-        //比如第 2 轮，最多比较到第 3 位和后面的数
-        for(var j=0; j&lt;=arr.length-i; j++){
-
+        //比如第 2 轮，最多比较到 第2位 和 第3位
+        for(var j=0; j&lt;arr.length-i; j++){
             //前一位与后一位与前一位比较
             if(arr[j] &gt; arr[j+1]){
+                //换位置
                 var temp = arr[j]
-                arr[j] = arr[j+1]
+                arr[j] = arr[j+1] 
                 arr[j+1] = temp
             }
         }
@@ -367,7 +365,6 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
 var arr = [21, 30, 10, 56, 7, 39]
 
 function sort(){
-
     //定义循环排序的轮数
     for(var i=0; i&lt;arr.length; i++){
         //定义 min 变量用于存储每一轮循环最小数的下标
@@ -377,12 +374,10 @@ function sort(){
                 min = j
             }
         }
-        //每轮比较后如果arr[i]不是最小的那个数，则进行交换。
-        if(min != i){
-            var temp = arr[i]
-            arr[i] = arr[min]
-            arr[min] = temp
-        }
+        //交换位置
+        var temp = arr[i]
+        arr[i] = arr[min] 
+        arr[min] = temp    
     }
     return arr
 }
@@ -397,10 +392,44 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
 * 每次从待插入组中取出一个元素，与有序组的元素进行比较，并找到合适的位置，将该元素插到有序组当中。
 * 每次插入一个元素，有序组增加，待插入组减少。直到待插入组元素个数为0。
 </code></pre><hr>
-<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><pre><code>* 找出待排序的数组中最大和最小的元素
-* 统计数组中每个值为 i 的元素出现的次数，存入数组 arr 的第 i 项
-* 对所有的计数累加（从 C 中的第一个元素开始，每一项和前一项相加）
-* 反向填充目标数组：将每个元素 i 放在新数组的第 arr[i] 项，每放一个元素就将 arr[i] 减去 1 
+<h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><pre><code>* 找出数组 A 中的最大值 max 。
+* 统计数组 A 中值为 i 的元素出现的次数 n ，存入数组 B 的第 i 项，次数 n 为数组 B 中 i 的值，长度为 max+1 。
+* 反向填充目标数组：将数组 B 中每个元素 i 放在新数组的第 arr[i] 项，每放一个元素就将 arr[i] 减去 1 。
+</code></pre><p><code>JS</code>代码实现</p>
+<pre><code>//将 obj 里的数从小到大排列。
+var arr = [21, 30, 10, 56, 7, 39, 10, 21, 10]
+var hash = {}
+var newArr = []
+
+function sort(){
+    //初始化最大值
+    var max = arr[0]
+    //入桶
+    for(var i=0; i&lt;arr.length; i++){
+        var n = arr[i]
+        if(hash[n] == undefined){
+            hash[n] = 1
+        }else{
+            hash[n] = hash[n] + 1
+        }
+        //找出最大值
+        if(max &lt; arr[i]){
+            max = arr[i]
+        }
+    }
+    //出桶
+    for(var j=0; j&lt;=max; j++){
+        var count = hash[j]
+        if(count != undefined){
+            for(var k=0; k&lt;count; k++){
+                newArr.push(j)
+            }
+        }            
+    }
+    return newArr
+}
+
+sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
 </code></pre><hr>
 <h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><pre><code>* 将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。
 * 然后，从最低位开始，依次进行一次排序。
@@ -444,6 +473,10 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/29/Bootstrap学习/" rel="prev" title="Bootstrap 学习">
+                Bootstrap 学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -497,10 +530,10 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -520,8 +553,8 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -532,7 +565,7 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -596,7 +629,7 @@ sort(arr) //[7, 10, 21, 30, 39, 56]
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
