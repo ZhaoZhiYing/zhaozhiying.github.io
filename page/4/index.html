@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,225 +224,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/this 到底是什么？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/this 到底是什么？/" itemprop="url">this 到底是什么？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T22:18:01+08:00">
-                2018-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><ul>
-<li>无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）<code>this</code>都指代全局对象。</li>
-<li>在浏览器中，全局对象是<code>window</code>。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var message = 1</div><div class="line">console.log(this.message) // 1</div><div class="line">console.log(window.message) // 1</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><pre><code>每个函数在被调用时都会自动取得两个特殊变量：this 和 arguments 。除了箭头函数。
-
-this 是函数的第一个参数（且必须是对象）， arguments 是函数的第二个参数（包装成一个数组[]）。
-
-this 是参数，所以只有在调用的时候才能确定。
-
-this 为什么必须是对象，因为 this 就是函数与对象之间的羁绊。
-</code></pre><h5 id="普通模式：如果this是undefined或null，浏览器会把this变成window"><a href="#普通模式：如果this是undefined或null，浏览器会把this变成window" class="headerlink" title="普通模式：如果this是undefined或null，浏览器会把this变成window"></a>普通模式：如果<code>this</code>是<code>undefined</code>或<code>null</code>，浏览器会把<code>this</code>变成<code>window</code></h5><pre><code>function f(){
-    console.log(this)
-    console.log(arguments)
-}
-f.call() // this 是 window
-f.call(null) // this 是 window
-f.call(undefined) // this 是 window
-</code></pre><h5 id="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"><a href="#严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。" class="headerlink" title="严格模式：默认第一个参数是undefined。如果传了第一个参数，那传什么this就是什么。"></a>严格模式：默认第一个参数是<code>undefined</code>。如果传了第一个参数，那传什么<code>this</code>就是什么。</h5><p>发明<code>JS</code>时，被要求要长得像<code>Java</code>，让<code>Java</code>程序员来学<code>JS</code>，但是他们发现<code>this</code>多余，就有了 <code>use strict</code> 严格模式</p>
-<pre><code>function f(){
-    // 严格模式
-      &apos;use strict&apos;;
-    console.log(this)
-    console.log(arguments)
-}
-f.call() // this 是 undefined
-f.call(null) // this 是 null
-f.call(undefined) // this 是 undefined
-f.call({name:&apos;frank&apos;}) // {name: &apos;frank&apos;}, []
-f.call({name:&apos;frank&apos;},1,2) // {name: &apos;frank&apos;}, [1,2]
-</code></pre><h5 id="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"><a href="#当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象" class="headerlink" title="当以对象里的方法的方式调用函数时，它们的this是调用该函数的对象"></a>当以对象里的方法的方式调用函数时，它们的<code>this</code>是调用该函数的对象</h5><pre><code>var message = {
-    name: &apos;zhao&apos;,
-    Foo: function (){
-        console.log(message)
-    }
-}
-
-message.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
-//等同于
-this.Foo() // {name: &quot;zhao&quot;, Foo: ƒ}
-//等同于
-this.Foo.call(this) // {name: &quot;zhao&quot;, Foo: ƒ}
-</code></pre><h5 id="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"><a href="#当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。" class="headerlink" title="当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。"></a>当一个函数用作构造函数时（使用<code>new</code>关键字），它的<code>this</code>被绑定到正在构造的新对象。</h5><p>下面例子中，函数内的<code>this</code>被绑定到<code>human1</code>对象。</p>
-<pre><code>function Foo(name, city){
-    this.name = &apos;zhao&apos;;
-    this.city = &apos;beijing&apos;;
-}
-
-var human1 = new Foo() 
-
-human1.name // &quot;zhao&quot;
-human1.city // &quot;beijing&quot;
-</code></pre><h5 id="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"><a href="#当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。" class="headerlink" title="当函数被用作事件处理函数时，它的this指向绑定事件的元素，恒等于currentTarget。"></a>当函数被用作事件处理函数时，它的<code>this</code>指向绑定事件的元素，恒等于<code>currentTarget</code>。</h5><pre><code> &lt;div id=&quot;grand&quot;&gt;
-    爷爷
-     &lt;div id=&quot;parent&quot;&gt;
-      爸爸
-       &lt;div id=&quot;child&quot;&gt;
-        儿子
-       &lt;/div&gt;
-     &lt;/div&gt;
-  &lt;/div&gt;
-grand.addEventListener(&apos;click&apos;,function(e){
-    console.log(寻找this) 
-},false)
-//当点击 grand 触发事件时，this 指向 grand
-//当点击 child 触发事件时，this 依然指向 grand
-</code></pre><h5 id="在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。"><a href="#在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。" class="headerlink" title="在箭头函数中，this与父级上下文的this保持一致。在全局代码中，它将被设置为全局对象。"></a>在箭头函数中，<code>this</code>与父级上下文的<code>this</code>保持一致。在全局代码中，它将被设置为全局对象。</h5><pre><code>var name = &apos;tang&apos; 
-var foo ={
- name: &apos;zhao&apos;,
- bar:()=&gt;{
-   console.log(this.name)
- }
-}
-foo.bar()
-//this 指向全局对象 window
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -486,7 +267,7 @@ foo.bar()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T15:29:09+08:00">
                 2018-01-15
@@ -507,7 +288,7 @@ foo.bar()
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -682,7 +463,7 @@ var obj = new Foo()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-09T16:10:48+08:00">
                 2018-01-09
@@ -703,7 +484,7 @@ var obj = new Foo()
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -917,7 +698,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T21:24:37+08:00">
                 2018-01-07
@@ -938,7 +719,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1072,7 +853,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -1093,7 +874,7 @@ b.name = &quot;zhao&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1316,7 +1097,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -1337,7 +1118,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1785,7 +1566,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1806,7 +1587,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2129,7 +1910,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -2150,7 +1931,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2387,7 +2168,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -2408,7 +2189,7 @@ foo1() //8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2656,7 +2437,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -2677,7 +2458,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2764,6 +2545,194 @@ toString.call(Math) // &quot;[object Math]&quot;
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/CSS 选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/CSS 选择器/" itemprop="url">CSS 选择器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="通用选择器："><a href="#通用选择器：" class="headerlink" title="通用选择器："></a>通用选择器：</h5><pre><code>*{}
+//匹配所有元素
+</code></pre><h5 id="标签选择器："><a href="#标签选择器：" class="headerlink" title="标签选择器："></a>标签选择器：</h5><pre><code>h1{}
+</code></pre><h5 id="类选择器："><a href="#类选择器：" class="headerlink" title="类选择器："></a>类选择器：</h5><pre><code>.name{}
+//匹配所有类名为 name 的元素
+</code></pre><h5 id="ID选择器："><a href="#ID选择器：" class="headerlink" title="ID选择器："></a><code>ID</code>选择器：</h5><pre><code>#name{}
+//匹配所有 ID 名为 name 的元素
+</code></pre><h5 id="属性选择器："><a href="#属性选择器：" class="headerlink" title="属性选择器："></a>属性选择器：</h5><pre><code>[target = blank]
+//匹配所有以 target 命名，值为 blank 的元素
+</code></pre><h5 id="后代选择器："><a href="#后代选择器：" class="headerlink" title="后代选择器："></a>后代选择器：</h5><pre><code>.header .box{}
+//匹配由 .header 作为祖先元素(但不一定是父元素)的后代元素 .box
+</code></pre><h5 id="子选择器："><a href="#子选择器：" class="headerlink" title="子选择器："></a>子选择器：</h5><pre><code>.content &gt; .title{}
+ //匹配由 .content 作为父元素的直接后代(子元素) .title
+</code></pre><h5 id="即-又-选择器："><a href="#即-又-选择器：" class="headerlink" title="即..又 选择器："></a>即..又 选择器：</h5><pre><code>.header.active{}
+//同时匹配 .header 和 .active , 一般会忽略前一个 class。
+</code></pre><h5 id="多标签选择器："><a href="#多标签选择器：" class="headerlink" title="多标签选择器："></a>多标签选择器：</h5><pre><code>p1,span{} 
+//同时匹配 p1 和 span ，样式作用于两者。
+</code></pre><h5 id="选择相邻的下一个："><a href="#选择相邻的下一个：" class="headerlink" title="选择相邻的下一个："></a>选择相邻的下一个：</h5><pre><code>div+p{}
+//匹配所有紧接着`&lt;div&gt;`元素之后的`&lt;p&gt;`元素
+</code></pre><h5 id="选择所有同级的邻居："><a href="#选择所有同级的邻居：" class="headerlink" title="选择所有同级的邻居："></a>选择所有同级的邻居：</h5><pre><code>div~p{}
+//匹配所有父级是`&lt;div&gt;`元素的`&lt;p&gt;`元素
+</code></pre><h5 id="伪类："><a href="#伪类：" class="headerlink" title="伪类："></a>伪类：</h5><pre><code>#header:hover{}
+//CSS3中的标准是伪类使用单冒号“:” 
+</code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
+//CSS3中的标准是伪元素使用双冒号“::”（避免和伪类混淆） 
+</code></pre><hr>
+<h4 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h4><pre><code>1. 内联样式（例如,style=&quot;&quot;）。
+2. ID 选择器（例如, #example）。
+3. 类选择器(例如,.example)，属性选择器（例如, [type=&quot;radio&quot;]），伪类（例如, :hover）。
+4. 类型选择器（例如, h1）和 伪元素（例如, ::before）。
+</code></pre><hr>
+<h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a><code>CSS</code>的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
+<pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
+</code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
+<pre><code>p{color: blue;}
+</code></pre><p>这里分为可继承和不可继承的样式</p>
+<pre><code>可继承的样式： font-size font-family color, UL LI DL DD DT;
+不可继承的样式：border padding margin width height ;
+</code></pre><h5 id="inherit-关键字"><a href="#inherit-关键字" class="headerlink" title="inherit 关键字"></a><code>inherit</code> 关键字</h5><p>显式指定一个属性继承祖先元素的值，可用于继承性/非继承性属性。</p>
+<h5 id="重要性-important"><a href="#重要性-important" class="headerlink" title="重要性!important"></a>重要性<code>!important</code></h5><p>当在一个样式声明中加上<code>!important</code>时，此声明将覆盖任何其他声明。</p>
+<pre><code>p{color:red !important;}//这个会被应用
+p{color:green;}
+</code></pre><blockquote>
+<p>注意：应该尽量避免使用<code>!important</code>，因为这破坏了样式表中的固有的级联规则 使得调试找 <code>bug</code> 变得更加困难了。    </p>
+</blockquote>
+<hr>
+<p>￼</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2814,8 +2783,8 @@ toString.call(Math) // &quot;[object Math]&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2826,7 +2795,7 @@ toString.call(Math) // &quot;[object Math]&quot;
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2874,7 +2843,7 @@ toString.call(Math) // &quot;[object Math]&quot;
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
