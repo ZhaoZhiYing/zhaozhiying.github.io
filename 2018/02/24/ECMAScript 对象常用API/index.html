@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign() //通过复制一个或多个对象来创建一个新的对象。 * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给对象添加一个属性">
+<meta name="description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript 对象常用API">
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign() //通过复制一个或多个对象来创建一个新的对象。 * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给对象添加一个属性">
-<meta property="og:updated_time" content="2018-03-30T04:48:33.000Z">
+<meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
+<meta property="og:updated_time" content="2018-03-31T07:59:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
-<meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign() //通过复制一个或多个对象来创建一个新的对象。 * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给对象添加一个属性">
+<meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
 
 
 
@@ -334,7 +334,8 @@
 <pre><code>* Object.length //值为1。
 * Object.prototype //可以为所有 Object 类型的对象添加属性。
 </code></pre><p>方法</p>
-<pre><code>* Object.assign() //通过复制一个或多个对象来创建一个新的对象。
+<pre><code>* Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。
+
 * Object.create() //使用指定的原型对象和属性创建一个新对象。
 * Object.defineProperty() //给对象添加一个属性并指定该属性的配置。
 * Object.defineProperties() //给对象添加多个属性并分别指定它们的配置。
@@ -364,14 +365,17 @@
 * encodeURI(string) //把字符串编码为 URI。
 * encodeURIComponent(string) //把字符串编码为 URI 组件。
 * escape(string) //对字符串进行编码。
-* eval(string) //计算 JavaScript 字符串，并把它作为脚本代码来执行。
-//如果参数是一个表达式，eval() 函数将执行表达式。如果参数是Javascript语句，eval()将执行 Javascript 语句。
 * isFinite(value) //检查某个值是否为有穷大的数。
 * isNaN(value) //检查某个值是否是数字。
 * parseFloat(string,radix) //解析一个字符串并返回一个浮点数。
 * parseInt(string) //解析一个字符串并返回一个整数。
 * Number(object) //把对象的值转换为数字。
 * String(object) //把对象的值转换为字符串。
+* eval(string) //将传入的字符串当做 JavaScript 代码进行执行。
+
+举例 
+    eval(&apos;var a = 1;&apos;)
+    a // 1
 </code></pre><hr>
 <h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a><code>Array</code></h4><p>属性</p>
 <pre><code>* constructor //返回创建数组对象的原型函数。
@@ -598,7 +602,7 @@ Math.pow(2,3) // 8
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

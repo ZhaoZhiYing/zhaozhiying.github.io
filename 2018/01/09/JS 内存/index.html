@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
+<meta name="description" content="stack 栈内存 和 heap 堆内存* 比如买一个 8G 的内存条 * 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给 HTML + CSS + JS + 网络 HTTP + 其他)   * JS 最多分到 100M 内存 * JS 引擎将内存分为代码区和数据区 * 数据区分为 Stack（栈内存）和 Heap（堆内存） * 基本类型的数据直接存在 Stack 里（数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 内存">
 <meta property="og:url" content="http://yoursite.com/2018/01/09/JS 内存/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
+<meta property="og:description" content="stack 栈内存 和 heap 堆内存* 比如买一个 8G 的内存条 * 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给 HTML + CSS + JS + 网络 HTTP + 其他)   * JS 最多分到 100M 内存 * JS 引擎将内存分为代码区和数据区 * 数据区分为 Stack（栈内存）和 Heap（堆内存） * 基本类型的数据直接存在 Stack 里（数">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892882ff3c.png
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a688d4447585.png
@@ -101,14 +101,10 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/25/5a69a04b8bfd6.png
 ">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">
-<meta property="og:updated_time" content="2018-03-22T08:49:32.000Z">
+<meta property="og:updated_time" content="2018-03-31T13:51:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 内存">
-<meta name="twitter:description" content="stack栈内存 和 heap堆内存 比如买一个 8G 的内存条 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给HTML+CSS+JS+网络HTTP+其他)   JS最多分到 100M 内存 JS引擎将内存分为代码区和数据区 数据区分为Stack（栈内存）和Heap（堆内存） 基本类型的数据直接存在Stack里（数字64位，字符16位） 复杂类型的数据是把Heap地址存在">
+<meta name="twitter:description" content="stack 栈内存 和 heap 堆内存* 比如买一个 8G 的内存条 * 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给 HTML + CSS + JS + 网络 HTTP + 其他)   * JS 最多分到 100M 内存 * JS 引擎将内存分为代码区和数据区 * 数据区分为 Stack（栈内存）和 Heap（堆内存） * 基本类型的数据直接存在 Stack 里（数">
 <meta name="twitter:image" content="https://i.loli.net/2018/01/24/5a6892882ff3c.png
 ">
 
@@ -352,16 +348,14 @@
       
 
       
-        <h3 id="stack栈内存-和-heap堆内存"><a href="#stack栈内存-和-heap堆内存" class="headerlink" title="stack栈内存 和 heap堆内存"></a><code>stack</code>栈内存 和 <code>heap</code>堆内存</h3><ul>
-<li>比如买一个 8G 的内存条</li>
-<li>开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给<code>HTML</code>+<code>CSS</code>+<code>JS</code>+网络<code>HTTP</code>+其他)  </li>
-<li><code>JS</code>最多分到 100M 内存</li>
-<li><code>JS</code>引擎将内存分为代码区和数据区</li>
-<li>数据区分为<code>Stack</code>（栈内存）和<code>Heap</code>（堆内存）</li>
-<li>基本类型的数据直接存在<code>Stack</code>里（数字64位，字符16位）</li>
-<li>复杂类型的数据是把<code>Heap</code>地址存在<code>Stack</code>里</li>
-</ul>
-<hr>
+        <h3 id="stack-栈内存-和-heap-堆内存"><a href="#stack-栈内存-和-heap-堆内存" class="headerlink" title="stack 栈内存 和 heap 堆内存"></a><code>stack</code> 栈内存 和 <code>heap</code> 堆内存</h3><pre><code>* 比如买一个 8G 的内存条
+* 开机时内存分配：操作系统 512M，浏览器打开就占用 1G(100M 给 HTML + CSS + JS + 网络 HTTP + 其他)  
+* JS 最多分到 100M 内存
+* JS 引擎将内存分为代码区和数据区
+* 数据区分为 Stack（栈内存）和 Heap（堆内存）
+* 基本类型的数据直接存在 Stack 里（数字64位，字符16位）
+* 复杂类型的数据是把 Heap 地址存在 Stack 里
+</code></pre><hr>
 <h3 id="遇到问题就画图，不要分析。"><a href="#遇到问题就画图，不要分析。" class="headerlink" title="遇到问题就画图，不要分析。"></a>遇到问题就画图，不要分析。</h3><h5 id="举例1"><a href="#举例1" class="headerlink" title="举例1"></a>举例1</h5><pre><code>var a = {name: &quot;tang&quot;}
 var b = a
 b = {name: &quot;zhao&quot;}
@@ -430,22 +424,6 @@ document.body.onclick = null
 <li>引用类型与基本包装类型的主要区别就是对象的生存期。使用<code>new</code>操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。</li>
 </ul>
 <hr>
-<h3 id="深拷贝-VS-浅拷贝"><a href="#深拷贝-VS-浅拷贝" class="headerlink" title="深拷贝 VS 浅拷贝"></a>深拷贝 VS 浅拷贝</h3><p>对于基本类型来说，只有深拷贝。这里我们只讲对象。</p>
-<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>对于对象来说，深拷贝是指在<code>栈内存</code>中新增一个指针，并且在<code>堆内存</code>中申请了一个新的内存。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a 
-b.name = &quot;zhao&quot;;  
-//a.name = &quot;tang&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
-">    </p>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>对于对象来说，浅拷贝只是在<code>栈内存</code>中新增一个指针指向原有的内存，只是拷贝了内存地址（<code>Heap</code>地址）。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a
-b.name = &quot;zhao&quot;
-//a.name = &quot;zhao&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">    </p>
-<h5 id="如何实现深拷贝？（后续来补）"><a href="#如何实现深拷贝？（后续来补）" class="headerlink" title="如何实现深拷贝？（后续来补）"></a>如何实现深拷贝？（后续来补）</h5><hr>
 
       
     </div>
@@ -559,7 +537,7 @@ b.name = &quot;zhao&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -605,7 +583,7 @@ b.name = &quot;zhao&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack栈内存-和-heap堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack栈内存 和 heap堆内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型（值）和复杂类型（引用）的区别"><span class="nav-number">4.</span> <span class="nav-text">基本类型（值）和复杂类型（引用）的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"><span class="nav-number">4.0.1.</span> <span class="nav-text">区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝-VS-浅拷贝"><span class="nav-number">5.</span> <span class="nav-text">深拷贝 VS 浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#深拷贝"><span class="nav-number">5.0.1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅拷贝"><span class="nav-number">5.0.2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何实现深拷贝？（后续来补）"><span class="nav-number">5.0.3.</span> <span class="nav-text">如何实现深拷贝？（后续来补）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack-栈内存-和-heap-堆内存"><span class="nav-number">1.</span> <span class="nav-text">stack 栈内存 和 heap 堆内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题就画图，不要分析。"><span class="nav-number">2.</span> <span class="nav-text">遇到问题就画图，不要分析。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1"><span class="nav-number">2.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3"><span class="nav-number">2.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例1-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">举例1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例2-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">举例2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#举例3-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">举例3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型（值）和复杂类型（引用）的区别"><span class="nav-number">4.</span> <span class="nav-text">基本类型（值）和复杂类型（引用）的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。"><span class="nav-number">4.0.1.</span> <span class="nav-text">区别：基本类型的变量存的是值，复杂类型的变量存的是内存地址。</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

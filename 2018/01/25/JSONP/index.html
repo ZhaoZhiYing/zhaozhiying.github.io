@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
+<meta name="description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”： * 协议相同 * 域名相同 * 端口相同 如果非同源，共有三种行为受到限制。 * Cookie LocalStorage 和 Ind">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONP">
 <meta property="og:url" content="http://yoursite.com/2018/01/25/JSONP/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
-<meta property="og:updated_time" content="2018-03-22T08:48:56.000Z">
+<meta property="og:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”： * 协议相同 * 域名相同 * 端口相同 如果非同源，共有三种行为受到限制。 * Cookie LocalStorage 和 Ind">
+<meta property="og:updated_time" content="2018-03-30T10:41:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSONP">
-<meta name="twitter:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”：  协议相同 域名相同 端口相同  如果非同源，共有三种行为受到限制。  Cookie LocalStorage 和 IndexDB">
+<meta name="twitter:description" content="数据库是什么？只要能长久地存数据，就是数据库  文件系统是一种数据库 MySQL 是一种数据库   同源策略它是在1995年，由Netscape提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。 所谓”同源”指的是”三个相同”： * 协议相同 * 域名相同 * 端口相同 如果非同源，共有三种行为受到限制。 * Cookie LocalStorage 和 Ind">
 
 
 
@@ -338,24 +338,18 @@
 <hr>
 <h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
 <p>所谓”同源”指的是”三个相同”：</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>如果非同源，共有三种行为受到限制。</p>
-<ul>
-<li><code>Cookie</code> <code>LocalStorage</code> 和 <code>IndexDB</code> 无法读取。</li>
-<li><code>DOM</code> 无法获得。</li>
-<li><code>AJAX</code> 请求不能发送。</li>
-</ul>
-<p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
-<ul>
-<li><code>JSONP</code></li>
-<li><code>WebSocket</code></li>
-<li><code>CORS</code></li>
-</ul>
-<p>这里，我们主要讲 <code>JSONP</code>。</p>
+<pre><code>* 协议相同
+* 域名相同
+* 端口相同
+</code></pre><p>如果非同源，共有三种行为受到限制。</p>
+<pre><code>* Cookie LocalStorage 和 IndexDB 无法读取。
+* DOM 无法获得。
+* AJAX 请求不能发送。
+</code></pre><p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
+<pre><code>* JSONP
+* WebSocket
+* CORS
+</code></pre><p>这里，我们主要讲 <code>JSONP</code>。</p>
 <hr>
 <h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -490,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
