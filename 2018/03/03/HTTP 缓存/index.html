@@ -87,7 +87,7 @@
 <meta property="og:description" content="Cache-ControlCache-Control通用消息头被用于在 HTTP 请求和响应中通过指定指令来实现缓存机制。 注意：    首页不要设置缓存 如何使css js 加载速度加快？举例 node.js response.setHeader(&amp;apos;Cache-Control&amp;apos;, &amp;apos;max-age=30&amp;apos;)  // 表示当访问此网页后的 30s 内再次访问">
 <meta property="og:image" content="https://i.loli.net/2018/03/03/5a9ac12bcba07.png
 ">
-<meta property="og:updated_time" content="2018-03-29T07:33:56.000Z">
+<meta property="og:updated_time" content="2018-03-31T15:08:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP 缓存">
 <meta name="twitter:description" content="Cache-ControlCache-Control通用消息头被用于在 HTTP 请求和响应中通过指定指令来实现缓存机制。 注意：    首页不要设置缓存 如何使css js 加载速度加快？举例 node.js response.setHeader(&amp;apos;Cache-Control&amp;apos;, &amp;apos;max-age=30&amp;apos;)  // 表示当访问此网页后的 30s 内再次访问">
@@ -188,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -198,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -208,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -272,7 +272,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
@@ -293,7 +293,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -334,7 +334,7 @@
       
 
       
-        <h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a><code>Cache-Control</code></h4><p><code>Cache-Control</code>通用消息头被用于在 <code>HTTP</code> 请求和响应中通过指定指令来实现缓存机制。</p>
+        <h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a><code>Cache-Control</code></h3><p><code>Cache-Control</code>通用消息头被用于在 <code>HTTP</code> 请求和响应中通过指定指令来实现缓存机制。</p>
 <p><strong>注意：</strong>    首页不要设置缓存</p>
 <h5 id="如何使css-js-加载速度加快？"><a href="#如何使css-js-加载速度加快？" class="headerlink" title="如何使css js 加载速度加快？"></a>如何使<code>css</code> <code>js</code> 加载速度加快？</h5><p>举例 <code>node.js</code></p>
 <pre><code>response.setHeader(&apos;Cache-Control&apos;, &apos;max-age=30&apos;) 
@@ -344,7 +344,7 @@
 <li>更改 <code>HTML</code> 的 <code>URL</code>，跟之前不一样即可，比如加个随机数。</li>
 </ol>
 <hr>
-<h4 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a><code>Expire</code></h4><h5 id="Expire-和-Cache-Control-区别"><a href="#Expire-和-Cache-Control-区别" class="headerlink" title="Expire 和 Cache-Control 区别?"></a><code>Expire</code> 和 <code>Cache-Control</code> 区别?</h5><pre><code>* Expire 是指定了一个时间，在这个时间之后，HTTP 响应就过期。
+<h3 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a><code>Expire</code></h3><h5 id="Expire-和-Cache-Control-区别"><a href="#Expire-和-Cache-Control-区别" class="headerlink" title="Expire 和 Cache-Control 区别?"></a><code>Expire</code> 和 <code>Cache-Control</code> 区别?</h5><pre><code>* Expire 是指定了一个时间，在这个时间之后，HTTP 响应就过期。
 * Cache-Control 是指定一个时间范围，超过这个时间范围，HTTP 响应就过期。
 * Expire 是旧版缓存设置方法，Cache-Control 是新版缓存机制设置方法。
 </code></pre><blockquote>
@@ -366,7 +366,8 @@
 <pre><code>If-None-Match: &quot;686897696a7c876b7e&quot;
 </code></pre><p>客户端请求之后，服务器会比较客户端的<code>ETag</code>和当前版本资源的<code>ETag</code>。如果<code>ETag</code>值匹配，则意味着资源没有改变，服务器会返回<code>HTTP 304</code>的状态码。</p>
 <p>如果<code>ETag</code>的值不匹配，这就意味着资源很可能发生了变化，那么，一个完整的响应就会被返回。</p>
-<h4 id="last-Modified"><a href="#last-Modified" class="headerlink" title="last-Modified"></a><code>last-Modified</code></h4><p><strong>由于精确度比 <code>ETag</code> 要低，所以这是一个备用机制。</strong></p>
+<hr>
+<h3 id="last-Modified"><a href="#last-Modified" class="headerlink" title="last-Modified"></a><code>last-Modified</code></h3><p><strong>由于精确度比 <code>ETag</code> 要低，所以这是一个备用机制。</strong></p>
 <p>在浏览器第一次请求某一个 <code>URL</code> 时，服务器端的返回状态会是<code>200</code>，内容是你请求的资源，同时有一个 <code>Last-Modified</code> 的属性标记此文件在服务端最后被修改的时间，格式类似这样：</p>
 <pre><code>Last-Modified: Mon, 30 Nov 2015 23:21:37 GMT
 </code></pre><p>浏览器第二次请求此 <code>URL</code> 时，根据 <code>HTTP</code> 协议的规定，浏览器会向服务器传送 <code>If-Modified-Since</code> 报头，询问该时间之后文件是否有被修改过：</p>
@@ -464,10 +465,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -488,7 +489,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -499,7 +500,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -533,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使css-js-加载速度加快？"><span class="nav-number">1.1.</span> <span class="nav-text">如何使css js 加载速度加快？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何更新缓存？"><span class="nav-number">1.2.</span> <span class="nav-text">如何更新缓存？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Expire"><span class="nav-number">2.</span> <span class="nav-text">Expire</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expire-和-Cache-Control-区别"><span class="nav-number">2.1.</span> <span class="nav-text">Expire 和 Cache-Control 区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么优先使用-Cache-Control"><span class="nav-number">2.2.</span> <span class="nav-text">为什么优先使用 Cache-Control?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ETag"><span class="nav-number"></span> <span class="nav-text">ETag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MD5"><span class="nav-number">1.</span> <span class="nav-text">MD5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ETag-1"><span class="nav-number">2.</span> <span class="nav-text">ETag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#last-Modified"><span class="nav-number">3.</span> <span class="nav-text">last-Modified</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag-和-Cache-Control-区别"><span class="nav-number">3.1.</span> <span class="nav-text">ETag 和 Cache-Control 区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使css-js-加载速度加快？"><span class="nav-number">1.0.1.</span> <span class="nav-text">如何使css js 加载速度加快？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何更新缓存？"><span class="nav-number">1.0.2.</span> <span class="nav-text">如何更新缓存？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expire"><span class="nav-number">2.</span> <span class="nav-text">Expire</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expire-和-Cache-Control-区别"><span class="nav-number">2.0.1.</span> <span class="nav-text">Expire 和 Cache-Control 区别?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么优先使用-Cache-Control"><span class="nav-number">2.0.2.</span> <span class="nav-text">为什么优先使用 Cache-Control?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ETag"><span class="nav-number">3.</span> <span class="nav-text">ETag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MD5"><span class="nav-number">3.1.</span> <span class="nav-text">MD5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ETag-1"><span class="nav-number">3.2.</span> <span class="nav-text">ETag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#last-Modified"><span class="nav-number">4.</span> <span class="nav-text">last-Modified</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag-和-Cache-Control-区别"><span class="nav-number">4.0.1.</span> <span class="nav-text">ETag 和 Cache-Control 区别</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -563,7 +564,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
