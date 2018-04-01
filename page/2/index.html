@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,6 +224,195 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/03/LocalStorage、SessionStorage/" itemprop="url">LocalStorage、SessionStorage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
+                2018-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a><code>LocalStorage</code></h4><ul>
+<li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
+<li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
+</ul>
+<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
+<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
+<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
+<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
+<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
+<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
+<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
+</ol>
+<p>举例1</p>
+<pre><code>&lt;script&gt;
+    //读取
+    let a = localStorage.getItem(&apos;a&apos;)
+    if(!a){
+        a = 0
+    }else{
+        a = parseInt(a, 10) + 1
+    }
+    //存到本地
+    localStorage.setItem(&apos;a&apos;, a)
+&lt;/script&gt;
+</code></pre><p>举例2</p>
+<pre><code>&lt;script&gt;
+    //读取
+    let already = localStorage.getItem(&apos;已经提示了&apos;)
+    if(!already){
+        alert(&apos;你好，我们的网站改版了&apos;)
+        localStorage.setItem(&apos;已经提示了&apos;, true)
+    }
+&lt;/script&gt;
+</code></pre><h5 id="Cookie-和-LocalStorage的区别？"><a href="#Cookie-和-LocalStorage的区别？" class="headerlink" title="Cookie 和 LocalStorage的区别？"></a><code>Cookie</code> 和 <code>LocalStorage</code>的区别？</h5><pre><code>1. LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。而 Cookie 属于 HTTP 的一部分，会被附加在每个 HTTP 请求中。
+2. 一般来说，LocalStorage 最大存储量为 5MB ，Cookie 最大存储量为 4MB 。 
+3. Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。LocalStorage 是永久有效，除非用户清理缓存。
+</code></pre><hr>
+<h4 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a><code>SessionStorage</code></h4><h5 id="SessionStorage-和-LocalStorage-比较？"><a href="#SessionStorage-和-LocalStorage-比较？" class="headerlink" title="SessionStorage 和 LocalStorage 比较？"></a><code>SessionStorage</code> 和 <code>LocalStorage</code> 比较？</h5><p>相同点</p>
+<pre><code>* 都是用于客户端存储数据。
+* 存储数据的格式都是字符串形式。
+* 具有相同的 API 。
+</code></pre><p>不同点</p>
+<pre><code>* LocalStorage 永久有效，除非用户清理缓存。
+* SessionStorage 不是永久有效，当用户关闭浏览器窗口后，数据会被删除。
+* 相同浏览器的不同页面间可以共享相同的 LocalStorage （页面属于相同域名和端口），但不能共享 SessionStorage 的信息。
+
+//页面及标签页指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么可以共享 SessionStorage 。
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +456,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:14:42+08:00">
                 2018-03-02
@@ -288,7 +477,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -443,7 +632,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T16:03:39+08:00">
                 2018-02-28
@@ -464,7 +653,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -597,7 +786,7 @@ hexo deploy //部署
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-26T11:47:49+08:00">
                 2018-02-26
@@ -618,7 +807,7 @@ hexo deploy //部署
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -763,7 +952,7 @@ inline-grid ???
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T20:45:02+08:00">
                 2018-02-24
@@ -784,7 +973,7 @@ inline-grid ???
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1063,7 +1252,7 @@ Math.pow(2,3) // 8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-23T21:54:46+08:00">
                 2018-02-23
@@ -1084,7 +1273,7 @@ Math.pow(2,3) // 8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1314,7 +1503,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
                 2018-02-21
@@ -1335,7 +1524,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1465,7 +1654,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-20T17:13:10+08:00">
                 2018-02-20
@@ -1486,7 +1675,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1825,7 +2014,7 @@ a
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
                 2018-02-19
@@ -1846,7 +2035,7 @@ a
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2049,7 +2238,7 @@ a2() // 7
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T20:45:49+08:00">
                 2018-02-14
@@ -2070,7 +2259,7 @@ a2() // 7
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2272,171 +2461,6 @@ undefined + 1 // NaN
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/14/CSS 定位属性 position/" itemprop="url">CSS 定位属性 position</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
-                2018-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><code>position</code> 属性用于指定一个元素在文档中的定位方式。</p>
-<p>注意：<code>float</code>属性不可以和 <code>position</code> 属性共用。</p>
-</blockquote>
-<h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
-<h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
-<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><pre><code>* 相对于相对于最近的非 static 祖先元素定位移动，它会脱离文档流。
-* 当这样的祖先元素不存在时，则相对于 body 定位。
-* 当父元素被为 relative ，那 absolute 子元素将相对于其父元素定位。
-* 绝对定位的元素可以设置外边距，且不会与其他边距合并。
-</code></pre><h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
-<p>一张图说清楚上面四种值的用法区别，如下：</p>
-<p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
-"></p>
-<hr>
-<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。如下图：</p>
-<p><img src="https://i.loli.net/2018/02/14/5a8429cb73349.png
-"></p>
-<p>上图中 <code>child</code> 继承了 <code>parent</code> 的 <code>position</code>，都是相对于浏览器窗口定位，所以 <code>top</code> <code>left</code> 取等值时候位置一致。</p>
-<hr>
-<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>粘性定位是相对定位 <code>relative</code> 和固定定位 <code>fixed</code> 的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。粘性定位常用于页面滚动到一定程度时固定导航条的情况。</p>
-<pre><code>p{ position: sticky; top: 10px; }
-</code></pre><p>在 <code>viewport</code> 视口滚动到元素 <code>top &lt; 10px</code> 之前，元素为相对定位。之后，元素将固定在与顶部距离 <code>10px</code> 的位置，直到 <code>viewport</code> 视口回滚到阈值以下。    </p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2487,8 +2511,8 @@ undefined + 1 // NaN
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2499,7 +2523,7 @@ undefined + 1 // NaN
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2547,7 +2571,7 @@ undefined + 1 // NaN
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

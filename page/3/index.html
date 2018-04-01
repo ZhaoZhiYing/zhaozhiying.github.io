@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,6 +224,171 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/14/CSS 定位属性 position/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/14/CSS 定位属性 position/" itemprop="url">CSS 定位属性 position</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-14T15:03:50+08:00">
+                2018-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><code>position</code> 属性用于指定一个元素在文档中的定位方式。</p>
+<p>注意：<code>float</code>属性不可以和 <code>position</code> 属性共用。</p>
+</blockquote>
+<h5 id="static默认定位"><a href="#static默认定位" class="headerlink" title="static默认定位"></a><code>static</code>默认定位</h5><p>默认值。没有定位，元素出现在正常的流中，此时<code>top</code> <code>bottom</code> <code>left</code> <code>right</code> <code>z-index</code> 无效。如果不用定位属性，那么这个<code>position</code>就不用设置。</p>
+<h5 id="relative相对定位"><a href="#relative相对定位" class="headerlink" title="relative相对定位"></a><code>relative</code>相对定位</h5><p>相对于以前的位置移动，偏移前的位置保留不动。不会脱离文档流。</p>
+<h5 id="absolute绝对定位"><a href="#absolute绝对定位" class="headerlink" title="absolute绝对定位"></a><code>absolute</code>绝对定位</h5><pre><code>* 相对于相对于最近的非 static 祖先元素定位移动，它会脱离文档流。
+* 当这样的祖先元素不存在时，则相对于 body 定位。
+* 当父元素被为 relative ，那 absolute 子元素将相对于其父元素定位。
+* 绝对定位的元素可以设置外边距，且不会与其他边距合并。
+</code></pre><h5 id="fixed固定定位"><a href="#fixed固定定位" class="headerlink" title="fixed固定定位"></a><code>fixed</code>固定定位</h5><p>相对于浏览器窗口进行定位。元素的位置在屏幕滚动时不会改变。它会脱离文档流。应用于比如网页上的侧边栏和广告图。</p>
+<p>一张图说清楚上面四种值的用法区别，如下：</p>
+<p><img src="https://i.loli.net/2018/02/14/5a83f972f1307.png
+"></p>
+<hr>
+<h5 id="inherit继承定位"><a href="#inherit继承定位" class="headerlink" title="inherit继承定位"></a><code>inherit</code>继承定位</h5><p>继承父元素的 <code>position</code> 值。如下图：</p>
+<p><img src="https://i.loli.net/2018/02/14/5a8429cb73349.png
+"></p>
+<p>上图中 <code>child</code> 继承了 <code>parent</code> 的 <code>position</code>，都是相对于浏览器窗口定位，所以 <code>top</code> <code>left</code> 取等值时候位置一致。</p>
+<hr>
+<h5 id="sticky粘性定位"><a href="#sticky粘性定位" class="headerlink" title="sticky粘性定位"></a><code>sticky</code>粘性定位</h5><p>粘性定位是相对定位 <code>relative</code> 和固定定位 <code>fixed</code> 的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。粘性定位常用于页面滚动到一定程度时固定导航条的情况。</p>
+<pre><code>p{ position: sticky; top: 10px; }
+</code></pre><p>在 <code>viewport</code> 视口滚动到元素 <code>top &lt; 10px</code> 之前，元素为相对定位。之后，元素将固定在与顶部距离 <code>10px</code> 的位置，直到 <code>viewport</code> 视口回滚到阈值以下。    </p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +432,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T15:29:22+08:00">
                 2018-02-13
@@ -288,7 +453,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -452,7 +617,7 @@ input:optional //选择所有是可选项时的表单元素（没有设置 &quot
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-13T01:43:03+08:00">
                 2018-02-13
@@ -473,7 +638,7 @@ input:optional //选择所有是可选项时的表单元素（没有设置 &quot
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -683,7 +848,7 @@ perspective(n) 为 3D 转换元素定义透视视图。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-11T00:04:54+08:00">
                 2018-02-11
@@ -704,7 +869,7 @@ perspective(n) 为 3D 转换元素定义透视视图。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -858,7 +1023,7 @@ context.fillRect(10, 10, 50, 50)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-09T17:31:23+08:00">
                 2018-02-09
@@ -879,7 +1044,7 @@ context.fillRect(10, 10, 50, 50)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1021,7 +1186,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-05T09:29:27+08:00">
                 2018-02-05
@@ -1042,7 +1207,7 @@ p{font-size: 2rem} //32px
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1200,7 +1365,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
                 2018-02-03
@@ -1221,7 +1386,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1350,7 +1515,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T22:32:28+08:00">
                 2018-02-02
@@ -1371,7 +1536,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1516,7 +1681,7 @@ saveMessage (存储数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:26:59+08:00">
                 2018-01-30
@@ -1537,7 +1702,7 @@ saveMessage (存储数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1747,7 +1912,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T23:08:55+08:00">
                 2018-01-29
@@ -1768,7 +1933,7 @@ rejected: 意味着操作失败。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1880,188 +2045,6 @@ rejected: 意味着操作失败。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/JSONP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/25/JSONP/" itemprop="url">JSONP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T10:18:42+08:00">
-                2018-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="数据库是什么？"><a href="#数据库是什么？" class="headerlink" title="数据库是什么？"></a>数据库是什么？</h4><p>只要能长久地存数据，就是数据库</p>
-<ol>
-<li>文件系统是一种数据库</li>
-<li><code>MySQL</code> 是一种数据库</li>
-</ol>
-<hr>
-<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>它是在1995年，由<code>Netscape</code>提出的一个著名的安全策略，现在所有支持 <code>JavaScript</code> 的浏览器都会使用这个策略。</p>
-<p>所谓”同源”指的是”三个相同”：</p>
-<pre><code>* 协议相同
-* 域名相同
-* 端口相同
-</code></pre><p>如果非同源，共有三种行为受到限制。</p>
-<pre><code>* Cookie LocalStorage 和 IndexDB 无法读取。
-* DOM 无法获得。
-* AJAX 请求不能发送。
-</code></pre><p>同源政策规定，<code>AJAX</code>请求只能发给同源的网址，否则就报错。有三种方法规避这个限制。</p>
-<pre><code>* JSONP
-* WebSocket
-* CORS
-</code></pre><p>这里，我们主要讲 <code>JSONP</code>。</p>
-<hr>
-<h4 id="局部刷新怎么做？"><a href="#局部刷新怎么做？" class="headerlink" title="局部刷新怎么做？"></a>局部刷新怎么做？</h4><p>有没有想过，不返回<code>HTML</code>，返回<code>JS</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//方案一：用 image 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let image = document.createElement(&apos;img&apos;)</div><div class="line">    image.src = &apos;/pay&apos;</div><div class="line">    image.onload = function()&#123; // 状态码是 200~299 则表示成功</div><div class="line">        alert(&apos;成功&apos;)</div><div class="line">    &#125;</div><div class="line">    image.onload = function()&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        alert(&apos;失败&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//方案二：用 script 造 get 请求</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    script.src = &apos;/pay&apos;</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(&apos;amount.innerText = &apos; + amount)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>无刷新，局部更新页面内容，这种技术叫做<code>SRJ</code> - <code>Server Rendered JavaScript</code></p>
-<hr>
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a><code>JSONP</code></h4><h5 id="什么是-JSONP"><a href="#什么是-JSONP" class="headerlink" title="什么是 JSONP?"></a>什么是 <code>JSONP</code>?</h5><ul>
-<li><code>JSONP</code>是<code>JSON with Padding</code>的简称。</li>
-<li><code>JSONP</code> 是服务器与客户端跨源通信的常用方法。是指动态创建 <code>script</code>，并调用我给你的<code>callback</code>技术。详细过程如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 请求方：frank.com 的前端程序员（浏览器）</div><div class="line">* 响应方：jack.com 的后端程序员（服务器）</div><div class="line"></div><div class="line">1. 请求方创建 script，src 指向响应方，同时传一个查询参数 ?callbackName=xxx ，xxx 是随机数。</div><div class="line">2. 响应方根据查询参数 callbackName ，构造形式如 xxx.call(undefined, &apos;你要的数据&apos;) 这样的响应。</div><div class="line">3. 浏览器接收到响应，就会执行 xxx.call(undefined, &apos;你要的数据&apos;)。 </div><div class="line">4. 那么请求方就知道了他要的数据。</div></pre></td></tr></table></figure>
-<p>约定</p>
-<ul>
-<li><code>callbackName</code> 约定叫做 <code>callback</code> </li>
-<li><code>xxx</code> 是随机数，比如：<code>&#39;frank&#39;+ parseInt(Math.random() * 100000,10)</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//方案三：JSONP</div><div class="line">button.addEventListener(&apos;click&apos;, (e)=&gt;&#123;</div><div class="line">    let script = document.createElement(&apos;script&apos;)</div><div class="line">    let functionName = &apos;frank&apos;+ parseInt(Math.random()*10000000 ,10)</div><div class="line">    window[functionName] = function()&#123;  // 每次请求之前搞出一个随机的函数</div><div class="line">        amount.innerText = amount.innerText - 0 - 1</div><div class="line">    &#125;</div><div class="line">    script.src = &apos;/pay?callback=&apos; + functionName</div><div class="line">    document.body.appendChild(script)</div><div class="line">    script.onload = function(e)&#123; // 状态码是 200~299 则表示成功</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">    script.onload = function(e)&#123; // 状态码大于等于 400 则表示失败</div><div class="line">        e.currentTarget.remove()</div><div class="line">        delete window[functionName] // 请求完了就干掉这个随机函数</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"> //上面代码用 jQuery 写</div><div class="line"> $.ajax(&#123;</div><div class="line"> url: &quot;http://jack.com:8002/pay&quot;,</div><div class="line"> dataType: &quot;jsonp&quot;,</div><div class="line">	 success: function( response ) &#123;</div><div class="line">	     if(response === &apos;success&apos;)&#123;</div><div class="line">	    	 amount.innerText = amount.innerText - 1</div><div class="line">	     &#125;</div><div class="line">	 &#125;</div><div class="line"> &#125;)</div><div class="line"> $.jsonp()</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//后端代码</div><div class="line">...</div><div class="line">if (path === &apos;/pay&apos;)&#123;</div><div class="line">    let amount = fs.readFileSync(&apos;./db&apos;, &apos;utf8&apos;)</div><div class="line">    amount -= 1</div><div class="line">    fs.writeFileSync(&apos;./db&apos;, amount)</div><div class="line">    let callbackName = query.callback</div><div class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;application/javascript&apos;)</div><div class="line">    response.write(`</div><div class="line">        $&#123;callbackName&#125;.call(undefined, &apos;success&apos;)</div><div class="line">    `)</div><div class="line">    response.end()</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<h5 id="JSONP-为什么不支持-POST-请求？"><a href="#JSONP-为什么不支持-POST-请求？" class="headerlink" title="JSONP 为什么不支持 POST 请求？"></a><code>JSONP</code> 为什么不支持 <code>POST</code> 请求？</h5><p><code>JSONP</code>是通过动态创建 <code>script</code> 实现的，<code>script</code>标签的<code>src</code>属性没有跨域的限制。如果用<code>post</code>，就会检查是否跨域。</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2112,8 +2095,8 @@ rejected: 意味着操作失败。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2124,7 +2107,7 @@ rejected: 意味着操作失败。
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2172,7 +2155,7 @@ rejected: 意味着操作失败。
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

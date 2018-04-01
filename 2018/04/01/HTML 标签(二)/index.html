@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML 标签(二)">
+<meta property="og:url" content="http://yoursite.com/2018/04/01/HTML 标签(二)/index.html">
+<meta property="og:site_name" content="Zhao Zhiying">
+<meta property="og:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
+<meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
+<meta property="og:updated_time" content="2018-04-01T13:02:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML 标签(二)">
+<meta name="twitter:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
+<meta name="twitter:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/01/HTML 标签(二)/"/>
+
+
+
+
+
+  <title>HTML 标签(二) | Zhao Zhiying</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhao Zhiying</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/HTML 标签(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML 标签(二)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:00:06+08:00">
+                2018-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="HTML-表单标签"><a href="#HTML-表单标签" class="headerlink" title="HTML 表单标签"></a><code>HTML</code> 表单标签</h4><pre><code>* &lt;form&gt; //定义供用户输入的表单
+
+//&lt;form&gt; 元素包含一个或多个如下的表单元素
+* &lt;input&gt; //定义输入域
+* &lt;textarea&gt; //定义文本域 (一个多行的输入控件)
+* &lt;label&gt; //定义了 &lt;input&gt; 元素的标签，一般为输入标题
+* &lt;fieldset&gt; //定义了一组相关的表单元素，并使用外框包含起来
+* &lt;legend&gt; //定义了 &lt;fieldset&gt; 元素的标题
+* &lt;select&gt; //定义了下拉选项列表
+* &lt;optgroup&gt; //定义选项组
+* &lt;option&gt;v定义下拉列表中的选项
+* &lt;button&gt; //定义一个点击按钮
+
+//HTML5 新标签
+* &lt;datalist&gt; //指定一个预先定义的输入控件选项列表
+* &lt;keygen&gt; //定义了表单的密钥对生成器字段
+* &lt;output&gt; //定义一个计算结果
+</code></pre><h5 id="lt-form-gt"><a href="#lt-form-gt" class="headerlink" title="&lt;form&gt;"></a><code>&lt;form&gt;</code></h5><p>一个简单的 <code>HTML</code> 表单，包含两个文本输入框和一个提交按钮。</p>
+<p>举例 </p>
+<pre><code>&lt;form action=&quot;demo_form.asp&quot;&gt;
+  First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+  Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>注意事项：</p>
+<pre><code>1.target 属性基本同 a 标签
+2.如果 form 表单里没有提交按钮，就无法提交
+3.form 标签主要用来发起 post 请求
+4.name 属性值显示在 HTTP 请求 第四部分
+     //主要使用 POST 请求，参数放到第四部分 from datas 。
+     //使用 GET 请求时，参数默认放到查询参数。
+
+// a 标签和 form 标签都是用来发请求，a 标签使用 get，form 标签主要使用 post。
+</code></pre><h4 id="lt-input-gt"><a href="#lt-input-gt" class="headerlink" title="&lt;input&gt;"></a><code>&lt;input&gt;</code></h4><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
+<p>属性</p>
+<pre><code>* accept //规定通过文件上传来提交的文件的类型。 (只针对type=&quot;file&quot;)
+    audio/* //声音文件。
+    video/* //视频文件。
+    image/* //图像文件。
+    MIME_type //一个有效的 MIME 类型
+* checked //规定在页面加载时应该被预先选定的 &lt;input&gt; 元素。 (只针对 type=&quot;checkbox&quot; 和 type=&quot;radio&quot;)
+    //checked 属性也可以在页面加载后，通过 JavaScript 代码进行设置。
+* disabled //规定禁用的 &lt;input&gt; 元素。
+* name //规定 &lt;input&gt; 元素的名称。
+    //name 属性用于在 JavaScript 中引用元素，或者在表单提交后引用表单数据。
+* maxlength //规定 &lt;input&gt; 元素中允许的最大字符数。
+* size //规定以字符数计的 &lt;input&gt; 元素的可见宽度。
+* readonly //规定输入字段是只读的。
+* alt //定义图像输入的替代文本。 (只针对type=&quot;image&quot;)
+* src //规定显示为提交按钮的图像的 URL。 (只针对 type=&quot;image&quot;)
+* value //指定 &lt;input&gt; 元素初始（默认）值。
+    //value 属性对于 &lt;input type=&quot;checkbox&quot;&gt; 和 &lt;input type=&quot;radio&quot;&gt; 是必需的。
+    //value 属性不适用于 &lt;input type=&quot;file&quot;&gt;
+
+
+// HTML5 中的新属性
+* autocomplete //规定 &lt;input&gt; 元素输入字段是否应该启用自动完成功能。
+* autofocus //属性规定当页面加载时 &lt;input&gt; 元素应该自动获得焦点。
+* form //规定 &lt;input&gt; 元素所属的一个或多个表单。
+* required //规定必需在提交表单之前填写输入字段。
+* placeholder //规定可描述输入 &lt;input&gt; 字段预期值的简短的提示信息 。
+* multiple //规定允许用户输入到 &lt;input&gt; 元素的多个值。
+* min //规定 &lt;input&gt; 元素的最小值。
+* max //规定 &lt;input&gt; 元素的最大值。
+* width //width 属性规定 &lt;input&gt; 元素的宽度。 (只针对type=&quot;image&quot;)
+* height //规定 &lt;input&gt;元素的高度(只针对type=&quot;image&quot;)。
+* step //规定 &lt;input&gt; 元素的合法数字间隔。
+...
+</code></pre><p><code>type</code>属性值</p>
+<pre><code>* button //定义可点击的按钮。
+* checkbox //定义复选框。
+* file //定义文件选择字段和 &quot;浏览...&quot; 按钮，供文件上传。 
+* hidden //定义隐藏输入字段。 
+* image //定义图像作为提交按钮。 
+* password //定义密码字段（字段中的字符会被遮蔽）。 
+* radio //定义单选按钮。 
+* reset //定义重置按钮（重置所有的表单值为默认值）。 
+* submit //定义提交按钮。 
+* text //默认。定义一个单行的文本字段（默认宽度为 20 个字符）。 
+
+// HTML5 中的新属性值
+* color //定义拾色器。 
+* date //定义 date 控件（包括年、月、日，不包括时间）。 
+* datetime //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。 
+* datetime-local //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。 
+* email //定义用于 e-mail 地址的字段。
+* month //定义 month 和 year 控件（不带时区）。 
+* number //定义用于输入数字的字段。  
+* range //定义用于精确值不重要的输入数字的控件（比如 slider 控件）。 
+* search //定义用于输入搜索字符串的文本字段。
+* tel //定义用于输入电话号码的字段。 
+* time //定义用于输入时间的控件（不带时区）。
+* url //定义用于输入 URL 的字段。 
+* week //定义 week 和 year 控件（不带时区）。
+
+//如果一个 form 只有一个按钮 button，没写 type，自动升级为 submit。submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
+</code></pre><h4 id="lt-label-gt"><a href="#lt-label-gt" class="headerlink" title="&lt;label&gt;"></a><code>&lt;label&gt;</code></h4><p><code>&lt;label&gt;</code> 标签为 <code>input</code> 元素定义标注（标记）。</p>
+<p>属性</p>
+<pre><code>* for //规定 label 与哪个表单元素绑定。值为元素的 id。
+
+// HTML5 新属性
+* form //规定 label 字段所属的一个或多个表单。值为 form 的 id。
+</code></pre><p>举例<code>for</code></p>
+<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
+  &lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
+  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>举例<code>form</code> </p>
+<pre><code>&lt;form action=&quot;demo_form.php&quot; id=&quot;form1&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
+  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+
+&lt;label for=&quot;male&quot; form=&quot;form1&quot;&gt;Male&lt;/label&gt;        
+</code></pre><p>更聪明的写法：用<code>&lt;label&gt;</code> 标签包裹<code>&lt;input&gt;</code>标签，不需要<code>for</code>和<code>name</code>。 </p>
+<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
+      &lt;label&gt;Male
+      &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
+    &lt;/label&gt;
+    &lt;label&gt;Female
+        &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
+    &lt;/label&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><h4 id="lt-select-gt-lt-option-gt-lt-optgroup-gt"><a href="#lt-select-gt-lt-option-gt-lt-optgroup-gt" class="headerlink" title="&lt;select&gt; &lt;option&gt; &lt;optgroup&gt;"></a><code>&lt;select&gt;</code> <code>&lt;option&gt;</code> <code>&lt;optgroup&gt;</code></h4><p>属性</p>
+<pre><code>*disabled //规定禁用该选项组。
+*label //为选项组规定描述。
+</code></pre><p>举例：实现两个带有 <code>label</code> 的选项组。 </p>
+<pre><code>&lt;select&gt;
+  &lt;optgroup label=&quot;Swedish Cars&quot;&gt;
+    &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+    &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;German Cars&quot;&gt;
+    &lt;option value=&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;
+    &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre><h4 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h4><p>输入多行文本.通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
+<pre><code>&lt;textarea rows=&quot;10&quot; cols=&quot;30&quot;&gt;
+我是一个文本框。 
+&lt;/textarea&gt;
+</code></pre><hr>
+<h3 id="HTML-表格标签"><a href="#HTML-表格标签" class="headerlink" title="HTML 表格标签"></a><code>HTML</code> 表格标签</h3><h4 id="lt-table-gt"><a href="#lt-table-gt" class="headerlink" title="&lt;table&gt;"></a><code>&lt;table&gt;</code></h4><p>一个简单的 HTML 表格，包含两列两行：</p>
+<pre><code>tr(table row)元素定义表格行
+th(table head)元素定义表头
+td(table data)元素定义表格单元(数据)
+</code></pre><p>属性</p>
+<pre><code>在 HTML5 中，仅支持 &quot;border&quot; 属性，并且只允许使用值 &quot;1&quot; 或 &quot;&quot;。
+</code></pre><p>举例</p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Month&lt;/th&gt;
+        &lt;th&gt;Savings&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;January&lt;/td&gt;
+        &lt;td&gt;$100&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
+<h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
+* &lt;col&gt; 标签规定了 &lt;colgroup&gt; 元素内部的每一列的列属性。
+</code></pre><p>属性</p>
+<pre><code>* span //在 &lt;colgroup&gt; 中，规定列组应该横跨的列数。
+    //在 &lt;col&gt; 中，指规定 &lt;col&gt; 元素应该横跨的列数。
+
+//若在 &lt;colgroup&gt; 中嵌套了 &lt;col&gt; 元素则应该避免在 &lt;colgroup&gt; 中使用 &lt;col&gt; 标签属性。
+//这是因为属于嵌套的 &lt;col&gt; 元素的 span 标签属性将覆盖 &lt;colgroup&gt; 元素中的标签属性。    
+</code></pre><p>举例</p>
+<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/30/JSON/" rel="next" title="JSON">
+                <i class="fa fa-chevron-left"></i> JSON
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zhao Zhiying</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML-表单标签"><span class="nav-number">1.</span> <span class="nav-text">HTML 表单标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-form-gt"><span class="nav-number">1.1.</span> <span class="nav-text"><form></span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-input-gt"><span class="nav-number">2.</span> <span class="nav-text"><input></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-label-gt"><span class="nav-number">3.</span> <span class="nav-text"><label></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-select-gt-lt-option-gt-lt-optgroup-gt"><span class="nav-number">4.</span> <span class="nav-text"><select> <option> <optgroup></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-textarea-gt-标签"><span class="nav-number">5.</span> <span class="nav-text"><textarea>标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-表格标签"><span class="nav-number"></span> <span class="nav-text">HTML 表格标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-table-gt"><span class="nav-number">1.</span> <span class="nav-text"><table></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-caption-gt"><span class="nav-number">2.</span> <span class="nav-text"><caption></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-colgroup-gt-lt-col-gt"><span class="nav-number">3.</span> <span class="nav-text"><colgroup> <col></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhao Zhiying</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

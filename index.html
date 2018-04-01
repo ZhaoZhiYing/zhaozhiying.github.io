@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,6 +224,302 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/HTML 标签(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/01/HTML 标签(二)/" itemprop="url">HTML 标签(二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:00:06+08:00">
+                2018-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="HTML-表单标签"><a href="#HTML-表单标签" class="headerlink" title="HTML 表单标签"></a><code>HTML</code> 表单标签</h4><pre><code>* &lt;form&gt; //定义供用户输入的表单
+
+//&lt;form&gt; 元素包含一个或多个如下的表单元素
+* &lt;input&gt; //定义输入域
+* &lt;textarea&gt; //定义文本域 (一个多行的输入控件)
+* &lt;label&gt; //定义了 &lt;input&gt; 元素的标签，一般为输入标题
+* &lt;fieldset&gt; //定义了一组相关的表单元素，并使用外框包含起来
+* &lt;legend&gt; //定义了 &lt;fieldset&gt; 元素的标题
+* &lt;select&gt; //定义了下拉选项列表
+* &lt;optgroup&gt; //定义选项组
+* &lt;option&gt;v定义下拉列表中的选项
+* &lt;button&gt; //定义一个点击按钮
+
+//HTML5 新标签
+* &lt;datalist&gt; //指定一个预先定义的输入控件选项列表
+* &lt;keygen&gt; //定义了表单的密钥对生成器字段
+* &lt;output&gt; //定义一个计算结果
+</code></pre><h5 id="lt-form-gt"><a href="#lt-form-gt" class="headerlink" title="&lt;form&gt;"></a><code>&lt;form&gt;</code></h5><p>一个简单的 <code>HTML</code> 表单，包含两个文本输入框和一个提交按钮。</p>
+<p>举例 </p>
+<pre><code>&lt;form action=&quot;demo_form.asp&quot;&gt;
+  First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+  Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>注意事项：</p>
+<pre><code>1.target 属性基本同 a 标签
+2.如果 form 表单里没有提交按钮，就无法提交
+3.form 标签主要用来发起 post 请求
+4.name 属性值显示在 HTTP 请求 第四部分
+     //主要使用 POST 请求，参数放到第四部分 from datas 。
+     //使用 GET 请求时，参数默认放到查询参数。
+
+// a 标签和 form 标签都是用来发请求，a 标签使用 get，form 标签主要使用 post。
+</code></pre><h4 id="lt-input-gt"><a href="#lt-input-gt" class="headerlink" title="&lt;input&gt;"></a><code>&lt;input&gt;</code></h4><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
+<p>属性</p>
+<pre><code>* accept //规定通过文件上传来提交的文件的类型。 (只针对type=&quot;file&quot;)
+    audio/* //声音文件。
+    video/* //视频文件。
+    image/* //图像文件。
+    MIME_type //一个有效的 MIME 类型
+* checked //规定在页面加载时应该被预先选定的 &lt;input&gt; 元素。 (只针对 type=&quot;checkbox&quot; 和 type=&quot;radio&quot;)
+    //checked 属性也可以在页面加载后，通过 JavaScript 代码进行设置。
+* disabled //规定禁用的 &lt;input&gt; 元素。
+* name //规定 &lt;input&gt; 元素的名称。
+    //name 属性用于在 JavaScript 中引用元素，或者在表单提交后引用表单数据。
+* maxlength //规定 &lt;input&gt; 元素中允许的最大字符数。
+* size //规定以字符数计的 &lt;input&gt; 元素的可见宽度。
+* readonly //规定输入字段是只读的。
+* alt //定义图像输入的替代文本。 (只针对type=&quot;image&quot;)
+* src //规定显示为提交按钮的图像的 URL。 (只针对 type=&quot;image&quot;)
+* value //指定 &lt;input&gt; 元素初始（默认）值。
+    //value 属性对于 &lt;input type=&quot;checkbox&quot;&gt; 和 &lt;input type=&quot;radio&quot;&gt; 是必需的。
+    //value 属性不适用于 &lt;input type=&quot;file&quot;&gt;
+
+
+// HTML5 中的新属性
+* autocomplete //规定 &lt;input&gt; 元素输入字段是否应该启用自动完成功能。
+* autofocus //属性规定当页面加载时 &lt;input&gt; 元素应该自动获得焦点。
+* form //规定 &lt;input&gt; 元素所属的一个或多个表单。
+* required //规定必需在提交表单之前填写输入字段。
+* placeholder //规定可描述输入 &lt;input&gt; 字段预期值的简短的提示信息 。
+* multiple //规定允许用户输入到 &lt;input&gt; 元素的多个值。
+* min //规定 &lt;input&gt; 元素的最小值。
+* max //规定 &lt;input&gt; 元素的最大值。
+* width //width 属性规定 &lt;input&gt; 元素的宽度。 (只针对type=&quot;image&quot;)
+* height //规定 &lt;input&gt;元素的高度(只针对type=&quot;image&quot;)。
+* step //规定 &lt;input&gt; 元素的合法数字间隔。
+...
+</code></pre><p><code>type</code>属性值</p>
+<pre><code>* button //定义可点击的按钮。
+* checkbox //定义复选框。
+* file //定义文件选择字段和 &quot;浏览...&quot; 按钮，供文件上传。 
+* hidden //定义隐藏输入字段。 
+* image //定义图像作为提交按钮。 
+* password //定义密码字段（字段中的字符会被遮蔽）。 
+* radio //定义单选按钮。 
+* reset //定义重置按钮（重置所有的表单值为默认值）。 
+* submit //定义提交按钮。 
+* text //默认。定义一个单行的文本字段（默认宽度为 20 个字符）。 
+
+// HTML5 中的新属性值
+* color //定义拾色器。 
+* date //定义 date 控件（包括年、月、日，不包括时间）。 
+* datetime //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。 
+* datetime-local //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。 
+* email //定义用于 e-mail 地址的字段。
+* month //定义 month 和 year 控件（不带时区）。 
+* number //定义用于输入数字的字段。  
+* range //定义用于精确值不重要的输入数字的控件（比如 slider 控件）。 
+* search //定义用于输入搜索字符串的文本字段。
+* tel //定义用于输入电话号码的字段。 
+* time //定义用于输入时间的控件（不带时区）。
+* url //定义用于输入 URL 的字段。 
+* week //定义 week 和 year 控件（不带时区）。
+
+//如果一个 form 只有一个按钮 button，没写 type，自动升级为 submit。submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
+</code></pre><h4 id="lt-label-gt"><a href="#lt-label-gt" class="headerlink" title="&lt;label&gt;"></a><code>&lt;label&gt;</code></h4><p><code>&lt;label&gt;</code> 标签为 <code>input</code> 元素定义标注（标记）。</p>
+<p>属性</p>
+<pre><code>* for //规定 label 与哪个表单元素绑定。值为元素的 id。
+
+// HTML5 新属性
+* form //规定 label 字段所属的一个或多个表单。值为 form 的 id。
+</code></pre><p>举例<code>for</code></p>
+<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
+  &lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
+  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>举例<code>form</code> </p>
+<pre><code>&lt;form action=&quot;demo_form.php&quot; id=&quot;form1&quot;&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
+  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+
+&lt;label for=&quot;male&quot; form=&quot;form1&quot;&gt;Male&lt;/label&gt;        
+</code></pre><p>更聪明的写法：用<code>&lt;label&gt;</code> 标签包裹<code>&lt;input&gt;</code>标签，不需要<code>for</code>和<code>name</code>。 </p>
+<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
+      &lt;label&gt;Male
+      &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
+    &lt;/label&gt;
+    &lt;label&gt;Female
+        &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
+    &lt;/label&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+</code></pre><h4 id="lt-select-gt-lt-option-gt-lt-optgroup-gt"><a href="#lt-select-gt-lt-option-gt-lt-optgroup-gt" class="headerlink" title="&lt;select&gt; &lt;option&gt; &lt;optgroup&gt;"></a><code>&lt;select&gt;</code> <code>&lt;option&gt;</code> <code>&lt;optgroup&gt;</code></h4><p>属性</p>
+<pre><code>*disabled //规定禁用该选项组。
+*label //为选项组规定描述。
+</code></pre><p>举例：实现两个带有 <code>label</code> 的选项组。 </p>
+<pre><code>&lt;select&gt;
+  &lt;optgroup label=&quot;Swedish Cars&quot;&gt;
+    &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
+    &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;German Cars&quot;&gt;
+    &lt;option value=&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;
+    &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre><h4 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h4><p>输入多行文本.通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
+<pre><code>&lt;textarea rows=&quot;10&quot; cols=&quot;30&quot;&gt;
+我是一个文本框。 
+&lt;/textarea&gt;
+</code></pre><hr>
+<h3 id="HTML-表格标签"><a href="#HTML-表格标签" class="headerlink" title="HTML 表格标签"></a><code>HTML</code> 表格标签</h3><h4 id="lt-table-gt"><a href="#lt-table-gt" class="headerlink" title="&lt;table&gt;"></a><code>&lt;table&gt;</code></h4><p>一个简单的 HTML 表格，包含两列两行：</p>
+<pre><code>tr(table row)元素定义表格行
+th(table head)元素定义表头
+td(table data)元素定义表格单元(数据)
+</code></pre><p>属性</p>
+<pre><code>在 HTML5 中，仅支持 &quot;border&quot; 属性，并且只允许使用值 &quot;1&quot; 或 &quot;&quot;。
+</code></pre><p>举例</p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Month&lt;/th&gt;
+        &lt;th&gt;Savings&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;January&lt;/td&gt;
+        &lt;td&gt;$100&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
+<h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
+* &lt;col&gt; 标签规定了 &lt;colgroup&gt; 元素内部的每一列的列属性。
+</code></pre><p>属性</p>
+<pre><code>* span //在 &lt;colgroup&gt; 中，规定列组应该横跨的列数。
+    //在 &lt;col&gt; 中，指规定 &lt;col&gt; 元素应该横跨的列数。
+
+//若在 &lt;colgroup&gt; 中嵌套了 &lt;col&gt; 元素则应该避免在 &lt;colgroup&gt; 中使用 &lt;col&gt; 标签属性。
+//这是因为属于嵌套的 &lt;col&gt; 元素的 span 标签属性将覆盖 &lt;colgroup&gt; 元素中的标签属性。    
+</code></pre><p>举例</p>
+<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +563,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:49:42+08:00">
                 2018-03-30
@@ -288,7 +584,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -461,7 +757,7 @@ space //可选，文本添加缩进、空格和换行符。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:32:17+08:00">
                 2018-03-30
@@ -482,7 +778,7 @@ space //可选，文本添加缩进、空格和换行符。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -650,7 +946,7 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T19:13:40+08:00">
                 2018-03-27
@@ -671,7 +967,7 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -903,7 +1199,7 @@ sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:42:38+08:00">
                 2018-03-20
@@ -924,7 +1220,7 @@ sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1133,7 +1429,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:33:56+08:00">
                 2018-03-19
@@ -1154,7 +1450,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1287,7 +1583,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:22:22+08:00">
                 2018-03-19
@@ -1308,7 +1604,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1458,7 +1754,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
                 2018-03-16
@@ -1479,7 +1775,7 @@ hexo -v //检测 hexo
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1786,7 +2082,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T00:16:14+08:00">
                 2018-03-12
@@ -1807,7 +2103,7 @@ $(&quot;button&quot;).click(function(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1850,184 +2146,7 @@ $(&quot;button&quot;).click(function(){
       
         
           
-            <h4 id="HTML-表单标签"><a href="#HTML-表单标签" class="headerlink" title="HTML 表单标签"></a><code>HTML</code> 表单标签</h4><pre><code>* &lt;form&gt; //定义供用户输入的表单
-
-//&lt;form&gt; 元素包含一个或多个如下的表单元素
-* &lt;input&gt; //定义输入域
-* &lt;textarea&gt; //定义文本域 (一个多行的输入控件)
-* &lt;label&gt; //定义了 &lt;input&gt; 元素的标签，一般为输入标题
-* &lt;fieldset&gt; //定义了一组相关的表单元素，并使用外框包含起来
-* &lt;legend&gt; //定义了 &lt;fieldset&gt; 元素的标题
-* &lt;select&gt; //定义了下拉选项列表
-* &lt;optgroup&gt; //定义选项组
-* &lt;option&gt;v定义下拉列表中的选项
-* &lt;button&gt; //定义一个点击按钮
-
-//HTML5 新标签
-* &lt;datalist&gt; //指定一个预先定义的输入控件选项列表
-* &lt;keygen&gt; //定义了表单的密钥对生成器字段
-* &lt;output&gt; //定义一个计算结果
-</code></pre><h5 id="lt-form-gt"><a href="#lt-form-gt" class="headerlink" title="&lt;form&gt;"></a><code>&lt;form&gt;</code></h5><p>一个简单的 <code>HTML</code> 表单，包含两个文本输入框和一个提交按钮。</p>
-<p>举例 </p>
-<pre><code>&lt;form action=&quot;demo_form.asp&quot;&gt;
-  First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
-  Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;
-  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-</code></pre><p>注意事项：</p>
-<pre><code>1.target 属性基本同 a 标签
-2.如果 form 表单里没有提交按钮，就无法提交
-3.form 标签主要用来发起 post 请求
-4.name 属性值显示在 HTTP 请求 第四部分
-     //主要使用 POST 请求，参数放到第四部分 from datas 。
-     //使用 GET 请求时，参数默认放到查询参数。
-
-// a 标签和 form 标签都是用来发请求，a 标签使用 get，form 标签主要使用 post。
-</code></pre><h4 id="lt-input-gt"><a href="#lt-input-gt" class="headerlink" title="&lt;input&gt;"></a><code>&lt;input&gt;</code></h4><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
-<p>属性</p>
-<pre><code>* accept //规定通过文件上传来提交的文件的类型。 (只针对type=&quot;file&quot;)
-    audio/* //声音文件。
-    video/* //视频文件。
-    image/* //图像文件。
-    MIME_type //一个有效的 MIME 类型
-* checked //规定在页面加载时应该被预先选定的 &lt;input&gt; 元素。 (只针对 type=&quot;checkbox&quot; 和 type=&quot;radio&quot;)
-    //checked 属性也可以在页面加载后，通过 JavaScript 代码进行设置。
-* disabled //规定禁用的 &lt;input&gt; 元素。
-* name //规定 &lt;input&gt; 元素的名称。
-    //name 属性用于在 JavaScript 中引用元素，或者在表单提交后引用表单数据。
-* maxlength //规定 &lt;input&gt; 元素中允许的最大字符数。
-* size //规定以字符数计的 &lt;input&gt; 元素的可见宽度。
-* readonly //规定输入字段是只读的。
-* alt //定义图像输入的替代文本。 (只针对type=&quot;image&quot;)
-* src //规定显示为提交按钮的图像的 URL。 (只针对 type=&quot;image&quot;)
-* value //指定 &lt;input&gt; 元素初始（默认）值。
-    //value 属性对于 &lt;input type=&quot;checkbox&quot;&gt; 和 &lt;input type=&quot;radio&quot;&gt; 是必需的。
-    //value 属性不适用于 &lt;input type=&quot;file&quot;&gt;
-
-
-// HTML5 中的新属性
-* autocomplete //规定 &lt;input&gt; 元素输入字段是否应该启用自动完成功能。
-* autofocus //属性规定当页面加载时 &lt;input&gt; 元素应该自动获得焦点。
-* form //规定 &lt;input&gt; 元素所属的一个或多个表单。
-* required //规定必需在提交表单之前填写输入字段。
-* placeholder //规定可描述输入 &lt;input&gt; 字段预期值的简短的提示信息 。
-* multiple //规定允许用户输入到 &lt;input&gt; 元素的多个值。
-* min //规定 &lt;input&gt; 元素的最小值。
-* max //规定 &lt;input&gt; 元素的最大值。
-* width //width 属性规定 &lt;input&gt; 元素的宽度。 (只针对type=&quot;image&quot;)
-* height //规定 &lt;input&gt;元素的高度(只针对type=&quot;image&quot;)。
-* step //规定 &lt;input&gt; 元素的合法数字间隔。
-...
-</code></pre><p><code>type</code>属性值</p>
-<pre><code>* button //定义可点击的按钮。
-* checkbox //定义复选框。
-* file //定义文件选择字段和 &quot;浏览...&quot; 按钮，供文件上传。 
-* hidden //定义隐藏输入字段。 
-* image //定义图像作为提交按钮。 
-* password //定义密码字段（字段中的字符会被遮蔽）。 
-* radio //定义单选按钮。 
-* reset //定义重置按钮（重置所有的表单值为默认值）。 
-* submit //定义提交按钮。 
-* text //默认。定义一个单行的文本字段（默认宽度为 20 个字符）。 
-
-// HTML5 中的新属性值
-* color //定义拾色器。 
-* date //定义 date 控件（包括年、月、日，不包括时间）。 
-* datetime //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。 
-* datetime-local //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。 
-* email //定义用于 e-mail 地址的字段。
-* month //定义 month 和 year 控件（不带时区）。 
-* number //定义用于输入数字的字段。  
-* range //定义用于精确值不重要的输入数字的控件（比如 slider 控件）。 
-* search //定义用于输入搜索字符串的文本字段。
-* tel //定义用于输入电话号码的字段。 
-* time //定义用于输入时间的控件（不带时区）。
-* url //定义用于输入 URL 的字段。 
-* week //定义 week 和 year 控件（不带时区）。
-
-//如果一个 form 只有一个按钮 button，没写 type，自动升级为 submit。submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
-</code></pre><h4 id="lt-label-gt"><a href="#lt-label-gt" class="headerlink" title="&lt;label&gt;"></a><code>&lt;label&gt;</code></h4><p><code>&lt;label&gt;</code> 标签为 <code>input</code> 元素定义标注（标记）。</p>
-<p>属性</p>
-<pre><code>* for //规定 label 与哪个表单元素绑定。值为元素的 id。
-
-// HTML5 新属性
-* form //规定 label 字段所属的一个或多个表单。值为 form 的 id。
-</code></pre><p>举例<code>for</code></p>
-<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
-  &lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
-  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
-  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-</code></pre><p>举例<code>form</code> </p>
-<pre><code>&lt;form action=&quot;demo_form.php&quot; id=&quot;form1&quot;&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;male&quot;&gt;
-  &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
-  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;female&quot;&gt;
-  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-
-&lt;label for=&quot;male&quot; form=&quot;form1&quot;&gt;Male&lt;/label&gt;        
-</code></pre><p>更聪明的写法：用<code>&lt;label&gt;</code> 标签包裹<code>&lt;input&gt;</code>标签，不需要<code>for</code>和<code>name</code>。 </p>
-<pre><code>&lt;form action=&quot;demo_form.html&quot;&gt;
-      &lt;label&gt;Male
-      &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
-    &lt;/label&gt;
-    &lt;label&gt;Female
-        &lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;
-    &lt;/label&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-</code></pre><h4 id="lt-select-gt-lt-option-gt-lt-optgroup-gt"><a href="#lt-select-gt-lt-option-gt-lt-optgroup-gt" class="headerlink" title="&lt;select&gt; &lt;option&gt; &lt;optgroup&gt;"></a><code>&lt;select&gt;</code> <code>&lt;option&gt;</code> <code>&lt;optgroup&gt;</code></h4><p>属性</p>
-<pre><code>*disabled //规定禁用该选项组。
-*label //为选项组规定描述。
-</code></pre><p>举例：实现两个带有 <code>label</code> 的选项组。 </p>
-<pre><code>&lt;select&gt;
-  &lt;optgroup label=&quot;Swedish Cars&quot;&gt;
-    &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;
-    &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;
-  &lt;/optgroup&gt;
-  &lt;optgroup label=&quot;German Cars&quot;&gt;
-    &lt;option value=&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;
-    &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
-  &lt;/optgroup&gt;
-&lt;/select&gt;
-</code></pre><h4 id="lt-textarea-gt-标签"><a href="#lt-textarea-gt-标签" class="headerlink" title="&lt;textarea&gt;标签"></a><code>&lt;textarea&gt;</code>标签</h4><p>输入多行文本.通过 <code>cols</code> 和 <code>rows</code> 属性来规定 <code>textarea</code> 的尺寸，更好的办法是使用 <code>CSS</code> 的 <code>height</code> 和 <code>width</code> 属性。</p>
-<pre><code>&lt;textarea rows=&quot;10&quot; cols=&quot;30&quot;&gt;
-我是一个文本框。 
-&lt;/textarea&gt;
-</code></pre><hr>
-<h3 id="HTML-表格标签"><a href="#HTML-表格标签" class="headerlink" title="HTML 表格标签"></a><code>HTML</code> 表格标签</h3><h4 id="lt-table-gt"><a href="#lt-table-gt" class="headerlink" title="&lt;table&gt;"></a><code>&lt;table&gt;</code></h4><p>一个简单的 HTML 表格，包含两列两行：</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
-</code></pre><p>属性</p>
-<pre><code>在 HTML5 中，仅支持 &quot;border&quot; 属性，并且只允许使用值 &quot;1&quot; 或 &quot;&quot;。
-</code></pre><p>举例</p>
-<pre><code>&lt;table border=&quot;1&quot;&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Month&lt;/th&gt;
-        &lt;th&gt;Savings&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;January&lt;/td&gt;
-        &lt;td&gt;$100&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
-<h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
-* &lt;col&gt; 标签规定了 &lt;colgroup&gt; 元素内部的每一列的列属性。
-</code></pre><p>属性</p>
-<pre><code>* span //在 &lt;colgroup&gt; 中，规定列组应该横跨的列数。
-    //在 &lt;col&gt; 中，指规定 &lt;col&gt; 元素应该横跨的列数。
-
-//若在 &lt;colgroup&gt; 中嵌套了 &lt;col&gt; 元素则应该避免在 &lt;colgroup&gt; 中使用 &lt;col&gt; 标签属性。
-//这是因为属于嵌套的 &lt;col&gt; 元素的 span 标签属性将覆盖 &lt;colgroup&gt; 元素中的标签属性。    
-</code></pre><p>举例</p>
-<p><img src="https://i.loli.net/2017/12/10/5a2d416f2959f.png"></p>
-<hr>
-
+            
           
         
       
@@ -2104,7 +2223,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
                 2018-03-03
@@ -2125,7 +2244,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2244,195 +2363,6 @@ td(table data)元素定义表格单元(数据)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/03/LocalStorage、SessionStorage/" itemprop="url">LocalStorage、SessionStorage</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T16:27:31+08:00">
-                2018-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a><code>LocalStorage</code></h4><ul>
-<li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
-<li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
-</ul>
-<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
-<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
-<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
-<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
-<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
-<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
-<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
-</ol>
-<p>举例1</p>
-<pre><code>&lt;script&gt;
-    //读取
-    let a = localStorage.getItem(&apos;a&apos;)
-    if(!a){
-        a = 0
-    }else{
-        a = parseInt(a, 10) + 1
-    }
-    //存到本地
-    localStorage.setItem(&apos;a&apos;, a)
-&lt;/script&gt;
-</code></pre><p>举例2</p>
-<pre><code>&lt;script&gt;
-    //读取
-    let already = localStorage.getItem(&apos;已经提示了&apos;)
-    if(!already){
-        alert(&apos;你好，我们的网站改版了&apos;)
-        localStorage.setItem(&apos;已经提示了&apos;, true)
-    }
-&lt;/script&gt;
-</code></pre><h5 id="Cookie-和-LocalStorage的区别？"><a href="#Cookie-和-LocalStorage的区别？" class="headerlink" title="Cookie 和 LocalStorage的区别？"></a><code>Cookie</code> 和 <code>LocalStorage</code>的区别？</h5><pre><code>1. LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。而 Cookie 属于 HTTP 的一部分，会被附加在每个 HTTP 请求中。
-2. 一般来说，LocalStorage 最大存储量为 5MB ，Cookie 最大存储量为 4MB 。 
-3. Cookie 默认在用户关闭页面后失效，但是后端可以强制设置有效期。LocalStorage 是永久有效，除非用户清理缓存。
-</code></pre><hr>
-<h4 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a><code>SessionStorage</code></h4><h5 id="SessionStorage-和-LocalStorage-比较？"><a href="#SessionStorage-和-LocalStorage-比较？" class="headerlink" title="SessionStorage 和 LocalStorage 比较？"></a><code>SessionStorage</code> 和 <code>LocalStorage</code> 比较？</h5><p>相同点</p>
-<pre><code>* 都是用于客户端存储数据。
-* 存储数据的格式都是字符串形式。
-* 具有相同的 API 。
-</code></pre><p>不同点</p>
-<pre><code>* LocalStorage 永久有效，除非用户清理缓存。
-* SessionStorage 不是永久有效，当用户关闭浏览器窗口后，数据会被删除。
-* 相同浏览器的不同页面间可以共享相同的 LocalStorage （页面属于相同域名和端口），但不能共享 SessionStorage 的信息。
-
-//页面及标签页指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么可以共享 SessionStorage 。
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2483,8 +2413,8 @@ td(table data)元素定义表格单元(数据)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2495,7 +2425,7 @@ td(table data)元素定义表格单元(数据)
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2543,7 +2473,7 @@ td(table data)元素定义表格单元(数据)
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
