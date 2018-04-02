@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
-<meta property="og:updated_time" content="2018-04-02T15:57:06.000Z">
+<meta property="og:updated_time" content="2018-04-02T16:22:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
 <meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
@@ -388,7 +388,7 @@
     function(currentValue, index, arr) //必需参数。
     currentValue //必需。当前元素。
 
-* Array.join(分隔符) //以参数作为分隔符，将所有数组成员组成一个字符串返回。
+* Array.join(&apos;分隔符&apos;) //以参数作为分隔符，将所有数组成员组成一个字符串返回。
 * Array.concat(arr1,arr2...) //用于合并两个或多个数组。它将新数组的成员，添加到原数组成员的后部，返回一个新数组，原数组不变。
 
 * Array.filter(function) //用于过滤数组成员，满足条件的成员组成一个新数组返回。
@@ -400,7 +400,7 @@
 * Array.push(item1,item2...) //在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。
 * Array.unshift(item1,item2...) //用于在数组的第一个位置添加一个或多个元素，并返回添加新元素后的数组长度。该方法会改变原数组。
 
-* Array.slice(start,end) //用于提取原数组的一部分，返回一个新数组，原数组不变。
+* Array.slice(start, end) //用于提取原数组的一部分，返回一个新数组，原数组不变。
 * Array.pop() //用于删除数组的最后一个元素，并返回该元素。该方法会改变原数组。
 * Array.shift() //用于删除数组的第一个元素，并返回该元素。该方法会改变原数组。
 * Array.splice(start, length, item1,item2...) //用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。该方法会改变原数组。
@@ -408,7 +408,7 @@
 * Array.some(function) //用来判断数组成员是否符合某种条件。一项满足则整个返回 true 
 * Array.every(function) //用来判断数组成员是否符合某种条件。所有项满足则整个返回 true
 
-* Array.indexOf(item,start) //按原始顺序依次搜索数组中的元素，并返回它所在的位置。如果在数组中没找到字符串则返回 -1。
+* Array.indexOf(item, start) //按原始顺序依次搜索数组中的元素，并返回它所在的位置。如果在数组中没找到字符串则返回 -1。
 
 * Array.valueOf() //返回数组对象的原始值。
 * Array.toString() //把数组转换为字符串，并返回结果。
