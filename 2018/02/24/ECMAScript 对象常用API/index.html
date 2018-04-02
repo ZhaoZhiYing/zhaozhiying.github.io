@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
-<meta property="og:updated_time" content="2018-03-31T07:59:55.000Z">
+<meta property="og:updated_time" content="2018-04-02T15:57:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
 <meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
@@ -367,8 +367,9 @@
 * escape(string) //对字符串进行编码。
 * isFinite(value) //检查某个值是否为有穷大的数。
 * isNaN(value) //检查某个值是否是数字。
-* parseFloat(string,radix) //解析一个字符串并返回一个浮点数。
-* parseInt(string) //解析一个字符串并返回一个整数。
+* parseFloat(string) //解析一个字符串并返回一个浮点数。只解析十进制数。
+* parseInt(string,radix) //解析一个字符串并返回一个整数。
+    parseInt(&apos;123&apos;, 5) // 返回38 =&gt; 1*5^2 + 2*5^1 + 3*5^0 = 38
 * Number(object) //把对象的值转换为数字。
 * String(object) //把对象的值转换为字符串。
 * eval(string) //将传入的字符串当做 JavaScript 代码进行执行。
