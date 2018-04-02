@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
-<meta property="og:updated_time" content="2018-04-02T16:22:12.000Z">
+<meta property="og:updated_time" content="2018-04-02T16:32:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
 <meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
@@ -383,8 +383,8 @@
 * length //设置或返回数组元素的个数。
 * prototype //表示 Array 构造函数的原型，并允许您向所有 Array 对象添加新的属性和方法。
 </code></pre><p>方法</p>
-<pre><code>* Array.map(function(currentValue,index,arr), thisValue) //创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。
-* Array.forEach(function(currentValue, index, arr), thisValue) //同 map() 一样，但没有返回值。
+<pre><code>* Array.map(function(当前位置的值、当前位置的索引、整个数组), thisValue) //创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。
+* Array.forEach(function(当前位置的值、当前位置的索引、整个数组), thisValue) //同 map() 一样，但没有返回值。
     function(currentValue, index, arr) //必需参数。
     currentValue //必需。当前元素。
 
@@ -392,7 +392,7 @@
 * Array.concat(arr1,arr2...) //用于合并两个或多个数组。它将新数组的成员，添加到原数组成员的后部，返回一个新数组，原数组不变。
 
 * Array.filter(function) //用于过滤数组成员，满足条件的成员组成一个新数组返回。
-* Array.reduce(function) //按原始顺序依次处理数组的每个成员，最终累计为一个值。
+* Array.reduce(function(之前的结果, 当前变量),当前的初值) //按原始顺序依次处理数组的每个成员，最终累计为一个值。
 
 * Array.sort(function) //对数组成员进行排序。排序后，原数组将被改变。
 * Array.reverse() //用于颠倒数组中元素的顺序，返回改变后的数组。该方法会改变原数组。
