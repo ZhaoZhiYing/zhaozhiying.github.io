@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -224,6 +224,327 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/05/Vue 学习笔记（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/05/Vue 学习笔记（二）/" itemprop="url">Vue 学习笔记（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T22:57:29+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h4><pre><code>* 组件可以扩展 HTML 元素，封装可重用的代码。
+* 所有的 Vue 组件同时也都是 Vue 的实例，所以可接受相同的选项对象 (除了一些根级特有的选项) 并提供相同的生命周期钩子。
+</code></pre><h5 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h5><p>使用 <code>Vue.component(tagName, options)</code>。</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;my-component&gt;&lt;/my-component&gt;
+&lt;/div&gt;
+
+//注册组件
+Vue.component(&apos;my-component&apos;, {
+  template: &apos;&lt;div&gt;A custom component!&lt;/div&gt;&apos;
+})
+
+//创建根实例
+new Vue({
+  el: &apos;#example&apos;
+})
+
+//渲染为
+&lt;div id=&quot;example&quot;&gt;
+  &lt;div&gt;A custom component!&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h5 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h5><p>通过某个 <code>Vue</code> 实例的实例选项 <code>components</code> 注册在其作用域中。</p>
+<pre><code>var Child = {
+  template: &apos;&lt;div&gt;A custom component!&lt;/div&gt;&apos;
+}
+
+new Vue({
+  // ...
+  components: {
+    // &lt;my-component&gt; 将只在父组件模板中可用
+    &apos;my-component&apos;: Child
+  }
+})
+</code></pre><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><p>1.当使用 <code>DOM</code> 作为模板时，像<code>&lt;ul&gt;、&lt;ol&gt;、&lt;table&gt;、&lt;select&gt;</code>等元素在自定义组件中会导致一些问题，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;my-row&gt;...&lt;/my-row&gt;</div><div class="line">&lt;/table&gt;</div><div class="line">//自定义组件 &lt;my-row&gt; 会被当作无效的内容</div><div class="line"></div><div class="line">//解决方案，使用特殊的 is 特性：</div><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr is=&quot;my-row&quot;&gt;&lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+<p>如果使用来自以下来源之一的字符串模板，则没有这些限制：</p>
+<pre><code>* &lt;script type=&quot;text/x-template&quot;&gt;
+* JavaScript 内联模板字符串
+* .vue 组件
+</code></pre><p>2.组件里的 <code>data</code> 必须是函数</p>
+<pre><code>//错误写法
+Vue.component(&apos;my-component&apos;, {
+  template: &apos;&lt;span&gt;{{ message }}&lt;/span&gt;&apos;,
+  data: {
+    message: &apos;hello&apos;
+  }
+})
+
+//正确写法
+Vue.component(&apos;my-component&apos;, {
+  template: &apos;&lt;span&gt;{{ message }}&lt;/span&gt;&apos;,
+  data: function(){
+    return {message: &apos;hello&apos;}
+  }
+})
+</code></pre><hr>
+<h4 id="组件组合"><a href="#组件组合" class="headerlink" title="组件组合"></a>组件组合</h4><p>在 <code>Vue</code> 中，父子组件的关系可以总结为 <code>prop</code> 向下传递，事件向上传递。父组件通过 <code>prop</code> 给子组件下发数据，子组件通过事件给父组件发送消息。</p>
+<p><code>prop</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/05/Vue API 总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/05/Vue API 总结/" itemprop="url">Vue API 总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T20:09:11+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p>指令带有前缀 <code>v-</code>，以表示它们是 <code>Vue</code> 提供的特殊特性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">* v-text //更新元素的 textContent。</div><div class="line">* v-html //更新元素的 innerHTML 。内容按普通 HTML 插入，不会作为 Vue 模板进行编译。</div><div class="line">* v-show //根据表达式之真假值，切换元素的 display CSS 属性。</div><div class="line"></div><div class="line">* v-if //根据表达式的值的真假条件渲染元素。在切换时元素及它的数据绑定 / 组件被销毁并重建。当和 v-if 一起使用时，v-for 的优先级比 v-if 更高。</div><div class="line">* v-else //不需要表达式。为 v-if 或者 v-else-if 添加“else 块”。</div><div class="line">* v-else-if //表示 v-if 的 “else if 块”。可以链式调用。</div><div class="line"></div><div class="line">* v-for //基于源数据多次渲染元素或模板块。此指令的值，必须使用特定语法 alias in expression ，为当前遍历的元素提供别名。</div><div class="line"></div><div class="line">* v-on //绑定事件监听器。事件类型由参数指定。缩写：@</div><div class="line">* v-bind //动态地绑定一个或多个特性，或一个组件 prop 到表达式。缩写：:</div><div class="line">* v-model //在表单控件或者组件上创建双向绑定。</div><div class="line"></div><div class="line">* v-pre //不需要表达式。跳过这个元素和它的子元素的编译过程。</div><div class="line">* v-cloak //不需要表达式。这个指令保持在元素上直到关联实例结束编译。</div><div class="line">* v-once //只渲染元素和组件一次。这可以用于优化更新性能。</div></pre></td></tr></table></figure>
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。</p>
+<pre><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;
+</code></pre><p><code>v-on</code> 修饰符</p>
+<pre><code>* .stop //调用 event.stopPropagation()。
+* .prevent //调用 event.preventDefault()。
+* .capture //添加事件侦听器时使用 capture 模式。
+* .self //只当事件是从侦听器绑定的元素本身触发时才触发回调。
+* .{keyCode | keyAlias} //只当事件是从特定键触发时才触发回调。
+* .native //监听组件根元素的原生事件。
+* .once //只触发一次回调。
+* .left //只当点击鼠标左键时触发。
+* .right //只当点击鼠标右键时触发。
+* .middle //只当点击鼠标中键时触发。
+* .passive //以 { passive: true } 模式添加侦听器
+</code></pre><p><code>v-bind</code> 修饰符</p>
+<pre><code>* .prop //被用于绑定 DOM 属性 (property)。(差别在哪里？)
+* .camel //将 kebab-case 特性名转换为 camelCase. (从 2.1.0 开始支持)
+* .sync //语法糖，会扩展成一个更新父组件绑定值的 v-on 侦听器。
+</code></pre><p><code>v-model</code> 修饰符</p>
+<pre><code>* .lazy //取代 input 监听 change 事件
+* .number //输入字符串转为数字
+* .trim //输入首尾空格过滤    
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -267,7 +588,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T15:02:16+08:00">
                 2018-04-02
@@ -487,7 +808,7 @@ for(let i=0; i&lt;liTags.length; i++){  //()作用域里有一个 i
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T21:00:06+08:00">
                 2018-04-01
@@ -508,7 +829,7 @@ for(let i=0; i&lt;liTags.length; i++){  //()作用域里有一个 i
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -805,7 +1126,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:49:42+08:00">
                 2018-03-30
@@ -826,7 +1147,7 @@ td(table data)元素定义表格单元(数据)
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -999,7 +1320,7 @@ space //可选，文本添加缩进、空格和换行符。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:32:17+08:00">
                 2018-03-30
@@ -1020,7 +1341,7 @@ space //可选，文本添加缩进、空格和换行符。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1188,7 +1509,7 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T19:13:40+08:00">
                 2018-03-27
@@ -1209,7 +1530,7 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1441,7 +1762,7 @@ sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-20T16:42:38+08:00">
                 2018-03-20
@@ -1462,7 +1783,7 @@ sort(arr) //[7, 10, 10, 10, 21, 21, 30, 39, 56]
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1671,7 +1992,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:33:56+08:00">
                 2018-03-19
@@ -1692,7 +2013,7 @@ mytime &lt; 8 &amp;&amp; mytime &gt; 5 ? console.log(&quot;早上好&quot;) : co
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1825,7 +2146,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:22:22+08:00">
                 2018-03-19
@@ -1846,7 +2167,7 @@ q: //不保存文件，退出 vi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1954,521 +2275,11 @@ hexo -v //检测 hexo
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/jQuery 常用API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/16/jQuery 常用API/" itemprop="url">jQuery 常用API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
-                2018-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="jQuery-选择器"><a href="#jQuery-选择器" class="headerlink" title="jQuery 选择器"></a><code>jQuery</code> 选择器</h4><pre><code>* $(this) //当前的 HTML 元素。
-* $(&quot;p&quot;) //所有 &lt;p&gt; 元素。
-* $(&quot;.test&quot;) //所有 class=&quot;test&quot; 的元素。
-* $(&quot;#test&quot;) // id=&quot;test&quot; 的元素。
-* $(&quot;:button&quot;) //所有 button 元素和类型为 button 的元素。
-    //等价于$(&quot;button, input[type=&apos;button&apos;]&quot;)
-</code></pre><hr>
-<h4 id="jQuery-事件"><a href="#jQuery-事件" class="headerlink" title="jQuery 事件"></a><code>jQuery</code> 事件</h4><pre><code>* click(function) //单击元素事件。为 &quot;click&quot; 事件绑定一个函数，每次事件触发时会执行。
-* click() //触发元素上的 &quot;click&quot; 事件。
-* dbclick(function); dbclick()  //双击元素事件。
-    //click 事件只能监听鼠标左键。
-
-* mouseenter(function); mouseenter(); //鼠标进入元素事件。
-* mouseleave(function); mouseleave() //鼠标离开元素事件。
-
-* mousedown(function); mousedown() //鼠标进入元素并按下鼠标左键时（按下不松开的过程）触发事件。
-* mouseup(function); mouseup() //当鼠标松开鼠标左键时触发事件。
-
-* hover() //hover()是一个复合方法，相当于 mouseenter + mouseleave 一起使用的情况。
-
-* focus(function); focus() //当元素获得焦点时触发事件。
-* blur(function); blur() //当元素失去焦点时触发事件。
-
-* on(event,childSelector,data,function) //在被选元素及子元素上添加一个或多个事件处理程序。
-    event //由空格分隔多个事件值，也可以是数组。
-    childSelector //规定只能添加到指定的子元素上的事件处理程序
-    data //规定传递到函数的额外数据。
-    function //规定当事件发生时运行的函数。
-* one() //同 on()，但只触发一次。
-
-//举例 on()
-&lt;script&gt;
-    $(document).ready(function(){
-      $(&quot;div&quot;).on(&quot;click&quot;,&quot;p&quot;,function(){
-        $(this).slideToggle();
-      });
-      $(&quot;button&quot;).click(function(){
-        $(&quot;&lt;p&gt;This is a new paragraph.&lt;/p&gt;&quot;).insertAfter(&quot;button&quot;);
-      });
-    });
-&lt;/script&gt;
-</code></pre><hr>
-<h4 id="jQuery-隐藏-显示"><a href="#jQuery-隐藏-显示" class="headerlink" title="jQuery 隐藏/显示"></a><code>jQuery</code> 隐藏/显示</h4><pre><code>* hide() //隐藏匹配的元素。
-* show() //显示匹配的元素。
-    //show() 适用于通过 jQuery 方法和 CSS 中 display:none 隐藏的元素（不适用于通过 visibility:hidden 隐藏的元素）。
-    //hide() 和 show() 的执行速度会比直接改变 css 慢。
-* toggle() //添加两个或多个函数，以响应被选元素的 click 事件之间的切换。
-</code></pre><hr>
-<h4 id="jQuery-淡入淡出"><a href="#jQuery-淡入淡出" class="headerlink" title="jQuery 淡入淡出"></a><code>jQuery</code> 淡入淡出</h4><pre><code>* fadeIn() //逐渐改变被选元素的不透明度，从隐藏到可见（褪色效果）。
-* fadeOut() //逐渐改变被选元素的不透明度，从可见到隐藏（褪色效果）。
-* fadeToggle() //在 fadeIn() 和 fadeOut() 方法之间切换。
-* fadeTo(duration, opacity [, easing ] [, function ]) //调整透明度。
-    duration //一个字符串或者数字决定动画将运行多久。
-    opacity //0和1之间的数字表示目标元素的不透明度。
-    easing //表示动画过渡方式，有 &quot;linear&quot; 和 &quot;swing&quot;。
-    function //在动画完成时执行的函数。
-</code></pre><hr>
-<h4 id="jQuery-滑动"><a href="#jQuery-滑动" class="headerlink" title="jQuery 滑动"></a><code>jQuery</code> 滑动</h4><pre><code>* slideDown() //以滑动方式显示被选元素。
-* slideUp() //以滑动方式隐藏被选元素。
-* slideToggle() //在 slideUp() 和 slideDown() 方法之间切换。
-</code></pre><hr>
-<h4 id="jQuery-动画"><a href="#jQuery-动画" class="headerlink" title="jQuery 动画"></a><code>jQuery</code> 动画</h4><pre><code>* animate() //通过 CSS 样式将元素从一个状态改变为另一个状态。
-
-//举例
-&lt;script&gt; 
-    $(&quot;button&quot;).click(function(){
-        $(&quot;#box&quot;).animate({height:&quot;300px&quot;});
-    });
-&lt;/script&gt; 
-//通过改变元素的高度，对元素应用动画。
-</code></pre><hr>
-<h4 id="jQuery-停止动画"><a href="#jQuery-停止动画" class="headerlink" title="jQuery 停止动画"></a><code>jQuery</code> 停止动画</h4><pre><code>* stop() //停止动画
-
-&lt;script&gt; 
-    $(document).ready(function(){
-      $(&quot;#flip&quot;).click(function(){
-        $(&quot;#panel&quot;).slideDown(5000);
-      });
-      $(&quot;#stop&quot;).click(function(){
-        $(&quot;#panel&quot;).stop();
-      });
-    });
-&lt;/script&gt;
-</code></pre><hr>
-<h4 id="jQuery-HTML-获取-设置内容和属性"><a href="#jQuery-HTML-获取-设置内容和属性" class="headerlink" title="jQuery HTML 获取/设置内容和属性"></a><code>jQuery HTML</code> 获取/设置内容和属性</h4><pre><code>* text() //设置或返回被选元素的文本内容。
-* html() //设置或返回被选元素的内容（innerHTML）。
-* val() //返回 value 属性的值。
-* val(value) //设置 value 属性的值。
-* val(function(index,currentvalue)) //设置或返回被选元素的 value 属性。
-* attr() //设置或返回被选元素的属性和值。
-
-//举例 val()
-&lt;script&gt;
-    $(document).ready(function(){
-        $(&quot;button&quot;).click(function(){
-            $(&quot;input:text&quot;).val(function(n,c){
-                return c + &quot; Griffin&quot;;
-            });
-        });
-    });
-&lt;/script&gt;
-
-//举例 attr()
-$(&quot;button&quot;).click(function(){
-    $(&quot;img&quot;).attr(&quot;width&quot;,&quot;500&quot;);
-});
-</code></pre><hr>
-<h4 id="jQuery-HTML-添加元素-内容"><a href="#jQuery-HTML-添加元素-内容" class="headerlink" title="jQuery HTML 添加元素/内容"></a><code>jQuery HTML</code> 添加元素/内容</h4><pre><code>* append() //在被选元素的末尾(添加到元素内部)添加内容。
-* prepend() //在被选元素的开头添加内容。
-
-* after() //在被选元素之后(添加到元素外部)添加内容。
-* before() //在被选元素之前添加内容。
-</code></pre><hr>
-<h4 id="jQuery-HTML-移除元素-内容"><a href="#jQuery-HTML-移除元素-内容" class="headerlink" title="jQuery HTML 移除元素/内容"></a><code>jQuery HTML</code> 移除元素/内容</h4><pre><code>* remove() //移除被选元素，包括所有的文本和子节点。
-* empty() //移除被选元素所有子节点和内容。不会移除元素本身，或它的属性。
-</code></pre><hr>
-<h4 id="jQuery-Get-Set-CSS类"><a href="#jQuery-Get-Set-CSS类" class="headerlink" title="jQuery Get Set CSS类"></a><code>jQuery Get Set CSS</code>类</h4><pre><code>* addClass() //向被选元素添加一个或多个类名。
-    //添加多个类，用空格分隔。
-* removeClass() //从被选元素移除一个或多个类。
-    //如果该参数为空，将移除所有类名称。
-* toggleClass() //检查每个元素中指定的类。如果不存在则添加类，如果已设置则删除之。
-</code></pre><hr>
-<h4 id="jQuery-css-方法"><a href="#jQuery-css-方法" class="headerlink" title="jQuery css() 方法"></a><code>jQuery css()</code> 方法</h4><pre><code>* css() //为被选元素设置或返回一个或多个样式属性。
-
-&lt;script&gt;
-    $(&quot;button&quot;).click(function(){
-        $(&quot;p&quot;).css({
-            &quot;color&quot;:&quot;white&quot;,
-            &quot;background-color&quot;:&quot;#98bf21&quot;,
-            &quot;font-family&quot;:&quot;Arial&quot;,
-            &quot;font-size&quot;:&quot;20px&quot;,
-            &quot;padding&quot;:&quot;5px&quot;
-        });
-    });
-&lt;/script&gt;
-</code></pre><hr>
-<h4 id="jQuery-尺寸"><a href="#jQuery-尺寸" class="headerlink" title="jQuery 尺寸"></a><code>jQuery</code> 尺寸</h4><pre><code>* width() //设置或返回被选元素的宽度。
-* height() //设置或返回被选元素的高度。
-    //返回宽度时， 则返回第一个匹配元素的宽度。
-    //设置宽度时，则设置所有匹配元素的宽度。
-
-* innerHeight(); innerWidth() //返回第一个匹配元素的内部高度/宽度。包含 padding，但不包含 border 和 margin。
-
-* outerHeight(includeMargin); outerWidth(includeMargin) //返回第一个匹配元素的外部高度/宽度。包含 padding 和 border。
-    includeMargin //布尔值，规定是否包含 margin。默认 false。
-</code></pre><hr>
-<h4 id="jQuery-遍历"><a href="#jQuery-遍历" class="headerlink" title="jQuery 遍历"></a><code>jQuery</code> 遍历</h4><p>祖先</p>
-<pre><code>* parent(filter) //返回被选元素的直接父元素。
-* parents() //返回被选元素的所有祖先元素。
-* parentsUntil(stop,filter) //返回介于 selector 与 stop 之间的所有祖先元素。
-
-//举例
-&lt;script&gt;
-    $(document).ready(function(){
-        $(&quot;span&quot;).parentsUntil(&quot;body&quot;,&quot;p,li,div&quot;)
-            .css({&quot;color&quot;:&quot;red&quot;,&quot;border&quot;:&quot;2px solid red&quot;});
-    });
-&lt;/script&gt;
-//缩小范围在 span 和 body 之间寻找祖先 p,li 和 div。
-</code></pre><p>后代</p>
-<pre><code>* children() //返回被选元素的所有直接子元素。
-* find(function(currentValue, index, arr),thisValue) //返回被选元素的后代元素。    
-
-//举例
-&lt;ul class=&quot;level-1&quot;&gt;
-  &lt;li class=&quot;item-i&quot;&gt;II
-        &lt;ul class=&quot;level-3&quot;&gt;
-          &lt;li class=&quot;item-1&quot;&gt;1&lt;/li&gt;
-          &lt;li class=&quot;item-2&quot;&gt;2&lt;/li&gt;
-          &lt;li class=&quot;item-3&quot;&gt;3&lt;/li&gt;
-        &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
-    $(&apos;li.item-i&apos;).find(&apos;li&apos;).css(&apos;background-color&apos;, &apos;red&apos;);
-&lt;/script&gt;
-//匹配的 li.item-i 的后代中的 1，2，3，将背景变为红色。
-</code></pre><p>同胞 <code>siblings</code></p>
-<pre><code>* siblings() //返回被选元素的所有同级元素。
-* next() //返回被选元素的后一个同级元素。
-* nextAll() //返回被选元素之后的所有同级元素。
-* nextUntil(stop,filter) //返回 selector 与 stop 之间的每个元素之后的所有同级元素。
-</code></pre><hr>
-<h4 id="jQuery-AJAX-load-方法"><a href="#jQuery-AJAX-load-方法" class="headerlink" title="jQuery AJAX load() 方法"></a><code>jQuery AJAX load()</code> 方法</h4><pre><code>* load() //从服务器加载数据，并把返回的数据放置到指定的元素中。
-</code></pre><hr>
-<h4 id="jQuery-AJAX-get-post-方法"><a href="#jQuery-AJAX-get-post-方法" class="headerlink" title="jQuery AJAX get() post() 方法"></a><code>jQuery AJAX get() post()</code> 方法</h4><pre><code>* get() //使用 AJAX 的 HTTP GET 请求从服务器加载数据。    * post() //使用 AJAX 的 HTTP POST 请求从服务器加载数据。
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/HTTP 缓存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/03/HTTP 缓存/" itemprop="url">HTTP 缓存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-03T19:53:51+08:00">
-                2018-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTTP/" itemprop="url" rel="index">
-                    <span itemprop="name">HTTP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a><code>Cache-Control</code></h3><p><code>Cache-Control</code>通用消息头被用于在 <code>HTTP</code> 请求和响应中通过指定指令来实现缓存机制。</p>
-<p><strong>注意：</strong>    首页不要设置缓存</p>
-<h5 id="如何使css-js-加载速度加快？"><a href="#如何使css-js-加载速度加快？" class="headerlink" title="如何使css js 加载速度加快？"></a>如何使<code>css</code> <code>js</code> 加载速度加快？</h5><p>举例 <code>node.js</code></p>
-<pre><code>response.setHeader(&apos;Cache-Control&apos;, &apos;max-age=30&apos;) 
-// 表示当访问此网页后的 30s 内再次访问不会向服务器发起请求
-</code></pre><h5 id="如何更新缓存？"><a href="#如何更新缓存？" class="headerlink" title="如何更新缓存？"></a>如何更新缓存？</h5><ol>
-<li>加版本号</li>
-<li>更改 <code>HTML</code> 的 <code>URL</code>，跟之前不一样即可，比如加个随机数。</li>
-</ol>
-<hr>
-<h3 id="Expire"><a href="#Expire" class="headerlink" title="Expire"></a><code>Expire</code></h3><h5 id="Expire-和-Cache-Control-区别"><a href="#Expire-和-Cache-Control-区别" class="headerlink" title="Expire 和 Cache-Control 区别?"></a><code>Expire</code> 和 <code>Cache-Control</code> 区别?</h5><pre><code>* Expire 是指定了一个时间，在这个时间之后，HTTP 响应就过期。
-* Cache-Control 是指定一个时间范围，超过这个时间范围，HTTP 响应就过期。
-* Expire 是旧版缓存设置方法，Cache-Control 是新版缓存机制设置方法。
-</code></pre><blockquote>
-<p>如果还有一个设置了 “max-age” 或者 “s-max-age” 指令的 Cache-Control 响应头，那么 Expires 头就会被忽略。    </p>
-</blockquote>
-<h5 id="为什么优先使用-Cache-Control"><a href="#为什么优先使用-Cache-Control" class="headerlink" title="为什么优先使用 Cache-Control?"></a>为什么优先使用 <code>Cache-Control</code>?</h5><p>因为 <code>Expire</code> 指定的时间（日期/时间）指本地时间，如果用户的时间错乱，就会出问题。</p>
-<hr>
-<h3 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a><code>ETag</code></h3><h4 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a><code>MD5</code></h4><pre><code>* MD5 是一个摘要算法。将一个字符串，或文件，或压缩包，执行 MD5 后，就可以生成一个固定长度为 128bit 的串。如果有人修改过压缩包后，就会生成新的串。
-* 目的是检查报文主体在传输过程中是否保持完整，以及确认传输到达。为确保报文的有效性，接收方的客户端会对报文主体再执行一次相同的 MD5算法。计算出的值与字段值作比较后，即可判断出报文主体的准确性。
-* MD5 的长度默认为 128bit，也就是 128个0和1 的二进制串。将二进制转成 16进制，每 4个bit 表示一个 16进制，所以 128/4 = 32 换成 16进制 表示后，为 32位。
-* MD5 最大的特点：如果内容的差异越小，算出的结果差异越大。
-* MD5 会被保存在文件的 ETag 里。
-</code></pre><p>如下图</p>
-<p><img src="https://i.loli.net/2018/03/03/5a9ac12bcba07.png
-"></p>
-<h4 id="ETag-1"><a href="#ETag-1" class="headerlink" title="ETag"></a><code>ETag</code></h4><p>当一个 <code>URL</code> 被请求，服务器会返回资源和其相应的<code>ETag</code>值，它会被放置在<code>HTTP</code>的<code>ETag</code>字段中：</p>
-<pre><code>ETag: &quot;686897696a7c876b7e&quot;
-</code></pre><p>以后，如果客户端想再次请求相同的<code>URL</code>，将会发送一个包含已保存的<code>ETag</code>和<code>If-None-Match</code>字段的请求。</p>
-<pre><code>If-None-Match: &quot;686897696a7c876b7e&quot;
-</code></pre><p>客户端请求之后，服务器会比较客户端的<code>ETag</code>和当前版本资源的<code>ETag</code>。如果<code>ETag</code>值匹配，则意味着资源没有改变，服务器会返回<code>HTTP 304</code>的状态码。</p>
-<p>如果<code>ETag</code>的值不匹配，这就意味着资源很可能发生了变化，那么，一个完整的响应就会被返回。</p>
-<hr>
-<h3 id="last-Modified"><a href="#last-Modified" class="headerlink" title="last-Modified"></a><code>last-Modified</code></h3><p><strong>由于精确度比 <code>ETag</code> 要低，所以这是一个备用机制。</strong></p>
-<p>在浏览器第一次请求某一个 <code>URL</code> 时，服务器端的返回状态会是<code>200</code>，内容是你请求的资源，同时有一个 <code>Last-Modified</code> 的属性标记此文件在服务端最后被修改的时间，格式类似这样：</p>
-<pre><code>Last-Modified: Mon, 30 Nov 2015 23:21:37 GMT
-</code></pre><p>浏览器第二次请求此 <code>URL</code> 时，根据 <code>HTTP</code> 协议的规定，浏览器会向服务器传送 <code>If-Modified-Since</code> 报头，询问该时间之后文件是否有被修改过：</p>
-<pre><code>If-Modified-Since: Mon, 30 Nov 2015 23:21:37 GMT
-</code></pre><p>如果服务器端的资源没有变化，则自动返回 <code>HTTP 304</code> 状态码，内容为空，这样就节省了传输数据量。</p>
-<h5 id="ETag-和-Cache-Control-区别"><a href="#ETag-和-Cache-Control-区别" class="headerlink" title="ETag 和 Cache-Control 区别"></a><code>ETag</code> 和 <code>Cache-Control</code> 区别</h5><p><code>Cache-Control</code>是直接不请求。<code>ETag</code>是请求但响应体是空的。</p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2514,8 +2325,8 @@ $(&quot;button&quot;).click(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2526,7 +2337,7 @@ $(&quot;button&quot;).click(function(){
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2574,7 +2385,7 @@ $(&quot;button&quot;).click(function(){
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

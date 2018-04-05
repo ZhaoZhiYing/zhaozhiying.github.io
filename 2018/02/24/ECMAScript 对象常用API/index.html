@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
+<meta name="description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。 * Object.create(proto) //使用指定的原型对象和属性创建一个新对象。  * Object.entries(obj) //">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript 对象常用API">
 <meta property="og:url" content="http://yoursite.com/2018/02/24/ECMAScript 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
-<meta property="og:updated_time" content="2018-04-02T16:32:10.000Z">
+<meta property="og:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。 * Object.create(proto) //使用指定的原型对象和属性创建一个新对象。  * Object.entries(obj) //">
+<meta property="og:updated_time" content="2018-04-05T14:52:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 对象常用API">
-<meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。  * Object.create() //使用指定的原型对象和属性创建一个新对象。 * Object.defineProperty() //给">
+<meta name="twitter:description" content="Object属性 * Object.length //值为1。 * Object.prototype //可以为所有 Object 类型的对象添加属性。 方法 * Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。 * Object.create(proto) //使用指定的原型对象和属性创建一个新对象。  * Object.entries(obj) //">
 
 
 
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-24T20:45:02+08:00">
                 2018-02-24
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -335,25 +335,18 @@
 * Object.prototype //可以为所有 Object 类型的对象添加属性。
 </code></pre><p>方法</p>
 <pre><code>* Object.assign(新对象, 源对象) //通过复制一个或多个对象来创建一个新对象。
+* Object.create(proto) //使用指定的原型对象和属性创建一个新对象。
 
-* Object.create() //使用指定的原型对象和属性创建一个新对象。
-* Object.defineProperty() //给对象添加一个属性并指定该属性的配置。
-* Object.defineProperties() //给对象添加多个属性并分别指定它们的配置。
-* Object.entries() //返回给定对象自身可枚举属性的[key, value]数组。
-* Object.freeze() //冻结对象：其他代码不能删除或更改任何属性。
-* Object.getOwnPropertyDescriptor() //返回对象指定的属性配置。
-* Object.getOwnPropertyNames() //返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名。
-* Object.getOwnPropertySymbols() //返回一个数组，它包含了指定对象自身所有的符号属性。
-* Object.getPrototypeOf() //返回指定对象的原型对象。
-* Object.is() //比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。
-* Object.isExtensible() //判断对象是否可扩展。
-* Object.isFrozen() //判断对象是否已经冻结。
-* Object.isSealed() //判断对象是否已经密封。
-* Object.keys() //返回一个包含所有给定对象自身可枚举属性名称的数组。
-* Object.preventExtensions() //防止对象的任何扩展。
-* Object.seal() //防止其他代码删除对象的属性。
-* Object.setPrototypeOf() //设置对象的原型（即内部[[Prototype]]属性）。
-* Object.values() //返回给定对象自身可枚举值的数组。
+* Object.entries(obj) //返回给定对象自身可枚举属性的[key, value]数组。
+* Object.getPrototypeOf(obj) //返回指定对象的原型对象。
+
+* Object.freeze(obj) //冻结对象：其他代码不能删除或更改任何属性。
+* Object.seal(obj) //防止其他代码删除对象的属性。
+
+* Object.is(value1, value2) //比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）。
+
+* Object.keys(obj) //返回一个包含所有给定对象自身可枚举属性名称的数组。
+* Object.values(obj) //返回给定对象自身可枚举值的数组。
 </code></pre><hr>
 <h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a><code>Function</code></h4><p>属性</p>
 <pre><code>* Infinity //代表正的无穷大的数值。
@@ -383,10 +376,10 @@
 * length //设置或返回数组元素的个数。
 * prototype //表示 Array 构造函数的原型，并允许您向所有 Array 对象添加新的属性和方法。
 </code></pre><p>方法</p>
-<pre><code>* Array.map(function(当前位置的值、当前位置的索引、整个数组), thisValue) //创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。
-* Array.forEach(function(当前位置的值、当前位置的索引、整个数组), thisValue) //同 map() 一样，但没有返回值。
+<pre><code>* Array.map(function(currentValue, index, arr), thisValue) //创建一个新数组，其结果是该数组中的每个元素(按照原始数组元素顺序)都调用一个提供的函数后返回的结果。
+* Array.forEach(function(currentValue, index, arr), thisValue) //同 map() 一样，但没有返回值。
     function(currentValue, index, arr) //必需参数。
-    currentValue //必需。当前元素。
+    currentValue //必需。当前位置的值。
 
 * Array.join(&apos;分隔符&apos;) //以参数作为分隔符，将所有数组成员组成一个字符串返回。
 * Array.concat(arr1,arr2...) //用于合并两个或多个数组。它将新数组的成员，添加到原数组成员的后部，返回一个新数组，原数组不变。
@@ -445,6 +438,7 @@
 </code></pre><p>方法</p>
 <pre><code>* String.toLowerCase() //把字符串转换为小写。
 * String.toUpperCase() //把字符串转换为大写。
+
 * String.charAt(index) //返回在指定位置的字符。
     //如果没有提供索引，charAt() 将使用0。
 
@@ -458,6 +452,10 @@
 
 * substring(start,end) //提取字符串中两个指定的索引号之间的字符（不包括 end 的字符）。
 * substr(start,length) //从起始索引号提取字符串中指定数目的字符。
+
+* String.match(regexp) //检索字符串 String Object，以找到一个或多个与 regexp 匹配的文本。
+
+* String.replace(searchvalue,newvalue) //用于在字符串中用一些字符替换另一些字符 
 </code></pre><hr>
 <h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><code>Boolean</code></h4><p>属性</p>
 <pre><code>* constructor     //返回对创建此对象的 Boolean 函数的引用
@@ -580,10 +578,10 @@ Math.pow(2,3) // 8
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -603,8 +601,8 @@ Math.pow(2,3) // 8
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -615,7 +613,7 @@ Math.pow(2,3) // 8
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -679,7 +677,7 @@ Math.pow(2,3) // 8
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
