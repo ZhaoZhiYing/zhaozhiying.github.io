@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/16/jQuery 常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="jQuery 选择器* $(this) //当前的 HTML 元素。 * $(&amp;quot;p&amp;quot;) //所有 &amp;lt;p&amp;gt; 元素。 * $(&amp;quot;.test&amp;quot;) //所有 class=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;#test&amp;quot;) // id=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;:button&amp;qu">
-<meta property="og:updated_time" content="2018-03-31T08:01:04.000Z">
+<meta property="og:updated_time" content="2018-04-06T11:35:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 常用API">
 <meta name="twitter:description" content="jQuery 选择器* $(this) //当前的 HTML 元素。 * $(&amp;quot;p&amp;quot;) //所有 &amp;lt;p&amp;gt; 元素。 * $(&amp;quot;.test&amp;quot;) //所有 class=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;#test&amp;quot;) // id=&amp;quot;test&amp;quot; 的元素。 * $(&amp;quot;:button&amp;qu">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T22:42:57+08:00">
                 2018-03-16
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -477,8 +477,9 @@ $(&quot;button&quot;).click(function(){
     includeMargin //布尔值，规定是否包含 margin。默认 false。
 </code></pre><hr>
 <h4 id="jQuery-遍历"><a href="#jQuery-遍历" class="headerlink" title="jQuery 遍历"></a><code>jQuery</code> 遍历</h4><p>祖先</p>
-<pre><code>* parent(filter) //返回被选元素的直接父元素。
-* parents() //返回被选元素的所有祖先元素。
+<pre><code>* closest(filter,context) //返回被选元素的第一个祖先元素。直到找到与所提供的选择器匹配的为止。
+* parent(filter) //返回被选元素的直接父元素。该方法只沿着 DOM 树向上遍历单一层级。
+* parents(filter) //返回被选元素的所有祖先元素。
 * parentsUntil(stop,filter) //返回介于 selector 与 stop 之间的所有祖先元素。
 
 //举例
@@ -490,9 +491,8 @@ $(&quot;button&quot;).click(function(){
 &lt;/script&gt;
 //缩小范围在 span 和 body 之间寻找祖先 p,li 和 div。
 </code></pre><p>后代</p>
-<pre><code>* children() //返回被选元素的所有直接子元素。
-* find(function(currentValue, index, arr),thisValue) //返回被选元素的后代元素。    
-
+<pre><code>* children(filter) //返回被选元素的所有直接子元素。
+* find(filter) //返回被选元素的后代元素。    
 //举例
 &lt;ul class=&quot;level-1&quot;&gt;
   &lt;li class=&quot;item-i&quot;&gt;II
@@ -508,9 +508,9 @@ $(&quot;button&quot;).click(function(){
 &lt;/script&gt;
 //匹配的 li.item-i 的后代中的 1，2，3，将背景变为红色。
 </code></pre><p>同胞 <code>siblings</code></p>
-<pre><code>* siblings() //返回被选元素的所有同级元素。
-* next() //返回被选元素的后一个同级元素。
-* nextAll() //返回被选元素之后的所有同级元素。
+<pre><code>* siblings(filter) //返回被选元素的所有同级元素。
+* next(filter) //返回被选元素的后一个同级元素。
+* nextAll(filter) //返回被选元素之后的所有同级元素。
 * nextUntil(stop,filter) //返回 selector 与 stop 之间的每个元素之后的所有同级元素。
 </code></pre><hr>
 <h4 id="jQuery-AJAX-load-方法"><a href="#jQuery-AJAX-load-方法" class="headerlink" title="jQuery AJAX load() 方法"></a><code>jQuery AJAX load()</code> 方法</h4><pre><code>* load() //从服务器加载数据，并把返回的数据放置到指定的元素中。
@@ -541,8 +541,8 @@ $(&quot;button&quot;).click(function(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/13/Vue 学习笔记（一）/" rel="next" title="Vue 学习笔记（一）">
-                <i class="fa fa-chevron-left"></i> Vue 学习笔记（一）
+              <a href="/2018/03/13/Vue 基础知识/" rel="next" title="Vue 基础知识">
+                <i class="fa fa-chevron-left"></i> Vue 基础知识
               </a>
             
           </div>
@@ -607,10 +607,10 @@ $(&quot;button&quot;).click(function(){
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -630,8 +630,8 @@ $(&quot;button&quot;).click(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -642,7 +642,7 @@ $(&quot;button&quot;).click(function(){
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -706,7 +706,7 @@ $(&quot;button&quot;).click(function(){
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

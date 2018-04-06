@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -224,819 +224,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/实现一个 jQuery 的 API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/01/实现一个 jQuery 的 API/" itemprop="url">使用原生 JS 实现 jQuery 的 API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="siblings-获取一个节点的所有兄弟节点。"><a href="#siblings-获取一个节点的所有兄弟节点。" class="headerlink" title="siblings() 获取一个节点的所有兄弟节点。"></a><code>siblings()</code> 获取一个节点的所有兄弟节点。</h4><pre><code>&lt;ul&gt;
-  &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;
-  &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;
-  &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;
-  &lt;li id=&quot;item4&quot;&gt;选项4&lt;/li&gt;
-  &lt;li id=&quot;item5&quot;&gt;选项5&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p>定义一个伪数组 <code>array</code>，然后遍历伪数组，将<code>!== item3</code>的节点放进这个伪数组，最后得到这个节点的所有兄弟节点。</p>
-<pre><code>var allChildren = item3.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== item3){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function getSiblings(node){
-    var allChildren = node.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== node){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-}
-getSiblings(item3)//调用
-</code></pre><h4 id="addClass-为元素添加指定的样式类名。"><a href="#addClass-为元素添加指定的样式类名。" class="headerlink" title="addClass() 为元素添加指定的样式类名。"></a><code>addClass()</code> 为元素添加指定的样式类名。</h4><pre><code>item3.classList.add(&apos;a&apos;)
-item3.classList.add(&apos;b&apos;)
-item3.classList.add(&apos;c&apos;)
-</code></pre><p>上面代码优化后如下（这里用到了箭头函数）</p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-classes.forEach((value) =&gt; item3.classList.add(value))
-</code></pre><p>加上<code>remove</code></p>
-<pre><code>var classes = {&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,}
-for(let key in classes){
-    var value = classes[key]
-    if(value){
-        item3.classList.add(key)
-    }else{
-        item3.classList.remove(key)
-    }
-}
-</code></pre><p>封装成函数</p>
-<pre><code>function addClass(node,classes){
-    for(let key in classes){
-        var value = classes[key]
-        if(value){
-            node.classList.add(key)
-        }else{
-            node.classList.remove(key)
-        }
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true, &apos;b&apos;:true, &apos;c&apos;:false,})//调用
-</code></pre><p>优化代码（这里用到了三元运算符）</p>
-<pre><code>function addClass(node,classes){
-  for(let key in classes){
-      var value = classes[key]
-      var methodName = value ? &apos;add&apos; : &apos;remove&apos;
-      node.classList[methodName](key)
-    }    
-}    
-addClass(item3,{&apos;a&apos;:true,&apos;b&apos;:true,&apos;c&apos;:false,})//调用
-</code></pre><p>上面代码等于下面</p>
-<pre><code>function addClass(node,classes){
-    classes.forEach((value) =&gt; node.classList.add(value))
-}    
-addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])//调用
-</code></pre><p><strong>上面两个 <code>API</code> 的弊端：</strong>如果有人已经定义过 <code>Siblings()</code> ，会被这次覆盖。而且不方便调用。运用命名空间能解决这个问题。</p>
-<pre><code>window.zzdom = {} //声明变量名 zzdom
-zzdom.getSiblings = getSiblings 
-zzdom.addClass = addClass
-//调用
-zzdom.getSiblings.call(item3)  
-zzdom.addClass.call(items, {a:true, b:false, c:true})    
-</code></pre><p>代码更新如下</p>
-<pre><code>window.zzdom = {}        
-zzdom.getSiblings = function (node){ 
-var allChildren = node.parentNode.children 
-var array = { 
-    length:0
-}
-for(let i = 0; i&lt;allChildren.length; i++){
-    if (allChildren[i] !== node){
-        array[array.length] = allChildren[i]
-        array.length += 1
-    }
-}
-return array
-}
-zzdom.addClass = function (node,classes){
-  classes.forEach((value) =&gt; node.classList.add(value))
-}
-//调用
-zzdom.getSiblings(item3)
-zzdom.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p>但是相比下，下面这种调用方法更好</p>
-<pre><code>//调用
-item3.getSiblings(item3)
-item3.addClass(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p><strong>解决办法：</strong>更改<code>Node</code>原型</p>
-<pre><code>Node.prototype.getSiblings = function (){ 
-    var allChildren = this.parentNode.children 
-    var array = { 
-        length:0
-    }
-    for(let i = 0; i&lt;allChildren.length; i++){
-        if (allChildren[i] !== this){
-            array[array.length] = allChildren[i]
-            array.length += 1
-        }
-    }
-    return array
-    }
-    Node.prototype.addClass = function (classes){
-        classes.forEach((value) =&gt; this.classList.add(value))
-}
-//调用
-item3.getSiblings.call(item3)
-item3.addClass.call(item3,[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><blockquote>
-<p>注意：<code>this</code>是调用函数时的第一个参数。</p>
-</blockquote>
-<p><strong>上面代码弊端：</strong>如果之前声明过 <code>getSiblings</code> 和 <code>addClass</code>，会被这次声明覆盖。<br>那么不更改原型，解决办法如下：</p>
-<pre><code>window.jQuery = function (node){
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(item3)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><p><strong>增加类型检测：</strong>字符串 <code>string</code> 或选择器 <code>selector</code></p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let node
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        node = document.querySelector(nodeOrSelector)
-    }else{
-        node = nodeOrSelector
-    }
-
-    return{
-      getSiblings: function (){ 
-          var allChildren = node.parentNode.children 
-          var array = { length: 0 }
-          for(let i = 0; i&lt;allChildren.length; i++){
-            if (allChildren[i] !== node){
-                array[array.length] = allChildren[i]
-                array.length += 1
-            }
-          }
-          return array
-      },
-      addClass: function (classes){
-        classes.forEach((value) =&gt; node.classList.add(value))
-      }
-   }
-}
-//调用
-var node2 = jQuery(&apos;#item3&apos;)
-node2.getSiblings()
-node2.addClass([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-</code></pre><h4 id="addClass-操作多个节点"><a href="#addClass-操作多个节点" class="headerlink" title="addClass() 操作多个节点"></a><code>addClass()</code> 操作多个节点</h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-       //伪数组
-       nodes = document.querySelectorAll(nodeOrSelector)
-    }else if(nodeOrSelector instanceof Node){
-        //伪数组，保持返回结果一致
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:NodeList
-</code></pre><p>加一个临时变量，去掉多余的原型链。</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }            
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-console.log(node2)//__proto__:Object 
-</code></pre><p>添加<code>addClass</code>后代码如下</p>
-<pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    return nodes
-}    
-//调用
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red
-</code></pre><h4 id="text-设置或返回被选元素的文本内容。"><a href="#text-设置或返回被选元素的文本内容。" class="headerlink" title="text() 设置或返回被选元素的文本内容。"></a><code>text()</code> 设置或返回被选元素的文本内容。</h4><pre><code>window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    // getText 获取文本
-    nodes.getText = function(){
-        var texts = []
-        for(let i=0; i&lt;nodes.length; i++){
-            texts.push(nodes[i].textContent)
-        }
-        return texts
-    }    
-    // setText 设置文本
-    nodes.setText = function(text){
-        for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-    }    
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red 
-node2.setText(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi 
-</code></pre><p>但是，对于<code>jQuery</code>来说，非常讨厌写<code>set</code>和<code>get</code>。更改如下：</p>
-<pre><code>    window.jQuery = function (nodeOrSelector){
-    let nodes = {}
-    if(typeof nodeOrSelector === &apos;string&apos;){
-        let temp=document.querySelectorAll(nodeOrSelector)
-        for(let i = 0; i&lt;temp.length; i++){
-            nodes[i] = temp[i]
-        }
-        nodes.length = temp.length
-    }else if(nodeOrSelector instanceof Node){
-        nodes = {
-            0: nodeOrSelector,
-            length: 1
-        }
-    }    
-    nodes.addClass = function(classes){
-        classes.forEach((value)=&gt;{
-            for(let i=0; i&lt;nodes.length; i++){
-                nodes[i].classList.add(value)
-            }
-        })
-    }    
-    nodes.text = function (text){
-        if(text === undefined){
-            var texts = []
-            for(let i=0; i&lt;nodes.length; i++){
-             texts.push(nodes[i].textContent)
-          }
-           return texts
-       }else{
-            for(let i=0;i&lt;nodes.length; i++){
-            nodes[i].textContent = text
-        }
-      }    
-    }
-    return nodes
-}    
-var node2 = jQuery(&apos;ul &gt; li&apos;)
-node2.addClass([&apos;red&apos;]) //将所有 div 的 class 添加一个 red 
-node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi 
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/DOM 对象常用API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/30/DOM 对象常用API/" itemprop="url">DOM 对象常用API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
-                2017-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="DOM-理解"><a href="#DOM-理解" class="headerlink" title="DOM 理解"></a><code>DOM</code> 理解</h5><pre><code>DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。
-Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
-
-* Document：XML(HTML 是 XML 的衍生品)
-* Element：节点对象代表文档树中的一个节点。
-* Text：模型
-</code></pre><h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a><code>DOM</code> 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
-</code></pre><h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
-<pre><code>* Document //整个文档（DOM树的根节点），nodeType = 9
-* DocumentType //文档类型节点（比如&lt;!DOCTYPE html&gt;），nodeType = 10
-* Element //网页的各种HTML标签（比如&lt;body&gt;、&lt;a&gt;等），nodeType = 1
-* Attribute //网页元素的属性（比如class=&quot;right&quot;），nodeType = 2
-* Text //标签之间或标签包含的文本，nodeType = 3
-* Comment //注释，nodeType = 8
-* DocumentFragment //文档的片段，nodeType = 11
-</code></pre><p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。</p>
-<hr>
-<h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a><code>Node</code></h4><h5 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h5><pre><code>* Node.nodeName //节点的名称。
-* Node.nodeType //节点的类型。     
-* Node.nodeValue //节点的值。
-* Node.textContent //返回或摄制组当前节点和它的所有后代节点的文本内容。
-* Node.baseURI //返回当前网页的绝对路径。
-
-* Node.ownerDocument //返回元素的根节点文档对象（即 document 对象）。  
-* Node.nextSibling //返回给定节点的下一个子节点。
-* Node.previousSibling //返回给定节点的上一个子节点。 
-* Node.parentNode //（w3c标准）返回给定节点的父节点。
-* Node.parentElement //（只ie支持）返回给定节点的父标签。
-* Node.childNodes //获取子节点（可以是文本、注释、属性）。  
-* Node.firstChild //返回第一个子节点。
-* Node.lastChild //返回最后一个子节点。    
-
-//parentNode接口    
-* parentNode.children //获取子标签节点。
-* parentNode.firstElementChild //返回当前节点的第一个 Element 子节点。
-* parentNode.lastElementChild //返回当前节点的最后一个 Element 子节点。
-* parentNode.childElementCount //返回当前节点所有 Element 子节点的数目。
-
-注意：
-* nodeName 只有 svg 是小写，其他是大写。
-* nextSibling 可能获取到文本。
-</code></pre><h5 id="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"><a href="#方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）" class="headerlink" title="方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）"></a>方法（如果一个属性是函数，那么这个属性就也叫做方法；换言之，方法是函数属性）</h5><pre><code>* Node.appendChild(node) //向节点末尾添加一个子节点。
-* Node.removeChild(node) //删除子节点，在要删除节点的父节点上操作。
-* Node.replaceChild(newChild,oldChild) //替换节点。
-* Node.cloneNode() //复制节点。
-    语法：var dupNode = 被克隆节点.cloneNode(deep);
-    //deep 是否深拷贝，默认为 false ，浅拷贝只克隆节点。
-   //如果为 true ，深拷贝克隆节点和属性，以及后代。
-
-* Node.insertBefore(newNode,oldNode) //在指定子节点之前插入新的子节点。
-* Node.contains(node) //返回一个布尔值，表示参数节点是否为当前节点的后代节点。
-* Node.hasChildNodes() //返回布尔值，表示当前节点是否有子节点。
-* Node.isEqualNode() //返回布尔值，用于检查两个节点是否相等。
-* Node.isSameNode() //返回布尔值，用于检查两个节点是否相同（等价于 ===）。
-* Node.normalize() //用于清理当前节点内部的所有 Text 节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。
-
-//ChildNode接口
-* ChildNode.remove() //用于删除当前节点。
-* ChildNode.before() //在这个节点的前面插入节点（同父节点）。
-* ChildNode.after() //在这个节点的末尾插入节点（同父节点）。
-* ChildNode.replaceWith() //替换当前节点父节点下的子节点。 
-
-注意：
-1.cloneNode() 分为深拷贝和浅拷贝。
-</code></pre><hr>
-<h4 id="Document（查询接口，因为一般从-document-开始查）"><a href="#Document（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document（查询接口，因为一般从 document 开始查）"></a><code>Document</code>（查询接口，因为一般从 document 开始查）</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* document.documentElement //返回当前文档的根节点。
-* document.defaultView //返回 document 对象所在的 window 对象。
-* document.body //返回当前文档的 &lt;body&gt; 节点。
-* document.head //返回当前文档的 &lt;head&gt; 节点。
-* document.activeElement //返回当前文档中获得焦点的那个元素。
-
-//节点集合属性
-* document.links //返回当前文档的所有 a 元素。
-* document.forms //返回页面中所有表单元素。
-* document.images //返回页面中所有图片元素。
-* document.embeds //返回网页中所有嵌入对象。
-* document.scripts //返回当前文档的所有脚本。
-* document.styleSheets //返回当前网页的所有样式表。
-
-//文档信息属性
-* document.documentURI //表示当前文档的网址。
-* document.URL //返回当前文档的网址。
-* document.domain //返回当前文档的域名。
-* document.lastModified //返回当前文档最后修改的时间戳。
-* document.location //返回 location 对象，提供当前文档的 URL 信息。
-* document.referrer //返回当前文档的访问来源。
-* document.title //返回当前文档的标题。
-* document.characterSet //属性返回渲染当前文档的字符集，比如UTF-8、ISO-8859-1。
-* document.readyState //返回当前文档的状态。
-* document.designMode //控制当前文档是否可编辑，可读写。
-* document.compatMode //返回浏览器处理文档的模式。
-* document.cookie //用来操作 Cookie。
-</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><pre><code>//读写
-* document.open() //用于新建并打开一个文档。
-* document.close() //关闭 open 方法所新建的文档。
-* document.write() //用于向当前文档写入内容（尽量不用 write，用的话避免有延时性）。
-* document.writeln() //用于向当前文档写入内容，尾部添加换行符。
-
-//生成节点
-* document.createElement(tagName) //创建一个元素节点。
-* document.createTextNode(text) //创建一个文本节点。
-* document.createAttribute(name) //创建一个属性对象节点，并返回它。
-* document.createDocumentFragment() //创建一个DocumentFragment 对象。
-
-//查找节点
-* document.querySelector(selectors) //接受一个 CSS 选择器作为参数，返回第一个匹配该选择器的元素节点。
-* document.querySelectorAll(selectors) //接受一个 CSS 选择器作为参数，返回所有匹配该选择器的元素节点。
-* document.getElementsByTagName(tagName) //返回所有指定 HTML 标签的元素。
-* document.getElementsByClassName(className) //返回包括了所有class名字符合指定条件的元素。
-* document.getElementsByName(name) //用于选择拥有 name 属性的 HTML 元素（比如 &lt;form&gt;、&lt;radio&gt;、&lt;img&gt;、&lt;frame&gt;、&lt;embed&gt; 和&lt;object&gt; 等）。
-* document.getElementById(id) //返回匹配指定 id 属性的元素节点。
-* document.elementFromPoint(x,y) //返回位于页面指定位置最上层的 Element 子节点。 
-
-//其他
-* document.hasFocus() //返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。
-* document.adoptNode(externalNode) //将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。
-* document.importNode(externalNode, deep) //从外部文档拷贝指定节点，插入当前文档。
-
-注意：
-1.获取元素主要使用 querySelector()、querySelectorAll() 
-</code></pre><hr>
-<h4 id="Element"><a href="#Element" class="headerlink" title="Element"></a><code>Element</code></h4><p><code>DOM API</code> 获取的 <code>Elements</code> 都是伪数组。</p>
-<h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>//特性属性
-* Element.attributes //返回当前元素节点的所有属性节点。
-* Element.id //设置或返回指定元素的 id。
-* Element.tagName //返回元素的标签名。
-
-* Element.innerHTML //设置或返回位于对象起始和结束标签内的 HTML(标签和文本)。
-* Element.outerHTML //设置或返回对象及其内容的 HTML(标签和文本)。
-* Element.innerText //设置或获取位于对象起始和结束标签内的文本(只兼容IE)。
-* Element.outerText //设置(包括标签)或获取(不包括标签)对象的文本 。
-
-* Element.className //返回或设置当前元素的 class 属性。
-* Element.classList //返回当前元素节点的所有 class 集合。
-* Element.dataset //返回元素节点中所有的 data-* 属性。
-
-//尺寸属性
-* Element.clientHeight //返回元素节点可见部分的高度。
-    //clientheight = padding + height - 横向滚动轴高度。
-* Element.clientWidth //返回元素节点可见部分的宽度。
-* Element.clientLeft //返回元素节点左边框的宽度。
-* Element.clientTop //返回元素节点顶部边框的宽度。
-* Element.scrollHeight //返回元素节点的总高度。
-    //scrollHeight = 可滚动高度，就是将滚动框拉直，不再滚动的高度。
-* Element.scrollWidth //返回元素节点的总宽度。
-* Element.scrollLeft //返回元素节点的水平滚动条向右滚动的像素数值,通过设置这个属性可以改变元素的滚动位置。
-* Element.scrollTop //返回元素节点的垂直滚动向下滚动的像素数值。
-* Element.offsetHeight //返回元素的垂直高度(包含border,padding)。
-    //offsetheight = padding + height + border + 横向滚动轴高度。
-* Element.offsetWidth //返回元素的水平宽度(包含 border,padding)。
-* Element.offsetLeft //返回当前元素左上角相对于  HTMLElement.offsetParent 节点的左边界偏移的像素值。    * Element.offsetParent //节点的垂直偏移。
-* Element.offsetTop //返回水平位移。
-* Element.style //返回元素节点的行内样式。
-
-//节点相关属性
-* Element.children //包括当前元素节点的所有子元素。
-* Element.childElementCount //返回当前元素节点包含的子 HTML 元素节点的个数。
-* Element.firstElementChild //返回当前节点的第一个 Element 子节点。  
-* Element.lastElementChild //返回当前节点的最后一个 Element 子节点。  
-* Element.nextElementSibling //返回当前元素节点的下一个兄弟 HTML 元素节点。
-* Element.previousElementSibling //返回当前元素节点的前一个兄弟 HTML 节点。
-* Element.offsetParent //返回当前元素节点的最靠近的、并且 CSS 的 position 属性不等于 static 的父元素。
-</code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>//位置方法
-* getBoundingClientRect() //返回一个对象，包含top,left,right,bottom,width,height（width、height 为元素自身宽高）。
-    top //元素上外边界距窗口最上面的距离。
-    right //元素右外边界距窗口最上面的距离。
-    bottom //元素下外边界距窗口最上面的距离。
-    left //元素左外边界距窗口最上面的距离。
-    width //元素自身宽(包含 border,padding) 。
-    height //元素自身高(包含 border,padding)。 
-* getClientRects() //返回当前元素在页面上形参的所有矩形。
-* Element.scrollIntoView() //滚动当前元素，进入浏览器的可见区域。
-
-//属性方法
-* Element.getAttribute() //读取指定属性。  
-* Element.setAttribute() //设置指定属性。  
-* Element.hasAttribute() //返回一个布尔值，表示当前元素节点是否有指定的属性。  
-* Element.removeAttribute() //移除指定属性。
-
-//查找方法
-* Element.querySelector()  
-* Element.querySelectorAll()  
-* Element.getElementsByTagName()  
-* Element.getElementsByClassName()
-
-//事件方法
-* Element.addEventListener() //添加事件的回调函数。  
-* Element.removeEventListener() //移除事件监听函数。  
-* Element.dispatchEvent() //触发事件。
-//IE8
-* Element.attachEvent(oneventName,listener)
-* Element.detachEvent(oneventName,listener)
-
-//解析 HTML 字符串，然后将生成的节点插入 DOM 树的指定位置。
-* Element.insertAdjacentHTML(where, htmlString); 
-* Element.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入。  
-* Element.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString) // 在该元素第一个子元素前插入。 
-* Element.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString) // 在该元素最后一个子元素后面插入。 
-* Element.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString) // 在该元素后插入。
-
-* Element.remove() //用于将当前元素节点从 DOM 中移除。
-* Element.focus() //用于将当前页面的焦点，转移到指定元素上。
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -1080,7 +267,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1101,7 +288,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1326,7 +513,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -1347,7 +534,7 @@ foo1() //8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1595,7 +782,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -1616,7 +803,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1745,7 +932,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -1766,7 +953,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1933,7 +1120,7 @@ p{color:green;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -1954,7 +1141,7 @@ p{color:green;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2169,7 +1356,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -2190,7 +1377,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2370,7 +1557,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -2391,7 +1578,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2560,7 +1747,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T22:19:25+08:00">
                 2017-12-10
@@ -2581,7 +1768,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2679,6 +1866,529 @@ stretch（默认值）：轴线占满整个交叉轴。
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/HTML 标签(一)./">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/HTML 标签(一)./" itemprop="url">HTML 标签(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-24T10:32:19+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>注意：</strong> <code>HTML</code> 标签名和属性名不能用大写。</p>
+<p>在 <code>CSS</code> 中，<code>HTML</code> 中的标签元素大概被分为三种类型：</p>
+<pre><code>* 块级元素
+* 内联元素
+* 内联块级元素
+</code></pre><p>常用的块状元素</p>
+<pre><code>* &lt;div&gt; //定义一个分隔区块或者一个区域部分。
+* &lt;p&gt; //定义一个段落。
+* &lt;h1&gt;…&lt;h6&gt; //定义标题。
+* &lt;ol&gt; //定义一个有序列表。
+* &lt;ul&gt; //定义一个无序列表
+* &lt;dl&gt; //定义一个描述列表。
+    //与 &lt;dt&gt; 和 &lt;dd&gt; 一起使用。
+    //&lt;dt&gt;（定义项目/名字）
+    //&lt;dd&gt;（描述每一个项目/名字）
+* &lt;table&gt; //创建一个表格。
+* &lt;address&gt; //定义文档作者/所有者的联系信息。
+* &lt;blockquote&gt; //定义摘自另一个源的块引用。
+* &lt;form&gt; //创建供用户输入的表单。
+</code></pre><p>常用的内联元素</p>
+<pre><code>* &lt;a&gt; //定义超链接，用于从一个页面链接到另一个页面。
+* &lt;span&gt; //提供了一种将文本的一部分或者文档的一部分独立出来的方式。
+* &lt;br&gt; //换行符。
+* &lt;i&gt; //斜体。
+* &lt;em&gt; //用来呈现为被强调的文本。
+* &lt;strong&gt; //用来定义计算机程序的样本重要的文本。
+* &lt;label&gt; //为 input 元素定义标注（标记）。
+* &lt;q&gt; //定义一个短的引用。浏览器经常会在这种引用的周围插入引号。
+* &lt;var&gt; //定义变量。可以将此标签与 &lt;pre&gt; 及 &lt;code&gt; 标签配合使用。
+* &lt;cite&gt; //定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。
+* &lt;code&gt; //定义计算机代码文本。
+</code></pre><p>常用的内联块级元素</p>
+<pre><code>* &lt;img&gt; //
+* &lt;input&gt; //
+</code></pre><hr>
+<h3 id="标签详解"><a href="#标签详解" class="headerlink" title="标签详解"></a>标签详解</h3><h4 id="lt-iframe-gt"><a href="#lt-iframe-gt" class="headerlink" title="&lt;iframe&gt;"></a><code>&lt;iframe&gt;</code></h4><p>在当前页面嵌套一个页面。</p>
+<pre><code>* 默认宽 100px 高 50px
+* 默认有难看的 border，可在 CSS 中设置。
+</code></pre><p>属性</p>
+<pre><code>* height //规定 &lt;iframe&gt; 的高度。
+* width //规定 &lt;iframe&gt; 的宽度。
+* name //规定 &lt;iframe&gt; 的名称。
+    //需结合 a 标签使用，否则无意义
+* src 指定路径
+    绝对 URL - 指向另一个网站（比如 src=&quot;http://www.example.com/default.htm&quot;）
+    相对 URL - 指向网站中的一个文件（比如 src=&quot;default.htm&quot;）
+
+// HTML5 中的新属性
+* srcdoc //规定页面中的 HTML 内容显示在 &lt;iframe&gt; 中。
+* seamless //规定 &lt;iframe&gt; 看起来像是父文档中的一部分。
+* sandbox //对 &lt;iframe&gt; 的内容定义一系列额外的限制。
+    &quot;&quot; //启用所有限制条件
+    allow-same-origin //允许将内容作为普通来源对待。如果未使用该关键字，嵌入的内容将被视为一个独立的源。
+    allow-top-navigation //嵌入的页面的上下文可以导航（加载）内容到顶级的浏览上下文环境。如果未使用该关键字，这个操作将不可用。
+    allow-forms //允许表单提交。
+    allow-scripts //允许脚本执行。
+</code></pre><p>示例一：<code>name</code></p>
+<p>因为 <code>a</code> 链接的 <code>target</code> 属性匹配了 <code>ifrme</code> 的 <code>name</code> 属性，所以链接点击后将显示在 <code>iframe</code> 中。</p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bff06e60.png
+"></p>
+<p>示例三：<code>src</code> <code>width</code> <code>height</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6b621ca04.png
+"></p>
+<p>示例二：<code>srcdoc</code></p>
+<p><img src="https://i.loli.net/2018/03/16/5aab6bdd59442.png
+"></p>
+<h4 id="lt-a-gt"><a href="#lt-a-gt" class="headerlink" title="&lt;a&gt;"></a><code>&lt;a&gt;</code></h4><p>属性</p>
+<pre><code>* target //该属性指定在何处显示链接的资源。
+    _self //默认属性。当前页面加载。
+    _blank //新窗口打开
+    _parent //父级页面打开。如果没有，同_self。
+    _top //顶级页面加载。如果没有，同_self。 
+* href //规定链接的目标地址。
+    href=&quot;//qq.com&quot; //无协议地址
+    href=&quot;#xxx&quot; //锚点#，不发起请求
+    href=&quot;?name=qq&quot; //发起请求
+    href=&quot;./xxx.html&quot; //相对路径 
+    href=&quot;javascript:;&quot; //让 a 标签不跳转
+    href=&quot;javascript:alert(1)&quot; //执行一段代码
+    href=&quot;http://write.blog.csdn.net&quot; //绝对 URL，指向另一个站点
+    a href=&quot;&quot; //刷新页面
+    href=&quot;#top&quot; //返回到页面顶部
+    href=&quot;#&quot; //返回到页面顶部
+
+
+// HTML5 中的新属性
+* download //指示浏览器下载 URL 而不是导航到 URL
+* type //规定目标 URL 的 MIME 类型。仅在 href 属性存在时使用。
+    注：MIME 是指示文件的类型（描述的内容格式，例如声音文件可能会被标记  audio/ogg，或图像文件 image/png）
+* media //规定目标 URL 的媒介类型。默认值：all。仅在 href 属性存在时使用。
+...
+</code></pre><p>如何实现浏览器以下载形式接收请求，而不是显示页面？</p>
+<pre><code>// a 标签里加 download
+&lt;a href=&quot;/images/logo.png&quot; download=&quot;logo&quot;&gt;
+
+// HTTP 请求
+Content-type: application/octet-stream
+</code></pre><hr>
+<h4 id="常见空元素"><a href="#常见空元素" class="headerlink" title="常见空元素"></a>常见空元素</h4><p>在<code>HTML</code>元素中，没有内容的<code>HTML</code>元素被称为空元素。大多数<code>HTML</code>标签在开始标签<code>start tag</code>和结束标签<code>end tag</code>之间都具有内容，而某些标签则没有内容。<code>HTML</code>中，从开始标签到结束标签的所有代码，被称为<code>HTML</code>元素。</p>
+<p>在<code>HTML</code>中，通常在一个空元素上使用一个闭标签是无效的。</p>
+<pre><code>例如，&lt;input type=&quot;text&quot;&gt; &lt;/input&gt; 的闭标签是无效的 HTML。
+</code></pre><p>常见的空元素有：</p>
+<pre><code>* &lt;br&gt; //换行符。
+* &lt;hr&gt; //添加水平横线。
+* &lt;img&gt; //定义超链接，用于从一个页面链接到另一个页面。
+* &lt;input&gt; //在 &lt;form&gt; 元素中使用，用来声明允许用户输入数据的 input 控件。
+* &lt;link&gt; //定义文档与外部资源的关系。最常见的用途是链接 css 文件。
+* &lt;meta&gt; //描述 HTML 文档的元数据（元数据是数据的数据信息），&lt;meta&gt; 标签通常位于 &lt;head&gt; 元素内部。
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/19/一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？/" itemprop="url">一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-19T13:42:12+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.<code>DNS</code>解析</h3><pre><code>* DNS 全称：域名解析系统 Domain Name System 。
+* DNS 解析是指根据域名查找 IP 地址。 
+</code></pre><h5 id="概念解释："><a href="#概念解释：" class="headerlink" title="概念解释："></a>概念解释：</h5><pre><code>* IP 地址：是 IP 协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址。
+* 域名：相当于 IP 地址的面具，域名的作用的便于人类使用。例如，www.wikipedia.org 是一个域名，对应的 IP 地址是 208.80.152.2 。
+</code></pre><h5 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h5><p>以<code>www.google.com</code>为例</p>
+<ol>
+<li>本地域名服务器首先检查自身缓存，如果存在记录则直接返回结果。</li>
+<li>如果记录老化或不存在。执行以下操作：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* 本地域名服务器会向根域名服务器发送查询报文。</div><div class="line">* 如果根域名服务器也不存在该域名，本地域名服务器会向 .com 顶级域名服务器发送查询报文。</div><div class="line">* 如果 .com 顶级域名服务器也不存在该域名，本地域名服务器会向 google.com 顶级域名服务器发送查询报文。得到主机 www 的记录，存入自身缓存并返回给客户端。</div></pre></td></tr></table></figure>
+<h4 id="知识展开"><a href="#知识展开" class="headerlink" title="知识展开"></a>知识展开</h4><h5 id="URL"><a href="#URL" class="headerlink" title="URL"></a><code>URL</code></h5><p>统一资源定位符，通俗地称为<code>Web</code>地址。<code>URL</code>通常由以下几部分组成：</p>
+<pre><code>* 协议：由一串不区分大小写的字母组成，以 : 作为结束符。常用的有http、https等。
+* 身份验证：可选，一般的协议(http\https 等)都会使用默认的匿名形式进行数据获取（格式：username:password@hostname）。
+* 域名：服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
+* 端口号：可选，通过冒号与主机名分开，省略时使用默认端口号。各种传输协议都有默认的端口号，http 的默认端口为 80 。
+* 路径：由零或多个“/”符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。
+* 查询参数：可选，可有多个参数，用“&amp;”符号隔开，每个参数的名和值用“=”符号隔开。
+* 锚点：例如一个网页中有多个名词解释，可使用锚点直接定位到某一名词解释。
+</code></pre><p>如图</p>
+<p><img src="https://i.loli.net/2018/02/05/5a7836443733e.png
+"></p>
+<h5 id="域名级别"><a href="#域名级别" class="headerlink" title="域名级别"></a>域名级别</h5><pre><code>www.google.com 是三级域名
+google.com 是二级域名（正常经常忽略 .com，google.com 称为一级域名）
+.com 是一级域名（顶级域名）
+www.baidu.com 和 baidu.com 不是同一个域名，只是共有一个二级域名。
+</code></pre><hr>
+<h4 id="2-TCP连接"><a href="#2-TCP连接" class="headerlink" title="2.TCP连接"></a>2.<code>TCP</code>连接</h4><p>浏览器根据 <code>IP</code> 地址向服务器发起 <code>TCP</code> 连接，与浏览器建立 <code>TCP</code> 三次握手：</p>
+<pre><code>1. 主机向服务器发送一个建立连接的请求（我要连接你了，可以吗）。
+2. 服务器接到请求后发送同意连接的信号（嗯我准备好了，连接我吧）。
+3. 主机接到同意连接的信号后，再次向服务器发送了确认信号（那我连接你咯），自此，主机与服务器两者建立了连接。
+</code></pre><h4 id="知识展开-1"><a href="#知识展开-1" class="headerlink" title="知识展开"></a>知识展开</h4><ul>
+<li>通常使用的网络是在<code>TCP/IP</code>协议族的基础上运作的。而<code>HTTP</code>属于它内部的一个子集。</li>
+<li><code>TCP/IP</code>协议族一共分为4层：应用层、传输层、网络层和数据链路层。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 应用层：决定了向用户提供应用服务时通信的活动。包括 FTP(文件传输协议)、DNS(域名解析系统)、HTTP协议。</div><div class="line">* 传输层：传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。包括 TCP(传输控制协议)、UDP(用户数据报协议)。</div><div class="line">* 网络层：处理在网络上流动的数据包（数据包是网络传输的最小数据单位）。该层规定了通过怎样的路径到大对方计算机，并把数据包传送给对方。</div><div class="line">* 数据链路层：处理连接网络的硬件部分。比如硬件的设备驱动、光纤等物理可见部分。</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="3-发送HTTP请求"><a href="#3-发送HTTP请求" class="headerlink" title="3.发送HTTP请求"></a>3.发送<code>HTTP</code>请求</h4><p><code>HTTP</code>请求报文是由三部分组成：请求行, 请求报头和请求正文。</p>
+<p><code>HTTP</code>协议的作用指导服务器和浏览器如何沟通。</p>
+<h4 id="知识展开-2"><a href="#知识展开-2" class="headerlink" title="知识展开"></a>知识展开</h4><h5 id="服务器与浏览器的交互"><a href="#服务器与浏览器的交互" class="headerlink" title="服务器与浏览器的交互"></a>服务器与浏览器的交互</h5><pre><code>* 浏览器负责发起请求
+* 服务器在 80 端口接收请求
+* 服务器负责返回内容（响应）
+* 浏览器负责下载响应内容
+</code></pre><h5 id="Https和Http的区别"><a href="#Https和Http的区别" class="headerlink" title="Https和Http的区别"></a><code>Https</code>和<code>Http</code>的区别</h5><pre><code>Https 是身披 SSL 协议外衣的 HTTP。加密。  
+Http 有安全隐患，造成密码被盗。 
+</code></pre><h5 id="用curl发请求"><a href="#用curl发请求" class="headerlink" title="用curl发请求"></a>用<code>curl</code>发请求</h5><pre><code>curl -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;
+
+curl -X POST -d &quot;username=ff&amp;password=123&quot; -s -v  -- &quot;http://localhost:8080/path&quot;
+
+-X curl 默认的 HTTP 动词是 GET，使用 -X 参数可以支持其他动词。
+-s 不显示进度条
+-v 显示请求和响应
+-H 添加响应头
+-d 要下载的内容
+</code></pre><h5 id="请求格式"><a href="#请求格式" class="headerlink" title="请求格式"></a>请求格式</h5><pre><code>1 动词 路径 协议/版本
+(POST / HTTP/1.1 或 GET / HTTP/1.1)
+2 Key1: value1
+2 Key2: value2
+2 Key3: value3
+2 Content-Type: application/x-www-form-urlencoded //上传格式，默认为text/html
+2 Host: www.baidu.com //根域名
+2 User-Agent: curl/7.54.0  //代理
+3 永远是回车（为了区分第二部分和第四部分）
+4 要上传的数据（可以是空的）
+</code></pre><p>动词</p>
+<pre><code>GET //获取数据
+POST //提交数据
+PUT //更新数据
+PATCH //局部更新数据
+DELETE //删除操作
+HEAD //获取报文首部
+</code></pre><p>注意事项</p>
+<pre><code>1. 请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）
+2. 第三部分永远都是一个回车（\n）
+3. 这里的路径包括「查询参数」，但不包括「锚点」
+4. 如果你没有写路径，那么路径默认为 /
+5. 第 2 部分中的 Content-Type 标注了第 4 部分的格式
+</code></pre><hr>
+<h4 id="4-服务器处理请求并返回HTTP报文"><a href="#4-服务器处理请求并返回HTTP报文" class="headerlink" title="4.服务器处理请求并返回HTTP报文"></a>4.服务器处理请求并返回<code>HTTP</code>报文</h4><p><code>HTTP</code>响应报文也是由三部分组成：状态码, 响应报头和响应报文。</p>
+<h4 id="知识展开-3"><a href="#知识展开-3" class="headerlink" title="知识展开"></a>知识展开</h4><h5 id="响应格式"><a href="#响应格式" class="headerlink" title="响应格式"></a>响应格式</h5><pre><code>1 协议/版本号 状态码 状态解释
+2 Key1: value1
+2 Key2: value2
+2 Content-Length: 17931
+2 Content-Type: text/html
+3
+4 要下载的内容
+</code></pre><h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><pre><code>1xx 不常用
+2xx 表示成功   200响应成功   204创建成功
+3xx 表示滚吧（重定向）301永久搬走   302临时外出 
+4xx 表示你丫错了（客户端错误）
+5xx 表示好吧，我错了（服务器错误）
+</code></pre><h5 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a><code>Content-Type</code></h5><p>下面是几个常见的<code>Content-Type</code></p>
+<pre><code>* text/html
+* text/plain
+* text/css
+* text/javascript
+* application/x-www-form-urlencoded
+* multipart/form-data
+* application/json
+* application/xml 
+</code></pre><h5 id="GET请求响应格式"><a href="#GET请求响应格式" class="headerlink" title="GET请求响应格式"></a><code>GET</code>请求响应格式</h5><pre><code>//GET 请求
+1 GET / HTTP/1.1
+2 Host: baidu.com
+2 Accpet: text/html
+
+//GET 响应
+1 HTTP/1.1 200 OK
+2 Content-Type: text/html; charset=utf-8
+2 Content-Length: 10000
+</code></pre><h5 id="POST请求响应格式"><a href="#POST请求响应格式" class="headerlink" title="POST请求响应格式"></a><code>POST</code>请求响应格式</h5><pre><code>//POST 请求
+1 POST /path HTTP/1.1
+2 Host: localhost:8080
+2 User-Agent: curl/7.54.0
+2 Accept: */*
+2 Content-Length: 24
+2 Content-Type: application/x-www-form-urlencoded
+3 
+4 username=ff&amp;password=123
+
+//POST 响应
+1 HTTP/1.1 200 OK
+2 Content-Type: application/json
+2 Content-Length: 20
+3 
+4 
+</code></pre><hr>
+<h4 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h4><pre><code>* 浏览器是一个边解析边渲染的过程。
+* 首先浏览器解析`HTML`文件构建`DOM`树。
+* 然后解析`CSS`文件构建渲染树。
+* 等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。
+</code></pre><hr>
+<h4 id="6-关闭TCP连接或继续保持连接"><a href="#6-关闭TCP连接或继续保持连接" class="headerlink" title="6.关闭TCP连接或继续保持连接"></a>6.关闭<code>TCP</code>连接或继续保持连接</h4><p>通过四次挥手关闭连接。一端断开连接需要两次挥手（请求和回应），两端断开连接就需要四次挥手。</p>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2729,8 +2439,8 @@ stretch（默认值）：轴线占满整个交叉轴。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2741,7 +2451,7 @@ stretch（默认值）：轴线占满整个交叉轴。
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2789,7 +2499,7 @@ stretch（默认值）：轴线占满整个交叉轴。
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

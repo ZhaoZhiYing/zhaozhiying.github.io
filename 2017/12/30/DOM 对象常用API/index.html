@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/30/DOM 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
-<meta property="og:updated_time" content="2018-03-21T13:27:58.000Z">
+<meta property="og:updated_time" content="2018-04-06T14:34:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM 对象常用API">
 <meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -504,7 +504,8 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 * Element.scrollIntoView() //滚动当前元素，进入浏览器的可见区域。
 
 //属性方法
-* Element.getAttribute() //读取指定属性。  
+* Element.getAttribute(attributename) //读取指定属性。
+    attributename //String    必须。你想获取的属性值。  
 * Element.setAttribute() //设置指定属性。  
 * Element.hasAttribute() //返回一个布尔值，表示当前元素节点是否有指定的属性。  
 * Element.removeAttribute() //移除指定属性。
@@ -623,10 +624,10 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -646,8 +647,8 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -658,7 +659,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -722,7 +723,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 

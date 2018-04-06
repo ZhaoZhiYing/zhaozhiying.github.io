@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/30/JSON/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="JSON* JSON 是 JavaScript Object Notation 的简称。 * 它是一种表示结构化数据的格式，通常用于服务端向网页传递数据。 * 相比 XML，JSON 是在 JavaScript 中读写结构化数据的更好的方式。主要是因为 JSON 比 XML 更小、更快、更易解析。 XML* 曾有一段时间，XML 是互联网上传输结构化数据的事实标准。 * 但是 XML 过于烦琐、冗">
-<meta property="og:updated_time" content="2018-03-31T07:48:45.000Z">
+<meta property="og:updated_time" content="2018-04-05T17:13:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON">
 <meta name="twitter:description" content="JSON* JSON 是 JavaScript Object Notation 的简称。 * 它是一种表示结构化数据的格式，通常用于服务端向网页传递数据。 * 相比 XML，JSON 是在 JavaScript 中读写结构化数据的更好的方式。主要是因为 JSON 比 XML 更小、更快、更易解析。 XML* 曾有一段时间，XML 是互联网上传输结构化数据的事实标准。 * 但是 XML 过于烦琐、冗">
@@ -184,7 +184,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -268,7 +268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:49:42+08:00">
                 2018-03-30
@@ -289,7 +289,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -374,7 +374,7 @@ var obj = JSON.parse(text, (key, value) =&gt; {
   return typeof value === &apos;number&apos;? value * 2 : value;   
 })
 obj //{p: 10, q: 12}
-</code></pre><h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a><code>JSON.stringify()</code></h4><p><code>JSON.stringify()</code> 用于将 <code>JavaScript</code> 值转换为 <code>JSON</code> 字符串。</p>
+</code></pre><h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a><code>JSON.stringify()</code></h4><p><code>JSON.stringify()</code> 将一个 <code>JavaScript</code> 值(对象或者数组)转换为一个 <code>JSON</code>字符串。</p>
 <p>语法</p>
 <pre><code>JSON.stringify(value[, replacer[, space]])
 
@@ -382,7 +382,16 @@ value //必需，要转换的 JavaScript 值（通常为对象或数组）。
 replacer //可选。用于转换结果的函数或数组。
 space //可选，文本添加缩进、空格和换行符。
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JSON.stringify(&#123;&#125;);                		// &apos;&#123;&#125;&apos;</div><div class="line">JSON.stringify(true);                   // &apos;true&apos;</div><div class="line">JSON.stringify(&quot;foo&quot;);                  // &apos;&quot;foo&quot;&apos;</div><div class="line">JSON.stringify([1,&quot;false&quot;,false]);      // &apos;[1,&quot;false&quot;,false]&apos;</div><div class="line">JSON.stringify(&#123; x: 5 &#125;);               // &apos;&#123;&quot;x&quot;:5&#125;&apos;</div></pre></td></tr></table></figure>
-<hr>
+<h5 id="toJSON-方法"><a href="#toJSON-方法" class="headerlink" title="toJSON 方法"></a><code>toJSON</code> 方法</h5><p>如果一个被序列化的对象拥有 <code>toJSON</code> 方法，那么该 <code>toJSON</code> 方法就会覆盖该对象默认的序列化行为：不是那个对象被序列化，而是调用 <code>toJSON</code> 方法后的返回值会被序列化，例如：</p>
+<pre><code>var obj = {
+  foo: &apos;foo&apos;,
+  toJSON: function () {
+    return &apos;bar&apos;;
+  }
+};
+JSON.stringify(obj);      // &apos;&quot;bar&quot;&apos;
+JSON.stringify({x: obj}); // &apos;{&quot;x&quot;:&quot;bar&quot;}&apos;
+</code></pre><hr>
 
       
     </div>
@@ -473,10 +482,10 @@ space //可选，文本添加缩进、空格和换行符。
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -496,8 +505,8 @@ space //可选，文本添加缩进、空格和换行符。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -508,7 +517,7 @@ space //可选，文本添加缩进、空格和换行符。
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -542,7 +551,7 @@ space //可选，文本添加缩进、空格和换行符。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">1.1.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的关系"><span class="nav-number">1.2.</span> <span class="nav-text">JSON 与 JavaScript 的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">JSON 与 JavaScript 的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON方法"><span class="nav-number"></span> <span class="nav-text">JSON方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-parse"><span class="nav-number">1.</span> <span class="nav-text">JSON.parse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">2.</span> <span class="nav-text">JSON.stringify()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">1.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#XML"><span class="nav-number">1.1.</span> <span class="nav-text">XML</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的关系"><span class="nav-number">1.2.</span> <span class="nav-text">JSON 与 JavaScript 的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-与-JavaScript-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">JSON 与 JavaScript 的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON方法"><span class="nav-number"></span> <span class="nav-text">JSON方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-parse"><span class="nav-number">1.</span> <span class="nav-text">JSON.parse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-stringify"><span class="nav-number">2.</span> <span class="nav-text">JSON.stringify()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#toJSON-方法"><span class="nav-number">2.1.</span> <span class="nav-text">toJSON 方法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -572,7 +581,7 @@ space //可选，文本添加缩进、空格和换行符。
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
