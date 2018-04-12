@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/13/Vue 基础知识/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="Vue 实例每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的。 var vm = new Vue({   ... }) 数据与方法当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。 var vm = new Vue({   data: data })">
-<meta property="og:updated_time" content="2018-04-06T08:45:40.000Z">
+<meta property="og:updated_time" content="2018-04-10T15:50:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 基础知识">
 <meta name="twitter:description" content="Vue 实例每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的。 var vm = new Vue({   ... }) 数据与方法当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。 var vm = new Vue({   data: data })">
@@ -324,10 +324,9 @@
   todos: [],
   error: null
 }
-</code></pre><h5 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h5><pre><code>* 每个 Vue 实例在被创建时都要经过一系列的初始化过程。
-* 例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。
-* 同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。
-</code></pre><p>比如 <code>created</code> 钩子可以用来在一个实例被创建之后执行代码：</p>
+</code></pre><h5 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h5><p>每个 <code>Vue</code> 实例在被创建时都要经过一系列的初始化过程。在这个过程中也会运行一些叫做生命周期钩子的函数。</p>
+<p><strong>作用：</strong>给用户在不同阶段添加自己的代码的机会。</p>
+<p>比如 <code>created</code> 钩子可以用来在一个实例被创建之后执行代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: 1</div><div class="line">  &#125;,</div><div class="line">  created: function () &#123;</div><div class="line">    // `this` 指向 vm 实例</div><div class="line">    console.log(&apos;a is: &apos; + this.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt; &quot;a is: 1&quot;</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h4><h5 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h5><p>数据绑定最常见的形式就是使用插值语法 (双大括号) 的文本插值。</p>
@@ -342,11 +341,10 @@
 <h5 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h5><p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。</p>
 <pre><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;        
 </code></pre><hr>
-<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><h5 id="模板内表达式"><a href="#模板内表达式" class="headerlink" title="模板内表达式"></a>模板内表达式</h5><p>模板内的表达式非常便利，但是在模板中放入太多的逻辑会让模板过重且难以维护。</p>
-<pre><code>&lt;div id=&quot;example&quot;&gt;
+<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><h5 id="模板内表达式"><a href="#模板内表达式" class="headerlink" title="模板内表达式"></a>模板内表达式</h5><pre><code>&lt;div id=&quot;example&quot;&gt;
   {{ message.split('').reverse().join('') }}
 &lt;/div&gt;
-</code></pre><h5 id="计算属性-1"><a href="#计算属性-1" class="headerlink" title="计算属性"></a>计算属性</h5><p>对于任何复杂逻辑，应当使用计算属性。</p>
+</code></pre><h5 id="计算属性-1"><a href="#计算属性-1" class="headerlink" title="计算属性"></a>计算属性</h5><p>模板内的表达式非常便利，但是在模板中放入太多的逻辑会让模板过重且难以维护。对于任何复杂逻辑，应当使用计算属性。</p>
 <pre><code>&lt;div id=&quot;example&quot;&gt;
   &lt;p&gt;{{ message }}&lt;/p&gt;
   &lt;p&gt;{{ reversedMessage }}&lt;/p&gt;
