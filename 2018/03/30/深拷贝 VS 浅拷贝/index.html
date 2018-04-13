@@ -89,7 +89,7 @@
 ">
 <meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
 ">
-<meta property="og:updated_time" content="2018-03-31T15:04:27.000Z">
+<meta property="og:updated_time" content="2018-04-13T07:42:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝 VS 浅拷贝">
 <meta name="twitter:description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
@@ -370,7 +370,7 @@ var cloneObj = JSON.parse(JSON.stringify(obj))
         object2 = {}
     }
     for(let key in object){
-        object2[key] = clone(object[key])
+        object2[key] = deepClone(object[key])
     }
     return object2
 }
