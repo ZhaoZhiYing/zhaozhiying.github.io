@@ -79,22 +79,16 @@
 
 
 
-<meta name="description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
+<meta name="description" content="Sass 和 SCSSSCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。 //Sass 转换为 SCSS $ sass-convert style.sass style.scss  //SCSS 转换为 Sass $ sass-convert style.scss style.sass Sass写法：不使用花括号和分号，通过缩排的方式表示选择符的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深拷贝 VS 浅拷贝">
-<meta property="og:url" content="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/index.html">
+<meta property="og:title" content="SCSS 入门">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/SCSS 入门/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">
-<meta property="og:updated_time" content="2018-04-13T07:42:00.000Z">
+<meta property="og:description" content="Sass 和 SCSSSCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。 //Sass 转换为 SCSS $ sass-convert style.sass style.scss  //SCSS 转换为 Sass $ sass-convert style.scss style.sass Sass写法：不使用花括号和分号，通过缩排的方式表示选择符的">
+<meta property="og:updated_time" content="2018-04-16T12:50:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深拷贝 VS 浅拷贝">
-<meta name="twitter:description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
-<meta name="twitter:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
-">
+<meta name="twitter:title" content="SCSS 入门">
+<meta name="twitter:description" content="Sass 和 SCSSSCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。 //Sass 转换为 SCSS $ sass-convert style.sass style.scss  //SCSS 转换为 Sass $ sass-convert style.scss style.sass Sass写法：不使用花括号和分号，通过缩排的方式表示选择符的">
 
 
 
@@ -124,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/SCSS 入门/"/>
 
 
 
 
 
-  <title>深拷贝 VS 浅拷贝 | Zhao Zhiying</title>
+  <title>SCSS 入门 | Zhao Zhiying</title>
   
 
 
@@ -247,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/SCSS 入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -264,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深拷贝 VS 浅拷贝</h1>
+          <h1 class="post-title" itemprop="name headline">SCSS 入门</h1>
         
 
         <div class="post-meta">
@@ -276,8 +270,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:32:17+08:00">
-                2018-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T17:00:45+08:00">
+                2018-04-16
               </time>
             
 
@@ -286,28 +280,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -336,53 +308,73 @@
       
 
       
-        <blockquote>
-<p>对于基本类型来说，只有深拷贝。这里我们只讲对象。</p>
-</blockquote>
-<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>对于对象来说，深拷贝是指在<code>栈内存</code>中新增一个指针，并且在<code>堆内存</code>中申请了一个新的内存。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a 
-b.name = &quot;zhao&quot;;  
-//a.name = &quot;tang&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
-">    </p>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>对于对象来说，浅拷贝只是在<code>栈内存</code>中新增一个指针指向原有的内存，只是拷贝了内存地址（<code>Heap</code>地址）。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a
-b.name = &quot;zhao&quot;
-//a.name = &quot;zhao&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">    </p>
-<hr>
-<h4 id="如何实现深拷贝？"><a href="#如何实现深拷贝？" class="headerlink" title="如何实现深拷贝？"></a>如何实现深拷贝？</h4><h5 id="JSON-实现深拷贝"><a href="#JSON-实现深拷贝" class="headerlink" title="JSON 实现深拷贝"></a><code>JSON</code> 实现深拷贝</h5><pre><code>var obj = {}
-var cloneObj = JSON.parse(JSON.stringify(obj))
-</code></pre><p>缺点</p>
-<pre><code>JSON 不支持函数、引用、undefined、RegExp、Date等。
-</code></pre><h5 id="递归拷贝"><a href="#递归拷贝" class="headerlink" title="递归拷贝"></a>递归拷贝</h5><pre><code>function deepClone(object){
-    var object2
-    if(!(object instanceof Object)){
-        return object
-    }else if(object instanceof Array){
-        object2 = []
-    }else if(object instanceof Function){
-        object2 = eval(object.toString())
-    }else if(object instanceof Object){
-        object2 = {}
-    }
-    for(let key in object){
-        object2[key] = deepClone(object[key])
-    }
-    return object2
+        <h4 id="Sass-和-SCSS"><a href="#Sass-和-SCSS" class="headerlink" title="Sass 和 SCSS"></a><code>Sass</code> 和 <code>SCSS</code></h4><p><code>SCSS</code> 是 <code>Sass 3</code> 引入新的语法，其语法完全兼容 <code>CSS3</code>，并且继承了 <code>Sass</code> 的强大功能。</p>
+<pre><code>//Sass 转换为 SCSS
+$ sass-convert style.sass style.scss
+
+//SCSS 转换为 Sass
+$ sass-convert style.scss style.sass
+</code></pre><p><code>Sass</code>写法：不使用花括号和分号，通过缩排的方式表示选择符的嵌套层级，用换行符来分隔属性。</p>
+<pre><code>#sidebar
+  width: 30%
+  background-color: #faa    
+</code></pre><p><code>SCSS</code>写法：需要使用分号和花括号而不是换行和缩进。  </p>
+<pre><code>#sidebar {
+  width: 30%;
+  background-color: #faa;
+}
+</code></pre><hr>
+<h4 id="SCSS-安装"><a href="#SCSS-安装" class="headerlink" title="SCSS 安装"></a><code>SCSS</code> 安装</h4><p>依次执行以下命令行，进行全局安装。</p>
+<pre><code>* npm config set registry https://registry.npm.taobao.org/
+* touch ~/.bashrc
+* echo &apos;export SASS_BINARY_SITE=&quot;https://npm.taobao.org/mirrors/node-sass&quot;&apos; &gt;&gt; ~/.bashrc
+* source ~/.bashrc
+* npm i -g node-sass
+</code></pre><p>比如在桌面新建目录，进行使用。</p>
+<pre><code>* mkdir ~/Desktop/scss-demo
+* cd ~/Desktop/scss-demo
+* mkdir scss css
+* touch scss/style.scss
+* open scss/style.scss
+</code></pre><h5 id="将-Sass-编译成-CSS"><a href="#将-Sass-编译成-CSS" class="headerlink" title="将 Sass 编译成 CSS"></a>将 <code>Sass</code> 编译成 <code>CSS</code></h5><p>多个编译</p>
+<pre><code>//下面的命令表示将 sass 文件夹中所有 .scss (.sass)文件编译成 .css 文件，并且将这些 css 文件都放在 css 文件夹中。
+node-sass -wr scss -o css
+</code></pre><p>单个编译</p>
+<pre><code>node-sass &lt;要编译的Sass文件路径&gt;/style.scss &lt;要输出CSS文件路径&gt;/style.css
+</code></pre><p>上面的命令在每次更改后都要执行一次，那么，能不能自动翻译？请执行以下命令。</p>
+<pre><code>node-sass style.scss style.css -w style.scss    
+</code></pre><hr>
+<h4 id="SCSS-常用语法-嵌套"><a href="#SCSS-常用语法-嵌套" class="headerlink" title="SCSS 常用语法 - 嵌套"></a><code>SCSS</code> 常用语法 - 嵌套</h4><p>1.选择器嵌套</p>
+<pre><code>div{
+    border: 1px blue solid;
+    h1{height: 16px;}
+    span{width: 12px;}
 }
 
-var obj = {0:1, 1:5, 2:2, 3:1}
-var arr = [2, 2, 3, 4, 4, 6, 6]
+//编译为
+div{border: 1px blue solid;}
+div &gt; h1{height: 16px;}
+div &gt; span{width: 12px;}
+</code></pre><p>2.属性嵌套</p>
+<pre><code>div{
+　　border: {color: red;}
+     font: {size: 12px;}
+}
 
-var newObj = deepClone(obj)
-var newArr = deepClone(arr)
+//编译为
+div{
+　　border-color: red;
+     font-size: 12px;
+}
+</code></pre><p>3.引用父选择符：<code>&amp;</code></p>
+<pre><code>a{
+  font-weight: bold;
+  &amp;:hover{text-decoration: underline;}
+}    
 
-newObj //{0:1, 1:5, 2:2, 3:1}
-newArr //[2, 2, 3, 4, 4, 6, 6]
+//编译为
+a{font-weight: bold;}
+a:hover{text-decoration: underline;}
 </code></pre><hr>
 
       
@@ -408,8 +400,8 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/排序算法/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2018/04/02/var、let 和 const/" rel="next" title="var、let 和 const">
+                <i class="fa fa-chevron-left"></i> var、let 和 const
               </a>
             
           </div>
@@ -417,10 +409,6 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/30/JSON/" rel="prev" title="JSON">
-                JSON <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +531,7 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现深拷贝？"><span class="nav-number"></span> <span class="nav-text">如何实现深拷贝？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-实现深拷贝"><span class="nav-number">1.</span> <span class="nav-text">JSON 实现深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#递归拷贝"><span class="nav-number">2.</span> <span class="nav-text">递归拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sass-和-SCSS"><span class="nav-number">1.</span> <span class="nav-text">Sass 和 SCSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SCSS-安装"><span class="nav-number">2.</span> <span class="nav-text">SCSS 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将-Sass-编译成-CSS"><span class="nav-number">2.1.</span> <span class="nav-text">将 Sass 编译成 CSS</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SCSS-常用语法-嵌套"><span class="nav-number">3.</span> <span class="nav-text">SCSS 常用语法 - 嵌套</span></a></li></ol></div>
             
 
           </div>

@@ -238,6 +238,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/SCSS 入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/16/SCSS 入门/" itemprop="url">SCSS 入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T17:00:45+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Sass-和-SCSS"><a href="#Sass-和-SCSS" class="headerlink" title="Sass 和 SCSS"></a><code>Sass</code> 和 <code>SCSS</code></h4><p><code>SCSS</code> 是 <code>Sass 3</code> 引入新的语法，其语法完全兼容 <code>CSS3</code>，并且继承了 <code>Sass</code> 的强大功能。</p>
+<pre><code>//Sass 转换为 SCSS
+$ sass-convert style.sass style.scss
+
+//SCSS 转换为 Sass
+$ sass-convert style.scss style.sass
+</code></pre><p><code>Sass</code>写法：不使用花括号和分号，通过缩排的方式表示选择符的嵌套层级，用换行符来分隔属性。</p>
+<pre><code>#sidebar
+  width: 30%
+  background-color: #faa    
+</code></pre><p><code>SCSS</code>写法：需要使用分号和花括号而不是换行和缩进。  </p>
+<pre><code>#sidebar {
+  width: 30%;
+  background-color: #faa;
+}
+</code></pre><hr>
+<h4 id="SCSS-安装"><a href="#SCSS-安装" class="headerlink" title="SCSS 安装"></a><code>SCSS</code> 安装</h4><p>依次执行以下命令行，进行全局安装。</p>
+<pre><code>* npm config set registry https://registry.npm.taobao.org/
+* touch ~/.bashrc
+* echo &apos;export SASS_BINARY_SITE=&quot;https://npm.taobao.org/mirrors/node-sass&quot;&apos; &gt;&gt; ~/.bashrc
+* source ~/.bashrc
+* npm i -g node-sass
+</code></pre><p>比如在桌面新建目录，进行使用。</p>
+<pre><code>* mkdir ~/Desktop/scss-demo
+* cd ~/Desktop/scss-demo
+* mkdir scss css
+* touch scss/style.scss
+* open scss/style.scss
+</code></pre><h5 id="将-Sass-编译成-CSS"><a href="#将-Sass-编译成-CSS" class="headerlink" title="将 Sass 编译成 CSS"></a>将 <code>Sass</code> 编译成 <code>CSS</code></h5><p>多个编译</p>
+<pre><code>//下面的命令表示将 sass 文件夹中所有 .scss (.sass)文件编译成 .css 文件，并且将这些 css 文件都放在 css 文件夹中。
+node-sass -wr scss -o css
+</code></pre><p>单个编译</p>
+<pre><code>node-sass &lt;要编译的Sass文件路径&gt;/style.scss &lt;要输出CSS文件路径&gt;/style.css
+</code></pre><p>上面的命令在每次更改后都要执行一次，那么，能不能自动翻译？请执行以下命令。</p>
+<pre><code>node-sass style.scss style.css -w style.scss    
+</code></pre><hr>
+<h4 id="SCSS-常用语法-嵌套"><a href="#SCSS-常用语法-嵌套" class="headerlink" title="SCSS 常用语法 - 嵌套"></a><code>SCSS</code> 常用语法 - 嵌套</h4><p>1.选择器嵌套</p>
+<pre><code>div{
+    border: 1px blue solid;
+    h1{height: 16px;}
+    span{width: 12px;}
+}
+
+//编译为
+div{border: 1px blue solid;}
+div &gt; h1{height: 16px;}
+div &gt; span{width: 12px;}
+</code></pre><p>2.属性嵌套</p>
+<pre><code>div{
+　　border: {color: red;}
+     font: {size: 12px;}
+}
+
+//编译为
+div{
+　　border-color: red;
+     font-size: 12px;
+}
+</code></pre><p>3.引用父选择符：<code>&amp;</code></p>
+<pre><code>a{
+  font-weight: bold;
+  &amp;:hover{text-decoration: underline;}
+}    
+
+//编译为
+a{font-weight: bold;}
+a:hover{text-decoration: underline;}
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/var、let 和 const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2289,193 +2476,6 @@ $(&quot;button&quot;).click(function(){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/Vue 基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/13/Vue 基础知识/" itemprop="url">Vue 基础知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T14:10:31+08:00">
-                2018-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Vue-实例"><a href="#Vue-实例" class="headerlink" title="Vue 实例"></a><code>Vue</code> 实例</h4><p>每个 <code>Vue</code> 应用都是通过用 <code>Vue</code> 函数创建一个新的 <code>Vue</code> 实例开始的。</p>
-<pre><code>var vm = new Vue({
-  ...
-})
-</code></pre><h5 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h5><p>当一个 <code>Vue</code> 实例被创建时，它向 <code>Vue</code> 的响应式系统中加入了其 <code>data</code> 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。</p>
-<pre><code>var vm = new Vue({
-  data: data
-})
-</code></pre><p>如果晚些时候需要一个属性，但是一开始它为空或不存在，那么需要设置一些初始值。</p>
-<pre><code>data: {
-  newTodoText: &apos;&apos;,
-  visitCount: 0,
-  hideCompletedTodos: false,
-  todos: [],
-  error: null
-}
-</code></pre><h5 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h5><p>每个 <code>Vue</code> 实例在被创建时都要经过一系列的初始化过程。在这个过程中也会运行一些叫做生命周期钩子的函数。</p>
-<p><strong>作用：</strong>给用户在不同阶段添加自己的代码的机会。</p>
-<p>比如 <code>created</code> 钩子可以用来在一个实例被创建之后执行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: 1</div><div class="line">  &#125;,</div><div class="line">  created: function () &#123;</div><div class="line">    // `this` 指向 vm 实例</div><div class="line">    console.log(&apos;a is: &apos; + this.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt; &quot;a is: 1&quot;</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h4><h5 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h5><p>数据绑定最常见的形式就是使用插值语法 (双大括号) 的文本插值。</p>
-<pre><code>&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
-</code></pre><p>插值语法同时支持 <code>JavaScript</code> 表达式。每个绑定都只能包含单个表达式。</p>
-<pre><code>{{number + 1}}
-{{ ok ? 'YES' : 'NO' }}
-</code></pre><p>插值语法不能作用在 <code>HTML</code> 特性上，遇到这种情况应该使用 <code>v-bind</code> 指令。</p>
-<pre><code>&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
-</code></pre><h5 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h5><p>指令带有前缀 <code>v-</code>，以表示它们是 <code>Vue</code> 提供的特殊特性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;...&lt;/a&gt;</div><div class="line">&lt;div v-bind:class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h5 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h5><p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。</p>
-<pre><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;        
-</code></pre><hr>
-<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><h5 id="模板内表达式"><a href="#模板内表达式" class="headerlink" title="模板内表达式"></a>模板内表达式</h5><pre><code>&lt;div id=&quot;example&quot;&gt;
-  {{ message.split('').reverse().join('') }}
-&lt;/div&gt;
-</code></pre><h5 id="计算属性-1"><a href="#计算属性-1" class="headerlink" title="计算属性"></a>计算属性</h5><p>模板内的表达式非常便利，但是在模板中放入太多的逻辑会让模板过重且难以维护。对于任何复杂逻辑，应当使用计算属性。</p>
-<pre><code>&lt;div id=&quot;example&quot;&gt;
-  &lt;p&gt;{{ message }}&lt;/p&gt;
-  &lt;p&gt;{{ reversedMessage }}&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-    var vm = new Vue({
-      el: &apos;#example&apos;,
-      data: {
-        message: &apos;Hello&apos;
-      },
-      computed: {
-        // 计算属性的 getter
-        reversedMessage: function () {
-          // this 指向 vm 实例
-          return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
-        }
-      }
-    })
-&lt;/script&gt;
-</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>计算属性是基于它们的依赖进行缓存的。如果不希望有缓存，可以用方法来替代。</p>
-<pre><code>&lt;p&gt;Reversed message: &quot;{{ reversedMessage() }}&quot;&lt;/p&gt;
-
-&lt;script&gt;
-    methods: {
-      reversedMessage: function () {
-        return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
-      }
-    }
-&lt;/script&gt;    
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2526,7 +2526,7 @@ $(&quot;button&quot;).click(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

@@ -238,6 +238,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/Vue 基础知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/13/Vue 基础知识/" itemprop="url">Vue 基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T14:10:31+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Vue-实例"><a href="#Vue-实例" class="headerlink" title="Vue 实例"></a><code>Vue</code> 实例</h4><p>每个 <code>Vue</code> 应用都是通过用 <code>Vue</code> 函数创建一个新的 <code>Vue</code> 实例开始的。</p>
+<pre><code>var vm = new Vue({...})
+</code></pre><h5 id="数据与方法"><a href="#数据与方法" class="headerlink" title="数据与方法"></a>数据与方法</h5><p>当一个 <code>Vue</code> 实例被创建时，它向 <code>Vue</code> 的响应式系统中加入了其 <code>data</code> 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。</p>
+<pre><code>var vm = new Vue({
+  data: data
+})
+</code></pre><p>如果晚些时候需要一个属性，但是一开始它为空或不存在，那么需要设置一些初始值。</p>
+<pre><code>data: {
+  newTodoText: &apos;&apos;,
+  visitCount: 0,
+  hideCompletedTodos: false,
+  todos: [],
+  error: null
+}
+</code></pre><h5 id="实例生命周期钩子"><a href="#实例生命周期钩子" class="headerlink" title="实例生命周期钩子"></a>实例生命周期钩子</h5><p>每个 <code>Vue</code> 实例在被创建时都要经过一系列的初始化过程。在这个过程中也会运行一些叫做生命周期钩子的函数。</p>
+<p><strong>作用：</strong>给用户在不同阶段添加自己的代码的机会。</p>
+<p>比如 <code>created</code> 钩子可以用来在一个实例被创建之后执行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: 1</div><div class="line">  &#125;,</div><div class="line">  created: function () &#123;</div><div class="line">    // `this` 指向 vm 实例</div><div class="line">    console.log(&apos;a is: &apos; + this.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt; &quot;a is: 1&quot;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h4><h5 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h5><p>数据绑定最常见的形式就是使用插值语法 (双大括号) 的文本插值。</p>
+<pre><code>&lt;span&gt;Message: {{ msg }}&lt;/span&gt;
+</code></pre><p>插值语法同时支持 <code>JavaScript</code> 表达式。每个绑定都只能包含单个表达式。</p>
+<pre><code>{{number + 1}}
+{{ ok ? 'YES' : 'NO' }}
+</code></pre><p>插值语法不能作用在 <code>HTML</code> 特性上，遇到这种情况应该使用 <code>v-bind</code> 指令。</p>
+<pre><code>&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;
+</code></pre><h5 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h5><p>指令带有前缀 <code>v-</code>，以表示它们是 <code>Vue</code> 提供的特殊特性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;...&lt;/a&gt;</div><div class="line">&lt;div v-bind:class=&quot;&#123; active: isActive &#125;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h5 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h5><p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。</p>
+<pre><code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;        
+</code></pre><hr>
+<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><h5 id="模板内表达式"><a href="#模板内表达式" class="headerlink" title="模板内表达式"></a>模板内表达式</h5><pre><code>&lt;div id=&quot;example&quot;&gt;
+  {{ message.split('').reverse().join('') }}
+&lt;/div&gt;
+</code></pre><h5 id="计算属性-1"><a href="#计算属性-1" class="headerlink" title="计算属性"></a>计算属性</h5><p>模板内的表达式非常便利，但是在模板中放入太多的逻辑会让模板过重且难以维护。对于任何复杂逻辑，应当使用计算属性。</p>
+<pre><code>&lt;div id=&quot;example&quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;p&gt;{{ reversedMessage }}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    var vm = new Vue({
+      el: &apos;#example&apos;,
+      data: {
+        message: &apos;Hello&apos;
+      },
+      computed: {
+        // 计算属性的 getter
+        reversedMessage: function () {
+          // this 指向 vm 实例
+          return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
+        }
+      }
+    })
+&lt;/script&gt;
+</code></pre><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>计算属性是基于它们的依赖进行缓存的。如果不希望有缓存，可以用方法来替代。</p>
+<pre><code>&lt;p&gt;Reversed message: &quot;{{ reversedMessage() }}&quot;&lt;/p&gt;
+
+&lt;script&gt;
+    methods: {
+      reversedMessage: function () {
+        return this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)
+      }
+    }
+&lt;/script&gt;    
+</code></pre><h5 id="侦听属性"><a href="#侦听属性" class="headerlink" title="侦听属性"></a>侦听属性</h5><p><code>Vue</code> 提供了一种更通用的方式来观察和响应 <code>Vue</code> 实例上的数据变动：侦听属性。</p>
+<pre><code>&lt;div id=&quot;demo&quot;&gt;{{ fullName }}&lt;/div&gt;
+
+&lt;script&gt;
+    var vm = new Vue({
+      el: &apos;#demo&apos;,
+      data: {
+        firstName: &apos;Foo&apos;,
+        lastName: &apos;Bar&apos;,
+        fullName: &apos;Foo Bar&apos;
+      },
+      watch: {
+        firstName: function (val) {
+          this.fullName = val + &apos; &apos; + this.lastName
+        },
+        lastName: function (val) {
+          this.fullName = this.firstName + &apos; &apos; + val
+        }
+      }
+    })
+&lt;/script&gt;
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/03/HTTP 缓存/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2162,230 +2368,6 @@ a
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/19/JS 立即执行函数和闭包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/19/JS 立即执行函数和闭包/" itemprop="url">JS 立即执行函数和闭包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-19T12:54:59+08:00">
-                2018-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h4><h5 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h5><ul>
-<li>「执行环境」定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</li>
-<li>每个「执行环境」都有一个与之关联的「变量对象」，环境中定义的所有变量和函数都保存在这个对象中。</li>
-</ul>
-<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><ul>
-<li>当代码在一个「执行环境」中时，会创建「变量对象」的一个「作用域链」。</li>
-<li><p>「作用域链」的用途是保证对<code>执行环境</code>有权访问的所有变量和函数的有序访问。</p>
-</li>
-<li><p>「作用域」分为<strong>全局作用域</strong>和<strong>局部作用域(也叫函数作用域)</strong><br>「全局变量」，「函数作用域」中声明的变量是「局部变量」。</p>
-</li>
-<li>外部无法读取「局部变量」，但函数内部可以读取「全局变量」。同名的「局部变量」会在函数内部覆盖「全局变量」。  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var name = &apos;zhao&apos;</div><div class="line">function foo()&#123;</div><div class="line">	var name = &apos;tang&apos;</div><div class="line">	console.log(name)</div><div class="line">&#125;</div><div class="line">foo()//tang</div><div class="line"></div><div class="line">//函数 foo 内部的变量 name 覆盖了全局变量 name</div></pre></td></tr></table></figure>
-<h5 id="堆栈Call-Stack先入后出"><a href="#堆栈Call-Stack先入后出" class="headerlink" title="堆栈Call Stack先入后出"></a>堆栈<code>Call Stack</code>先入后出</h5><ul>
-<li>每个函数都有自己的「执行环境」。「执行环境」是用环境栈来管理的。</li>
-<li>最底层的是「全局执行环境」（在浏览器中，指<code>Window对象</code>），当执行到一个函数，函数的「执行环境」就会被推入到「环境栈」中。如果在函数中继续执行函数，那么内部函数的「执行环境」就继续被推入「环境栈」。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">	console.log(&apos;a&apos;)</div><div class="line">	return a</div><div class="line">&#125;</div><div class="line">a.call() </div><div class="line">	</div><div class="line">* 当调用时，a.call() 会被记在 call stack 里。</div><div class="line">* 接着 console.log(&apos;a&apos;) 记在 call stack 里。</div><div class="line">* return a 到这一步时 console.log(&apos;a&apos;) 会存在 a.call() 里，最后 a.call() 退出。</div></pre></td></tr></table></figure>
-<hr>
-<h4 id="「立即执行函数」"><a href="#「立即执行函数」" class="headerlink" title="「立即执行函数」"></a>「立即执行函数」</h4><ul>
-<li>全局变量会造成同名覆盖的问题。</li>
-<li>解决办法：声明局部变量。</li>
-<li><code>ES6</code> 之前，只有函数才有局部变量。</li>
-<li><code>立即执行函数</code>是指声明一个函数，然后立即调用它。为了用局部变量。</li>
-<li>于是我们声明一个 <code>function foo()</code>，然后 <code>foo.call()</code>，但是这个时候 <code>foo</code> 是全局变量（全局函数）。</li>
-<li>所以我们不能给这个函数名字，使用匿名函数 <code>function(){}.call()</code> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function ()&#123;&#125;.call()</div><div class="line">//Uncaught SyntaxError: Unexpected token (</div></pre></td></tr></table></figure>
-<ul>
-<li><p>使用 <code>function(){}.call()</code> 时候会报错（语法错误），这是因为 <code>JS</code> 引擎规定，如果 <code>function</code> 关键字出现在行首，一律解释成语句。因此，<code>JS</code> 引擎看到行首是 <code>function</code> 关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p>
-</li>
-<li><p>解决办法：不让 <code>function</code> 出现在行首，让 <code>JS</code> 引擎将其理解成一个表达式。如下：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//1.将整个函数用圆括号括起来</div><div class="line">(function()&#123;console.log(1)&#125;.call()); </div><div class="line">// 或者</div><div class="line">(function()&#123;console.log(1)&#125;).call(); </div><div class="line"></div><div class="line">//2.函数表达式</div><div class="line">var foo = function()&#123;console.log(1)&#125;.call(); </div><div class="line"></div><div class="line">//2.function 前面加符：+ - ! ~ </div><div class="line">!function ()&#123;console.log(1)&#125;();</div><div class="line">~function ()&#123;console.log(1)&#125;();</div><div class="line">+function ()&#123;console.log(1)&#125;();</div><div class="line">-function ()&#123;console.log(1)&#125;();</div><div class="line"></div><div class="line">//! ~ + - 等运算符还会和函数的返回值进行运算，有时会造成不必要的麻烦。</div></pre></td></tr></table></figure>
-<p><strong>问题：</strong>「立即执行函数」使得<code>函数内部变量</code>无法被外部访问。这就无法满足一些特殊情况。</p>
-<p><strong>解决办法：</strong>使用「闭包」。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//函数1</div><div class="line">(function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">   &#125;</div><div class="line">	window.frankGrowUp = function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line">//或者</div><div class="line">window.frankGrowUp = (function()&#123;</div><div class="line">	var person = &#123;</div><div class="line">		name: &apos;frank&apos;,</div><div class="line">		age: 18</div><div class="line">         &#125;</div><div class="line">	return function()&#123;</div><div class="line">		person.age += 1</div><div class="line">		return person.age</div><div class="line">	&#125;</div><div class="line">&#125;).call()</div><div class="line"></div><div class="line">//函数2</div><div class="line">(function()&#123;</div><div class="line">	var newAge = window.frankGrowUp()</div><div class="line">	console.log(newAge)</div><div class="line">&#125;).call() </div><div class="line"></div><div class="line">// 19</div></pre></td></tr></table></figure>
-<p>「闭包」使得「匿名函数」可以操作 <code>person</code>。<code>window.frankGrowUp</code> 保存了匿名函数的地址。任何地方都可以使用 <code>window.frankGrowUp</code> 操作 <code>person</code>。但是不能直接访问 <code>person</code>。</p>
-<hr>
-<h4 id="「闭包」"><a href="#「闭包」" class="headerlink" title="「闭包」"></a>「闭包」</h4><h5 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h5><ul>
-<li>“函数”和“函数内部能访问到的变量（也叫环境）”的总和，就是一个闭包。</li>
-<li><code>JavaScript</code>有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。但是，在函数外部无法读取函数内部声明的变量。</li>
-<li>换言之，如果一个函数，使用了它范围外的变量，那么‘这个函数+这个变量’就叫做闭包。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">  var n = 1</div><div class="line">  function f2()&#123;</div><div class="line">    console.log(n)</div><div class="line">  &#125;</div><div class="line">  f2()</div><div class="line">&#125; </div><div class="line">f1()</div><div class="line">//这段代码中，函数 f2 和变量 n 的总和就叫做闭包</div></pre></td></tr></table></figure>
-<h5 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h5><p>1.从外部读取函数内部的变量。</p>
-<pre><code>function f1(){
-  var n = 9
-  function f2(){
-    console.log(n)
-  }
-  f2()
-} 
-f1() // 9
-//这段代码中，函数f1的返回值就是函数f2，由于f2可以读取f1的内部变量，所以就可以在外部获得f1的内部变量了。
-</code></pre><p>2.让这些变量始终保持在内存中。不会被垃圾机制回收。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-//这段代码中，闭包使得内部变量记住上一次调用时的运算结果。
-</code></pre><p>3.封装对象的私有属性和私有方法。</p>
-<pre><code>function f1(n) {
-  return function () {
-    return n++
-  }
-}
-var a1 = f1(1)
-a1() // 1
-a1() // 2
-a1() // 3
-var a2 = f1(5)
-a2() // 5
-a2() // 6
-a2() // 7
-//这段代码中，a1 和 a2 是相互独立的，各自返回自己的私有变量。 
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2436,7 +2418,7 @@ a2() // 7
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
