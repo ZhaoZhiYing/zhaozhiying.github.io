@@ -1990,7 +1990,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/MVC/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/MVC 和 MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -2009,7 +2009,7 @@ cookie.setMaxAge(60*60);//过期时间为1小时
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/02/MVC/" itemprop="url">MVC</a></h1>
+                <a class="post-title-link" href="/2018/02/02/MVC 和 MVVM/" itemprop="url">MVC 和 MVVM</a></h1>
         
 
         <div class="post-meta">
@@ -2087,26 +2087,28 @@ cookie.setMaxAge(60*60);//过期时间为1小时
 <p>参考：<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">阮一峰-模块的写法</a></p>
 <hr>
 <h4 id="MVC-是什么？"><a href="#MVC-是什么？" class="headerlink" title="MVC 是什么？"></a><code>MVC</code> 是什么？</h4><p><code>MVC</code>（<code>Model View Controller</code> 模型-视图-控制）指一种代码组织形式。它将代码分成三层：</p>
-<ol>
-<li>模型<code>Model</code>：也就是程序需要操作的数据或信息。<code>MVC</code>核心。</li>
-<li>视图<code>View</code>：提供给用户操作的界面。</li>
-<li>控制层<code>Controller</code>：它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</li>
-</ol>
-<hr>
-<h4 id="MVC控制流程"><a href="#MVC控制流程" class="headerlink" title="MVC控制流程"></a><code>MVC</code>控制流程</h4><ol>
-<li>用户请求时触发<code>View</code>，<code>View</code>会通知<code>Controller</code>。</li>
-<li>于是<code>Controller</code>调用<code>Model</code>，<code>Model</code>向<code>server</code>发送请求。</li>
-<li><code>server</code>响应后返回数据给<code>Model</code>，<code>Model</code>再将数据返回给<code>Controller</code>，<code>Controller</code>拿到数据后更新<code>View</code>。</li>
-</ol>
-<hr>
-<h4 id="MVC-三个对象分别有哪些重要属性和方法"><a href="#MVC-三个对象分别有哪些重要属性和方法" class="headerlink" title="MVC 三个对象分别有哪些重要属性和方法?"></a><code>MVC</code> 三个对象分别有哪些重要属性和方法?</h4><h5 id="View"><a href="#View" class="headerlink" title="View"></a><code>View</code></h5><pre><code>document.querySelector (获取对应的 html)
-</code></pre><h5 id="Model"><a href="#Model" class="headerlink" title="Model"></a><code>Model</code></h5><pre><code>init (初始化)
-fetch (获取)
-save (保存) 
-</code></pre><h5 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a><code>Controller</code></h5><pre><code>init (初始化 model 和 view)
-loadMessages (加载数据)
-bindEvents (绑定事件)
-saveMessage (存储数据)
+<pre><code>1. Model 模型：也就是程序需要操作的数据或信息。 MVC 核心。
+2. View 视图：提供给用户操作的界面。
+3. Controller 控制层：它负责根据用户从&quot;视图层&quot;输入的指令，选取&quot;数据层&quot;中的数据，然后对其进行相应的操作，产生最终结果。
+</code></pre><h4 id="MVC控制流程"><a href="#MVC控制流程" class="headerlink" title="MVC控制流程"></a><code>MVC</code>控制流程</h4><pre><code>1. 用户请求时触发 View ，View 会通知 Controller 。
+2. 于是 Controller 调用 Model ，Model 向 server 发送请求。
+3. server 响应后返回数据给 Model ，Model 再将数据返回给 Controller ，Controller 拿到数据后更新 View 。
+</code></pre><h4 id="MVC-三个对象分别有哪些重要属性和方法"><a href="#MVC-三个对象分别有哪些重要属性和方法" class="headerlink" title="MVC 三个对象分别有哪些重要属性和方法?"></a><code>MVC</code> 三个对象分别有哪些重要属性和方法?</h4><p><code>View</code></p>
+<pre><code>* el
+* template
+* render()
+</code></pre><p><code>Model</code></p>
+<pre><code>* data
+* fetch()
+* save()
+</code></pre><p><code>Controller</code>  </p>
+<pre><code>* init()
+* bindEvents (绑定事件)
+</code></pre><hr>
+<h4 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a><code>MVVM</code></h4><p><code>MVC</code> 向 <code>MVVM</code> 的演变过程</p>
+<pre><code>* 如果有多个文件，需要重复写 MVC。
+* 解决方法：利用构造函数和原型改写 MVC。
+* 引入 Vue 后（代替 View），可以实现双向绑定，变成自动化的 MVC。也叫做 MVVM。
 </code></pre><hr>
 
           
