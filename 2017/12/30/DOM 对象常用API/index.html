@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/30/DOM 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
-<meta property="og:updated_time" content="2018-04-12T15:05:47.000Z">
+<meta property="og:updated_time" content="2018-04-16T15:31:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM 对象常用API">
 <meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
@@ -482,8 +482,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
     //offsetheight = padding + height + border + 横向滚动轴高度。
 * Element.offsetWidth //返回元素的水平宽度(包含 border,padding)。
 * Element.offsetParent //返回一个指向最近的（closest，指包含层级上的最近）包含该元素的定位元素。
-* Element.offsetLeft //返回当前元素左上角相对于  HTMLElement.offsetParent 节点的左边界偏移的像素值。    * Element.offsetTop //返回当前元素相对于其 offsetParent 元素的顶部的距离。
-
+* Element.offsetLeft //返回当前元素左上角相对于  HTMLElement.offsetParent 节点的左边界偏移的像素值。    * Element.offsetTop //返回当前元素相对于其 offsetParent 元素的顶部的距离。    
 
 //节点相关属性
 * Element.children //包括当前元素节点的所有子元素。
@@ -492,7 +491,6 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 * Element.lastElementChild //返回当前节点的最后一个 Element 子节点。  
 * Element.nextElementSibling //返回当前元素节点的下一个兄弟 HTML 元素节点。
 * Element.previousElementSibling //返回当前元素节点的前一个兄弟 HTML 节点。
-* Element.offsetParent //返回当前元素节点的最靠近的、并且 CSS 的 position 属性不等于 static 的父元素。
 </code></pre><h5 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h5><pre><code>//位置方法
 * getBoundingClientRect() //返回一个对象，包含top,left,right,bottom,width,height（width、height 为元素自身宽高）。
     top //元素上外边界距窗口最上面的距离。
