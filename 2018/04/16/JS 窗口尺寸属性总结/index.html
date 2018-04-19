@@ -79,22 +79,16 @@
 
 
 
-<meta name="description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
+<meta name="description" content="* Element.clientHeight //返回元素节点可见部分的高度。     //clientheight = padding + height - 横向滚动轴高度。 * Element.clientWidth //返回元素节点可见部分的宽度。 * Element.clientLeft //返回元素节点左边框的宽度。 * Element.clientTop //返回元素节点顶部边框的宽度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深拷贝 VS 浅拷贝">
-<meta property="og:url" content="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/index.html">
+<meta property="og:title" content="JS 窗口尺寸属性总结">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/JS 窗口尺寸属性总结/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
-">
-<meta property="og:image" content="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">
-<meta property="og:updated_time" content="2018-04-13T07:42:00.000Z">
+<meta property="og:description" content="* Element.clientHeight //返回元素节点可见部分的高度。     //clientheight = padding + height - 横向滚动轴高度。 * Element.clientWidth //返回元素节点可见部分的宽度。 * Element.clientLeft //返回元素节点左边框的宽度。 * Element.clientTop //返回元素节点顶部边框的宽度">
+<meta property="og:updated_time" content="2018-04-19T10:24:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深拷贝 VS 浅拷贝">
-<meta name="twitter:description" content="对于基本类型来说，只有深拷贝。这里我们只讲对象。  深拷贝对于对象来说，深拷贝是指在栈内存中新增一个指针，并且在堆内存中申请了一个新的内存。 var a = {name:&amp;quot;tang&amp;quot;} var b = a  b.name = &amp;quot;zhao&amp;quot;;   //a.name = &amp;quot;tang&amp;quot;      浅拷贝对于对象来说，浅拷贝只是在栈内存中新增一">
-<meta name="twitter:image" content="https://i.loli.net/2018/01/24/5a68936065884.png
-">
+<meta name="twitter:title" content="JS 窗口尺寸属性总结">
+<meta name="twitter:description" content="* Element.clientHeight //返回元素节点可见部分的高度。     //clientheight = padding + height - 横向滚动轴高度。 * Element.clientWidth //返回元素节点可见部分的宽度。 * Element.clientLeft //返回元素节点左边框的宽度。 * Element.clientTop //返回元素节点顶部边框的宽度">
 
 
 
@@ -124,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/JS 窗口尺寸属性总结/"/>
 
 
 
 
 
-  <title>深拷贝 VS 浅拷贝 | Zhao Zhiying</title>
+  <title>JS 窗口尺寸属性总结 | Zhao Zhiying</title>
   
 
 
@@ -247,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/30/深拷贝 VS 浅拷贝/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/JS 窗口尺寸属性总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhao Zhiying">
@@ -264,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深拷贝 VS 浅拷贝</h1>
+          <h1 class="post-title" itemprop="name headline">JS 窗口尺寸属性总结</h1>
         
 
         <div class="post-meta">
@@ -276,8 +270,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-30T18:32:17+08:00">
-                2018-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-16T23:00:18+08:00">
+                2018-04-16
               </time>
             
 
@@ -286,28 +280,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -336,53 +308,37 @@
       
 
       
-        <blockquote>
-<p>对于基本类型来说，只有深拷贝。这里我们只讲对象。</p>
-</blockquote>
-<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><p>对于对象来说，深拷贝是指在<code>栈内存</code>中新增一个指针，并且在<code>堆内存</code>中申请了一个新的内存。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a 
-b.name = &quot;zhao&quot;;  
-//a.name = &quot;tang&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a68936065884.png
-">    </p>
-<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><p>对于对象来说，浅拷贝只是在<code>栈内存</code>中新增一个指针指向原有的内存，只是拷贝了内存地址（<code>Heap</code>地址）。</p>
-<pre><code>var a = {name:&quot;tang&quot;}
-var b = a
-b.name = &quot;zhao&quot;
-//a.name = &quot;zhao&quot;
-</code></pre><p><img src="https://i.loli.net/2018/01/24/5a6892b18918c.png
-">    </p>
-<hr>
-<h4 id="如何实现深拷贝？"><a href="#如何实现深拷贝？" class="headerlink" title="如何实现深拷贝？"></a>如何实现深拷贝？</h4><h5 id="JSON-实现深拷贝"><a href="#JSON-实现深拷贝" class="headerlink" title="JSON 实现深拷贝"></a><code>JSON</code> 实现深拷贝</h5><pre><code>var obj = {}
-var cloneObj = JSON.parse(JSON.stringify(obj))
-</code></pre><p>缺点</p>
-<pre><code>JSON 不支持函数、引用、undefined、RegExp、Date等。
-</code></pre><h5 id="递归拷贝"><a href="#递归拷贝" class="headerlink" title="递归拷贝"></a>递归拷贝</h5><pre><code>function deepClone(object){
-    var object2
-    if(!(object instanceof Object)){
-        return object
-    }else if(object instanceof Array){
-        object2 = []
-    }else if(object instanceof Function){
-        object2 = eval(object.toString())
-    }else if(object instanceof Object){
-        object2 = {}
-    }
-    for(let key in object){
-        object2[key] = deepClone(object[key])
-    }
-    return object2
-}
-
-var obj = {0:1, 1:5, 2:2, 3:1}
-var arr = [2, 2, 3, 4, 4, 6, 6]
-
-var newObj = deepClone(obj)
-var newArr = deepClone(arr)
-
-newObj //{0:1, 1:5, 2:2, 3:1}
-newArr //[2, 2, 3, 4, 4, 6, 6]
+        <pre><code>* Element.clientHeight //返回元素节点可见部分的高度。
+    //clientheight = padding + height - 横向滚动轴高度。
+* Element.clientWidth //返回元素节点可见部分的宽度。
+* Element.clientLeft //返回元素节点左边框的宽度。
+* Element.clientTop //返回元素节点顶部边框的宽度。
+</code></pre><hr>
+<pre><code>* Element.scrollHeight //返回元素节点的总高度。
+    //scrollHeight = 可滚动高度，就是将滚动框拉直，不再滚动的高度。
+* Element.scrollWidth //返回元素节点的总宽度。
+* Element.scrollLeft //设置或返回位于对象左边界和窗口中目前可见内容的最左端之间的距离。
+* Element.scrollTop //设置或返回位于对象顶边界和窗口中目前可见内容的最顶端之间的距离。
+</code></pre><hr>
+<pre><code>* Element.offsetHeight //返回元素的垂直高度(包含border,padding)。
+    //offsetheight = padding + height + border + 横向滚动轴高度。
+* Element.offsetWidth //返回元素的水平宽度(包含 border,padding)。
+* Element.offsetParent //返回一个指向最近的（closest，指包含层级上的最近）包含该元素的定位元素。
+* Element.offsetLeft //返回当前元素左上角相对其 offsetParent 节点的左边界偏移的像素值。
+* Element.offsetTop //返回当前元素相对于其 offsetParent 元素的顶部的距离。
+</code></pre><hr>
+<pre><code>* screen.availHeight //可用的屏幕宽度（不包括 Windows 任务栏）
+* screen.availWidth //可用的屏幕高度（不包括 Windows 任务栏）
+* screen.height //返回屏幕的总高度
+* screen.width //返回屏幕的总宽度
+</code></pre><hr>
+<pre><code>* window.innerHeight //浏览器窗口的视可高度(包括滚动条)
+    //IE 中 body 元素的 clientHeight 属性与该属性相同。
+* window.innerWidth // 浏览器窗口的视可宽度(包括滚动条)
+    //IE 中 body 元素的 clientWidth 属性与该属性相同。
+</code></pre><hr>
+<pre><code>* window.outerHeight //设置或返回一个窗口的外部高度，包括所有界面元素（如工具栏/滚动条）。
+* window.outerWidth //设置或返回窗口的外部宽度，包括所有的界面元素（如工具栏/滚动）。
 </code></pre><hr>
 
       
@@ -408,8 +364,8 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/排序算法/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2018/04/16/SCSS 入门/" rel="next" title="SCSS 入门">
+                <i class="fa fa-chevron-left"></i> SCSS 入门
               </a>
             
           </div>
@@ -417,10 +373,6 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/30/JSON/" rel="prev" title="JSON">
-                JSON <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,17 +424,8 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -533,22 +476,6 @@ newArr //[2, 2, 3, 4, 4, 6, 6]
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现深拷贝？"><span class="nav-number"></span> <span class="nav-text">如何实现深拷贝？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-实现深拷贝"><span class="nav-number">1.</span> <span class="nav-text">JSON 实现深拷贝</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#递归拷贝"><span class="nav-number">2.</span> <span class="nav-text">递归拷贝</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
