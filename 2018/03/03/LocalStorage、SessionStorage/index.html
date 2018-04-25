@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
+<meta name="description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567* localStorage.setItem(key, value) //保存数据* localStorage.getItem(key) //读取数据* localStorage.re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LocalStorage、SessionStorage">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/LocalStorage、SessionStorage/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
-<meta property="og:updated_time" content="2018-03-22T08:48:49.000Z">
+<meta property="og:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567* localStorage.setItem(key, value) //保存数据* localStorage.getItem(key) //读取数据* localStorage.re">
+<meta property="og:updated_time" content="2018-04-25T15:50:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LocalStorage、SessionStorage">
-<meta name="twitter:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567891011localStorage.setItem(key, value) 保存数据localStorage.getItem(key) 读取数据localStorage.remove">
+<meta name="twitter:description" content="LocalStorage LocalStorage是Html5提供的一个API。 LocalStorage是浏览器上的hash表。  常用API（LocalStorage和SessionStorage）1234567* localStorage.setItem(key, value) //保存数据* localStorage.getItem(key) //读取数据* localStorage.re">
 
 
 
@@ -334,15 +334,13 @@
 <li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
 <li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
 </ul>
-<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
-<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
-<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
-<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
-<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
-<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
-<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
-</ol>
-<p>举例1</p>
+<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* localStorage.setItem(key, value) //保存数据</div><div class="line">* localStorage.getItem(key) //读取数据</div><div class="line">* localStorage.removeItem(key) //删除单个数据</div><div class="line">* localStorage.clear() //删除所有数据</div><div class="line">* localStorage.key(index) //得到某个索引的 key</div><div class="line"></div><div class="line">//键值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
+<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><pre><code>1. LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。
+2. 只有相同域名的页面才能互相读取 LocalStorage（没有同源那么严格）。
+3. 每个域名 LocalStorage 最大存储量为 5MB 左右（每个浏览器不一样）。
+4. 常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。
+5. LocalStorage 永久有效，除非用户清理缓存。
+</code></pre><p>举例1</p>
 <pre><code>&lt;script&gt;
     //读取
     let a = localStorage.getItem(&apos;a&apos;)

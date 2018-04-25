@@ -1049,15 +1049,13 @@ $(&quot;button&quot;).click(function(){
 <li><code>LocalStorage</code>是<code>Html5</code>提供的一个<code>API</code>。</li>
 <li><code>LocalStorage</code>是浏览器上的<code>hash表</code>。</li>
 </ul>
-<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">localStorage.setItem(key, value) 保存数据</div><div class="line"></div><div class="line">localStorage.getItem(key) 读取数据</div><div class="line"></div><div class="line">localStorage.removeItem(key) 删除单个数据</div><div class="line"></div><div class="line">localStorage.clear() 删除所有数据</div><div class="line"></div><div class="line">localStorage.key(index) 得到某个索引的 key</div><div class="line"></div><div class="line">//键/值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
-<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><ol>
-<li><code>LocalStorage</code> 跟 <code>HTTP</code> 无关，<code>HTTP</code> 不会带上 <code>LocalStorage</code> 的值。</li>
-<li>只有相同域名的页面才能互相读取 <code>LocalStorage</code>（没有同源那么严格）。</li>
-<li>每个域名 <code>LocalStorage</code> 最大存储量为 5MB 左右（每个浏览器不一样）。</li>
-<li>常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。</li>
-<li><code>LocalStorage</code>永久有效，除非用户清理缓存。</li>
-</ol>
-<p>举例1</p>
+<h5 id="常用API（LocalStorage和SessionStorage）"><a href="#常用API（LocalStorage和SessionStorage）" class="headerlink" title="常用API（LocalStorage和SessionStorage）"></a>常用<code>API</code>（<code>LocalStorage</code>和<code>SessionStorage</code>）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* localStorage.setItem(key, value) //保存数据</div><div class="line">* localStorage.getItem(key) //读取数据</div><div class="line">* localStorage.removeItem(key) //删除单个数据</div><div class="line">* localStorage.clear() //删除所有数据</div><div class="line">* localStorage.key(index) //得到某个索引的 key</div><div class="line"></div><div class="line">//键值对通常以字符串存储，可以按自己的需要转换该格式。</div></pre></td></tr></table></figure>
+<h5 id="LocalStorage特点"><a href="#LocalStorage特点" class="headerlink" title="LocalStorage特点"></a><code>LocalStorage</code>特点</h5><pre><code>1. LocalStorage 跟 HTTP 无关，HTTP 不会带上 LocalStorage 的值。
+2. 只有相同域名的页面才能互相读取 LocalStorage（没有同源那么严格）。
+3. 每个域名 LocalStorage 最大存储量为 5MB 左右（每个浏览器不一样）。
+4. 常用场景：记录有没有提示过用户（不敏感的信息，不能记录密码）。
+5. LocalStorage 永久有效，除非用户清理缓存。
+</code></pre><p>举例1</p>
 <pre><code>&lt;script&gt;
     //读取
     let a = localStorage.getItem(&apos;a&apos;)
@@ -1234,12 +1232,11 @@ $(&quot;button&quot;).click(function(){
       
         
           
-            <p>此博客仅为记录自己平常操作需要的一些命令</p>
-<hr>
+            <blockquote>
+<p>此博客仅为记录自己平常操作需要的一些命令</p>
+</blockquote>
 <p><code>Git</code> 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。</p>
-<p>参考链接：</p>
-<p><a href="https://backlog.com/git-tutorial/cn/" target="_blank" rel="external">猴子都能懂的Git入门</a></p>
-<p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">git - 简明指南</a></p>
+<p>参考链接：<br><a href="https://backlog.com/git-tutorial/cn/" target="_blank" rel="external">猴子都能懂的 Git 入门</a>  <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git - 简明指南</a></p>
 <hr>
 <h4 id="配置-git"><a href="#配置-git" class="headerlink" title="配置 git"></a>配置 <code>git</code></h4><pre><code>git config --global user.name 你的英文名
 git config --global user.email 你的邮箱
@@ -1423,14 +1420,14 @@ hexo deploy //部署
 <ul>
 <li>使用 <code>clearInterval()</code> 方法来阻止函数的执行。由 <code>setInterval()</code> 返回的 <code>ID</code> 值用作 <code>clearInterval()</code> 方法的参数。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setInterval(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&gt;=5)&#123;</div><div class="line">			window.clearInterval(id)</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setInterval(()=&gt;&#123; </div><div class="line">	n += 1</div><div class="line">	console.log(n)</div><div class="line">	if(n&gt;=5)&#123;</div><div class="line">		window.clearInterval(id)</div><div class="line">	&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a><code>setTimeout()</code></h4><p>设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码，仅执行一次。</p>
 <ul>
 <li>使用 <code>clearTimeout()</code> 方法来阻止函数的执行。由 <code>setTimeout()</code> 返回的 <code>ID</code> 值用作 <code>clearTimeout()</code> 方法的参数。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(()=&gt;&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1</div></pre></td></tr></table></figure>
-<h5 id="所有的-setInterval-都可以改写成-setTimeout"><a href="#所有的-setInterval-都可以改写成-setTimeout" class="headerlink" title="所有的 setInterval()  都可以改写成 setTimeout()"></a>所有的 <code>setInterval()</code>  都可以改写成 <code>setTimeout()</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(function fn()&#123; </div><div class="line">		n += 1</div><div class="line">		console.log(n)</div><div class="line">		if(n&lt;5)&#123;</div><div class="line">			setTimeout(fn, 3000) //再次调用 fn</div><div class="line">		&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(()=&gt;&#123; </div><div class="line">	n += 1</div><div class="line">	console.log(n)</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1</div></pre></td></tr></table></figure>
+<h5 id="所有的-setInterval-都可以改写成-setTimeout"><a href="#所有的-setInterval-都可以改写成-setTimeout" class="headerlink" title="所有的 setInterval()  都可以改写成 setTimeout()"></a>所有的 <code>setInterval()</code>  都可以改写成 <code>setTimeout()</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let n = 0;</div><div class="line">let id = setTimeout(function fn()&#123; </div><div class="line">	n += 1</div><div class="line">	console.log(n)</div><div class="line">	if(n&lt;5)&#123;</div><div class="line">		setTimeout(fn, 3000) //再次调用 fn</div><div class="line">	&#125;</div><div class="line">&#125;,3000)</div><div class="line"></div><div class="line">// 1 2 3 4 5</div></pre></td></tr></table></figure>
 <hr>
 
           
@@ -1574,29 +1571,29 @@ hexo deploy //部署
         
           
             <p>基本值</p>
-<pre><code>none 元素不会被显示。
-block 该元素生成一个块元素盒。
-inline    该元素生成一个或多个行内元素盒。
-list-item 该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。
+<pre><code>* none //元素不会被显示。
+* block //该元素生成一个块元素盒。
+* inline //该元素生成一个或多个行内元素盒。
+* list-item //该元素生成一个容纳内容和单独的列表行内元素盒的块状盒。
 </code></pre><p>扩展值    </p>
-<pre><code>inline-block 内联盒子内的块盒子。
+<pre><code>* inline-block //内联盒子内的块盒子。
 </code></pre><p>表格模型值    </p>
-<pre><code>inline-table 作用同 &lt;table&gt;，但是作为内联框，而不是块级框。表格框内是一个块级上下文。
-table 作用同 &lt;table&gt; ，它定义了一个块级盒子。
-table-caption 作用同 &lt;caption&gt;
-table-cell 作用同 &lt;td&gt;
-table-column 作用同 &lt;col&gt;
-table-column-group 作用同 &lt;colgroup&gt;
-table-footer-group 作用同 &lt;tfoot&gt; 
-table-header-group 作用同 &lt;thead&gt;
-table-row 作用同 &lt;tr&gt;
-table-row-group 作用同 &lt;tbody&gt;
+<pre><code>* inline-table //作用同 &lt;table&gt;，但是作为内联框，而不是块级框。表格框内是一个块级上下文。
+* table //作用同 &lt;table&gt; ，它定义了一个块级盒子。
+* table-caption //作用同 &lt;caption&gt;
+* table-cell //作用同 &lt;td&gt;
+* table-column //作用同 &lt;col&gt;
+* table-column-group //作用同 &lt;colgroup&gt;
+* table-footer-group //作用同 &lt;tfoot&gt; 
+* table-header-group //作用同 &lt;thead&gt;
+* table-row //作用同 &lt;tr&gt;
+* table-row-group //作用同 &lt;tbody&gt;
 </code></pre><p><code>Flexbox</code>模型值    </p>
-<pre><code>flex 弹性布局
-inline-flex ???
+<pre><code>* flex //弹性布局
+* inline-flex //???
 </code></pre><p>栅格盒模型值</p>
-<pre><code>grid 网格布局。CSS 中最强大的布局系统
-inline-grid ???    
+<pre><code>* grid //网格布局。CSS 中最强大的布局系统
+* inline-grid //???    
 </code></pre><hr>
 
           
@@ -1814,8 +1811,7 @@ inline-grid ???
 
 * Array.valueOf() //返回数组对象的原始值。
 * Array.toString() //把数组转换为字符串，并返回结果。
-</code></pre><p><a href="http://www.runoob.com/jsref/jsref-obj-array.html" target="_blank" rel="external">更多方法</a></p>
-<hr>
+</code></pre><hr>
 <h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a><code>Date</code></h4><p>定义一个事件对象</p>
 <pre><code>var Udate = new Date()
 //初始值：当前时间(当前电脑系统时间)。
