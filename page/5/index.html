@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -267,7 +267,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -288,7 +288,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -368,7 +368,7 @@
 <h4 id="DOM-Level-2-事件"><a href="#DOM-Level-2-事件" class="headerlink" title="DOM Level 2 事件"></a><code>DOM Level 2 事件</code></h4><ul>
 <li>在<code>DOM Level 0 事件</code>的基础上弥补了一个处理程序无法同时绑定多个处理函数的缺点，允许给一个处理程序添加多个处理函数。<code>DOM Level 2 事件</code>只定义了两个方法，分别用来绑定和解绑事件：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">addEventListener() 对应 IE8 中的 attachEvent()</div><div class="line">removeEventListener() 对应 IE8 中的 detachEvent()</div><div class="line"></div><div class="line">//都有三个参数</div><div class="line">参数1：事件名（不要使用 &quot;on&quot; 前缀）&lt;/br&gt;</div><div class="line">参数2：事件触发时执行的函数&lt;/br&gt;</div><div class="line">参数3：事件是否在捕获或冒泡阶段执行（第三个参数为 true，为捕获阶段；不传第三个参数或者传 false 为冒泡阶段）&lt;/br&gt;</div><div class="line">	</div><div class="line">//如果又有捕获又有冒泡，那就不区分捕获还是冒泡，按照代码顺序。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">addEventListener() 对应 IE8 中的 attachEvent()</div><div class="line">removeEventListener() 对应 IE8 中的 detachEvent()</div><div class="line"></div><div class="line">//都有三个参数</div><div class="line">参数1：事件名（不要使用 &quot;on&quot; 前缀）</div><div class="line">参数2：事件触发时执行的函数</div><div class="line">参数3：事件是否在捕获或冒泡阶段执行（第三个参数为 true，为捕获阶段；不传第三个参数或者传 false 为冒泡阶段）</div><div class="line">	</div><div class="line">//如果又有捕获又有冒泡，那就不区分捕获还是冒泡，按照代码顺序。</div></pre></td></tr></table></figure>
 <p>HTML</p>
 <pre><code>&lt;div id=&quot;grand1&quot;&gt;
 爷爷
@@ -391,48 +391,16 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
 })//冒泡阶段
 //当点击‘儿子’时，打印的顺序是：爷爷、儿子、爸爸
 </code></pre><h4 id="DOM-Level-3-事件"><a href="#DOM-Level-3-事件" class="headerlink" title="DOM Level 3 事件"></a><code>DOM Level 3 事件</code></h4><p><code>DOM Level 3 事件</code>在<code>DOM Level 2 事件</code>的基础上添加了更多的事件类型，全部类型如下：</p>
-<pre><code>UI事件，当用户与页面上的元素交互时触发，如：load、scroll
-焦点事件，当元素获得或失去焦点时触发，如：blur、focus
-鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
-滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel
-文本事件，当在文档中输入文本时触发，如：textInput
-键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
-合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
-变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
+<pre><code>* UI事件 //当用户与页面上的元素交互时触发，如：load、scroll
+* 焦点事件 //当元素获得或失去焦点时触发，如：blur、focus
+* 鼠标事件 //当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
+* 滚轮事件 //当使用鼠标滚轮或类似设备时触发，如：mousewheel
+* 文本事件 //当在文档中输入文本时触发，如：textInput
+* 键盘事件 //当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
+* 合成事件 //当为 IME（输入法编辑器）输入字符时触发，如：compositionstart
+* 变动事件 //当底层 DOM 结构发生变化时触发，如：DOMsubtreeModified
 
-同时DOM3级事件也允许使用者自定义一些事件。
-</code></pre><hr>
-<h4 id="常用事件归纳"><a href="#常用事件归纳" class="headerlink" title="常用事件归纳"></a>常用事件归纳</h4><h5 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h5><pre><code>* onclick //当用户点击某个对象时调用的事件句柄。
-* oncontextmenu //在用户点击鼠标右键打开上下文菜单时触发。
-* ondblclick //当用户双击某个对象时调用的事件句柄。
-* onmousedown //鼠标按钮被按下。
-* onmouseenter //当鼠标指针移动到元素上时触发。
-* onmouseleave //当鼠标指针移出元素时触发
-* onmousemove //鼠标被移动。    
-* onmouseover //鼠标移到某元素之上。    
-* onmouseout //鼠标从某元素移开。    
-* onmouseup //鼠标按键被松开。
-</code></pre><h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><pre><code>* onkeydown //某个键盘按键被按下。    
-* onkeypress //某个键盘按键被按下并松开。
-* onkeyup //某个键盘按键被松开。        
-</code></pre><h5 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h5><pre><code>* onblur //元素失去焦点时触发    
-* onchange //该事件在表单元素的内容改变时触发( &lt;input&gt;, &lt;keygen&gt;, &lt;select&gt;, 和 &lt;textarea&gt;)    
-* onfocus //元素获取焦点时触发    
-* onfocusin //元素即将获取焦点时触发    
-* onfocusout //元素即将失去焦点时触发    
-* oninput //元素获取用户输入时触发    
-* onreset //表单重置时触发    
-* onsearch //用户向搜索域输入文本时触发 ( &lt;input=&quot;search&quot;&gt;)
-* onselect //用户选取文本时触发 ( &lt;input&gt; 和 &lt;textarea&gt;)
-* onsubmit //表单提交时触发
-</code></pre><h5 id="动画事件"><a href="#动画事件" class="headerlink" title="动画事件"></a>动画事件</h5><pre><code>* animationend //该事件在 CSS 动画结束播放时触发 
-* animationiteration //该事件在 CSS 动画重复播放时触发
-* animationstart //该事件在 CSS 动画开始播放时触发
-</code></pre><h5 id="过渡事件"><a href="#过渡事件" class="headerlink" title="过渡事件"></a>过渡事件</h5><pre><code>* transitionend //该事件在 CSS 完成过渡后触发。
-</code></pre><h5 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h5><pre><code>* preventDefault() //通知浏览器不要执行与事件关联的默认动作。
-* stopPropagation() //不再派发事件。
-</code></pre><h5 id="目标事件对象"><a href="#目标事件对象" class="headerlink" title="目标事件对象"></a>目标事件对象</h5><pre><code>* addEventListener() //允许在目标事件中注册监听事件(IE8 = attachEvent())    
-* removeEventListener() //运行一次注册在事件目标上的监听事件(IE8 = detachEvent())
+同时 DOM3 级事件也允许使用者自定义一些事件。
 </code></pre><hr>
 
           
@@ -511,7 +479,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -532,7 +500,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -980,7 +948,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -1001,7 +969,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1306,7 +1274,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1327,7 +1295,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1552,7 +1520,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -1573,7 +1541,7 @@ foo1() //8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1821,7 +1789,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -1842,7 +1810,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1971,7 +1939,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -1992,7 +1960,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2159,7 +2127,7 @@ p{color:green;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -2180,7 +2148,7 @@ p{color:green;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2238,7 +2206,7 @@ p{color:green;}
 <h4 id="float浮动布局（支持IE8）"><a href="#float浮动布局（支持IE8）" class="headerlink" title="float浮动布局（支持IE8）"></a><code>float</code>浮动布局（支持<code>IE8</code>）</h4><pre><code>* 子元素加 float: left; 或 float: right;
 * 父元素加 .clearfix{content:&apos;&apos;; display: block; clear: both;}
 .clearfix{zoom: 1;} //支持IE6
-</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex; justify-content: space-between;
+</code></pre><h4 id="flex弹性布局（兼容chorme-mobile，不支持IE8）"><a href="#flex弹性布局（兼容chorme-mobile，不支持IE8）" class="headerlink" title="flex弹性布局（兼容chorme mobile，不支持IE8）"></a><code>flex</code>弹性布局（兼容<code>chorme</code> <code>mobile</code>，不支持<code>IE8</code>）</h4><pre><code>* 父元素加 display: flex; justify-content: space-between; 等
 </code></pre><hr>
 <h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><h5 id="child为不定宽block元素（parent定宽-不定宽）。"><a href="#child为不定宽block元素（parent定宽-不定宽）。" class="headerlink" title="child为不定宽block元素（parent定宽/不定宽）。"></a><code>child</code>为不定宽<code>block</code>元素（<code>parent</code>定宽/不定宽）。</h5><pre><code>//方法一：转为 inline 元素
 child{display: inline;}
@@ -2395,7 +2363,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -2416,7 +2384,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2598,7 +2566,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -2619,7 +2587,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2797,7 +2765,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <a href="/archives/">
               
                   <span class="site-state-item-count">54</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -2808,7 +2776,7 @@ stretch（默认值）：轴线占满整个交叉轴。
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Kategorien</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -2856,7 +2824,7 @@ stretch（默认值）：轴线占满整个交叉轴。
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
