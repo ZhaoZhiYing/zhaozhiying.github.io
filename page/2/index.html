@@ -238,6 +238,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/19/命令行使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/19/命令行使用/" itemprop="url">命令行使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T19:22:22+08:00">
+                2018-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>文件和目录（文件夹）</p>
+<pre><code>~ //指用户目录 比如：我电脑用户目录是tanghongkang
+/ //指所有硬盘
+. //指当前目录
+.. //指父目录
+$ //表示可以输入命令，可更改，比如改成#
+
+-r //表示递归，遇到目录就进去，直到遇到文件
+-f //表示强制
+-a //显示.开头隐藏文件
+-l //显示更多信息（d开头是目录，-开头是文件，frank表示拥有者）
+-al 或 -la //显示更多信息并且显示隐藏文件
+</code></pre><p>绝对路径和相对路径</p>
+<pre><code>以 / 开头是绝对路径，其他是相对路径。
+</code></pre><h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">mkdir //创建目录(文件夹)</div><div class="line">rm //删除 </div><div class="line">mv //移动/重命名</div><div class="line">cp //复制</div><div class="line">ls //罗列 </div><div class="line">cd //进入目录</div><div class="line">pwd //显示当前目录</div><div class="line"></div><div class="line">whoami //我是谁</div><div class="line"></div><div class="line">mkdir 目录名 //创建目录 c</div><div class="line">mkdir -p 目录路径 //创建目录</div><div class="line">touch 文件名 //创建文件</div><div class="line"></div><div class="line">ls 路径 //查看路径</div><div class="line">ls -a 路径</div><div class="line">ls -l 路径</div><div class="line">ls -al 路径</div><div class="line"></div><div class="line">echo &apos;1&apos; &gt; 文件路径 //强制创建文件</div><div class="line">echo &apos;1&apos; &gt;&gt; 文件路径 //强制创建文件</div><div class="line"></div><div class="line">cp 源路径 目标路径 //复制文件</div><div class="line">cp -r 源路径 目标路径 //复制目录</div><div class="line"></div><div class="line">mv 源路径 目标路径 //移动节点</div><div class="line"></div><div class="line">rm 文件路径 //删除文件</div><div class="line">rm -f 文件路径 //强制删除文件	</div><div class="line">rm -r 目录路径 //删除目录	</div><div class="line">rm -rf 目录路径 //强制删除目录	</div><div class="line"></div><div class="line">tree //查看目录结构	</div><div class="line">ln -s 真实文件 链接 //建立软链接	</div><div class="line"></div><div class="line">curl -L https://www.baidu.com &gt; baidu.html //下载文件至  baidu.html</div></pre></td></tr></table></figure>
+<pre><code>1. cd ~/Desktop 进入桌面
+2. mkdir demo-1 创建目录，这时你可以切到桌面，看到 demo-1 目录
+3. rm -rf demo-1 删除目录
+4. touch 1.txt 创建文件，如果你发现文件后缀不见了，请让该死的 Windows 显示文件后缀
+5. mv 1.txt 2.txt 这样我们就把 1.txt 移到 2.txt 了，也就是重命名
+</code></pre><h4 id="为了避免使用-file-协议预览，可安装-http-server"><a href="#为了避免使用-file-协议预览，可安装-http-server" class="headerlink" title="为了避免使用 file 协议预览，可安装 http-server"></a>为了避免使用 <code>file</code> 协议预览，可安装 <code>http-server</code></h4><p>安装</p>
+<pre><code>npm install http-server -g
+</code></pre><p>查看本地预览</p>
+<pre><code>http-server -c-1（运行http-server）
+</code></pre><p>退出</p>
+<pre><code>ctrl+c
+</code></pre><h4 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h4><pre><code>node -v //检测 node
+git version //检测 git
+hexo -v //检测 hexo    
+</code></pre><hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/jQuery 常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2171,157 +2342,6 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/21/stopPropagation()和preventDefault()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/21/stopPropagation()和preventDefault()/" itemprop="url">stopPropagation() 和 preventDefault()</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-21T18:03:41+08:00">
-                2018-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation()"></a><code>stopPropagation()</code></h4><p>在整个事件流的任何位置（捕获或冒泡）都可以通过调用事件的<code>stopPropagation()</code>方法停止事件的传播过程。    </p>
-<p>举例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">grand1.addEventListener(&apos;click&apos;, function fn1(e)&#123;</div><div class="line">  console.log(&apos;爷爷&apos;)</div><div class="line">  e.stopPropagation()//事件不再被分派到其他节点</div><div class="line">&#125;,true)</div><div class="line">parent1.addEventListener(&apos;click&apos;, function fn2()&#123;</div><div class="line">  console.log(&apos;爸爸&apos;)</div><div class="line">&#125;,false)</div><div class="line">child1.addEventListener(&apos;click&apos;, function fn3()&#123;</div><div class="line">  console.log(&apos;儿子&apos;)</div><div class="line">&#125;)</div><div class="line">//当点击‘儿子’时，打印：爷爷</div></pre></td></tr></table></figure>
-<h4 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault()"></a><code>preventDefault()</code></h4><p>阻止元素的默认事件。例如：</p>
-<ul>
-<li>当点击提交按钮时阻止对表单的提交</li>
-<li>当点击 <code>a</code> 链接时页面不会跳转</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://www.google.com.hk/?hl=zh-cn&quot;&gt;谷歌&lt;/a&gt;  </div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	$(&quot;a&quot;).click(function(event)&#123;             </div><div class="line">		event.preventDefault() //页面不会跳转  </div><div class="line">	&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2372,7 +2392,7 @@ document.getElementById(&quot;example&quot;).innerHTML=txt;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

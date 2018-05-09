@@ -238,6 +238,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/target 与 currentTarget/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhao Zhiying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhao Zhiying">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/03/target 与 currentTarget/" itemprop="url">target 与 currentTarget</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-03T18:56:13+08:00">
+                2018-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><code>currentTarget</code>：指绑定事件的对象。恒等于<code>this</code>。</li>
+<li><code>targt</code>：指触发事件的某个具体对象。</li>
+</ul>
+<p>举例1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">grand.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  grand </div><div class="line">//这时的 this 指向 grand</div></pre></td></tr></table></figure>
+<p>举例2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;grand&quot;&gt;</div><div class="line">    爷爷</div><div class="line">     &lt;div id=&quot;parent&quot;&gt;</div><div class="line">      爸爸</div><div class="line">       &lt;div id=&quot;child&quot;&gt;</div><div class="line">        儿子</div><div class="line">       &lt;/div&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line"></div><div class="line">child.addEventListener(&apos;click&apos;,function(e)&#123;</div><div class="line">    console.log(e.target)</div><div class="line">    console.log(e.currentTarget)</div><div class="line">&#125;,false)</div><div class="line">//当点击 child 是，打印结果是：child  child</div><div class="line">//这时的 this 指向 child</div></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/MVC 和 MVVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1960,250 +2110,6 @@ document.body.onclick = null
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/DOM 事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhao Zhiying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhao Zhiying">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/04/DOM 事件/" itemprop="url">DOM 事件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
-                2018-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><code>javascript</code>与<code>HTML</code>的交互是通过事件实现的。</li>
-<li>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。</li>
-<li>事件流(又叫事件传播)描述的是从页面中接收事件的顺序。</li>
-</ul>
-<hr>
-<h3 id="DOM-事件流"><a href="#DOM-事件流" class="headerlink" title="DOM 事件流"></a><code>DOM 事件流</code></h3><p>当浏览器发展到第四代时，浏览器开发团队遇到一个问题：页面的哪一部分会拥有某个特定的事件？后来<code>IE</code> <code>Netscape</code>提出了完全相反的事件流的概念。</p>
-<h5 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h5><p><code>IE</code>的事件叫做事件冒泡。即事件开始时由文档中嵌套层次最深的那个节点接收，然后逐级向上传播到文档。</p>
-<p>举例</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;举例&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;myDiv&quot;&gt;click me&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-//单击 &lt;div&gt; 时，传播顺序为：&lt;div&gt; &lt;body&gt; &lt;html&gt; document
-</code></pre><h5 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h5><p><code>Netscape</code>的事件叫做事件捕获。即事件开始时由<code>document</code>接收，逐级向下传播到文档中嵌套层次最深的那个节点。</p>
-<p>按前面例子：</p>
-<pre><code>//单击 &lt;div&gt; 时，传播顺序为： document &lt;html&gt; &lt;body&gt; &lt;div&gt;
-</code></pre><h5 id="DOM-Level-2-事件规定的事件流包括三个阶段："><a href="#DOM-Level-2-事件规定的事件流包括三个阶段：" class="headerlink" title="DOM Level 2 事件规定的事件流包括三个阶段："></a><code>DOM Level 2 事件</code>规定的事件流包括三个阶段：</h5><pre><code>（1）事件捕获阶段：事件从 Document 节点自上而下向目标节点传播的阶段；
-（2）事件目标阶段：真正的目标节点正在处理事件的阶段；
-（3）事件冒泡阶段：事件从目标节点自上而下向 Document节点传播的阶段。
-</code></pre><hr>
-<h3 id="DOM-事件发展"><a href="#DOM-事件发展" class="headerlink" title="DOM 事件发展"></a>DOM 事件发展</h3><h4 id="DOM-Level-0-事件"><a href="#DOM-Level-0-事件" class="headerlink" title="DOM Level 0 事件"></a><code>DOM Level 0 事件</code></h4><p>主要分为2个：</p>
-<p>1.标签内写 <code>onclick</code> 事件</p>
-<pre><code>&lt;button id=&quot;button1&quot; onclick=&quot;console.log(&apos;hi&apos;)&quot;&gt;A&lt;/button&gt;
-</code></pre><p>2.<code>JS</code> 里写 <code>onclick = function (){}</code> 函数</p>
-<pre><code>document.getElementById(&quot;button1&quot;).onclick = function print(){
-    console.log(&apos;hi&apos;)
-}
-</code></pre><h4 id="DOM-Level-1-事件"><a href="#DOM-Level-1-事件" class="headerlink" title="DOM Level 1 事件"></a><code>DOM Level 1 事件</code></h4><p><code>DOM Level 1</code>于1998年10月1日成为 <code>W3C</code> 推荐标准。但是标准中并没有定义事件相关的内容，所以没有所谓的 <code>DOM Level 1</code> 事件模型。</p>
-<h4 id="DOM-Level-2-事件"><a href="#DOM-Level-2-事件" class="headerlink" title="DOM Level 2 事件"></a><code>DOM Level 2 事件</code></h4><ul>
-<li>在<code>DOM Level 0 事件</code>的基础上弥补了一个处理程序无法同时绑定多个处理函数的缺点，允许给一个处理程序添加多个处理函数。<code>DOM Level 2 事件</code>只定义了两个方法，分别用来绑定和解绑事件：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">addEventListener() 对应 IE8 中的 attachEvent()</div><div class="line">removeEventListener() 对应 IE8 中的 detachEvent()</div><div class="line"></div><div class="line">//都有三个参数</div><div class="line">参数1：事件名（不要使用 &quot;on&quot; 前缀）&lt;/br&gt;</div><div class="line">参数2：事件触发时执行的函数&lt;/br&gt;</div><div class="line">参数3：事件是否在捕获或冒泡阶段执行（第三个参数为 true，为捕获阶段；不传第三个参数或者传 false 为冒泡阶段）&lt;/br&gt;</div><div class="line">	</div><div class="line">//如果又有捕获又有冒泡，那就不区分捕获还是冒泡，按照代码顺序。</div></pre></td></tr></table></figure>
-<p>HTML</p>
-<pre><code>&lt;div id=&quot;grand1&quot;&gt;
-爷爷
- &lt;div id=&quot;parent1&quot;&gt;
-  爸爸
-   &lt;div id=&quot;child1&quot;&gt;
-    儿子
-   &lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>JS</p>
-<pre><code>grand1.addEventListener(&apos;click&apos;, function fn1(){
-  console.log(&apos;爷爷&apos;)
-},true)//捕获阶段
-parent1.addEventListener(&apos;click&apos;, function fn2(){
-  console.log(&apos;爸爸&apos;)
-},false)//冒泡阶段
-child1.addEventListener(&apos;click&apos;, function fn3(){
-  console.log(&apos;儿子&apos;)
-})//冒泡阶段
-//当点击‘儿子’时，打印的顺序是：爷爷、儿子、爸爸
-</code></pre><h4 id="DOM-Level-3-事件"><a href="#DOM-Level-3-事件" class="headerlink" title="DOM Level 3 事件"></a><code>DOM Level 3 事件</code></h4><p><code>DOM Level 3 事件</code>在<code>DOM Level 2 事件</code>的基础上添加了更多的事件类型，全部类型如下：</p>
-<pre><code>UI事件，当用户与页面上的元素交互时触发，如：load、scroll
-焦点事件，当元素获得或失去焦点时触发，如：blur、focus
-鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
-滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel
-文本事件，当在文档中输入文本时触发，如：textInput
-键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
-合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
-变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
-
-同时DOM3级事件也允许使用者自定义一些事件。
-</code></pre><hr>
-<h4 id="常用事件归纳"><a href="#常用事件归纳" class="headerlink" title="常用事件归纳"></a>常用事件归纳</h4><h5 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h5><pre><code>* onclick //当用户点击某个对象时调用的事件句柄。
-* oncontextmenu //在用户点击鼠标右键打开上下文菜单时触发。
-* ondblclick //当用户双击某个对象时调用的事件句柄。
-* onmousedown //鼠标按钮被按下。
-* onmouseenter //当鼠标指针移动到元素上时触发。
-* onmouseleave //当鼠标指针移出元素时触发
-* onmousemove //鼠标被移动。    
-* onmouseover //鼠标移到某元素之上。    
-* onmouseout //鼠标从某元素移开。    
-* onmouseup //鼠标按键被松开。
-</code></pre><h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><pre><code>* onkeydown //某个键盘按键被按下。    
-* onkeypress //某个键盘按键被按下并松开。
-* onkeyup //某个键盘按键被松开。        
-</code></pre><h5 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h5><pre><code>* onblur //元素失去焦点时触发    
-* onchange //该事件在表单元素的内容改变时触发( &lt;input&gt;, &lt;keygen&gt;, &lt;select&gt;, 和 &lt;textarea&gt;)    
-* onfocus //元素获取焦点时触发    
-* onfocusin //元素即将获取焦点时触发    
-* onfocusout //元素即将失去焦点时触发    
-* oninput //元素获取用户输入时触发    
-* onreset //表单重置时触发    
-* onsearch //用户向搜索域输入文本时触发 ( &lt;input=&quot;search&quot;&gt;)
-* onselect //用户选取文本时触发 ( &lt;input&gt; 和 &lt;textarea&gt;)
-* onsubmit //表单提交时触发
-</code></pre><h5 id="动画事件"><a href="#动画事件" class="headerlink" title="动画事件"></a>动画事件</h5><pre><code>* animationend //该事件在 CSS 动画结束播放时触发 
-* animationiteration //该事件在 CSS 动画重复播放时触发
-* animationstart //该事件在 CSS 动画开始播放时触发
-</code></pre><h5 id="过渡事件"><a href="#过渡事件" class="headerlink" title="过渡事件"></a>过渡事件</h5><pre><code>* transitionend //该事件在 CSS 完成过渡后触发。
-</code></pre><h5 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h5><pre><code>* preventDefault() //通知浏览器不要执行与事件关联的默认动作。
-* stopPropagation() //不再派发事件。
-</code></pre><h5 id="目标事件对象"><a href="#目标事件对象" class="headerlink" title="目标事件对象"></a>目标事件对象</h5><pre><code>* addEventListener() //允许在目标事件中注册监听事件(IE8 = attachEvent())    
-* removeEventListener() //运行一次注册在事件目标上的监听事件(IE8 = detachEvent())
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2254,7 +2160,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
