@@ -539,7 +539,6 @@ obj instanceof Array //true
 //如下
 var obj = Array(1,2,3)
 Array.isArray(obj) //true
-
 Array.isArray([1,2,3]) //true
 </code></pre><blockquote>
 <p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。</p>
@@ -552,23 +551,27 @@ document.body.appendChild(iframe)
 arr1 = window.frames[window.frames.length-1].Array
 var arr2 = new arr1(1,2,3) // [1,2,3]
 
-
 Array.isArray(arr) // true
 arr instanceof Array // false
 </code></pre><hr>
 <h4 id="伪数组（类数组）"><a href="#伪数组（类数组）" class="headerlink" title="伪数组（类数组）"></a>伪数组（类数组）</h4><pre><code>* 有 0,1,2,3,4,5...n,length 这些 key 的对象。
 * 原型链中没有 Array.prototype 。或者说没有 push 等方法。
-
 * 比如函数的 argument 参数
 </code></pre><p>伪数组转成真数组方法 </p>
-<pre><code>var arr = Array.prototype.slice.call(fakeArray)
-//fakeArray 表示一个伪数组
+<pre><code>//方法一
+var arr = Array.prototype.slice.call(fakeArray)
+或者
+var arr = [].slice.call(fakeArray)
+
+//方法二
+Array.from(fakeArray)
 </code></pre><p>举例</p>
-<pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2} //伪数组
+<pre><code>var fakeArray = {0:&apos;a&apos;,1:&apos;b&apos;,length:2}
 var arr1 = Array.prototype.slice.call(fakeArray)
-arr1[0] //&quot;a&quot;    
+arr1[0] //&quot;a&quot;
+
 //或者
-var arr2 = [].slice.call(fakeArray) 
+var arr2 = Array.from(fakeArray)
 arr2[0] //&quot;a&quot;
 </code></pre><hr>
 <h4 id="数组的-API"><a href="#数组的-API" class="headerlink" title="数组的 API"></a>数组的 <code>API</code></h4><h5 id="1-join"><a href="#1-join" class="headerlink" title="1.join()"></a>1.<code>join()</code></h5><p>一个参数：以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。<code>undefined</code>或<code>null</code>或空位，会被转成空字符串。</p>

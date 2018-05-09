@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} transform 的兼容性写法以下是各浏览器 CSS 兼容前缀 * -o-transform: rotate(7deg); //">
+<meta name="description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} !important!important对IE无效，对于一些差异问题，可以使用!important过滤IE 被点击过后的超链接不再具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 常见兼容性问题整理">
 <meta property="og:url" content="http://yoursite.com/2018/05/09/CSS 常见兼容性问题整理/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} transform 的兼容性写法以下是各浏览器 CSS 兼容前缀 * -o-transform: rotate(7deg); //">
-<meta property="og:updated_time" content="2018-05-09T05:58:41.000Z">
+<meta property="og:description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} !important!important对IE无效，对于一些差异问题，可以使用!important过滤IE 被点击过后的超链接不再具">
+<meta property="og:updated_time" content="2018-05-09T10:02:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 常见兼容性问题整理">
-<meta name="twitter:description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} transform 的兼容性写法以下是各浏览器 CSS 兼容前缀 * -o-transform: rotate(7deg); //">
+<meta name="twitter:description" content="主要浏览器 Chrome Firefox Opera Safari ie8/9…   默认 margin padding 值不同浏览器的默认 margin padding值不同。解决办法，初始化CSS的默认样式： *{margin: 0; padding: 0;} !important!important对IE无效，对于一些差异问题，可以使用!important过滤IE 被点击过后的超链接不再具">
 
 
 
@@ -335,12 +335,6 @@
 </blockquote>
 <h5 id="默认-margin-padding-值"><a href="#默认-margin-padding-值" class="headerlink" title="默认 margin padding 值"></a>默认 <code>margin</code> <code>padding</code> 值</h5><p>不同浏览器的默认 <code>margin</code> <code>padding</code>值不同。解决办法，初始化<code>CSS</code>的默认样式：</p>
 <pre><code>*{margin: 0; padding: 0;}
-</code></pre><h5 id="transform-的兼容性写法"><a href="#transform-的兼容性写法" class="headerlink" title="transform 的兼容性写法"></a><code>transform</code> 的兼容性写法</h5><p>以下是各浏览器 <code>CSS</code> 兼容前缀</p>
-<pre><code>* -o-transform: rotate(7deg); // Opera
-* -ms-transform: rotate(7deg); // IE 9
-* -moz-transform: rotate(7deg); // Firefox 
-* -webkit-transform: rotate(7deg); // Safari 和 Chrome 
-* transform: rotate(7deg); // 统一标识语句
 </code></pre><h5 id="important"><a href="#important" class="headerlink" title="!important"></a><code>!important</code></h5><p><code>!important</code>对<code>IE</code>无效，对于一些差异问题，可以使用<code>!important</code>过滤<code>IE</code></p>
 <h5 id="被点击过后的超链接不再具有-hover-active-属性"><a href="#被点击过后的超链接不再具有-hover-active-属性" class="headerlink" title="被点击过后的超链接不再具有 hover active 属性"></a>被点击过后的超链接不再具有 <code>hover</code> <code>active</code> 属性</h5><p><code>CSS</code>正确书写顺序</p>
 <pre><code>* :link //向未访问的链接添加特殊的样式。
@@ -365,6 +359,10 @@ font-family: Helvetica, Tahoma, Arial;
 font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Heiti SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif;
 </code></pre><p>3.一般字体文件都是用英文命名的，避免出现差异，最好中英文都写上。</p>
 <pre><code>font-family: STXihei, &quot;华文细黑&quot;, &quot;Microsoft YaHei&quot;, &quot;微软雅黑&quot;;
+</code></pre><h5 id="浏览器前缀兼容写法"><a href="#浏览器前缀兼容写法" class="headerlink" title="浏览器前缀兼容写法"></a>浏览器前缀兼容写法</h5><pre><code>* -webkit- //Chrome 和 Safari
+* -moz- //Firefox
+* -ms- //IE
+* -o- //Opera
 </code></pre><hr>
 
       
@@ -521,7 +519,7 @@ font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;PingFang SC&quo
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认-margin-padding-值"><span class="nav-number">1.</span> <span class="nav-text">默认 margin padding 值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#transform-的兼容性写法"><span class="nav-number">2.</span> <span class="nav-text">transform 的兼容性写法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#important"><span class="nav-number">3.</span> <span class="nav-text">!important</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#被点击过后的超链接不再具有-hover-active-属性"><span class="nav-number">4.</span> <span class="nav-text">被点击过后的超链接不再具有 hover active 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ul-ol-列表缩进问题"><span class="nav-number">5.</span> <span class="nav-text">ul ol 列表缩进问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#font-family-在不同浏览器显示差异问题"><span class="nav-number">6.</span> <span class="nav-text">font-family 在不同浏览器显示差异问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认-margin-padding-值"><span class="nav-number">1.</span> <span class="nav-text">默认 margin padding 值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#important"><span class="nav-number">2.</span> <span class="nav-text">!important</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#被点击过后的超链接不再具有-hover-active-属性"><span class="nav-number">3.</span> <span class="nav-text">被点击过后的超链接不再具有 hover active 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ul-ol-列表缩进问题"><span class="nav-number">4.</span> <span class="nav-text">ul ol 列表缩进问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#font-family-在不同浏览器显示差异问题"><span class="nav-number">5.</span> <span class="nav-text">font-family 在不同浏览器显示差异问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器前缀兼容写法"><span class="nav-number">6.</span> <span class="nav-text">浏览器前缀兼容写法</span></a></li></ol></div>
             
 
           </div>
