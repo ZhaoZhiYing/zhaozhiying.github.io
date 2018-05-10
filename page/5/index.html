@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            Kategorien
           </a>
         </li>
       
@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -267,7 +267,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-04T15:31:21+08:00">
                 2018-01-04
@@ -288,7 +288,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -479,7 +479,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T16:44:38+08:00">
                 2018-01-01
@@ -500,7 +500,7 @@ child1.addEventListener(&apos;click&apos;, function fn3(){
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -948,7 +948,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-30T20:47:31+08:00">
                 2017-12-30
@@ -969,7 +969,7 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1077,7 +1077,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 注意：
 1.cloneNode() 分为深拷贝和浅拷贝。
 </code></pre><hr>
-<h4 id="Document（查询接口，因为一般从-document-开始查）"><a href="#Document（查询接口，因为一般从-document-开始查）" class="headerlink" title="Document（查询接口，因为一般从 document 开始查）"></a><code>Document</code>（查询接口，因为一般从 document 开始查）</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* document.documentElement //返回当前文档的根节点。
+<h4 id="Document（查询接口）"><a href="#Document（查询接口）" class="headerlink" title="Document（查询接口）"></a><code>Document</code>（查询接口）</h4><h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><pre><code>* document.documentElement //返回当前文档的根节点。
 * document.defaultView //返回 document 对象所在的 window 对象。
 * document.body //返回当前文档的 &lt;body&gt; 节点。
 * document.head //返回当前文档的 &lt;head&gt; 节点。
@@ -1133,8 +1133,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 注意：
 1.获取元素主要使用 querySelector()、querySelectorAll() 
 </code></pre><hr>
-<h4 id="Element"><a href="#Element" class="headerlink" title="Element"></a><code>Element</code></h4><p><code>DOM API</code> 获取的 <code>Elements</code> 都是伪数组。</p>
-<h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>//特性属性
+<h4 id="Element"><a href="#Element" class="headerlink" title="Element"></a><code>Element</code></h4><h5 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h5><pre><code>//特性属性
 * Element.attributes //返回当前元素节点的所有属性节点。
 * Element.id //设置或返回指定元素的 id。
 * Element.tagName //返回元素的标签名。
@@ -1188,11 +1187,12 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
 * Element.detachEvent(oneventName,listener)
 
 //解析 HTML 字符串，然后将生成的节点插入 DOM 树的指定位置。
-* Element.insertAdjacentHTML(where, htmlString); 
-* Element.insertAdjacentHTML(&apos;beforeBegin&apos;, htmlString); // 在该元素前插入。  
-* Element.insertAdjacentHTML(&apos;afterBegin&apos;, htmlString) // 在该元素第一个子元素前插入。 
-* Element.insertAdjacentHTML(&apos;beforeEnd&apos;, htmlString) // 在该元素最后一个子元素后面插入。 
-* Element.insertAdjacentHTML(&apos;afterEnd&apos;, htmlString) // 在该元素后插入。
+* Element.insertAdjacentHTML(position, string) //将指定的文本解析为HTML或XML，并将结果节点插入到DOM树中的指定位置。
+    position 是相对于元素的位置，并且必须是以下字符串之一：
+    &apos;beforebegin&apos; //元素自身的前面。
+    &apos;afterbegin&apos; //插入元素内部的第一个子节点之前。
+    &apos;beforeend&apos; //插入元素内部的最后一个子节点之后。
+    &apos;afterend&apos; //元素自身的后面。
 
 * Element.remove() //用于将当前元素节点从 DOM 中移除。
 * Element.focus() //用于将当前页面的焦点，转移到指定元素上。
@@ -1274,7 +1274,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T19:14:26+08:00">
                 2017-12-29
@@ -1295,7 +1295,7 @@ Node 分为 Document（html）、Element（标签）和 Text（文本），以�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1520,7 +1520,7 @@ foo1() //8
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T11:53:47+08:00">
                 2017-12-28
@@ -1541,7 +1541,7 @@ foo1() //8
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1789,7 +1789,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T21:06:21+08:00">
                 2017-12-21
@@ -1810,7 +1810,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1939,7 +1939,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T14:28:38+08:00">
                 2017-12-18
@@ -1960,7 +1960,7 @@ toString.call(Math) // &quot;[object Math]&quot;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2127,7 +2127,7 @@ p{color:green;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-16T19:08:02+08:00">
                 2017-12-16
@@ -2148,7 +2148,7 @@ p{color:green;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2363,7 +2363,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-13T16:07:34+08:00">
                 2017-12-13
@@ -2384,7 +2384,7 @@ parent{display: table-cell; vertical-align: middle;}
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2566,7 +2566,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-11T18:01:25+08:00">
                 2017-12-11
@@ -2587,7 +2587,7 @@ $designWidth : 750; // 750 是设计稿的宽度。
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2765,7 +2765,7 @@ stretch（默认值）：轴线占满整个交叉轴。
                 <a href="/archives/">
               
                   <span class="site-state-item-count">54</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -2776,7 +2776,7 @@ stretch（默认值）：轴线占满整个交叉轴。
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -2824,7 +2824,7 @@ stretch（默认值）：轴线占满整个交叉轴。
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
