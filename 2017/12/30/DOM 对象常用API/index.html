@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
+<meta name="description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Object：节点对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM 对象常用API">
 <meta property="og:url" content="http://yoursite.com/2017/12/30/DOM 对象常用API/index.html">
 <meta property="og:site_name" content="Zhao Zhiying">
-<meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
-<meta property="og:updated_time" content="2018-05-03T09:06:38.000Z">
+<meta property="og:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Object：节点对象">
+<meta property="og:updated_time" content="2018-05-10T11:11:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM 对象常用API">
-<meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Element：节点对">
+<meta name="twitter:description" content="DOM 理解DOM（Document Object Model）是一棵树，树上有 Node ，Node 是一个构造函数（object 的一种）。 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。  * Document：XML(HTML 是 XML 的衍生品) * Object：节点对象">
 
 
 
@@ -334,8 +334,8 @@
 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
 
 * Document：XML(HTML 是 XML 的衍生品)
-* Element：节点对象代表文档树中的一个节点。
-* Text：模型
+* Object：节点对象代表文档树中的一个节点。
+* Model：模型
 </code></pre><h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a><code>DOM</code> 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
 </code></pre><h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
 <pre><code>* Document //整个文档（DOM树的根节点），nodeType = 9

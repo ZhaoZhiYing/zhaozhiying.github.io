@@ -1016,8 +1016,8 @@ node2.text(&apos;hi&apos;) //将所有 div 的 textContent 改为 hi
 Node 分为 Document（html）、Element（标签）和 Text（文本），以及其他不重要的 Attribute（属性）、Comment（注释）。
 
 * Document：XML(HTML 是 XML 的衍生品)
-* Element：节点对象代表文档树中的一个节点。
-* Text：模型
+* Object：节点对象代表文档树中的一个节点。
+* Model：模型
 </code></pre><h5 id="DOM-主要功能"><a href="#DOM-主要功能" class="headerlink" title="DOM 主要功能"></a><code>DOM</code> 主要功能</h5><pre><code>页面中的节点通过构造函数构造出对应的对象，这也叫 DOM API。￼
 </code></pre><h5 id="节点的类型"><a href="#节点的类型" class="headerlink" title="节点的类型"></a>节点的类型</h5><p><code>DOM</code>的最小组成单位叫做节点<code>node</code>。文档的树形结构（<code>DOM</code>树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。<br><code>HTML DOM</code>节点的类型有七种。</p>
 <pre><code>* Document //整个文档（DOM树的根节点），nodeType = 9
@@ -2021,9 +2021,9 @@ toString.call(Math) // &quot;[object Math]&quot;
 </code></pre><h5 id="多标签选择器："><a href="#多标签选择器：" class="headerlink" title="多标签选择器："></a>多标签选择器：</h5><pre><code>p1,span{} 
 //同时匹配 p1 和 span ，样式作用于两者。
 </code></pre><h5 id="选择相邻的下一个："><a href="#选择相邻的下一个：" class="headerlink" title="选择相邻的下一个："></a>选择相邻的下一个：</h5><pre><code>div+p{}
-//匹配所有紧接着`&lt;div&gt;`元素之后的`&lt;p&gt;`元素
+//匹配所有紧接着 &lt;div&gt; 元素之后的 &lt;p&gt; 元素
 </code></pre><h5 id="选择所有同级的邻居："><a href="#选择所有同级的邻居：" class="headerlink" title="选择所有同级的邻居："></a>选择所有同级的邻居：</h5><pre><code>div~p{}
-//匹配所有父级是`&lt;div&gt;`元素的`&lt;p&gt;`元素
+//匹配所有父级是 &lt;div&gt; 元素的 &lt;p&gt; 元素
 </code></pre><h5 id="伪类："><a href="#伪类：" class="headerlink" title="伪类："></a>伪类：</h5><pre><code>#header:hover{}
 //CSS3中的标准是伪类使用单冒号“:” 
 </code></pre><h5 id="伪元素："><a href="#伪元素：" class="headerlink" title="伪元素："></a>伪元素：</h5><pre><code>#header::before{}
@@ -2032,18 +2032,18 @@ toString.call(Math) // &quot;[object Math]&quot;
 <h4 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h4><pre><code>1. 内联样式（例如,style=&quot;&quot;）。
 2. ID 选择器（例如, #example）。
 3. 类选择器(例如,.example)，属性选择器（例如, [type=&quot;radio&quot;]），伪类（例如, :hover）。
-4. 类型选择器（例如, h1）和 伪元素（例如, ::before）。
+4. 类型选择器（例如, h1）和 伪元素（例如 ::before）。
 </code></pre><hr>
 <h4 id="CSS的继承、重要性"><a href="#CSS的继承、重要性" class="headerlink" title="CSS的继承、重要性"></a><code>CSS</code>的继承、重要性</h4><h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><p>如果后代元素没有定义样式，那么会继承祖先元素的样式。</p>
 <pre><code>&lt;p&gt;我是&lt;span&gt;谁&lt;/span&gt;&lt;/p&gt;
 </code></pre><p>如下代码，当只设置<code>p</code>的样式时，<code>span</code>里的文本会相应为蓝色。</p>
 <pre><code>p{color: blue;}
 </code></pre><p>这里分为可继承和不可继承的样式</p>
-<pre><code>可继承的样式： font-size font-family color, UL LI DL DD DT;
-不可继承的样式：border padding margin width height ;
+<pre><code>可继承的样式：font-size font-family color UL LI DL DD DT
+不可继承的样式：border padding margin width height
 </code></pre><h5 id="inherit-关键字"><a href="#inherit-关键字" class="headerlink" title="inherit 关键字"></a><code>inherit</code> 关键字</h5><p>显式指定一个属性继承祖先元素的值，可用于继承性/非继承性属性。</p>
 <h5 id="重要性-important"><a href="#重要性-important" class="headerlink" title="重要性!important"></a>重要性<code>!important</code></h5><p>当在一个样式声明中加上<code>!important</code>时，此声明将覆盖任何其他声明。</p>
-<pre><code>p{color:red !important;}//这个会被应用
+<pre><code>p{color:red !important;} //这个会被应用
 p{color:green;}
 </code></pre><blockquote>
 <p>注意：应该尽量避免使用<code>!important</code>，因为这破坏了样式表中的固有的级联规则 使得调试找 <code>bug</code> 变得更加困难了。    </p>
