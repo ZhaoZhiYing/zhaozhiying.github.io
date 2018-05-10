@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Zhao Zhiying">
 <meta property="og:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
 <meta property="og:image" content="https://i.loli.net/2017/12/10/5a2d416f2959f.png">
-<meta property="og:updated_time" content="2018-05-03T09:06:56.000Z">
+<meta property="og:updated_time" content="2018-05-10T09:06:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML 标签(二)">
 <meta name="twitter:description" content="HTML 表单标签* &amp;lt;form&amp;gt; //定义供用户输入的表单  //&amp;lt;form&amp;gt; 元素包含一个或多个如下的表单元素 * &amp;lt;input&amp;gt; //定义输入域 * &amp;lt;textarea&amp;gt; //定义文本域 (一个多行的输入控件) * &amp;lt;label&amp;gt; //定义了 &amp;lt;input&amp;gt; 元素的标签，一般为输入标题 * &amp;lt;fieldset&amp;gt">
@@ -344,11 +344,6 @@
 * &lt;optgroup&gt; //定义选项组
 * &lt;option&gt;v定义下拉列表中的选项
 * &lt;button&gt; //定义一个点击按钮
-
-//HTML5 新标签
-* &lt;datalist&gt; //指定一个预先定义的输入控件选项列表
-* &lt;keygen&gt; //定义了表单的密钥对生成器字段
-* &lt;output&gt; //定义一个计算结果
 </code></pre><h5 id="lt-form-gt"><a href="#lt-form-gt" class="headerlink" title="&lt;form&gt;"></a><code>&lt;form&gt;</code></h5><p>一个简单的 <code>HTML</code> 表单，包含两个文本输入框和一个提交按钮。</p>
 <p>举例 </p>
 <pre><code>&lt;form action=&quot;demo_form.asp&quot;&gt;
@@ -366,69 +361,10 @@
 
 // a 标签和 form 标签都是用来发请求，a 标签使用 get，form 标签主要使用 post。
 </code></pre><h4 id="lt-input-gt"><a href="#lt-input-gt" class="headerlink" title="&lt;input&gt;"></a><code>&lt;input&gt;</code></h4><p><code>input</code> 没有子元素，<code>button</code> 有子元素</p>
-<p>属性</p>
-<pre><code>* accept //规定通过文件上传来提交的文件的类型。 (只针对type=&quot;file&quot;)
-    audio/* //声音文件。
-    video/* //视频文件。
-    image/* //图像文件。
-    MIME_type //一个有效的 MIME 类型
-* checked //规定在页面加载时应该被预先选定的 &lt;input&gt; 元素。 (只针对 type=&quot;checkbox&quot; 和 type=&quot;radio&quot;)
-    //checked 属性也可以在页面加载后，通过 JavaScript 代码进行设置。
-* disabled //规定禁用的 &lt;input&gt; 元素。
-* name //规定 &lt;input&gt; 元素的名称。
-    //name 属性用于在 JavaScript 中引用元素，或者在表单提交后引用表单数据。
-* maxlength //规定 &lt;input&gt; 元素中允许的最大字符数。
-* size //规定以字符数计的 &lt;input&gt; 元素的可见宽度。
-* readonly //规定输入字段是只读的。
-* alt //定义图像输入的替代文本。 (只针对type=&quot;image&quot;)
-* src //规定显示为提交按钮的图像的 URL。 (只针对 type=&quot;image&quot;)
-* value //指定 &lt;input&gt; 元素初始（默认）值。
-    //value 属性对于 &lt;input type=&quot;checkbox&quot;&gt; 和 &lt;input type=&quot;radio&quot;&gt; 是必需的。
-    //value 属性不适用于 &lt;input type=&quot;file&quot;&gt;
-
-
-// HTML5 中的新属性
-* autocomplete //规定 &lt;input&gt; 元素输入字段是否应该启用自动完成功能。
-* autofocus //属性规定当页面加载时 &lt;input&gt; 元素应该自动获得焦点。
-* form //规定 &lt;input&gt; 元素所属的一个或多个表单。
-* required //规定必需在提交表单之前填写输入字段。
-* placeholder //规定可描述输入 &lt;input&gt; 字段预期值的简短的提示信息 。
-* multiple //规定允许用户输入到 &lt;input&gt; 元素的多个值。
-* min //规定 &lt;input&gt; 元素的最小值。
-* max //规定 &lt;input&gt; 元素的最大值。
-* width //width 属性规定 &lt;input&gt; 元素的宽度。 (只针对type=&quot;image&quot;)
-* height //规定 &lt;input&gt;元素的高度(只针对type=&quot;image&quot;)。
-* step //规定 &lt;input&gt; 元素的合法数字间隔。
-...
-</code></pre><p><code>type</code>属性值</p>
-<pre><code>* button //定义可点击的按钮。
-* checkbox //定义复选框。
-* file //定义文件选择字段和 &quot;浏览...&quot; 按钮，供文件上传。 
-* hidden //定义隐藏输入字段。 
-* image //定义图像作为提交按钮。 
-* password //定义密码字段（字段中的字符会被遮蔽）。 
-* radio //定义单选按钮。 
-* reset //定义重置按钮（重置所有的表单值为默认值）。 
-* submit //定义提交按钮。 
-* text //默认。定义一个单行的文本字段（默认宽度为 20 个字符）。 
-
-// HTML5 中的新属性值
-* color //定义拾色器。 
-* date //定义 date 控件（包括年、月、日，不包括时间）。 
-* datetime //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。 
-* datetime-local //定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。 
-* email //定义用于 e-mail 地址的字段。
-* month //定义 month 和 year 控件（不带时区）。 
-* number //定义用于输入数字的字段。  
-* range //定义用于精确值不重要的输入数字的控件（比如 slider 控件）。 
-* search //定义用于输入搜索字符串的文本字段。
-* tel //定义用于输入电话号码的字段。 
-* time //定义用于输入时间的控件（不带时区）。
-* url //定义用于输入 URL 的字段。 
-* week //定义 week 和 year 控件（不带时区）。
-
-//如果一个 form 只有一个按钮 button，没写 type，自动升级为 submit。submit 是唯一能确定 type 能不能提交的按钮，button 只是一个普通按钮。
-</code></pre><h4 id="lt-label-gt"><a href="#lt-label-gt" class="headerlink" title="&lt;label&gt;"></a><code>&lt;label&gt;</code></h4><p><code>&lt;label&gt;</code> 标签为 <code>input</code> 元素定义标注（标记）。</p>
+<blockquote>
+<p>如果一个 <code>form</code> 只有一个按钮 <code>button</code>，没写 <code>type</code>，自动升级为 <code>submit</code>。<code>submit</code> 是唯一能确定 <code>type</code> 能不能提交的按钮，<code>button</code> 只是一个普通按钮。</p>
+</blockquote>
+<h4 id="lt-label-gt"><a href="#lt-label-gt" class="headerlink" title="&lt;label&gt;"></a><code>&lt;label&gt;</code></h4><p><code>&lt;label&gt;</code> 标签为 <code>input</code> 元素定义标注（标记）。</p>
 <p>属性</p>
 <pre><code>* for //规定 label 与哪个表单元素绑定。值为元素的 id。
 
@@ -481,24 +417,36 @@
 &lt;/textarea&gt;
 </code></pre><hr>
 <h3 id="HTML-表格标签"><a href="#HTML-表格标签" class="headerlink" title="HTML 表格标签"></a><code>HTML</code> 表格标签</h3><h4 id="lt-table-gt"><a href="#lt-table-gt" class="headerlink" title="&lt;table&gt;"></a><code>&lt;table&gt;</code></h4><p>一个简单的 HTML 表格，包含两列两行：</p>
-<pre><code>tr(table row)元素定义表格行
-th(table head)元素定义表头
-td(table data)元素定义表格单元(数据)
+<pre><code>* tr //定义表格行(table row)
+* th //元素定义表头(table head)
+* td //元素定义表格单元(数据)(table data)
 </code></pre><p>属性</p>
 <pre><code>在 HTML5 中，仅支持 &quot;border&quot; 属性，并且只允许使用值 &quot;1&quot; 或 &quot;&quot;。
 </code></pre><p>举例</p>
 <pre><code>&lt;table border=&quot;1&quot;&gt;
     &lt;tr&gt;
-        &lt;th&gt;Month&lt;/th&gt;
-        &lt;th&gt;Savings&lt;/th&gt;
+      &lt;th&gt;月&lt;/th&gt;
+      &lt;th&gt;金额&lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-        &lt;td&gt;January&lt;/td&gt;
-        &lt;td&gt;$100&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;$100&lt;/td&gt;
     &lt;/tr&gt;
 &lt;/table&gt;
-</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后。</p>
-<h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
+</code></pre><h4 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt;caption&gt;"></a><code>&lt;caption&gt;</code></h4><p><code>&lt;caption&gt;</code>标签定义表格的标题。必须直接放置到 <code>&lt;table&gt;</code> 标签之后(常常作为 <code>&lt;table&gt;</code> 的第一个子元素出现)。</p>
+<p>举例</p>
+<pre><code>&lt;table border=&quot;1&quot;&gt;
+    &lt;caption&gt;标题&lt;/caption&gt;
+    &lt;tr&gt;
+      &lt;th&gt;月&lt;/th&gt;
+      &lt;th&gt;金额&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;$100&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre><h4 id="lt-colgroup-gt-lt-col-gt"><a href="#lt-colgroup-gt-lt-col-gt" class="headerlink" title="&lt;colgroup&gt; &lt;col&gt;"></a><code>&lt;colgroup&gt;</code> <code>&lt;col&gt;</code></h4><pre><code>* 只能在 &lt;table&gt; 元素之内，在任何一个 &lt;caption&gt; 元素之后，在任何一个  &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;tr&gt; 元素之前使用 &lt;colgroup&gt; 标签。
 * &lt;col&gt; 标签规定了 &lt;colgroup&gt; 元素内部的每一列的列属性。
 </code></pre><p>属性</p>
 <pre><code>* span //在 &lt;colgroup&gt; 中，规定列组应该横跨的列数。
